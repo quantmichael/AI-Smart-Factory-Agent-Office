@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<title>STEP 10 Agent Event Viewer</title>
+<style>
+  body { font: 14px system-ui; max-width: 960px; margin: 2rem auto; padding: 0 1rem; }
+  input, button, textarea { font: inherit; padding: .5rem; margin: .25rem; }
+  input { min-width: 280px; } pre { background: #111; color: #d8fbd8; padding: 1rem; overflow: auto; }
+</style>
+<h1>Agent API/SSE Contract Viewer</h1>
+<p>This developer viewer renders only persisted backend state and live SSE events.</p>
+<label>API base <input id="base" value="http://localhost:8000/api/v1"></label><br>
+<label>Equipment <input id="equipment" value="paderborn-bearing-test-rig"></label><br>
+<label>Measurement <input id="measurement" value="paderborn:K001:N09_M07_F10:01"></label>
+<button id="start">Start real run</button>
+<p>Run: <code id="run">none</code> · Status: <strong id="status">idle</strong></p>
+<textarea id="human" rows="4" cols="70" placeholder='Human response JSON, e.g. {"decision":"APPROVED"}'></textarea><br>
+<button id="submit" disabled>Submit human input</button>
+<h2>Persisted AgentEvent stream</h2>
+<pre id="events"></pre>
+<h2>Final report</h2>
+<pre id="report"></pre>
+<script>
+  const $ = id => document.getElementById(id);
+  let runId, requestId, stream, lastSequence = 0;
+  const types = ['workflow_started','node_started','node_completed','detection_normal','detection_abnormal','retrieval_completed','evidence_status_changed','inspection_plan_created','action_recommended','human_input_required','human_input_received','workflow_resumed','report_generated','workflow_completed','workflow_error'];
+  function connect() {
+    stream?.close();
+    stream = new EventSource(`${$('base').value}/agent/runs/${runId}/events/stream?after_sequence=${lastSequence}`);
+    types.forEach(type => stream.addEventListener(type, event => {
+      const item = JSON.parse(event.data); lastSequence = item.sequence;
+      $('events').textContent += `${event.data}\n`; refresh();
+    }));
+  }
+  async function refresh() {
+    const base = $('base').value, run = await fetch(`${base}/agent/runs/${runId}`).then(r => r.json());
+    $('status').textContent = `${run.workflow_status} / ${run.current_node}`;
+    requestId = run.pending_human_request?.request_id;
+    $('submit').disabled = !requestId;
+    if (run.final_report_available) $('report').textContent = JSON.stringify(await fetch(`${base}/agent/runs/${runId}/report`).then(r => r.json()), null, 2);
+  }
+  $('start').onclick = async () => {
+    const base = $('base').value;
+    const response = await fetch(`${base}/agent/runs`, {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({equipment_id:$('equipment').value, measurement_id:$('measurement').value})});
+    const body = await response.json(); if (!response.ok) return $('events').textContent = JSON.stringify(body, null, 2);
+    runId = body.run_id; lastSequence = 0; $('run').textContent = runId; $('events').textContent = '';
+    connect();
+    await refresh();
+  };
+  $('submit').onclick = async () => {
+    const response = await fetch(`${$('base').value}/agent/runs/${runId}/human-input`, {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({request_id:requestId,response:JSON.parse($('human').value)})});
+    $('events').textContent += `${JSON.stringify(await response.json())}\n`; connect(); await refresh();
+  };
+</script>
+</html>

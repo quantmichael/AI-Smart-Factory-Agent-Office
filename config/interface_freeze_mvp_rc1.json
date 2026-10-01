@@ -1,0 +1,20 @@
+{
+  "release_candidate": "MVP-RC1",
+  "workflow_status": ["CREATED", "RUNNING", "WAITING", "COMPLETED", "FAILED"],
+  "evidence_content_field": "content",
+  "human_input_endpoint": "POST /api/v1/agent/runs/{run_id}/human-input",
+  "dataset_environment_variable": "PADERBORN_DATA_ROOT",
+  "contracts": [
+    "Measurement",
+    "AnalysisResult",
+    "EvidenceObject",
+    "DiagnosisCandidate",
+    "InspectionStep",
+    "RecommendedAction",
+    "VisualObservation",
+    "AgentState",
+    "AgentEvent",
+    "FinalReport"
+  ],
+  "frozen_at_step": 14
+}

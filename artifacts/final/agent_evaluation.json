@@ -1,0 +1,151 @@
+{
+  "normal": {
+    "expected_subsequence": [
+      "run_detection",
+      "check_abnormal",
+      "generate_normal_report"
+    ],
+    "actual": [
+      "initialize_run",
+      "load_sensor_data",
+      "load_equipment_memory",
+      "run_detection",
+      "check_abnormal",
+      "save_normal_state",
+      "generate_normal_report"
+    ],
+    "pass": true
+  },
+  "abnormal_multimodal": {
+    "expected_subsequence": [
+      "run_detection",
+      "check_inspection_image",
+      "analyze_inspection_image",
+      "retrieve_knowledge",
+      "diagnose",
+      "verify_evidence",
+      "generate_report"
+    ],
+    "actual": [
+      "initialize_run",
+      "load_sensor_data",
+      "load_equipment_memory",
+      "run_detection",
+      "check_abnormal",
+      "check_inspection_image",
+      "analyze_inspection_image",
+      "merge_visual_context",
+      "build_rag_query",
+      "retrieve_knowledge",
+      "diagnose",
+      "verify_evidence",
+      "build_inspection_plan",
+      "recommend_action",
+      "check_human_approval",
+      "generate_report"
+    ],
+    "pass": true
+  },
+  "rag_retry_controlled": {
+    "expected_subsequence": [
+      "retrieve_knowledge",
+      "verify_evidence",
+      "refine_query",
+      "retrieve_knowledge",
+      "verify_evidence"
+    ],
+    "actual": [
+      "initialize_run",
+      "load_sensor_data",
+      "load_equipment_memory",
+      "run_detection",
+      "check_abnormal",
+      "check_inspection_image",
+      "build_rag_query",
+      "retrieve_knowledge",
+      "diagnose",
+      "verify_evidence",
+      "refine_query",
+      "retrieve_knowledge",
+      "diagnose",
+      "verify_evidence",
+      "build_inspection_plan",
+      "recommend_action",
+      "check_human_approval",
+      "generate_report"
+    ],
+    "pass": true
+  },
+  "hitl_controlled": {
+    "expected_subsequence": [
+      "request_additional_information",
+      "await_human_input",
+      "resume_after_human",
+      "update_context",
+      "generate_report"
+    ],
+    "actual": [
+      "initialize_run",
+      "load_sensor_data",
+      "load_equipment_memory",
+      "run_detection",
+      "check_abnormal",
+      "check_inspection_image",
+      "build_rag_query",
+      "retrieve_knowledge",
+      "diagnose",
+      "verify_evidence",
+      "request_additional_information",
+      "await_human_input",
+      "resume_after_human",
+      "update_context",
+      "build_rag_query",
+      "retrieve_knowledge",
+      "diagnose",
+      "verify_evidence",
+      "build_inspection_plan",
+      "recommend_action",
+      "check_human_approval",
+      "generate_report"
+    ],
+    "pass": true
+  },
+  "e2e_metrics": {
+    "normal": {
+      "total_ms": 239.176,
+      "ml_ms": 212.413,
+      "rag_ms": 0,
+      "reasoning_ms": 0,
+      "vision_ms": 0,
+      "memory_ms": 4.02
+    },
+    "abnormal": {
+      "total_ms": 139.985,
+      "ml_ms": 50.323,
+      "rag_ms": 62.949,
+      "reasoning_ms": 0.134,
+      "vision_ms": 4.221,
+      "memory_ms": 1.043
+    },
+    "retry": {
+      "total_ms": 86.852,
+      "ml_ms": 68.327,
+      "rag_ms": 8.513,
+      "reasoning_ms": 0.232,
+      "vision_ms": 0,
+      "memory_ms": 1.099
+    },
+    "hitl": {
+      "total_ms": 92.891,
+      "ml_ms": 66.713,
+      "rag_ms": 12.135,
+      "reasoning_ms": 0.227,
+      "vision_ms": 0,
+      "memory_ms": 1.229
+    },
+    "note": "Reasoning is the deterministic local provider in MVP-RC1; no external LLM token cost was incurred."
+  },
+  "workflow_success_rate": 1.0,
+  "successful_runs": 4,
+  "total_runs": 4
+}

@@ -1,0 +1,60 @@
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.tmp
+.env
+.env.local
+.venv/
+__pycache__/
+.pytest_cache/
+.coverage
+htmlcov/
+*.pyc
+
+node_modules/
+.next/
+*.tsbuildinfo
+.idea/
+.vscode/
+
+data/raw/*
+data/paderborn/raw/*
+models/*
+artifacts/vector_db/*
+artifacts/agent/checkpoints/*
+artifacts/api/runtime/*
+artifacts/memory/runtime/*
+artifacts/multimodal/runtime/*
+artifacts/multimodal/uploads/*
+artifacts/multimodal/inspection_images.sqlite3*
+artifacts/e2e/runtime/
+artifacts/memory/equipment_memory.sqlite3*
+artifacts/cloudflare_external/
+artifacts/runtime_backups/
+scripts/stop_cloudflare_external.command
+# Local Word export is older than the canonical Markdown competition report.
+docs/competition/development_completion_report.docx
+*.log
+
+# Generated reports below contain machine-local filesystem paths. Recreate
+# them locally when needed; repository-facing facts are recorded in docs.
+artifacts/e2e/readiness.json
+artifacts/e2e/setup_verification.json
+artifacts/final/e2e_evaluation.json
+artifacts/multimodal/image_metadata_sample.json
+artifacts/rag/bearing_v1/document_stats.csv
+artifacts/rag/bearing_v1/ingestion_report.json
+
+# Downloaded STEP 02A source documents are kept local. Their official URLs,
+# checksums, licenses, and update policy are tracked in the source manifest.
+knowledge/bearing_v1/paderborn/*.html
+knowledge/bearing_v1/paderborn/*.pdf
+knowledge/bearing_v1/vibration_diagnosis/*.pdf
+knowledge/bearing_v1/failure_analysis/*.pdf
+
+!data/raw/.gitkeep
+!data/paderborn/raw/.gitkeep
+!models/.gitkeep
+!artifacts/vector_db/.gitkeep
+!artifacts/agent/checkpoints/.gitkeep
+!artifacts/api/runtime/.gitkeep

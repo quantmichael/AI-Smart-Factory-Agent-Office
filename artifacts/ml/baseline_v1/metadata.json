@@ -1,0 +1,80 @@
+{
+  "model_id": "bearing_rf_binary_v1",
+  "model_type": "RandomForestClassifier",
+  "version": "1.0",
+  "trained_at": "2026-09-18T03:43:45+00:00",
+  "dataset": "Paderborn Bearing DataCenter local representative subset",
+  "dataset_version_reference": "data/paderborn/metadata/dataset_files.json",
+  "feature_version": "step03_v1",
+  "class_mapping": {
+    "healthy": "normal",
+    "damaged": "abnormal"
+  },
+  "feature_list": [
+    "vibration_1__mean",
+    "vibration_1__std",
+    "vibration_1__rms",
+    "vibration_1__peak",
+    "vibration_1__peak_to_peak",
+    "vibration_1__crest_factor",
+    "vibration_1__skewness",
+    "vibration_1__kurtosis",
+    "vibration_1__dominant_frequency_hz",
+    "vibration_1__spectral_centroid_hz",
+    "vibration_1__spectral_energy",
+    "vibration_1__spectral_entropy",
+    "phase_current_1__mean",
+    "phase_current_1__std",
+    "phase_current_1__rms",
+    "phase_current_1__peak",
+    "phase_current_1__peak_to_peak",
+    "phase_current_1__crest_factor",
+    "phase_current_1__skewness",
+    "phase_current_1__kurtosis",
+    "phase_current_1__dominant_frequency_hz",
+    "phase_current_1__spectral_centroid_hz",
+    "phase_current_1__spectral_energy",
+    "phase_current_1__spectral_entropy",
+    "phase_current_2__mean",
+    "phase_current_2__std",
+    "phase_current_2__rms",
+    "phase_current_2__peak",
+    "phase_current_2__peak_to_peak",
+    "phase_current_2__crest_factor",
+    "phase_current_2__skewness",
+    "phase_current_2__kurtosis",
+    "phase_current_2__dominant_frequency_hz",
+    "phase_current_2__spectral_centroid_hz",
+    "phase_current_2__spectral_energy",
+    "phase_current_2__spectral_entropy"
+  ],
+  "window_config": {
+    "duration_sec": 1.0,
+    "overlap_percent": 0
+  },
+  "split_strategy": "stratified group split",
+  "group_key": "measurement_id",
+  "random_seed": 42,
+  "model_config": {
+    "n_estimators": 300,
+    "max_depth": 12,
+    "min_samples_split": 4,
+    "class_weight": "balanced",
+    "random_state": 42,
+    "n_jobs": -1
+  },
+  "library_versions": {
+    "python": "3.13.2",
+    "numpy": "2.5.3",
+    "scikit_learn": "1.9.1",
+    "joblib": "1.6.0"
+  },
+  "metrics_summary": {
+    "measurement_accuracy": 1.0,
+    "measurement_f1": 1.0,
+    "measurement_damaged_recall": 1.0,
+    "measurement_roc_auc": 1.0
+  },
+  "model_size_bytes": 267458,
+  "training_seconds": 9.68345595896244
+}

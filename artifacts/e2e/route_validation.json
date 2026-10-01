@@ -1,0 +1,113 @@
+{
+  "normal": {
+    "expected_subsequence": [
+      "run_detection",
+      "check_abnormal",
+      "generate_normal_report"
+    ],
+    "actual": [
+      "initialize_run",
+      "load_sensor_data",
+      "load_equipment_memory",
+      "run_detection",
+      "check_abnormal",
+      "save_normal_state",
+      "generate_normal_report"
+    ],
+    "pass": true
+  },
+  "abnormal_multimodal": {
+    "expected_subsequence": [
+      "run_detection",
+      "check_inspection_image",
+      "analyze_inspection_image",
+      "retrieve_knowledge",
+      "diagnose",
+      "verify_evidence",
+      "generate_report"
+    ],
+    "actual": [
+      "initialize_run",
+      "load_sensor_data",
+      "load_equipment_memory",
+      "run_detection",
+      "check_abnormal",
+      "check_inspection_image",
+      "analyze_inspection_image",
+      "merge_visual_context",
+      "build_rag_query",
+      "retrieve_knowledge",
+      "diagnose",
+      "verify_evidence",
+      "build_inspection_plan",
+      "recommend_action",
+      "check_human_approval",
+      "generate_report"
+    ],
+    "pass": true
+  },
+  "rag_retry_controlled": {
+    "expected_subsequence": [
+      "retrieve_knowledge",
+      "verify_evidence",
+      "refine_query",
+      "retrieve_knowledge",
+      "verify_evidence"
+    ],
+    "actual": [
+      "initialize_run",
+      "load_sensor_data",
+      "load_equipment_memory",
+      "run_detection",
+      "check_abnormal",
+      "check_inspection_image",
+      "build_rag_query",
+      "retrieve_knowledge",
+      "diagnose",
+      "verify_evidence",
+      "refine_query",
+      "retrieve_knowledge",
+      "diagnose",
+      "verify_evidence",
+      "build_inspection_plan",
+      "recommend_action",
+      "check_human_approval",
+      "generate_report"
+    ],
+    "pass": true
+  },
+  "hitl_controlled": {
+    "expected_subsequence": [
+      "request_additional_information",
+      "await_human_input",
+      "resume_after_human",
+      "update_context",
+      "generate_report"
+    ],
+    "actual": [
+      "initialize_run",
+      "load_sensor_data",
+      "load_equipment_memory",
+      "run_detection",
+      "check_abnormal",
+      "check_inspection_image",
+      "build_rag_query",
+      "retrieve_knowledge",
+      "diagnose",
+      "verify_evidence",
+      "request_additional_information",
+      "await_human_input",
+      "resume_after_human",
+      "update_context",
+      "build_rag_query",
+      "retrieve_knowledge",
+      "diagnose",
+      "verify_evidence",
+      "build_inspection_plan",
+      "recommend_action",
+      "check_human_approval",
+      "generate_report"
+    ],
+    "pass": true
+  }
+}

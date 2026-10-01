@@ -1,0 +1,24 @@
+{
+  "name": "ai-smart-factory-agent-office-frontend",
+  "version": "0.1.0",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "tsc --noEmit",
+    "test": "node --experimental-strip-types --experimental-specifier-resolution=node --test src/features/agent-run/active-run-recovery.test.ts src/features/agent-run/reducer.test.ts src/features/knowledge/query-translator.test.ts src/lib/api.test.ts"
+  },
+  "dependencies": {
+    "next": "16.3.5",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.0",
+    "typescript": "^5.9.0"
+  }
+}

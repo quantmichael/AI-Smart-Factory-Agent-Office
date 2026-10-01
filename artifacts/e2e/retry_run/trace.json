@@ -1,0 +1,287 @@
+{
+  "nodes": [
+    "initialize_run",
+    "load_sensor_data",
+    "load_equipment_memory",
+    "run_detection",
+    "check_abnormal",
+    "check_inspection_image",
+    "build_rag_query",
+    "retrieve_knowledge",
+    "diagnose",
+    "verify_evidence",
+    "refine_query",
+    "retrieve_knowledge",
+    "diagnose",
+    "verify_evidence",
+    "build_inspection_plan",
+    "recommend_action",
+    "check_human_approval",
+    "generate_report"
+  ],
+  "queries": [
+    {
+      "query_id": "query_cfa3b50c7a84a106e12a",
+      "purpose": "DIAGNOSTIC_EVIDENCE",
+      "mode": "DIAGNOSTIC",
+      "query_text": "bearing vibration condition monitoring diagnostic technical evidence analysis status abnormal predicted class damaged signal feature crest_factor 9.31847 signal feature dominant_frequency_hz 6074.75 signal feature kurtosis 12.7519 signal feature rms 0.228151 operating condition N09_M07_F10",
+      "filters": {
+        "knowledge_pack_id": "bearing_v1",
+        "component": "bearing",
+        "source_tier_lte": 2,
+        "source_id_in": [
+          "SKF_VIBRATION_DIAGNOSTIC_GUIDE",
+          "SKF_BEARING_DAMAGE_FAILURE_ANALYSIS",
+          "PADERBORN_DAMAGE",
+          "PADERBORN_BENCHMARK_PAPER"
+        ]
+      },
+      "top_k": 5
+    },
+    {
+      "query_id": "query_f2315937467588398ee6",
+      "purpose": "INSPECTION_ACTION",
+      "mode": "DIAGNOSTIC",
+      "query_text": "bearing inspection checks failure analysis maintenance action technical guidance analysis status abnormal predicted class damaged operating condition N09_M07_F10",
+      "filters": {
+        "knowledge_pack_id": "bearing_v1",
+        "component": "bearing",
+        "source_tier_lte": 2,
+        "source_id_in": [
+          "SKF_BEARING_DAMAGE_FAILURE_ANALYSIS",
+          "SKF_VIBRATION_DIAGNOSTIC_GUIDE"
+        ]
+      },
+      "top_k": 5
+    },
+    {
+      "query_id": "query_972d3b18986a86a0a014",
+      "purpose": "DIAGNOSTIC_EVIDENCE",
+      "mode": "DIAGNOSTIC",
+      "query_text": "bearing technical evidence needed to address controlled retry coverage workflow refinement 1",
+      "filters": {
+        "knowledge_pack_id": "bearing_v1",
+        "component": "bearing",
+        "source_tier_lte": 2,
+        "source_id_in": [
+          "SKF_VIBRATION_DIAGNOSTIC_GUIDE",
+          "SKF_BEARING_DAMAGE_FAILURE_ANALYSIS",
+          "PADERBORN_DAMAGE",
+          "PADERBORN_BENCHMARK_PAPER"
+        ]
+      },
+      "top_k": 5
+    }
+  ],
+  "evidence_ids": [
+    "evidence_b2e89b31c137c8501bb7",
+    "evidence_ce12f5e6ce483312aea5",
+    "evidence_3db1d495f7a0e361c6f8",
+    "evidence_d6135675831b0f78613d",
+    "evidence_6f6bf21e107dca6d683a",
+    "evidence_a9755079d39e35d0a14d",
+    "evidence_f1500a04e31beef90ea8",
+    "evidence_bd1513bf0fdda8cdf9a2",
+    "evidence_a18f619e708185a94d57",
+    "evidence_b64d10ecb3ece370d296",
+    "evidence_e7534e601956150a9100",
+    "evidence_983bd7eef6bb7073e03f",
+    "evidence_7a1847c4828fd89a3a9b"
+  ],
+  "diagnosis": [
+    {
+      "candidate_id": "candidate_3af8d2e03b516b83",
+      "fault_type": "bearing_condition_anomaly",
+      "summary": "The ML result classified the measurement as damaged. Retrieved technical documents provide related diagnostic and inspection context, but do not by themselves establish a specific physical root cause.",
+      "supporting_evidence_ids": [
+        "evidence_b2e89b31c137c8501bb7",
+        "evidence_ce12f5e6ce483312aea5",
+        "evidence_3db1d495f7a0e361c6f8",
+        "evidence_d6135675831b0f78613d",
+        "evidence_6f6bf21e107dca6d683a",
+        "evidence_a9755079d39e35d0a14d",
+        "evidence_f1500a04e31beef90ea8",
+        "evidence_bd1513bf0fdda8cdf9a2"
+      ],
+      "contradicting_evidence_ids": [],
+      "supporting_visual_observation_ids": [],
+      "supporting_memory_ids": [
+        "memory_e499d0b679fab6513104",
+        "memory_7e1ffa71dab1562ac502",
+        "memory_f342abddab7d40fc8be6",
+        "memory_72aa44e944f2a87da211",
+        "memory_db2314a7fee9112bff70",
+        "memory_5bc3b6277c46259105d6",
+        "memory_1f5fd44a8804f2dd2a0d",
+        "memory_7fbc0800a65491ab13e5",
+        "memory_b57ee2994ed5f091f9b8",
+        "memory_e7cd43502a2e34e205dc",
+        "memory_a9132b9c33bd1762ac8f",
+        "memory_c1719592542f8273624c",
+        "memory_553a74dfe294dc88f181",
+        "memory_50ded672eae4255715cb",
+        "memory_27a3862fc1b901517ab2",
+        "memory_dc70cf1a8a10478a8aa8",
+        "memory_347aa89bda0713fda89a",
+        "memory_763fa7b8a54846b302df",
+        "memory_b167874b225e253ce870",
+        "memory_9d7e0264def9efcfb633",
+        "memory_329269362ee030dba4b0",
+        "memory_d4096d8b551592e60018"
+      ],
+      "confidence_level": "low",
+      "uncertainties": [
+        "The ML confidence is not a calibrated equipment-failure probability.",
+        "A specific physical failure mechanism requires inspection evidence.",
+        "22 prior equipment-memory record(s) were considered as history, not as technical evidence or confirmed root-cause facts."
+      ]
+    }
+  ],
+  "verification": {
+    "status": "SUFFICIENT",
+    "supported_candidate_ids": [
+      "candidate_3af8d2e03b516b83"
+    ],
+    "missing_information": [],
+    "conflicts": [],
+    "summary": "Evidence is sufficient to proceed to inspection planning; this does not confirm a physical fault."
+  },
+  "inspection": [
+    {
+      "step_id": "INS-001",
+      "order": 1,
+      "title": "Confirm the recorded vibration condition",
+      "description": "Review the measurement features and operating condition against the diagnostic context in Vibration Diagnostic Guide (CM5003 EN), Circumstances that can cause acoustic emissions include:.",
+      "reason": "Confirm that the anomaly remains relevant under the recorded condition.",
+      "related_candidate_ids": [
+        "candidate_3af8d2e03b516b83"
+      ],
+      "supporting_evidence_ids": [
+        "evidence_b2e89b31c137c8501bb7"
+      ],
+      "required_input": [
+        "operating_condition_confirmation",
+        "vibration_observation"
+      ],
+      "safety_note": "Follow site procedures; this step does not command equipment operation."
+    },
+    {
+      "step_id": "INS-002",
+      "order": 2,
+      "title": "Inspect accessible bearing-condition indicators",
+      "description": "Record observable bearing, lubrication, temperature, noise, and maintenance context while consulting Vibration Diagnostic Guide (CM5003 EN), The SKF brand now stands for more.",
+      "reason": "Physical observations are needed before assigning a specific root cause.",
+      "related_candidate_ids": [
+        "candidate_3af8d2e03b516b83"
+      ],
+      "supporting_evidence_ids": [
+        "evidence_a9755079d39e35d0a14d"
+      ],
+      "required_input": [
+        "inspection_observation",
+        "maintenance_history"
+      ],
+      "safety_note": "Do not bypass guards or perform work beyond authorized site procedures."
+    }
+  ],
+  "actions": [
+    {
+      "action_id": "action_80156a285b357d83",
+      "action_type": "INSPECT",
+      "priority": "medium",
+      "summary": "Perform the evidence-linked inspection plan before maintenance decisions.",
+      "reason": "The ML anomaly and retrieved technical context support inspection, but not an automatic shutdown or a confirmed root-cause finding.",
+      "supporting_evidence_ids": [
+        "evidence_b2e89b31c137c8501bb7",
+        "evidence_a9755079d39e35d0a14d"
+      ],
+      "requires_human_approval": false,
+      "limitations": [
+        "Priority is an internal workflow priority, not a legal safety classification.",
+        "No maintenance action is automatically executed."
+      ]
+    }
+  ],
+  "human_interactions": [],
+  "node_timings": [
+    {
+      "node": "initialize_run",
+      "duration_ms": 0.029999995604157448
+    },
+    {
+      "node": "load_sensor_data",
+      "duration_ms": 0.02487492747604847
+    },
+    {
+      "node": "load_equipment_memory",
+      "duration_ms": 1.0994169861078262
+    },
+    {
+      "node": "run_detection",
+      "duration_ms": 68.32733401097357
+    },
+    {
+      "node": "check_abnormal",
+      "duration_ms": 0.014166813343763351
+    },
+    {
+      "node": "check_inspection_image",
+      "duration_ms": 0.012792181223630905
+    },
+    {
+      "node": "build_rag_query",
+      "duration_ms": 0.06949994713068008
+    },
+    {
+      "node": "retrieve_knowledge",
+      "duration_ms": 6.347124930471182
+    },
+    {
+      "node": "diagnose",
+      "duration_ms": 0.05529099144041538
+    },
+    {
+      "node": "verify_evidence",
+      "duration_ms": 0.0502078328281641
+    },
+    {
+      "node": "refine_query",
+      "duration_ms": 0.033125048503279686
+    },
+    {
+      "node": "retrieve_knowledge",
+      "duration_ms": 2.0630001090466976
+    },
+    {
+      "node": "diagnose",
+      "duration_ms": 0.06383401341736317
+    },
+    {
+      "node": "verify_evidence",
+      "duration_ms": 0.062499893829226494
+    },
+    {
+      "node": "build_inspection_plan",
+      "duration_ms": 0.06612506695091724
+    },
+    {
+      "node": "recommend_action",
+      "duration_ms": 0.0940829049795866
+    },
+    {
+      "node": "check_human_approval",
+      "duration_ms": 0.013791956007480621
+    },
+    {
+      "node": "generate_report",
+      "duration_ms": 0.10575004853308201
+    }
+  ],
+  "event_contract": {
+    "unique_sequence": true,
+    "ordered_sequence": true,
+    "run_id_consistent": true,
+    "roles_present": true,
+    "completed_event": true
+  }
+}

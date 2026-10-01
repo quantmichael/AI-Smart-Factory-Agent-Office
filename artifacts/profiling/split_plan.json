@@ -1,0 +1,35 @@
+{
+  "preferred_strong_strategy": {
+    "strategy": "group split by bearing_id",
+    "feasible": false,
+    "reason": "Only one healthy bearing is local; a bearing holdout cannot preserve both classes in train and test."
+  },
+  "provisional_step04_strategy": {
+    "strategy": "stratified group split",
+    "group": "measurement_id",
+    "target": "ground_truth",
+    "random_state": 42,
+    "rule": "All windows from one measurement must remain in exactly one split.",
+    "limitation": "Bearing identity is shared across splits; results do not estimate unseen-bearing generalization."
+  },
+  "bearing_state_distribution": {
+    "K001": {
+      "healthy": 80
+    },
+    "KA01": {
+      "damaged": 80
+    },
+    "KI01": {
+      "damaged": 80
+    }
+  },
+  "healthy_bearings": [
+    "K001"
+  ],
+  "damaged_bearings": [
+    "KA01",
+    "KI01"
+  ],
+  "leakage_validation": "assert_no_group_leakage(train measurement IDs, test measurement IDs)",
+  "operating_condition_holdout": "optional secondary experiment, not the P0 split"
+}

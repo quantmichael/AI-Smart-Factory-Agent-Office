@@ -1,0 +1,115 @@
+{
+  "dataset_root": "data/paderborn",
+  "file_count": 260,
+  "mat_file_count": 240,
+  "file_type_distribution": {
+    ".json": 1,
+    ".mat": 240,
+    ".md": 2,
+    ".pdf": 12,
+    ".rar": 3,
+    ".sha256": 1,
+    ".txt": 1
+  },
+  "observed_directory_pattern": "raw/extracted/{bearing_id}/{condition}_{bearing_id}_{run_index}.mat",
+  "observed_filename_pattern": "^(?P<condition>N\\d+_M\\d+_F\\d+)_(?P<bearing>K[A-Z]?\\d+)_(?P<run>\\d+)\\.mat$",
+  "mat_format": "MATLAB v5 little-endian",
+  "observed_root_keys": [
+    "Description",
+    "Info",
+    "X",
+    "Y"
+  ],
+  "signal_candidates": [
+    "force",
+    "phase_current_1",
+    "phase_current_2",
+    "speed",
+    "temp_2_bearing_module",
+    "torque",
+    "vibration_1"
+  ],
+  "metadata_candidates": [
+    "bearing_id",
+    "operating_condition",
+    "run_index",
+    "measurement_id_in_file",
+    "recorded_at_raw",
+    "measurement_duration_sec"
+  ],
+  "sampling_info": {
+    "force": {
+      "raster": "Mech_4kHz",
+      "nominal_rate_hz": 4000.0,
+      "observed_rate_hz": 4001.6468761524848,
+      "sample_count": 16008,
+      "duration_sec": 4.000103081406937,
+      "uniform_time_axis": false
+    },
+    "phase_current_1": {
+      "raster": "HostService",
+      "nominal_rate_hz": 64000.0,
+      "observed_rate_hz": 64205.44507562148,
+      "sample_count": 256823,
+      "duration_sec": 4.000003421789442,
+      "uniform_time_axis": false
+    },
+    "phase_current_2": {
+      "raster": "HostService",
+      "nominal_rate_hz": 64000.0,
+      "observed_rate_hz": 64205.44507562148,
+      "sample_count": 256823,
+      "duration_sec": 4.000003421789442,
+      "uniform_time_axis": false
+    },
+    "speed": {
+      "raster": "Mech_4kHz",
+      "nominal_rate_hz": 4000.0,
+      "observed_rate_hz": 4001.6468761524848,
+      "sample_count": 16008,
+      "duration_sec": 4.000103081406937,
+      "uniform_time_axis": false
+    },
+    "temp_2_bearing_module": {
+      "raster": "Temp_1Hz",
+      "nominal_rate_hz": 1.0,
+      "observed_rate_hz": 1.0004009377750565,
+      "sample_count": 5,
+      "duration_sec": 3.998396891646471,
+      "uniform_time_axis": true
+    },
+    "torque": {
+      "raster": "Mech_4kHz",
+      "nominal_rate_hz": 4000.0,
+      "observed_rate_hz": 4001.6468761524848,
+      "sample_count": 16008,
+      "duration_sec": 4.000103081406937,
+      "uniform_time_axis": false
+    },
+    "vibration_1": {
+      "raster": "HostService",
+      "nominal_rate_hz": 64000.0,
+      "observed_rate_hz": 64205.44507562148,
+      "sample_count": 256823,
+      "duration_sec": 4.000003421789442,
+      "uniform_time_axis": false
+    }
+  },
+  "bearing_ids": [
+    "K001",
+    "KA01",
+    "KI01"
+  ],
+  "operating_conditions": [
+    "N09_M07_F10",
+    "N15_M01_F10",
+    "N15_M07_F04",
+    "N15_M07_F10"
+  ],
+  "unknown_fields": [
+    "Signal Unit fields are empty in the inspected MAT files.",
+    "Fault taxonomy is unknown for bearing IDs without an acquired fact sheet.",
+    "HostService time-axis spacing and sample counts vary by file; raw time axes are preserved."
+  ],
+  "inspection_timestamp": "2026-09-17T23:57:43+00:00"
+}

@@ -1,0 +1,86 @@
+{
+  "status": "pass",
+  "invalid_measurement_count": 0,
+  "empty_signal_count": 0,
+  "nan_or_inf_count": 0,
+  "constant_signal_count": 0,
+  "constant_signals": [],
+  "unexpected_dtype_count": 0,
+  "dtype_distribution": {
+    "force": {
+      "float64": 240
+    },
+    "phase_current_1": {
+      "float64": 240
+    },
+    "phase_current_2": {
+      "float64": 240
+    },
+    "speed": {
+      "float64": 240
+    },
+    "temp_2_bearing_module": {
+      "float64": 240
+    },
+    "torque": {
+      "float64": 240
+    },
+    "vibration_1": {
+      "float64": 240
+    }
+  },
+  "sampling_deviation_over_5_percent_count": 6,
+  "sampling_deviations": [
+    {
+      "measurement_id": "paderborn:KA01:N15_M07_F04:16",
+      "signal": "phase_current_1",
+      "nominal_rate_hz": 64000.0,
+      "observed_rate_hz": 69262.02962512425
+    },
+    {
+      "measurement_id": "paderborn:KA01:N15_M07_F04:16",
+      "signal": "phase_current_2",
+      "nominal_rate_hz": 64000.0,
+      "observed_rate_hz": 69262.02962512425
+    },
+    {
+      "measurement_id": "paderborn:KA01:N15_M07_F04:16",
+      "signal": "vibration_1",
+      "nominal_rate_hz": 64000.0,
+      "observed_rate_hz": 69262.02962512425
+    },
+    {
+      "measurement_id": "paderborn:KA01:N15_M07_F10:15",
+      "signal": "phase_current_1",
+      "nominal_rate_hz": 64000.0,
+      "observed_rate_hz": 68462.53660395106
+    },
+    {
+      "measurement_id": "paderborn:KA01:N15_M07_F10:15",
+      "signal": "phase_current_2",
+      "nominal_rate_hz": 64000.0,
+      "observed_rate_hz": 68462.53660395106
+    },
+    {
+      "measurement_id": "paderborn:KA01:N15_M07_F10:15",
+      "signal": "vibration_1",
+      "nominal_rate_hz": 64000.0,
+      "observed_rate_hz": 68462.53660395106
+    }
+  ],
+  "nonuniform_time_axis_count": {
+    "force": 240,
+    "phase_current_1": 240,
+    "phase_current_2": 240,
+    "speed": 240,
+    "torque": 240,
+    "vibration_1": 240
+  },
+  "extreme_amplitude_policy": "flag above Q3 + 3*IQR per channel; preserve all values",
+  "extreme_amplitude_candidates": [],
+  "duplicate_measurement_count": 0,
+  "notes": [
+    "Flagged amplitudes are not removed because damaged behavior and sensor error cannot be separated here.",
+    "Window counts are not interpreted as independent sample counts."
+  ]
+}

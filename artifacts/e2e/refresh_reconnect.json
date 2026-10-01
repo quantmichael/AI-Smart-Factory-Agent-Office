@@ -1,0 +1,10 @@
+{
+  "full_reload_event_count": 44,
+  "resume_after_sequence": 23,
+  "reconnected_event_count": 21,
+  "reconnect_suffix_valid": true,
+  "run_state_reload": true,
+  "restart_run_readable": true,
+  "restart_events_readable": true,
+  "restart_report_readable": true
+}

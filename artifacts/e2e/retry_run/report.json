@@ -1,0 +1,316 @@
+{
+  "run_id": "run_retry_a006a8dc882d4cfa",
+  "equipment_id": "paderborn-bearing-test-rig",
+  "measurement_id": "paderborn:KA01:N09_M07_F10:01",
+  "analysis_summary": {
+    "analysis_id": "analysis_f2655ee393f64482ab37ee946fcfaa94",
+    "measurement_id": "paderborn:KA01:N09_M07_F10:01",
+    "model_id": "bearing_rf_binary_v1",
+    "status": "abnormal",
+    "predicted_class": "damaged",
+    "confidence": 1.0,
+    "anomaly_score": null,
+    "signal_features": {
+      "rms": 0.22815111501008384,
+      "kurtosis": 12.75192826448162,
+      "crest_factor": 9.318470394395934,
+      "dominant_frequency_hz": 6074.75
+    },
+    "metadata": {
+      "bearing_id": "KA01",
+      "operating_condition": "N09_M07_F10",
+      "window_aggregation": "mean damaged-class probability; threshold=0.5",
+      "window_count": 4,
+      "mean_damaged_class_probability": 1.0,
+      "model_version": "1.0",
+      "feature_version": "step03_v1",
+      "inference_timestamp": "2026-09-18T22:40:02.610+00:00",
+      "timing_ms": {
+        "measurement_load": 5.972333950921893,
+        "feature_extraction": 29.32724915444851,
+        "model_inference": 16.25829190015793,
+        "total": 51.58929107710719
+      },
+      "inference_latency_ms": 51.58958304673433,
+      "probability_note": "Model output; not a calibrated equipment failure probability."
+    }
+  },
+  "diagnosis_candidates": [
+    {
+      "candidate_id": "candidate_3af8d2e03b516b83",
+      "fault_type": "bearing_condition_anomaly",
+      "summary": "The ML result classified the measurement as damaged. Retrieved technical documents provide related diagnostic and inspection context, but do not by themselves establish a specific physical root cause.",
+      "supporting_evidence_ids": [
+        "evidence_b2e89b31c137c8501bb7",
+        "evidence_ce12f5e6ce483312aea5",
+        "evidence_3db1d495f7a0e361c6f8",
+        "evidence_d6135675831b0f78613d",
+        "evidence_6f6bf21e107dca6d683a",
+        "evidence_a9755079d39e35d0a14d",
+        "evidence_f1500a04e31beef90ea8",
+        "evidence_bd1513bf0fdda8cdf9a2"
+      ],
+      "contradicting_evidence_ids": [],
+      "supporting_visual_observation_ids": [],
+      "supporting_memory_ids": [
+        "memory_e499d0b679fab6513104",
+        "memory_7e1ffa71dab1562ac502",
+        "memory_f342abddab7d40fc8be6",
+        "memory_72aa44e944f2a87da211",
+        "memory_db2314a7fee9112bff70",
+        "memory_5bc3b6277c46259105d6",
+        "memory_1f5fd44a8804f2dd2a0d",
+        "memory_7fbc0800a65491ab13e5",
+        "memory_b57ee2994ed5f091f9b8",
+        "memory_e7cd43502a2e34e205dc",
+        "memory_a9132b9c33bd1762ac8f",
+        "memory_c1719592542f8273624c",
+        "memory_553a74dfe294dc88f181",
+        "memory_50ded672eae4255715cb",
+        "memory_27a3862fc1b901517ab2",
+        "memory_dc70cf1a8a10478a8aa8",
+        "memory_347aa89bda0713fda89a",
+        "memory_763fa7b8a54846b302df",
+        "memory_b167874b225e253ce870",
+        "memory_9d7e0264def9efcfb633",
+        "memory_329269362ee030dba4b0",
+        "memory_d4096d8b551592e60018"
+      ],
+      "confidence_level": "low",
+      "uncertainties": [
+        "The ML confidence is not a calibrated equipment-failure probability.",
+        "A specific physical failure mechanism requires inspection evidence.",
+        "22 prior equipment-memory record(s) were considered as history, not as technical evidence or confirmed root-cause facts."
+      ]
+    }
+  ],
+  "evidence_status": "SUFFICIENT",
+  "inspection_plan": [
+    {
+      "step_id": "INS-001",
+      "order": 1,
+      "title": "Confirm the recorded vibration condition",
+      "description": "Review the measurement features and operating condition against the diagnostic context in Vibration Diagnostic Guide (CM5003 EN), Circumstances that can cause acoustic emissions include:.",
+      "reason": "Confirm that the anomaly remains relevant under the recorded condition.",
+      "related_candidate_ids": [
+        "candidate_3af8d2e03b516b83"
+      ],
+      "supporting_evidence_ids": [
+        "evidence_b2e89b31c137c8501bb7"
+      ],
+      "required_input": [
+        "operating_condition_confirmation",
+        "vibration_observation"
+      ],
+      "safety_note": "Follow site procedures; this step does not command equipment operation."
+    },
+    {
+      "step_id": "INS-002",
+      "order": 2,
+      "title": "Inspect accessible bearing-condition indicators",
+      "description": "Record observable bearing, lubrication, temperature, noise, and maintenance context while consulting Vibration Diagnostic Guide (CM5003 EN), The SKF brand now stands for more.",
+      "reason": "Physical observations are needed before assigning a specific root cause.",
+      "related_candidate_ids": [
+        "candidate_3af8d2e03b516b83"
+      ],
+      "supporting_evidence_ids": [
+        "evidence_a9755079d39e35d0a14d"
+      ],
+      "required_input": [
+        "inspection_observation",
+        "maintenance_history"
+      ],
+      "safety_note": "Do not bypass guards or perform work beyond authorized site procedures."
+    }
+  ],
+  "recommended_actions": [
+    {
+      "action_id": "action_80156a285b357d83",
+      "action_type": "INSPECT",
+      "priority": "medium",
+      "summary": "Perform the evidence-linked inspection plan before maintenance decisions.",
+      "reason": "The ML anomaly and retrieved technical context support inspection, but not an automatic shutdown or a confirmed root-cause finding.",
+      "supporting_evidence_ids": [
+        "evidence_b2e89b31c137c8501bb7",
+        "evidence_a9755079d39e35d0a14d"
+      ],
+      "requires_human_approval": false,
+      "limitations": [
+        "Priority is an internal workflow priority, not a legal safety classification.",
+        "No maintenance action is automatically executed."
+      ]
+    }
+  ],
+  "human_interactions": [],
+  "limitations": [
+    "ML confidence is not a calibrated equipment-failure probability.",
+    "Recommendations support human decisions and do not control equipment."
+  ],
+  "citations": [
+    {
+      "evidence_id": "evidence_b2e89b31c137c8501bb7",
+      "document_id": "skf_vibration_diagnostic_guide",
+      "chunk_id": "skf_vibration_diagnostic_guide:p0008:sd45feb2c:c0008",
+      "title": "Vibration Diagnostic Guide (CM5003 EN)",
+      "publisher": "SKF",
+      "page": 8,
+      "section": "Circumstances that can cause acoustic emissions include:",
+      "official_url": "https://skftechnicalsupport.zendesk.com/hc/en-us/article_attachments/360042513054"
+    },
+    {
+      "evidence_id": "evidence_ce12f5e6ce483312aea5",
+      "document_id": "skf_vibration_diagnostic_guide",
+      "chunk_id": "skf_vibration_diagnostic_guide:p0007:s4b35a1e0:c0007",
+      "title": "Vibration Diagnostic Guide (CM5003 EN)",
+      "publisher": "SKF",
+      "page": 7,
+      "section": "By mounting accelerometers at strategic points on bearings, we can",
+      "official_url": "https://skftechnicalsupport.zendesk.com/hc/en-us/article_attachments/360042513054"
+    },
+    {
+      "evidence_id": "evidence_3db1d495f7a0e361c6f8",
+      "document_id": "paderborn_benchmark_paper",
+      "chunk_id": "paderborn_benchmark_paper:p0011:s6756c020:c0011",
+      "title": "Condition Monitoring of Bearing Damage in Electromechanical Drive Systems",
+      "publisher": "Paderborn University, KAt",
+      "page": 11,
+      "section": "EUROPEAN CONFERENCE OF THE PROGNOSTICS AND HEALTH MANAGEMENT SOCIETY 2016",
+      "official_url": "https://mb.uni-paderborn.de/fileadmin-mb/kat/PDF/Veroeffentlichungen/20160703_PHME16_CM_bearing.pdf"
+    },
+    {
+      "evidence_id": "evidence_d6135675831b0f78613d",
+      "document_id": "skf_bearing_damage_failure_analysis",
+      "chunk_id": "skf_bearing_damage_failure_analysis:p0031:s385b1829:c0035",
+      "title": "Bearing Damage and Failure Analysis (PUB BU/I3 14219/3 EN)",
+      "publisher": "SKF",
+      "page": 31,
+      "section": "a thorough inspection can provide valuable",
+      "official_url": "https://cdn.skfmediahub.skf.com/api/public/093168a92d25cc46/pdf_preview_medium/14219_3_EN_-_Bearing_failures_LOW_pdf_preview_medium.pdf"
+    },
+    {
+      "evidence_id": "evidence_6f6bf21e107dca6d683a",
+      "document_id": "paderborn_benchmark_paper",
+      "chunk_id": "paderborn_benchmark_paper:p0006:s6756c020:c0006",
+      "title": "Condition Monitoring of Bearing Damage in Electromechanical Drive Systems",
+      "publisher": "Paderborn University, KAt",
+      "page": 6,
+      "section": "EUROPEAN CONFERENCE OF THE PROGNOSTICS AND HEALTH MANAGEMENT SOCIETY 2016",
+      "official_url": "https://mb.uni-paderborn.de/fileadmin-mb/kat/PDF/Veroeffentlichungen/20160703_PHME16_CM_bearing.pdf"
+    },
+    {
+      "evidence_id": "evidence_a9755079d39e35d0a14d",
+      "document_id": "skf_vibration_diagnostic_guide",
+      "chunk_id": "skf_vibration_diagnostic_guide:p0002:s27b44c8b:c0001",
+      "title": "Vibration Diagnostic Guide (CM5003 EN)",
+      "publisher": "SKF",
+      "page": 2,
+      "section": "The SKF brand now stands for more",
+      "official_url": "https://skftechnicalsupport.zendesk.com/hc/en-us/article_attachments/360042513054"
+    },
+    {
+      "evidence_id": "evidence_f1500a04e31beef90ea8",
+      "document_id": "skf_bearing_damage_failure_analysis",
+      "chunk_id": "skf_bearing_damage_failure_analysis:p0001:s6f851918:c0000",
+      "title": "Bearing Damage and Failure Analysis (PUB BU/I3 14219/3 EN)",
+      "publisher": "SKF",
+      "page": 1,
+      "section": "BEARING DAMAGE",
+      "official_url": "https://cdn.skfmediahub.skf.com/api/public/093168a92d25cc46/pdf_preview_medium/14219_3_EN_-_Bearing_failures_LOW_pdf_preview_medium.pdf"
+    },
+    {
+      "evidence_id": "evidence_bd1513bf0fdda8cdf9a2",
+      "document_id": "skf_bearing_damage_failure_analysis",
+      "chunk_id": "skf_bearing_damage_failure_analysis:p0010:s33de389c:c0014",
+      "title": "Bearing Damage and Failure Analysis (PUB BU/I3 14219/3 EN)",
+      "publisher": "SKF",
+      "page": 10,
+      "section": "2 Inspection and troubleshooting",
+      "official_url": "https://cdn.skfmediahub.skf.com/api/public/093168a92d25cc46/pdf_preview_medium/14219_3_EN_-_Bearing_failures_LOW_pdf_preview_medium.pdf"
+    },
+    {
+      "evidence_id": "evidence_a18f619e708185a94d57",
+      "document_id": "skf_bearing_damage_failure_analysis",
+      "chunk_id": "skf_bearing_damage_failure_analysis:p0090:sbd452a7e:c0094",
+      "title": "Bearing Damage and Failure Analysis (PUB BU/I3 14219/3 EN)",
+      "publisher": "SKF",
+      "page": 90,
+      "section": "Background information",
+      "official_url": "https://cdn.skfmediahub.skf.com/api/public/093168a92d25cc46/pdf_preview_medium/14219_3_EN_-_Bearing_failures_LOW_pdf_preview_medium.pdf"
+    },
+    {
+      "evidence_id": "evidence_b64d10ecb3ece370d296",
+      "document_id": "paderborn_benchmark_paper",
+      "chunk_id": "paderborn_benchmark_paper:p0003:s6756c020:c0003",
+      "title": "Condition Monitoring of Bearing Damage in Electromechanical Drive Systems",
+      "publisher": "Paderborn University, KAt",
+      "page": 3,
+      "section": "EUROPEAN CONFERENCE OF THE PROGNOSTICS AND HEALTH MANAGEMENT SOCIETY 2016",
+      "official_url": "https://mb.uni-paderborn.de/fileadmin-mb/kat/PDF/Veroeffentlichungen/20160703_PHME16_CM_bearing.pdf"
+    },
+    {
+      "evidence_id": "evidence_e7534e601956150a9100",
+      "document_id": "paderborn_benchmark_paper",
+      "chunk_id": "paderborn_benchmark_paper:p0014:s6756c020:c0014",
+      "title": "Condition Monitoring of Bearing Damage in Electromechanical Drive Systems",
+      "publisher": "Paderborn University, KAt",
+      "page": 14,
+      "section": "EUROPEAN CONFERENCE OF THE PROGNOSTICS AND HEALTH MANAGEMENT SOCIETY 2016",
+      "official_url": "https://mb.uni-paderborn.de/fileadmin-mb/kat/PDF/Veroeffentlichungen/20160703_PHME16_CM_bearing.pdf"
+    },
+    {
+      "evidence_id": "evidence_983bd7eef6bb7073e03f",
+      "document_id": "skf_vibration_diagnostic_guide",
+      "chunk_id": "skf_vibration_diagnostic_guide:p0031:s0937c677:c0032",
+      "title": "Vibration Diagnostic Guide (CM5003 EN)",
+      "publisher": "SKF",
+      "page": 31,
+      "section": "Harnessing wind power",
+      "official_url": "https://skftechnicalsupport.zendesk.com/hc/en-us/article_attachments/360042513054"
+    },
+    {
+      "evidence_id": "evidence_7a1847c4828fd89a3a9b",
+      "document_id": "paderborn_benchmark_paper",
+      "chunk_id": "paderborn_benchmark_paper:p0010:s6756c020:c0010",
+      "title": "Condition Monitoring of Bearing Damage in Electromechanical Drive Systems",
+      "publisher": "Paderborn University, KAt",
+      "page": 10,
+      "section": "EUROPEAN CONFERENCE OF THE PROGNOSTICS AND HEALTH MANAGEMENT SOCIETY 2016",
+      "official_url": "https://mb.uni-paderborn.de/fileadmin-mb/kat/PDF/Veroeffentlichungen/20160703_PHME16_CM_bearing.pdf"
+    }
+  ],
+  "historical_context_used": [
+    "memory_e499d0b679fab6513104",
+    "memory_7e1ffa71dab1562ac502",
+    "memory_f342abddab7d40fc8be6",
+    "memory_72aa44e944f2a87da211",
+    "memory_db2314a7fee9112bff70",
+    "memory_5bc3b6277c46259105d6",
+    "memory_1f5fd44a8804f2dd2a0d",
+    "memory_7fbc0800a65491ab13e5",
+    "memory_b57ee2994ed5f091f9b8",
+    "memory_e7cd43502a2e34e205dc",
+    "memory_a9132b9c33bd1762ac8f",
+    "memory_c1719592542f8273624c",
+    "memory_553a74dfe294dc88f181",
+    "memory_50ded672eae4255715cb",
+    "memory_27a3862fc1b901517ab2",
+    "memory_dc70cf1a8a10478a8aa8",
+    "memory_347aa89bda0713fda89a",
+    "memory_763fa7b8a54846b302df",
+    "memory_b167874b225e253ce870",
+    "memory_9d7e0264def9efcfb633",
+    "memory_329269362ee030dba4b0",
+    "memory_d4096d8b551592e60018"
+  ],
+  "visual_observations": [],
+  "visual_context_used": [],
+  "version_trace": {
+    "application_version": "0.1.0",
+    "model_id": "bearing_rf_binary_v1",
+    "model_version": "1.0",
+    "knowledge_pack_id": "bearing_v1",
+    "knowledge_manifest_version": "1.0",
+    "workflow_version": "diagnosis_core_v1"
+  },
+  "created_at": "2026-09-18T22:40:02.622852Z"
+}

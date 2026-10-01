@@ -1,0 +1,992 @@
+[
+  {
+    "event_id": "event_9246fe149fc966de084a",
+    "run_id": "run_hitl_fddd2e5da9674620",
+    "sequence": 1,
+    "event_type": "workflow_started",
+    "node": "initialize_run",
+    "agent_role": "SYSTEM",
+    "message": "Workflow started.",
+    "payload": {
+      "max_retrieval_retries": 2
+    },
+    "created_at": "2026-09-18T22:40:02.659653Z"
+  },
+  {
+    "event_id": "event_dae3c518c29ce7d5cf35",
+    "run_id": "run_hitl_fddd2e5da9674620",
+    "sequence": 2,
+    "event_type": "node_started",
+    "node": "initialize_run",
+    "agent_role": "SYSTEM",
+    "message": "initialize_run started.",
+    "payload": {
+      "max_retrieval_retries": 2
+    },
+    "created_at": "2026-09-18T22:40:02.659663Z"
+  },
+  {
+    "event_id": "event_ad5303f6ff4f2cec9c5f",
+    "run_id": "run_hitl_fddd2e5da9674620",
+    "sequence": 3,
+    "event_type": "node_completed",
+    "node": "initialize_run",
+    "agent_role": "SYSTEM",
+    "message": "Workflow initialized.",
+    "payload": {
+      "max_retrieval_retries": 2
+    },
+    "created_at": "2026-09-18T22:40:02.659668Z"
+  },
+  {
+    "event_id": "event_b546bb38ad03d89a3db1",
+    "run_id": "run_hitl_fddd2e5da9674620",
+    "sequence": 4,
+    "event_type": "node_started",
+    "node": "load_sensor_data",
+    "agent_role": "SENSOR_AGENT",
+    "message": "load_sensor_data started.",
+    "payload": {
+      "measurement_id": "paderborn:KA01:N09_M07_F10:01"
+    },
+    "created_at": "2026-09-18T22:40:02.659924Z"
+  },
+  {
+    "event_id": "event_3d840f2582d82e83204d",
+    "run_id": "run_hitl_fddd2e5da9674620",
+    "sequence": 5,
+    "event_type": "node_completed",
+    "node": "load_sensor_data",
+    "agent_role": "SENSOR_AGENT",
+    "message": "Measurement metadata loaded.",
+    "payload": {
+      "measurement_id": "paderborn:KA01:N09_M07_F10:01"
+    },
+    "created_at": "2026-09-18T22:40:02.660043Z"
+  },
+  {
+    "event_id": "event_094e15e16f19db8bf6d1",
+    "run_id": "run_hitl_fddd2e5da9674620",
+    "sequence": 6,
+    "event_type": "node_started",
+    "node": "load_equipment_memory",
+    "agent_role": "SYSTEM",
+    "message": "load_equipment_memory started.",
+    "payload": {
+      "memory_count": 22
+    },
+    "created_at": "2026-09-18T22:40:02.661540Z"
+  },
+  {
+    "event_id": "event_9c88aacda83467d2f992",
+    "run_id": "run_hitl_fddd2e5da9674620",
+    "sequence": 7,
+    "event_type": "node_completed",
+    "node": "load_equipment_memory",
+    "agent_role": "SYSTEM",
+    "message": "Relevant equipment history loaded.",
+    "payload": {
+      "memory_count": 22
+    },
+    "created_at": "2026-09-18T22:40:02.661546Z"
+  },
+  {
+    "event_id": "event_55279d25e065767f8ce7",
+    "run_id": "run_hitl_fddd2e5da9674620",
+    "sequence": 8,
+    "event_type": "equipment_memory_loaded",
+    "node": "load_equipment_memory",
+    "agent_role": "SYSTEM",
+    "message": "Equipment memory context loaded.",
+    "payload": {
+      "memory_count": 22
+    },
+    "created_at": "2026-09-18T22:40:02.661550Z"
+  },
+  {
+    "event_id": "event_a8d7beeda95813b24ace",
+    "run_id": "run_hitl_fddd2e5da9674620",
+    "sequence": 9,
+    "event_type": "node_started",
+    "node": "run_detection",
+    "agent_role": "DETECTION_AGENT",
+    "message": "run_detection started.",
+    "payload": {
+      "status": "abnormal",
+      "predicted_class": "damaged",
+      "confidence": 1.0,
+      "model_id": "bearing_rf_binary_v1"
+    },
+    "created_at": "2026-09-18T22:40:02.728412Z"
+  },
+  {
+    "event_id": "event_8fadb89159c1fa561680",
+    "run_id": "run_hitl_fddd2e5da9674620",
+    "sequence": 10,
+    "event_type": "node_completed",
+    "node": "run_detection",
+    "agent_role": "DETECTION_AGENT",
+    "message": "ML detection completed.",
+    "payload": {
+      "status": "abnormal",
+      "predicted_class": "damaged",
+      "confidence": 1.0,
+      "model_id": "bearing_rf_binary_v1"
+    },
+    "created_at": "2026-09-18T22:40:02.728422Z"
+  },
+  {
+    "event_id": "event_5d990e58d4ede66d0703",
+    "run_id": "run_hitl_fddd2e5da9674620",
+    "sequence": 11,
+    "event_type": "detection_abnormal",
+    "node": "run_detection",
+    "agent_role": "DETECTION_AGENT",
+    "message": "Detection result is abnormal.",
+    "payload": {
+      "status": "abnormal",
+      "predicted_class": "damaged",
+      "confidence": 1.0,
+      "model_id": "bearing_rf_binary_v1"
+    },
+    "created_at": "2026-09-18T22:40:02.728427Z"
+  },
+  {
+    "event_id": "event_6d9e9e1c0dd011a1c467",
+    "run_id": "run_hitl_fddd2e5da9674620",
+    "sequence": 12,
+    "event_type": "node_started",
+    "node": "check_abnormal",
+    "agent_role": "DETECTION_AGENT",
+    "message": "check_abnormal started.",
+    "payload": {
+      "status": "abnormal"
+    },
+    "created_at": "2026-09-18T22:40:02.728715Z"
+  },
+  {
+    "event_id": "event_df8043a99b93468c2e49",
+    "run_id": "run_hitl_fddd2e5da9674620",
+    "sequence": 13,
+    "event_type": "node_completed",
+    "node": "check_abnormal",
+    "agent_role": "DETECTION_AGENT",
+    "message": "Analysis routed to the abnormal path.",
+    "payload": {
+      "status": "abnormal"
+    },
+    "created_at": "2026-09-18T22:40:02.728721Z"
+  },
+  {
+    "event_id": "event_97883f59070cd3035d32",
+    "run_id": "run_hitl_fddd2e5da9674620",
+    "sequence": 14,
+    "event_type": "node_started",
+    "node": "check_inspection_image",
+    "agent_role": "DIAGNOSIS_AGENT",
+    "message": "check_inspection_image started.",
+    "payload": {
+      "image_count": 0
+    },
+    "created_at": "2026-09-18T22:40:02.728926Z"
+  },
+  {
+    "event_id": "event_ead83a6396e61195d1dd",
+    "run_id": "run_hitl_fddd2e5da9674620",
+    "sequence": 15,
+    "event_type": "node_completed",
+    "node": "check_inspection_image",
+    "agent_role": "DIAGNOSIS_AGENT",
+    "message": "Optional inspection image route evaluated.",
+    "payload": {
+      "image_count": 0
+    },
+    "created_at": "2026-09-18T22:40:02.728931Z"
+  },
+  {
+    "event_id": "event_0f54a837ef3bdc5ebe93",
+    "run_id": "run_hitl_fddd2e5da9674620",
+    "sequence": 16,
+    "event_type": "node_started",
+    "node": "build_rag_query",
+    "agent_role": "RAG_AGENT",
+    "message": "build_rag_query started.",
+    "payload": {
+      "query_count": 2
+    },
+    "created_at": "2026-09-18T22:40:02.729190Z"
+  },
+  {
+    "event_id": "event_cfe4c93fa514c6aa4850",
+    "run_id": "run_hitl_fddd2e5da9674620",
+    "sequence": 17,
+    "event_type": "node_completed",
+    "node": "build_rag_query",
+    "agent_role": "RAG_AGENT",
+    "message": "Purpose-specific RAG queries built.",
+    "payload": {
+      "query_count": 2
+    },
+    "created_at": "2026-09-18T22:40:02.729195Z"
+  },
+  {
+    "event_id": "event_d6427ad8eb10db19bd42",
+    "run_id": "run_hitl_fddd2e5da9674620",
+    "sequence": 18,
+    "event_type": "node_started",
+    "node": "retrieve_knowledge",
+    "agent_role": "RAG_AGENT",
+    "message": "retrieve_knowledge started.",
+    "payload": {
+      "evidence_count": 9,
+      "retry_count": 0,
+      "queries": [
+        {
+          "query_id": "query_cfa3b50c7a84a106e12a",
+          "purpose": "DIAGNOSTIC_EVIDENCE"
+        },
+        {
+          "query_id": "query_f2315937467588398ee6",
+          "purpose": "INSPECTION_ACTION"
+        }
+      ]
+    },
+    "created_at": "2026-09-18T22:40:02.735603Z"
+  },
+  {
+    "event_id": "event_e854732dfbcc14254b43",
+    "run_id": "run_hitl_fddd2e5da9674620",
+    "sequence": 19,
+    "event_type": "node_completed",
+    "node": "retrieve_knowledge",
+    "agent_role": "RAG_AGENT",
+    "message": "Technical evidence retrieved.",
+    "payload": {
+      "evidence_count": 9,
+      "retry_count": 0,
+      "queries": [
+        {
+          "query_id": "query_cfa3b50c7a84a106e12a",
+          "purpose": "DIAGNOSTIC_EVIDENCE"
+        },
+        {
+          "query_id": "query_f2315937467588398ee6",
+          "purpose": "INSPECTION_ACTION"
+        }
+      ]
+    },
+    "created_at": "2026-09-18T22:40:02.735615Z"
+  },
+  {
+    "event_id": "event_6b0d510b699dee4f41a0",
+    "run_id": "run_hitl_fddd2e5da9674620",
+    "sequence": 20,
+    "event_type": "retrieval_completed",
+    "node": "retrieve_knowledge",
+    "agent_role": "RAG_AGENT",
+    "message": "Evidence retrieval completed.",
+    "payload": {
+      "evidence_count": 9,
+      "retry_count": 0,
+      "queries": [
+        {
+          "query_id": "query_cfa3b50c7a84a106e12a",
+          "purpose": "DIAGNOSTIC_EVIDENCE"
+        },
+        {
+          "query_id": "query_f2315937467588398ee6",
+          "purpose": "INSPECTION_ACTION"
+        }
+      ]
+    },
+    "created_at": "2026-09-18T22:40:02.735622Z"
+  },
+  {
+    "event_id": "event_d7073206dafd19bdacde",
+    "run_id": "run_hitl_fddd2e5da9674620",
+    "sequence": 21,
+    "event_type": "node_started",
+    "node": "diagnose",
+    "agent_role": "DIAGNOSIS_AGENT",
+    "message": "diagnose started.",
+    "payload": {
+      "candidate_count": 1,
+      "memory_used_ids": [
+        "memory_0269761f46353087776e",
+        "memory_e499d0b679fab6513104",
+        "memory_7e1ffa71dab1562ac502",
+        "memory_f342abddab7d40fc8be6",
+        "memory_72aa44e944f2a87da211",
+        "memory_1531910f177f34e14b5c",
+        "memory_5bc3b6277c46259105d6",
+        "memory_1f5fd44a8804f2dd2a0d",
+        "memory_7fbc0800a65491ab13e5",
+        "memory_b57ee2994ed5f091f9b8",
+        "memory_ee9c0363462808575b86",
+        "memory_a9132b9c33bd1762ac8f",
+        "memory_c1719592542f8273624c",
+        "memory_553a74dfe294dc88f181",
+        "memory_50ded672eae4255715cb",
+        "memory_dc70cf1a8a10478a8aa8",
+        "memory_347aa89bda0713fda89a",
+        "memory_763fa7b8a54846b302df",
+        "memory_b167874b225e253ce870",
+        "memory_e11bf6840a78ac37a998",
+        "memory_9d7e0264def9efcfb633",
+        "memory_329269362ee030dba4b0"
+      ],
+      "visual_observation_ids": [],
+      "context_sections": [
+        "CURRENT_SENSOR_ANALYSIS",
+        "VISUAL_OBSERVATIONS",
+        "TECHNICAL_EVIDENCE",
+        "EQUIPMENT_MEMORY",
+        "HUMAN_OBSERVATIONS"
+      ]
+    },
+    "created_at": "2026-09-18T22:40:02.735968Z"
+  },
+  {
+    "event_id": "event_9f321209f4e132ba6baa",
+    "run_id": "run_hitl_fddd2e5da9674620",
+    "sequence": 22,
+    "event_type": "node_completed",
+    "node": "diagnose",
+    "agent_role": "DIAGNOSIS_AGENT",
+    "message": "Evidence-grounded diagnosis candidates created.",
+    "payload": {
+      "candidate_count": 1,
+      "memory_used_ids": [
+        "memory_0269761f46353087776e",
+        "memory_e499d0b679fab6513104",
+        "memory_7e1ffa71dab1562ac502",
+        "memory_f342abddab7d40fc8be6",
+        "memory_72aa44e944f2a87da211",
+        "memory_1531910f177f34e14b5c",
+        "memory_5bc3b6277c46259105d6",
+        "memory_1f5fd44a8804f2dd2a0d",
+        "memory_7fbc0800a65491ab13e5",
+        "memory_b57ee2994ed5f091f9b8",
+        "memory_ee9c0363462808575b86",
+        "memory_a9132b9c33bd1762ac8f",
+        "memory_c1719592542f8273624c",
+        "memory_553a74dfe294dc88f181",
+        "memory_50ded672eae4255715cb",
+        "memory_dc70cf1a8a10478a8aa8",
+        "memory_347aa89bda0713fda89a",
+        "memory_763fa7b8a54846b302df",
+        "memory_b167874b225e253ce870",
+        "memory_e11bf6840a78ac37a998",
+        "memory_9d7e0264def9efcfb633",
+        "memory_329269362ee030dba4b0"
+      ],
+      "visual_observation_ids": [],
+      "context_sections": [
+        "CURRENT_SENSOR_ANALYSIS",
+        "VISUAL_OBSERVATIONS",
+        "TECHNICAL_EVIDENCE",
+        "EQUIPMENT_MEMORY",
+        "HUMAN_OBSERVATIONS"
+      ]
+    },
+    "created_at": "2026-09-18T22:40:02.735976Z"
+  },
+  {
+    "event_id": "event_d115fc65f9818e78b778",
+    "run_id": "run_hitl_fddd2e5da9674620",
+    "sequence": 23,
+    "event_type": "node_started",
+    "node": "verify_evidence",
+    "agent_role": "DIAGNOSIS_AGENT",
+    "message": "verify_evidence started.",
+    "payload": {
+      "evidence_status": "INSUFFICIENT",
+      "retry_count": 0
+    },
+    "created_at": "2026-09-18T22:40:02.736262Z"
+  },
+  {
+    "event_id": "event_72b9bc0e2ea5a01156fa",
+    "run_id": "run_hitl_fddd2e5da9674620",
+    "sequence": 24,
+    "event_type": "node_completed",
+    "node": "verify_evidence",
+    "agent_role": "DIAGNOSIS_AGENT",
+    "message": "Evidence coverage verified.",
+    "payload": {
+      "evidence_status": "INSUFFICIENT",
+      "retry_count": 0
+    },
+    "created_at": "2026-09-18T22:40:02.736268Z"
+  },
+  {
+    "event_id": "event_43fe365544cece027152",
+    "run_id": "run_hitl_fddd2e5da9674620",
+    "sequence": 25,
+    "event_type": "evidence_status_changed",
+    "node": "verify_evidence",
+    "agent_role": "DIAGNOSIS_AGENT",
+    "message": "Evidence status evaluated.",
+    "payload": {
+      "evidence_status": "INSUFFICIENT",
+      "retry_count": 0
+    },
+    "created_at": "2026-09-18T22:40:02.736272Z"
+  },
+  {
+    "event_id": "event_302d4a1d2b564604d1de",
+    "run_id": "run_hitl_fddd2e5da9674620",
+    "sequence": 26,
+    "event_type": "node_started",
+    "node": "request_additional_information",
+    "agent_role": "DIAGNOSIS_AGENT",
+    "message": "request_additional_information started.",
+    "payload": {
+      "request_id": "request_116f1baa271de2ff836a",
+      "requested_fields": [
+        "inspection_observation",
+        "operating_condition_confirmation"
+      ]
+    },
+    "created_at": "2026-09-18T22:40:02.736523Z"
+  },
+  {
+    "event_id": "event_897146c58ba16aa2bef8",
+    "run_id": "run_hitl_fddd2e5da9674620",
+    "sequence": 27,
+    "event_type": "node_completed",
+    "node": "request_additional_information",
+    "agent_role": "DIAGNOSIS_AGENT",
+    "message": "Additional information requested.",
+    "payload": {
+      "request_id": "request_116f1baa271de2ff836a",
+      "requested_fields": [
+        "inspection_observation",
+        "operating_condition_confirmation"
+      ]
+    },
+    "created_at": "2026-09-18T22:40:02.736529Z"
+  },
+  {
+    "event_id": "event_ec8cd5fb1ef1cc280d2b",
+    "run_id": "run_hitl_fddd2e5da9674620",
+    "sequence": 28,
+    "event_type": "human_input_required",
+    "node": "request_additional_information",
+    "agent_role": "DIAGNOSIS_AGENT",
+    "message": "Additional information is required.",
+    "payload": {
+      "request_id": "request_116f1baa271de2ff836a",
+      "requested_fields": [
+        "inspection_observation",
+        "operating_condition_confirmation"
+      ]
+    },
+    "created_at": "2026-09-18T22:40:02.736533Z"
+  },
+  {
+    "event_id": "event_b4fecaee668f6e2ae910",
+    "run_id": "run_hitl_fddd2e5da9674620",
+    "sequence": 29,
+    "event_type": "node_started",
+    "node": "await_human_input",
+    "agent_role": "DIAGNOSIS_AGENT",
+    "message": "await_human_input started.",
+    "payload": {
+      "request_id": "request_116f1baa271de2ff836a"
+    },
+    "created_at": "2026-09-18T22:40:02.739477Z"
+  },
+  {
+    "event_id": "event_edccd92d8bc657d32a58",
+    "run_id": "run_hitl_fddd2e5da9674620",
+    "sequence": 30,
+    "event_type": "node_completed",
+    "node": "await_human_input",
+    "agent_role": "DIAGNOSIS_AGENT",
+    "message": "Human input received and workflow resumed.",
+    "payload": {
+      "request_id": "request_116f1baa271de2ff836a"
+    },
+    "created_at": "2026-09-18T22:40:02.739484Z"
+  },
+  {
+    "event_id": "event_f61337c69645feaaca81",
+    "run_id": "run_hitl_fddd2e5da9674620",
+    "sequence": 31,
+    "event_type": "human_input_received",
+    "node": "await_human_input",
+    "agent_role": "DIAGNOSIS_AGENT",
+    "message": "Human input received.",
+    "payload": {
+      "request_id": "request_116f1baa271de2ff836a"
+    },
+    "created_at": "2026-09-18T22:40:02.739489Z"
+  },
+  {
+    "event_id": "event_caec91c70207c0efe7b4",
+    "run_id": "run_hitl_fddd2e5da9674620",
+    "sequence": 32,
+    "event_type": "workflow_resumed",
+    "node": "await_human_input",
+    "agent_role": "DIAGNOSIS_AGENT",
+    "message": "Workflow resumed from checkpoint.",
+    "payload": {
+      "request_id": "request_116f1baa271de2ff836a"
+    },
+    "created_at": "2026-09-18T22:40:02.739494Z"
+  },
+  {
+    "event_id": "event_1a82124bc9ad69ff9dc4",
+    "run_id": "run_hitl_fddd2e5da9674620",
+    "sequence": 33,
+    "event_type": "node_started",
+    "node": "resume_after_human",
+    "agent_role": "DIAGNOSIS_AGENT",
+    "message": "resume_after_human started.",
+    "payload": {
+      "request_type": "ADDITIONAL_INFORMATION"
+    },
+    "created_at": "2026-09-18T22:40:02.739866Z"
+  },
+  {
+    "event_id": "event_77dac0ee354ae3399421",
+    "run_id": "run_hitl_fddd2e5da9674620",
+    "sequence": 34,
+    "event_type": "node_completed",
+    "node": "resume_after_human",
+    "agent_role": "DIAGNOSIS_AGENT",
+    "message": "Human interaction recorded separately from machine analysis.",
+    "payload": {
+      "request_type": "ADDITIONAL_INFORMATION"
+    },
+    "created_at": "2026-09-18T22:40:02.739872Z"
+  },
+  {
+    "event_id": "event_a13445940b88d7d63a75",
+    "run_id": "run_hitl_fddd2e5da9674620",
+    "sequence": 35,
+    "event_type": "node_started",
+    "node": "update_context",
+    "agent_role": "DIAGNOSIS_AGENT",
+    "message": "update_context started.",
+    "payload": {
+      "observation_count": 2
+    },
+    "created_at": "2026-09-18T22:40:02.740165Z"
+  },
+  {
+    "event_id": "event_e7b10cd651dcc1582917",
+    "run_id": "run_hitl_fddd2e5da9674620",
+    "sequence": 36,
+    "event_type": "node_completed",
+    "node": "update_context",
+    "agent_role": "DIAGNOSIS_AGENT",
+    "message": "Human observations added to retrieval context without modifying ML output.",
+    "payload": {
+      "observation_count": 2
+    },
+    "created_at": "2026-09-18T22:40:02.740173Z"
+  },
+  {
+    "event_id": "event_79b829a33ca97065c57a",
+    "run_id": "run_hitl_fddd2e5da9674620",
+    "sequence": 37,
+    "event_type": "node_started",
+    "node": "build_rag_query",
+    "agent_role": "RAG_AGENT",
+    "message": "build_rag_query started.",
+    "payload": {
+      "query_count": 3
+    },
+    "created_at": "2026-09-18T22:40:02.740491Z"
+  },
+  {
+    "event_id": "event_75eeffd5a89d5e6b896a",
+    "run_id": "run_hitl_fddd2e5da9674620",
+    "sequence": 38,
+    "event_type": "node_completed",
+    "node": "build_rag_query",
+    "agent_role": "RAG_AGENT",
+    "message": "Purpose-specific RAG queries built.",
+    "payload": {
+      "query_count": 3
+    },
+    "created_at": "2026-09-18T22:40:02.740497Z"
+  },
+  {
+    "event_id": "event_46622a930fb0d5d0fb5a",
+    "run_id": "run_hitl_fddd2e5da9674620",
+    "sequence": 39,
+    "event_type": "node_started",
+    "node": "retrieve_knowledge",
+    "agent_role": "RAG_AGENT",
+    "message": "retrieve_knowledge started.",
+    "payload": {
+      "evidence_count": 12,
+      "retry_count": 0,
+      "queries": [
+        {
+          "query_id": "query_cfa3b50c7a84a106e12a",
+          "purpose": "DIAGNOSTIC_EVIDENCE"
+        },
+        {
+          "query_id": "query_f2315937467588398ee6",
+          "purpose": "INSPECTION_ACTION"
+        },
+        {
+          "query_id": "query_e72307aeafd61ace3dd8",
+          "purpose": "DIAGNOSTIC_EVIDENCE"
+        }
+      ]
+    },
+    "created_at": "2026-09-18T22:40:02.746670Z"
+  },
+  {
+    "event_id": "event_141d78c6fdf8ab6190f3",
+    "run_id": "run_hitl_fddd2e5da9674620",
+    "sequence": 40,
+    "event_type": "node_completed",
+    "node": "retrieve_knowledge",
+    "agent_role": "RAG_AGENT",
+    "message": "Technical evidence retrieved.",
+    "payload": {
+      "evidence_count": 12,
+      "retry_count": 0,
+      "queries": [
+        {
+          "query_id": "query_cfa3b50c7a84a106e12a",
+          "purpose": "DIAGNOSTIC_EVIDENCE"
+        },
+        {
+          "query_id": "query_f2315937467588398ee6",
+          "purpose": "INSPECTION_ACTION"
+        },
+        {
+          "query_id": "query_e72307aeafd61ace3dd8",
+          "purpose": "DIAGNOSTIC_EVIDENCE"
+        }
+      ]
+    },
+    "created_at": "2026-09-18T22:40:02.746679Z"
+  },
+  {
+    "event_id": "event_a9555b89d4dd1661b2dd",
+    "run_id": "run_hitl_fddd2e5da9674620",
+    "sequence": 41,
+    "event_type": "retrieval_completed",
+    "node": "retrieve_knowledge",
+    "agent_role": "RAG_AGENT",
+    "message": "Evidence retrieval completed.",
+    "payload": {
+      "evidence_count": 12,
+      "retry_count": 0,
+      "queries": [
+        {
+          "query_id": "query_cfa3b50c7a84a106e12a",
+          "purpose": "DIAGNOSTIC_EVIDENCE"
+        },
+        {
+          "query_id": "query_f2315937467588398ee6",
+          "purpose": "INSPECTION_ACTION"
+        },
+        {
+          "query_id": "query_e72307aeafd61ace3dd8",
+          "purpose": "DIAGNOSTIC_EVIDENCE"
+        }
+      ]
+    },
+    "created_at": "2026-09-18T22:40:02.746685Z"
+  },
+  {
+    "event_id": "event_1e9b5fccf0c86b6abdfc",
+    "run_id": "run_hitl_fddd2e5da9674620",
+    "sequence": 42,
+    "event_type": "node_started",
+    "node": "diagnose",
+    "agent_role": "DIAGNOSIS_AGENT",
+    "message": "diagnose started.",
+    "payload": {
+      "candidate_count": 1,
+      "memory_used_ids": [
+        "memory_0269761f46353087776e",
+        "memory_e499d0b679fab6513104",
+        "memory_7e1ffa71dab1562ac502",
+        "memory_f342abddab7d40fc8be6",
+        "memory_72aa44e944f2a87da211",
+        "memory_1531910f177f34e14b5c",
+        "memory_5bc3b6277c46259105d6",
+        "memory_1f5fd44a8804f2dd2a0d",
+        "memory_7fbc0800a65491ab13e5",
+        "memory_b57ee2994ed5f091f9b8",
+        "memory_ee9c0363462808575b86",
+        "memory_a9132b9c33bd1762ac8f",
+        "memory_c1719592542f8273624c",
+        "memory_553a74dfe294dc88f181",
+        "memory_50ded672eae4255715cb",
+        "memory_dc70cf1a8a10478a8aa8",
+        "memory_347aa89bda0713fda89a",
+        "memory_763fa7b8a54846b302df",
+        "memory_b167874b225e253ce870",
+        "memory_e11bf6840a78ac37a998",
+        "memory_9d7e0264def9efcfb633",
+        "memory_329269362ee030dba4b0"
+      ],
+      "visual_observation_ids": [],
+      "context_sections": [
+        "CURRENT_SENSOR_ANALYSIS",
+        "VISUAL_OBSERVATIONS",
+        "TECHNICAL_EVIDENCE",
+        "EQUIPMENT_MEMORY",
+        "HUMAN_OBSERVATIONS"
+      ]
+    },
+    "created_at": "2026-09-18T22:40:02.746994Z"
+  },
+  {
+    "event_id": "event_d89ca9c6e4636bd787f8",
+    "run_id": "run_hitl_fddd2e5da9674620",
+    "sequence": 43,
+    "event_type": "node_completed",
+    "node": "diagnose",
+    "agent_role": "DIAGNOSIS_AGENT",
+    "message": "Evidence-grounded diagnosis candidates created.",
+    "payload": {
+      "candidate_count": 1,
+      "memory_used_ids": [
+        "memory_0269761f46353087776e",
+        "memory_e499d0b679fab6513104",
+        "memory_7e1ffa71dab1562ac502",
+        "memory_f342abddab7d40fc8be6",
+        "memory_72aa44e944f2a87da211",
+        "memory_1531910f177f34e14b5c",
+        "memory_5bc3b6277c46259105d6",
+        "memory_1f5fd44a8804f2dd2a0d",
+        "memory_7fbc0800a65491ab13e5",
+        "memory_b57ee2994ed5f091f9b8",
+        "memory_ee9c0363462808575b86",
+        "memory_a9132b9c33bd1762ac8f",
+        "memory_c1719592542f8273624c",
+        "memory_553a74dfe294dc88f181",
+        "memory_50ded672eae4255715cb",
+        "memory_dc70cf1a8a10478a8aa8",
+        "memory_347aa89bda0713fda89a",
+        "memory_763fa7b8a54846b302df",
+        "memory_b167874b225e253ce870",
+        "memory_e11bf6840a78ac37a998",
+        "memory_9d7e0264def9efcfb633",
+        "memory_329269362ee030dba4b0"
+      ],
+      "visual_observation_ids": [],
+      "context_sections": [
+        "CURRENT_SENSOR_ANALYSIS",
+        "VISUAL_OBSERVATIONS",
+        "TECHNICAL_EVIDENCE",
+        "EQUIPMENT_MEMORY",
+        "HUMAN_OBSERVATIONS"
+      ]
+    },
+    "created_at": "2026-09-18T22:40:02.747001Z"
+  },
+  {
+    "event_id": "event_d4166a9225772bd0b7fd",
+    "run_id": "run_hitl_fddd2e5da9674620",
+    "sequence": 44,
+    "event_type": "node_started",
+    "node": "verify_evidence",
+    "agent_role": "DIAGNOSIS_AGENT",
+    "message": "verify_evidence started.",
+    "payload": {
+      "evidence_status": "SUFFICIENT",
+      "retry_count": 0
+    },
+    "created_at": "2026-09-18T22:40:02.747284Z"
+  },
+  {
+    "event_id": "event_d8a4be809a6102caa8e4",
+    "run_id": "run_hitl_fddd2e5da9674620",
+    "sequence": 45,
+    "event_type": "node_completed",
+    "node": "verify_evidence",
+    "agent_role": "DIAGNOSIS_AGENT",
+    "message": "Evidence coverage verified.",
+    "payload": {
+      "evidence_status": "SUFFICIENT",
+      "retry_count": 0
+    },
+    "created_at": "2026-09-18T22:40:02.747290Z"
+  },
+  {
+    "event_id": "event_48ed114ee9b1fdeea800",
+    "run_id": "run_hitl_fddd2e5da9674620",
+    "sequence": 46,
+    "event_type": "evidence_status_changed",
+    "node": "verify_evidence",
+    "agent_role": "DIAGNOSIS_AGENT",
+    "message": "Evidence status evaluated.",
+    "payload": {
+      "evidence_status": "SUFFICIENT",
+      "retry_count": 0
+    },
+    "created_at": "2026-09-18T22:40:02.747294Z"
+  },
+  {
+    "event_id": "event_233415ca85669eae17de",
+    "run_id": "run_hitl_fddd2e5da9674620",
+    "sequence": 47,
+    "event_type": "node_started",
+    "node": "build_inspection_plan",
+    "agent_role": "MAINTENANCE_AGENT",
+    "message": "build_inspection_plan started.",
+    "payload": {
+      "inspection_step_count": 2
+    },
+    "created_at": "2026-09-18T22:40:02.747578Z"
+  },
+  {
+    "event_id": "event_d2901ab60ea30e4f2936",
+    "run_id": "run_hitl_fddd2e5da9674620",
+    "sequence": 48,
+    "event_type": "node_completed",
+    "node": "build_inspection_plan",
+    "agent_role": "MAINTENANCE_AGENT",
+    "message": "Evidence-linked inspection plan created.",
+    "payload": {
+      "inspection_step_count": 2
+    },
+    "created_at": "2026-09-18T22:40:02.747584Z"
+  },
+  {
+    "event_id": "event_520209bbd02fadbfde57",
+    "run_id": "run_hitl_fddd2e5da9674620",
+    "sequence": 49,
+    "event_type": "inspection_plan_created",
+    "node": "build_inspection_plan",
+    "agent_role": "MAINTENANCE_AGENT",
+    "message": "Inspection plan created.",
+    "payload": {
+      "inspection_step_count": 2
+    },
+    "created_at": "2026-09-18T22:40:02.747588Z"
+  },
+  {
+    "event_id": "event_30b3372a0a5a38ba2a9d",
+    "run_id": "run_hitl_fddd2e5da9674620",
+    "sequence": 50,
+    "event_type": "node_started",
+    "node": "recommend_action",
+    "agent_role": "MAINTENANCE_AGENT",
+    "message": "recommend_action started.",
+    "payload": {
+      "action_count": 1,
+      "approval_required": false
+    },
+    "created_at": "2026-09-18T22:40:02.748015Z"
+  },
+  {
+    "event_id": "event_9606e6b8413ba5c39636",
+    "run_id": "run_hitl_fddd2e5da9674620",
+    "sequence": 51,
+    "event_type": "node_completed",
+    "node": "recommend_action",
+    "agent_role": "MAINTENANCE_AGENT",
+    "message": "Evidence-linked actions recommended.",
+    "payload": {
+      "action_count": 1,
+      "approval_required": false
+    },
+    "created_at": "2026-09-18T22:40:02.748022Z"
+  },
+  {
+    "event_id": "event_25a9b211ff7280cb5e8f",
+    "run_id": "run_hitl_fddd2e5da9674620",
+    "sequence": 52,
+    "event_type": "action_recommended",
+    "node": "recommend_action",
+    "agent_role": "MAINTENANCE_AGENT",
+    "message": "Action recommendation created.",
+    "payload": {
+      "action_count": 1,
+      "approval_required": false
+    },
+    "created_at": "2026-09-18T22:40:02.748027Z"
+  },
+  {
+    "event_id": "event_5ce0dad70c62ffe766ce",
+    "run_id": "run_hitl_fddd2e5da9674620",
+    "sequence": 53,
+    "event_type": "node_started",
+    "node": "check_human_approval",
+    "agent_role": "MAINTENANCE_AGENT",
+    "message": "check_human_approval started.",
+    "payload": {
+      "approval_required": false
+    },
+    "created_at": "2026-09-18T22:40:02.748393Z"
+  },
+  {
+    "event_id": "event_77ad553e219021d15122",
+    "run_id": "run_hitl_fddd2e5da9674620",
+    "sequence": 54,
+    "event_type": "node_completed",
+    "node": "check_human_approval",
+    "agent_role": "MAINTENANCE_AGENT",
+    "message": "Human approval policy evaluated.",
+    "payload": {
+      "approval_required": false
+    },
+    "created_at": "2026-09-18T22:40:02.748405Z"
+  },
+  {
+    "event_id": "event_e66f4a3775398872a518",
+    "run_id": "run_hitl_fddd2e5da9674620",
+    "sequence": 55,
+    "event_type": "node_started",
+    "node": "generate_report",
+    "agent_role": "MAINTENANCE_AGENT",
+    "message": "generate_report started.",
+    "payload": {
+      "citation_count": 12
+    },
+    "created_at": "2026-09-18T22:40:02.749056Z"
+  },
+  {
+    "event_id": "event_6eb93f9585c4c1cc0c09",
+    "run_id": "run_hitl_fddd2e5da9674620",
+    "sequence": 56,
+    "event_type": "node_completed",
+    "node": "generate_report",
+    "agent_role": "MAINTENANCE_AGENT",
+    "message": "Final structured report generated.",
+    "payload": {
+      "citation_count": 12
+    },
+    "created_at": "2026-09-18T22:40:02.749063Z"
+  },
+  {
+    "event_id": "event_676df77705eb92d29d11",
+    "run_id": "run_hitl_fddd2e5da9674620",
+    "sequence": 57,
+    "event_type": "report_generated",
+    "node": "generate_report",
+    "agent_role": "MAINTENANCE_AGENT",
+    "message": "Final report generated.",
+    "payload": {
+      "citation_count": 12
+    },
+    "created_at": "2026-09-18T22:40:02.749068Z"
+  },
+  {
+    "event_id": "event_305a90348023efc4533d",
+    "run_id": "run_hitl_fddd2e5da9674620",
+    "sequence": 58,
+    "event_type": "workflow_completed",
+    "node": "generate_report",
+    "agent_role": "MAINTENANCE_AGENT",
+    "message": "Workflow completed.",
+    "payload": {
+      "citation_count": 12
+    },
+    "created_at": "2026-09-18T22:40:02.749073Z"
+  }
+]

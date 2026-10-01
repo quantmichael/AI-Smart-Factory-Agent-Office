@@ -1,0 +1,61 @@
+{
+  "run_id": "run_3f6eb5b5c4714823aa61f29159399267",
+  "equipment_id": "paderborn-bearing-test-rig",
+  "measurement_id": "paderborn:K001:N09_M07_F10:01",
+  "analysis_summary": {
+    "analysis_id": "analysis_4a4c3df21b35429badd434deb96485a6",
+    "status": "normal",
+    "predicted_class": "healthy",
+    "model_id": "bearing_rf_binary_v1",
+    "signal_features": {
+      "rms": 0.36800606913055633,
+      "kurtosis": 17.112119599959613,
+      "crest_factor": 12.64974614012136,
+      "dominant_frequency_hz": 4626.25
+    }
+  },
+  "diagnosis_candidates": [],
+  "evidence_status": null,
+  "inspection_plan": [],
+  "recommended_actions": [],
+  "human_interactions": [],
+  "limitations": [
+    "The model classified this measurement as normal; this does not guarantee the absence of every equipment issue. Continue routine monitoring."
+  ],
+  "citations": [],
+  "historical_context_used": [
+    "memory_f342abddab7d40fc8be6",
+    "memory_72aa44e944f2a87da211",
+    "memory_db2314a7fee9112bff70",
+    "memory_7aeca531990d345a9bfc",
+    "memory_149db29d13bcd0132010",
+    "memory_7fbc0800a65491ab13e5",
+    "memory_b57ee2994ed5f091f9b8",
+    "memory_e7cd43502a2e34e205dc",
+    "memory_acc3ee4bbeb22c10c323",
+    "memory_09766e358b77cb04380f",
+    "memory_c1719592542f8273624c",
+    "memory_553a74dfe294dc88f181",
+    "memory_50ded672eae4255715cb",
+    "memory_27a3862fc1b901517ab2",
+    "memory_48ef34ea5d0ab9481ded",
+    "memory_dc70cf1a8a10478a8aa8",
+    "memory_347aa89bda0713fda89a",
+    "memory_763fa7b8a54846b302df",
+    "memory_b167874b225e253ce870",
+    "memory_329269362ee030dba4b0",
+    "memory_d4096d8b551592e60018",
+    "memory_a43fe82ca82aa71172f7"
+  ],
+  "visual_observations": [],
+  "visual_context_used": [],
+  "version_trace": {
+    "application_version": "0.1.0",
+    "model_id": "bearing_rf_binary_v1",
+    "model_version": "1.0",
+    "knowledge_pack_id": "bearing_v1",
+    "knowledge_manifest_version": "1.0",
+    "workflow_version": "diagnosis_core_v1"
+  },
+  "created_at": "2026-09-18T22:40:02.313503Z"
+}

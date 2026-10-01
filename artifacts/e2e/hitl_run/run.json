@@ -1,0 +1,40 @@
+{
+  "run_id": "run_hitl_fddd2e5da9674620",
+  "measurement_id": "paderborn:KA01:N09_M07_F10:01",
+  "workflow_status": "COMPLETED",
+  "version_trace": {
+    "application_version": "0.1.0",
+    "model_id": "bearing_rf_binary_v1",
+    "model_version": "1.0",
+    "knowledge_pack_id": "bearing_v1",
+    "knowledge_manifest_version": "1.0",
+    "workflow_version": "diagnosis_core_v1"
+  },
+  "evidence_status": "SUFFICIENT",
+  "memory_used_ids": [
+    "memory_0269761f46353087776e",
+    "memory_e499d0b679fab6513104",
+    "memory_7e1ffa71dab1562ac502",
+    "memory_f342abddab7d40fc8be6",
+    "memory_72aa44e944f2a87da211",
+    "memory_1531910f177f34e14b5c",
+    "memory_5bc3b6277c46259105d6",
+    "memory_1f5fd44a8804f2dd2a0d",
+    "memory_7fbc0800a65491ab13e5",
+    "memory_b57ee2994ed5f091f9b8",
+    "memory_ee9c0363462808575b86",
+    "memory_a9132b9c33bd1762ac8f",
+    "memory_c1719592542f8273624c",
+    "memory_553a74dfe294dc88f181",
+    "memory_50ded672eae4255715cb",
+    "memory_dc70cf1a8a10478a8aa8",
+    "memory_347aa89bda0713fda89a",
+    "memory_763fa7b8a54846b302df",
+    "memory_b167874b225e253ce870",
+    "memory_e11bf6840a78ac37a998",
+    "memory_9d7e0264def9efcfb633",
+    "memory_329269362ee030dba4b0"
+  ],
+  "visual_observations": [],
+  "elapsed_ms": 92.89066586643457
+}

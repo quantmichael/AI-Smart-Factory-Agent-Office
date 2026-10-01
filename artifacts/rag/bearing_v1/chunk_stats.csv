@@ -1,0 +1,16 @@
+document_id,chunk_count,min_tokens_approx,max_tokens_approx,average_tokens_approx,pages_with_chunks
+paderborn_damage_fact_sheets_k001,1,185,185,185,1
+paderborn_damage_fact_sheets_ka01,2,120,184,152,2
+paderborn_damage_fact_sheets_ki01,2,119,184,151.5,2
+paderborn_measurement_logs_k001,1,234,234,234,1
+paderborn_measurement_logs_ka01,1,234,234,234,1
+paderborn_measurement_logs_ki01,1,234,234,234,1
+paderborn_overview,7,4,186,38.57142857142857,0
+paderborn_datasets_and_download,1,163,163,163,0
+paderborn_damage,1,174,174,174,0
+paderborn_test_rig,2,89,392,240.5,0
+paderborn_operating_conditions,1,204,204,204,0
+paderborn_publication,1,163,163,163,0
+paderborn_benchmark_paper,18,239,800,640.6111111111111,17
+skf_vibration_diagnostic_guide,34,3,800,431.1470588235294,32
+skf_bearing_damage_failure_analysis,110,1,800,290.6,105

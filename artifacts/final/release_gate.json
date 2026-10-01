@@ -1,0 +1,13 @@
+{
+  "p0_bug_zero": true,
+  "normal_e2e": true,
+  "abnormal_e2e": true,
+  "hitl": true,
+  "citation_trace": true,
+  "ground_truth_leakage": true,
+  "deployment_smoke_test": true,
+  "user_test_completed": false,
+  "external_deployment_completed": false,
+  "final_release": false,
+  "generated_at": "2026-09-18T22:40:06.373702+00:00"
+}

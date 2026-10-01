@@ -1,0 +1,79 @@
+{
+  "run_id": "run_926e92947d494112b506eddb7725d156",
+  "equipment_id": "paderborn-bearing-test-rig",
+  "records": [
+    {
+      "memory_id": "memory_d7b65e7d4ea3aa52950d",
+      "equipment_id": "paderborn-bearing-test-rig",
+      "memory_type": "OUTCOME",
+      "source_type": "system",
+      "source_id": "run_926e92947d494112b506eddb7725d156",
+      "status": "CONFIRMED",
+      "summary": "Diagnostic workflow completed and a final report was generated.",
+      "structured_data": {
+        "run_id": "run_926e92947d494112b506eddb7725d156",
+        "measurement_id": "paderborn:K001:N09_M07_F10:01",
+        "operating_condition": "N09_M07_F10",
+        "evidence_status": null,
+        "memory_used_ids": []
+      },
+      "event_time": "2026-09-18T15:19:08.837560Z",
+      "recorded_at": "2026-09-18T15:19:08.843652Z",
+      "memory_version": 1
+    },
+    {
+      "memory_id": "memory_cc5a427c2ff524655b35",
+      "equipment_id": "paderborn-bearing-test-rig",
+      "memory_type": "ANALYSIS",
+      "source_type": "ml_model",
+      "source_id": "run_926e92947d494112b506eddb7725d156",
+      "status": "MEASURED",
+      "summary": "ML analysis classified measurement paderborn:K001:N09_M07_F10:01 as healthy (normal) using bearing_rf_binary_v1.",
+      "structured_data": {
+        "run_id": "run_926e92947d494112b506eddb7725d156",
+        "measurement_id": "paderborn:K001:N09_M07_F10:01",
+        "operating_condition": "N09_M07_F10",
+        "analysis_id": "analysis_2548592cbc564c30ab7f4d87a58af1e6",
+        "status": "normal",
+        "predicted_class": "healthy",
+        "model_id": "bearing_rf_binary_v1",
+        "confidence": 1.0,
+        "signal_features": {
+          "rms": 0.36800606913055633,
+          "kurtosis": 17.112119599959613,
+          "crest_factor": 12.64974614012136,
+          "dominant_frequency_hz": 4626.25
+        }
+      },
+      "event_time": "2026-09-18T15:19:08.837560Z",
+      "recorded_at": "2026-09-18T15:19:08.843214Z",
+      "memory_version": 1
+    },
+    {
+      "memory_id": "memory_452409d777183536d739",
+      "equipment_id": "paderborn-bearing-test-rig",
+      "memory_type": "MEASUREMENT",
+      "source_type": "sensor",
+      "source_id": "run_926e92947d494112b506eddb7725d156",
+      "status": "MEASURED",
+      "summary": "Measurement paderborn:K001:N09_M07_F10:01 was processed under condition N09_M07_F10.",
+      "structured_data": {
+        "run_id": "run_926e92947d494112b506eddb7725d156",
+        "measurement_id": "paderborn:K001:N09_M07_F10:01",
+        "operating_condition": "N09_M07_F10",
+        "measurement_ref": {
+          "measurement_id": "paderborn:K001:N09_M07_F10:01",
+          "equipment_id": "paderborn-bearing-test-rig",
+          "source": "paderborn-bearing-datacenter",
+          "metadata": {
+            "bearing_id": "K001"
+          }
+        }
+      },
+      "event_time": "2026-09-18T15:19:08.837560Z",
+      "recorded_at": "2026-09-18T15:19:08.842732Z",
+      "memory_version": 1
+    }
+  ],
+  "maintenance_auto_generated": false
+}

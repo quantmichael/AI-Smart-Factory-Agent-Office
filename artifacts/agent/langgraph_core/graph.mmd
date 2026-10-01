@@ -1,0 +1,48 @@
+---
+config:
+  flowchart:
+    curve: linear
+---
+graph TD;
+	__start__([<p>__start__</p>]):::first
+	initialize_run(initialize_run)
+	load_sensor_data(load_sensor_data)
+	run_detection(run_detection)
+	check_abnormal(check_abnormal)
+	save_normal_state(save_normal_state)
+	generate_normal_report(generate_normal_report)
+	build_rag_query(build_rag_query)
+	retrieve_knowledge(retrieve_knowledge)
+	diagnose(diagnose)
+	verify_evidence(verify_evidence)
+	refine_query(refine_query)
+	retrieve_counter_evidence(retrieve_counter_evidence)
+	ready_for_inspection(ready_for_inspection)
+	needs_additional_information(needs_additional_information)
+	__end__([<p>__end__</p>]):::last
+	__start__ --> initialize_run;
+	build_rag_query --> retrieve_knowledge;
+	check_abnormal -. &nbsp;abnormal&nbsp; .-> build_rag_query;
+	check_abnormal -. &nbsp;normal&nbsp; .-> save_normal_state;
+	diagnose -. &nbsp;failed&nbsp; .-> __end__;
+	diagnose -. &nbsp;continue&nbsp; .-> verify_evidence;
+	initialize_run --> load_sensor_data;
+	load_sensor_data -. &nbsp;failed&nbsp; .-> __end__;
+	load_sensor_data -. &nbsp;continue&nbsp; .-> run_detection;
+	refine_query --> retrieve_knowledge;
+	retrieve_counter_evidence --> retrieve_knowledge;
+	retrieve_knowledge -. &nbsp;failed&nbsp; .-> __end__;
+	retrieve_knowledge -. &nbsp;continue&nbsp; .-> diagnose;
+	run_detection -. &nbsp;failed&nbsp; .-> __end__;
+	run_detection -. &nbsp;continue&nbsp; .-> check_abnormal;
+	save_normal_state --> generate_normal_report;
+	verify_evidence -. &nbsp;additional_information&nbsp; .-> needs_additional_information;
+	verify_evidence -. &nbsp;sufficient&nbsp; .-> ready_for_inspection;
+	verify_evidence -. &nbsp;refine&nbsp; .-> refine_query;
+	verify_evidence -. &nbsp;counter_evidence&nbsp; .-> retrieve_counter_evidence;
+	generate_normal_report --> __end__;
+	needs_additional_information --> __end__;
+	ready_for_inspection --> __end__;
+	classDef default fill:#f2f0ff,line-height:1.2
+	classDef first fill-opacity:0
+	classDef last fill:#bfb6fc

@@ -1,0 +1,35 @@
+{
+  "normal": {
+    "total_ms": 239.176,
+    "ml_ms": 212.413,
+    "rag_ms": 0,
+    "reasoning_ms": 0,
+    "vision_ms": 0,
+    "memory_ms": 4.02
+  },
+  "abnormal": {
+    "total_ms": 139.985,
+    "ml_ms": 50.323,
+    "rag_ms": 62.949,
+    "reasoning_ms": 0.134,
+    "vision_ms": 4.221,
+    "memory_ms": 1.043
+  },
+  "retry": {
+    "total_ms": 86.852,
+    "ml_ms": 68.327,
+    "rag_ms": 8.513,
+    "reasoning_ms": 0.232,
+    "vision_ms": 0,
+    "memory_ms": 1.099
+  },
+  "hitl": {
+    "total_ms": 92.891,
+    "ml_ms": 66.713,
+    "rag_ms": 12.135,
+    "reasoning_ms": 0.227,
+    "vision_ms": 0,
+    "memory_ms": 1.229
+  },
+  "note": "Reasoning is the deterministic local provider in MVP-RC1; no external LLM token cost was incurred."
+}

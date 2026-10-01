@@ -1,0 +1,69 @@
+{
+  "run_id": "run_multimodal_6b6c48863ed44e3c",
+  "measurement_id": "paderborn:KA01:N09_M07_F10:01",
+  "workflow_status": "COMPLETED",
+  "analysis_status": "abnormal",
+  "image_id": "image_535497ab771e4adca2a215514e09cf3f",
+  "visual_observations": [
+    {
+      "image_id": "image_535497ab771e4adca2a215514e09cf3f",
+      "provider": "local",
+      "model": "pillow-quality-observer-v1",
+      "observations": [
+        {
+          "observation_id": "visual_7707f9512d47bab6aac1",
+          "category": "image_quality",
+          "description": "Image quality is directly measurable at 720×480; mean brightness 61.9, contrast 37.4.",
+          "confidence_level": "high"
+        }
+      ],
+      "visible_components": [],
+      "quality": "USABLE",
+      "limitations": [
+        "The local observer evaluates image quality only; it does not identify internal bearing faults or confirm equipment safety."
+      ],
+      "metrics": {
+        "brightness": 61.906733217592596,
+        "contrast": 37.42779579337819,
+        "edge_variance": 1078.6911404256605
+      },
+      "analysis_error": null,
+      "created_at": "2026-09-18T15:44:10.034008Z"
+    }
+  ],
+  "rag_evidence_count": 9,
+  "memory_context_count": 4,
+  "diagnosis_candidates": [
+    {
+      "candidate_id": "candidate_e0e34805df3dd762",
+      "fault_type": "bearing_condition_anomaly",
+      "summary": "The ML result classified the measurement as damaged. Retrieved technical documents provide related diagnostic and inspection context, but do not by themselves establish a specific physical root cause.",
+      "supporting_evidence_ids": [
+        "evidence_b2e89b31c137c8501bb7",
+        "evidence_ce12f5e6ce483312aea5",
+        "evidence_3db1d495f7a0e361c6f8",
+        "evidence_d6135675831b0f78613d",
+        "evidence_6f6bf21e107dca6d683a",
+        "evidence_a9755079d39e35d0a14d",
+        "evidence_f1500a04e31beef90ea8",
+        "evidence_bd1513bf0fdda8cdf9a2"
+      ],
+      "contradicting_evidence_ids": [],
+      "supporting_visual_observation_ids": [],
+      "supporting_memory_ids": [
+        "memory_8894c36223b48688edfc",
+        "memory_e8c652c31596bcbc57d5",
+        "memory_037fd147fa1927cd2612",
+        "memory_15d2180c13792150a87a"
+      ],
+      "confidence_level": "low",
+      "uncertainties": [
+        "The ML confidence is not a calibrated equipment-failure probability.",
+        "A specific physical failure mechanism requires inspection evidence.",
+        "4 prior equipment-memory record(s) were considered as history, not as technical evidence or confirmed root-cause facts.",
+        "Visual observations describe only directly visible exterior conditions and do not establish an internal bearing fault."
+      ]
+    }
+  ],
+  "dataset_relationship": "Separate simulated inspection input; not synchronized Paderborn ground truth."
+}

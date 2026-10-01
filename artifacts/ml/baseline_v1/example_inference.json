@@ -1,0 +1,70 @@
+[
+  {
+    "ground_truth": "healthy",
+    "analysis_id": "analysis_78de3dd3eb0c45118d333589eb484269",
+    "measurement_id": "paderborn:K001:N09_M07_F10:01",
+    "model_id": "bearing_rf_binary_v1",
+    "status": "normal",
+    "predicted_class": "healthy",
+    "confidence": 1.0,
+    "anomaly_score": null,
+    "signal_features": {
+      "rms": 0.36800606913055633,
+      "kurtosis": 17.112119599959613,
+      "crest_factor": 12.64974614012136,
+      "dominant_frequency_hz": 4626.25
+    },
+    "metadata": {
+      "bearing_id": "K001",
+      "operating_condition": "N09_M07_F10",
+      "window_aggregation": "mean damaged-class probability; threshold=0.5",
+      "window_count": 4,
+      "mean_damaged_class_probability": 0.0,
+      "model_version": "1.0",
+      "feature_version": "step03_v1",
+      "inference_timestamp": "2026-09-18T03:43:45.634+00:00",
+      "timing_ms": {
+        "measurement_load": 11.151582933962345,
+        "feature_extraction": 28.379708994179964,
+        "model_inference": 12.685084016993642,
+        "total": 52.27424995973706
+      },
+      "inference_latency_ms": 52.27458290755749,
+      "probability_note": "Model output; not a calibrated equipment failure probability."
+    }
+  },
+  {
+    "ground_truth": "damaged",
+    "analysis_id": "analysis_6839ffcd347b49ebb4d58832a642a091",
+    "measurement_id": "paderborn:KA01:N09_M07_F10:01",
+    "model_id": "bearing_rf_binary_v1",
+    "status": "abnormal",
+    "predicted_class": "damaged",
+    "confidence": 1.0,
+    "anomaly_score": null,
+    "signal_features": {
+      "rms": 0.22815111501008384,
+      "kurtosis": 12.75192826448162,
+      "crest_factor": 9.318470394395934,
+      "dominant_frequency_hz": 6074.75
+    },
+    "metadata": {
+      "bearing_id": "KA01",
+      "operating_condition": "N09_M07_F10",
+      "window_aggregation": "mean damaged-class probability; threshold=0.5",
+      "window_count": 4,
+      "mean_damaged_class_probability": 1.0,
+      "model_version": "1.0",
+      "feature_version": "step03_v1",
+      "inference_timestamp": "2026-09-18T03:43:45.679+00:00",
+      "timing_ms": {
+        "measurement_load": 5.385041004046798,
+        "feature_extraction": 27.89729181677103,
+        "model_inference": 11.29237492568791,
+        "total": 44.61683286353946
+      },
+      "inference_latency_ms": 44.61708292365074,
+      "probability_note": "Model output; not a calibrated equipment failure probability."
+    }
+  }
+]

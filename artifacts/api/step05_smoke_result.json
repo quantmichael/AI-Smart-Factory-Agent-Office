@@ -1,0 +1,86 @@
+{
+  "results": [
+    {
+      "ground_truth": "healthy",
+      "request": {
+        "measurement_id": "paderborn:K001:N09_M07_F10:01"
+      },
+      "http_status": 200,
+      "api_elapsed_ms": 292.2407500445843,
+      "response": {
+        "analysis_id": "analysis_652b89c1e8124df290d9799d971a453d",
+        "measurement_id": "paderborn:K001:N09_M07_F10:01",
+        "model_id": "bearing_rf_binary_v1",
+        "status": "normal",
+        "predicted_class": "healthy",
+        "confidence": 1.0,
+        "anomaly_score": null,
+        "signal_features": {
+          "rms": 0.36800606913055633,
+          "kurtosis": 17.112119599959613,
+          "crest_factor": 12.64974614012136,
+          "dominant_frequency_hz": 4626.25
+        },
+        "metadata": {
+          "bearing_id": "K001",
+          "operating_condition": "N09_M07_F10",
+          "window_aggregation": "mean damaged-class probability; threshold=0.5",
+          "window_count": 4,
+          "mean_damaged_class_probability": 0.0,
+          "model_version": "1.0",
+          "feature_version": "step03_v1",
+          "inference_timestamp": "2026-09-18T03:44:06.741+00:00",
+          "timing_ms": {
+            "measurement_load": 8.371707983314991,
+            "feature_extraction": 29.644957976415753,
+            "model_inference": 22.02249993570149,
+            "total": 60.11362513527274
+          },
+          "inference_latency_ms": 60.11387496255338,
+          "probability_note": "Model output; not a calibrated equipment failure probability."
+        }
+      }
+    },
+    {
+      "ground_truth": "damaged",
+      "request": {
+        "measurement_id": "paderborn:KA01:N09_M07_F10:01"
+      },
+      "http_status": 200,
+      "api_elapsed_ms": 53.658084012568,
+      "response": {
+        "analysis_id": "analysis_2d784dc561e043e39b5630f5b5307347",
+        "measurement_id": "paderborn:KA01:N09_M07_F10:01",
+        "model_id": "bearing_rf_binary_v1",
+        "status": "abnormal",
+        "predicted_class": "damaged",
+        "confidence": 1.0,
+        "anomaly_score": null,
+        "signal_features": {
+          "rms": 0.22815111501008384,
+          "kurtosis": 12.75192826448162,
+          "crest_factor": 9.318470394395934,
+          "dominant_frequency_hz": 6074.75
+        },
+        "metadata": {
+          "bearing_id": "KA01",
+          "operating_condition": "N09_M07_F10",
+          "window_aggregation": "mean damaged-class probability; threshold=0.5",
+          "window_count": 4,
+          "mean_damaged_class_probability": 1.0,
+          "model_version": "1.0",
+          "feature_version": "step03_v1",
+          "inference_timestamp": "2026-09-18T03:44:06.795+00:00",
+          "timing_ms": {
+            "measurement_load": 6.4464169554412365,
+            "feature_extraction": 28.904999140650034,
+            "model_inference": 16.221415949985385,
+            "total": 51.61241698078811
+          },
+          "inference_latency_ms": 51.612708950415254,
+          "probability_note": "Model output; not a calibrated equipment failure probability."
+        }
+      }
+    }
+  ]
+}

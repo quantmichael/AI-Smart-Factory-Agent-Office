@@ -1,0 +1,38 @@
+{
+  "registry_version": "mvp-rc1",
+  "ground_truth_policy": "Display labels are selector metadata only and are never injected into AgentState.",
+  "scenarios": [
+    {
+      "scenario_id": "normal",
+      "display_label": "정상 경로 · Normal",
+      "measurement_id": "paderborn:K001:N09_M07_F10:01",
+      "expected_route": ["run_detection", "check_abnormal", "generate_normal_report"],
+      "optional_image": null,
+      "notes": "Actual Paderborn measurement and active ML model; RAG and diagnosis must be skipped."
+    },
+    {
+      "scenario_id": "abnormal_multimodal",
+      "display_label": "이상 경로 · Abnormal",
+      "measurement_id": "paderborn:KA01:N09_M07_F10:01",
+      "expected_route": ["run_detection", "check_inspection_image", "analyze_inspection_image", "retrieve_knowledge", "diagnose", "verify_evidence", "generate_report"],
+      "optional_image": "artifacts/multimodal/simulated_inspection_input.png",
+      "notes": "Image is simulated workflow input and is not synchronized Paderborn ground truth."
+    },
+    {
+      "scenario_id": "rag_retry_controlled",
+      "display_label": "검색 재시도 · Controlled Retry",
+      "measurement_id": "paderborn:KA01:N09_M07_F10:01",
+      "expected_route": ["retrieve_knowledge", "verify_evidence", "refine_query", "retrieve_knowledge", "verify_evidence"],
+      "optional_image": null,
+      "notes": "Uses real ML and bearing_v1 retrieval; only the first PARTIAL decision is controlled."
+    },
+    {
+      "scenario_id": "hitl_controlled",
+      "display_label": "작업자 검토 · Controlled HITL",
+      "measurement_id": "paderborn:KA01:N09_M07_F10:01",
+      "expected_route": ["request_additional_information", "await_human_input", "resume_after_human", "update_context", "generate_report"],
+      "optional_image": null,
+      "notes": "Uses real ML/RAG; the initial INSUFFICIENT decision is controlled and disclosed."
+    }
+  ]
+}

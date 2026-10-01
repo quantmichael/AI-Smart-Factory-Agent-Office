@@ -1,0 +1,69 @@
+{
+  "status": "pass",
+  "measurement_count": 240,
+  "bearing_count": 3,
+  "healthy_count": 80,
+  "damaged_count": 160,
+  "unknown_count": 0,
+  "operating_condition_distribution": {
+    "N09_M07_F10": 60,
+    "N15_M01_F10": 60,
+    "N15_M07_F04": 60,
+    "N15_M07_F10": 60
+  },
+  "signal_channel_distribution": {
+    "force": 240,
+    "phase_current_1": 240,
+    "phase_current_2": 240,
+    "speed": 240,
+    "temp_2_bearing_module": 240,
+    "torque": 240,
+    "vibration_1": 240
+  },
+  "signal_length_distribution": {
+    "force": {
+      "count": 240,
+      "min": 16001,
+      "max": 16008
+    },
+    "phase_current_1": {
+      "count": 240,
+      "min": 255998,
+      "max": 277049
+    },
+    "phase_current_2": {
+      "count": 240,
+      "min": 255998,
+      "max": 277049
+    },
+    "speed": {
+      "count": 240,
+      "min": 16001,
+      "max": 16008
+    },
+    "temp_2_bearing_module": {
+      "count": 240,
+      "min": 4,
+      "max": 5
+    },
+    "torque": {
+      "count": 240,
+      "min": 16001,
+      "max": 16008
+    },
+    "vibration_1": {
+      "count": 240,
+      "min": 255998,
+      "max": 277049
+    }
+  },
+  "missing_metadata_count": 0,
+  "invalid_measurement_count": 0,
+  "invalid_measurements": [],
+  "warnings": [
+    "Dataset acquisition is partial: 3/32 bearing-state archives are present."
+  ],
+  "index_build_seconds": 0.0037216669879853725,
+  "validation_seconds": 2.182635207893327,
+  "validation_timestamp": "2026-09-17T23:57:45+00:00"
+}

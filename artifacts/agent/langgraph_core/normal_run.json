@@ -1,0 +1,236 @@
+{
+  "run_id": "run_step08_normal_20260918T042510257588Z",
+  "measurement_id": "paderborn:K001:N09_M07_F10:01",
+  "workflow_status": "COMPLETED",
+  "current_node": "generate_normal_report",
+  "next_action": "MONITOR",
+  "analysis_result": {
+    "analysis_id": "analysis_35eaf8300bb9406bb8028d2f3ded1da8",
+    "measurement_id": "paderborn:K001:N09_M07_F10:01",
+    "model_id": "bearing_rf_binary_v1",
+    "status": "normal",
+    "predicted_class": "healthy",
+    "confidence": 1.0,
+    "signal_features": {
+      "rms": 0.36800606913055633,
+      "kurtosis": 17.112119599959613,
+      "crest_factor": 12.64974614012136,
+      "dominant_frequency_hz": 4626.25
+    }
+  },
+  "retrieval_queries": [],
+  "evidence": [],
+  "diagnosis_candidates": [],
+  "verification_result": null,
+  "evidence_status": null,
+  "retrieval_retry_count": 0,
+  "max_retrieval_retries": 2,
+  "reasoning_provider": "deterministic-evidence-grounded-v1",
+  "events": [
+    {
+      "event_id": "event_b3fd89981e747a323286",
+      "run_id": "run_step08_normal_20260918T042510257588Z",
+      "sequence": 1,
+      "event_type": "workflow_started",
+      "node": "initialize_run",
+      "agent_role": "SYSTEM",
+      "message": "Workflow started.",
+      "payload": {
+        "max_retrieval_retries": 2
+      },
+      "created_at": "2026-09-18T04:25:10.274275Z"
+    },
+    {
+      "event_id": "event_66222ff26e5e4656fb0a",
+      "run_id": "run_step08_normal_20260918T042510257588Z",
+      "sequence": 2,
+      "event_type": "node_started",
+      "node": "initialize_run",
+      "agent_role": "SYSTEM",
+      "message": "initialize_run started.",
+      "payload": {
+        "max_retrieval_retries": 2
+      },
+      "created_at": "2026-09-18T04:25:10.274310Z"
+    },
+    {
+      "event_id": "event_3c49ba647118bb6f062b",
+      "run_id": "run_step08_normal_20260918T042510257588Z",
+      "sequence": 3,
+      "event_type": "node_completed",
+      "node": "initialize_run",
+      "agent_role": "SYSTEM",
+      "message": "Workflow initialized.",
+      "payload": {
+        "max_retrieval_retries": 2
+      },
+      "created_at": "2026-09-18T04:25:10.274318Z"
+    },
+    {
+      "event_id": "event_968bfbcb7d04cab3a083",
+      "run_id": "run_step08_normal_20260918T042510257588Z",
+      "sequence": 4,
+      "event_type": "node_started",
+      "node": "load_sensor_data",
+      "agent_role": "SENSOR_AGENT",
+      "message": "load_sensor_data started.",
+      "payload": {
+        "measurement_id": "paderborn:K001:N09_M07_F10:01"
+      },
+      "created_at": "2026-09-18T04:25:10.274670Z"
+    },
+    {
+      "event_id": "event_39d07d4d90cdb0d125ba",
+      "run_id": "run_step08_normal_20260918T042510257588Z",
+      "sequence": 5,
+      "event_type": "node_completed",
+      "node": "load_sensor_data",
+      "agent_role": "SENSOR_AGENT",
+      "message": "Measurement metadata loaded.",
+      "payload": {
+        "measurement_id": "paderborn:K001:N09_M07_F10:01"
+      },
+      "created_at": "2026-09-18T04:25:10.274679Z"
+    },
+    {
+      "event_id": "event_9c537b8a802e6fff9462",
+      "run_id": "run_step08_normal_20260918T042510257588Z",
+      "sequence": 6,
+      "event_type": "node_started",
+      "node": "run_detection",
+      "agent_role": "DETECTION_AGENT",
+      "message": "run_detection started.",
+      "payload": {
+        "analysis_status": "normal",
+        "model_id": "bearing_rf_binary_v1"
+      },
+      "created_at": "2026-09-18T04:25:10.505980Z"
+    },
+    {
+      "event_id": "event_7261485c97437fd7a2d7",
+      "run_id": "run_step08_normal_20260918T042510257588Z",
+      "sequence": 7,
+      "event_type": "node_completed",
+      "node": "run_detection",
+      "agent_role": "DETECTION_AGENT",
+      "message": "ML detection completed.",
+      "payload": {
+        "analysis_status": "normal",
+        "model_id": "bearing_rf_binary_v1"
+      },
+      "created_at": "2026-09-18T04:25:10.506001Z"
+    },
+    {
+      "event_id": "event_4f06da54e8fc90f9098b",
+      "run_id": "run_step08_normal_20260918T042510257588Z",
+      "sequence": 8,
+      "event_type": "node_started",
+      "node": "check_abnormal",
+      "agent_role": "DETECTION_AGENT",
+      "message": "check_abnormal started.",
+      "payload": {
+        "status": "normal"
+      },
+      "created_at": "2026-09-18T04:25:10.506612Z"
+    },
+    {
+      "event_id": "event_736fc3c12599f4ad101d",
+      "run_id": "run_step08_normal_20260918T042510257588Z",
+      "sequence": 9,
+      "event_type": "node_completed",
+      "node": "check_abnormal",
+      "agent_role": "DETECTION_AGENT",
+      "message": "Analysis routed to the normal path.",
+      "payload": {
+        "status": "normal"
+      },
+      "created_at": "2026-09-18T04:25:10.506621Z"
+    },
+    {
+      "event_id": "event_21bfeacc822e8e138feb",
+      "run_id": "run_step08_normal_20260918T042510257588Z",
+      "sequence": 10,
+      "event_type": "node_started",
+      "node": "save_normal_state",
+      "agent_role": "DETECTION_AGENT",
+      "message": "save_normal_state started.",
+      "payload": {},
+      "created_at": "2026-09-18T04:25:10.506910Z"
+    },
+    {
+      "event_id": "event_952d86b89e5d7cac5d19",
+      "run_id": "run_step08_normal_20260918T042510257588Z",
+      "sequence": 11,
+      "event_type": "node_completed",
+      "node": "save_normal_state",
+      "agent_role": "DETECTION_AGENT",
+      "message": "Normal analysis state recorded.",
+      "payload": {},
+      "created_at": "2026-09-18T04:25:10.506917Z"
+    },
+    {
+      "event_id": "event_dc3a9c36e45d00ad1cc5",
+      "run_id": "run_step08_normal_20260918T042510257588Z",
+      "sequence": 12,
+      "event_type": "node_started",
+      "node": "generate_normal_report",
+      "agent_role": "DETECTION_AGENT",
+      "message": "generate_normal_report started.",
+      "payload": {},
+      "created_at": "2026-09-18T04:25:10.507092Z"
+    },
+    {
+      "event_id": "event_3069c089101c972d740c",
+      "run_id": "run_step08_normal_20260918T042510257588Z",
+      "sequence": 13,
+      "event_type": "node_completed",
+      "node": "generate_normal_report",
+      "agent_role": "DETECTION_AGENT",
+      "message": "Normal analysis report generated.",
+      "payload": {},
+      "created_at": "2026-09-18T04:25:10.507098Z"
+    }
+  ],
+  "node_timings": [
+    {
+      "node": "initialize_run",
+      "duration_ms": 0.06404099985957146
+    },
+    {
+      "node": "load_sensor_data",
+      "duration_ms": 0.02550007775425911
+    },
+    {
+      "node": "run_detection",
+      "duration_ms": 231.01666592992842
+    },
+    {
+      "node": "check_abnormal",
+      "duration_ms": 0.017041107639670372
+    },
+    {
+      "node": "save_normal_state",
+      "duration_ms": 0.013791956007480621
+    },
+    {
+      "node": "generate_normal_report",
+      "duration_ms": 0.016083940863609314
+    }
+  ],
+  "errors": [],
+  "final_report": {
+    "report_type": "normal_analysis_summary",
+    "measurement_id": "paderborn:K001:N09_M07_F10:01",
+    "analysis_id": "analysis_35eaf8300bb9406bb8028d2f3ded1da8",
+    "status": "normal",
+    "predicted_class": "healthy",
+    "model_id": "bearing_rf_binary_v1",
+    "signal_features": {
+      "rms": 0.36800606913055633,
+      "kurtosis": 17.112119599959613,
+      "crest_factor": 12.64974614012136,
+      "dominant_frequency_hz": 4626.25
+    },
+    "summary": "The model classified this measurement as normal. Continue routine monitoring; this result does not guarantee the absence of every equipment issue."
+  }
+}

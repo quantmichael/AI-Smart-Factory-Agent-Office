@@ -1,0 +1,255 @@
+{
+  "manifest_version": "1.0",
+  "generated_at": "2026-09-17T23:23:14+00:00",
+  "sources": [
+    {
+      "source_id": "PADERBORN_DATASET",
+      "title": "Paderborn University Bearing DataCenter measurement archives",
+      "publisher": "Paderborn University, KAt",
+      "source_type": "official_dataset_collection",
+      "official_url": "https://groups.uni-paderborn.de/kat/BearingDataCenter/",
+      "local_path": "data/paderborn/raw",
+      "downloaded_at": "2026-09-17T23:17:40+00:00",
+      "accessed_at": "2026-09-17T23:23:14+00:00",
+      "license": "CC BY-NC 4.0",
+      "license_status": "noncommercial-use-with-attribution",
+      "source_tier": "Tier 1",
+      "rag_role": [
+        "dataset_context",
+        "ground_truth"
+      ],
+      "file_type": "rar_collection",
+      "sha256": "ca352830c3dd20f5ea86c5669fbf768bf16bd30a8707fecfd1bac05d75446fb9",
+      "status": "partial",
+      "notes": "Per-file SHA-256 values are stored in data/paderborn/metadata/checksums.sha256."
+    },
+    {
+      "source_id": "PADERBORN_DAMAGE_FACT_SHEETS",
+      "title": "Paderborn bearing damage fact sheets",
+      "publisher": "Paderborn University, KAt",
+      "source_type": "dataset_embedded_document_collection",
+      "official_url": "https://groups.uni-paderborn.de/kat/BearingDataCenter/",
+      "local_path": "data/paderborn/docs",
+      "downloaded_at": "2026-09-17T23:23:14+00:00",
+      "accessed_at": "2026-09-17T23:23:14+00:00",
+      "license": "CC BY-NC 4.0",
+      "license_status": "noncommercial-use-with-attribution",
+      "source_tier": "Tier 1",
+      "rag_role": [
+        "ground_truth",
+        "damage_taxonomy"
+      ],
+      "file_type": "pdf_collection",
+      "sha256": "44b95870358c673c135729eb220a7171e625706e7785795afcab5e2e0bd18fee",
+      "status": "partial",
+      "notes": "Extracted for 3 of 32 bearing-state archives."
+    },
+    {
+      "source_id": "PADERBORN_MEASUREMENT_LOGS",
+      "title": "Paderborn measurement logs",
+      "publisher": "Paderborn University, KAt",
+      "source_type": "dataset_embedded_document_collection",
+      "official_url": "https://groups.uni-paderborn.de/kat/BearingDataCenter/",
+      "local_path": "data/paderborn/docs",
+      "downloaded_at": "2026-09-17T23:23:14+00:00",
+      "accessed_at": "2026-09-17T23:23:14+00:00",
+      "license": "CC BY-NC 4.0",
+      "license_status": "noncommercial-use-with-attribution",
+      "source_tier": "Tier 1",
+      "rag_role": [
+        "dataset_context",
+        "ground_truth"
+      ],
+      "file_type": "pdf_collection",
+      "sha256": "85931e266f3e3d604163f8dc46af1e44377fc20f90fcdb8bf3210ced372e9a9c",
+      "status": "partial",
+      "notes": "Extracted for 3 of 32 bearing-state archives."
+    },
+    {
+      "source_id": "PADERBORN_OVERVIEW",
+      "title": "Bearing DataCenter overview",
+      "publisher": "Paderborn University, KAt",
+      "source_type": "official_web_page",
+      "official_url": "https://mb.uni-paderborn.de/kat/forschung/bearing-datacenter",
+      "local_path": "knowledge/bearing_v1/paderborn/bearing_datacenter_overview.html",
+      "downloaded_at": "2026-09-17T23:01:27+00:00",
+      "accessed_at": "2026-09-17T23:23:14+00:00",
+      "license": "Website terms not specified",
+      "license_status": "local-use-only-review-before-redistribution",
+      "source_tier": "Tier 1",
+      "rag_role": [
+        "dataset_context"
+      ],
+      "file_type": "html",
+      "sha256": "ef15cd3aca7eb62b7f955bcea917eb164da2ed9564067fd4aa8391778b0e349d",
+      "status": "available",
+      "notes": ""
+    },
+    {
+      "source_id": "PADERBORN_DATASETS_AND_DOWNLOAD",
+      "title": "Data Sets and Download",
+      "publisher": "Paderborn University, KAt",
+      "source_type": "official_web_page",
+      "official_url": "https://mb.uni-paderborn.de/kat/forschung/bearing-datacenter/data-sets-and-download",
+      "local_path": "knowledge/bearing_v1/paderborn/data_sets_and_download.html",
+      "downloaded_at": "2026-09-17T23:01:28+00:00",
+      "accessed_at": "2026-09-17T23:23:14+00:00",
+      "license": "Website terms not specified",
+      "license_status": "local-use-only-review-before-redistribution",
+      "source_tier": "Tier 1",
+      "rag_role": [
+        "dataset_context",
+        "ground_truth"
+      ],
+      "file_type": "html",
+      "sha256": "e10d23829dbcc02d0022b1b8795d4101261e9c1ec92eb5a9fe78acdac0e7ea9f",
+      "status": "available",
+      "notes": ""
+    },
+    {
+      "source_id": "PADERBORN_DAMAGE",
+      "title": "Bearing Damage",
+      "publisher": "Paderborn University, KAt",
+      "source_type": "official_web_page",
+      "official_url": "https://mb.uni-paderborn.de/kat/forschung/bearing-datacenter/bearing-damage",
+      "local_path": "knowledge/bearing_v1/paderborn/bearing_damage.html",
+      "downloaded_at": "2026-09-17T23:01:30+00:00",
+      "accessed_at": "2026-09-17T23:23:14+00:00",
+      "license": "Website terms not specified",
+      "license_status": "local-use-only-review-before-redistribution",
+      "source_tier": "Tier 1",
+      "rag_role": [
+        "damage_taxonomy",
+        "ground_truth"
+      ],
+      "file_type": "html",
+      "sha256": "61e6310048eb19979c99889e66d69e4971bd927af47a3c1c3fcef77ec4eb57eb",
+      "status": "available",
+      "notes": ""
+    },
+    {
+      "source_id": "PADERBORN_TEST_RIG",
+      "title": "Test Rig and Measurement Equipment",
+      "publisher": "Paderborn University, KAt",
+      "source_type": "official_web_page",
+      "official_url": "https://mb.uni-paderborn.de/kat/forschung/bearing-datacenter/test-rig-and-measurement-equipment",
+      "local_path": "knowledge/bearing_v1/paderborn/test_rig_and_measurement_equipment.html",
+      "downloaded_at": "2026-09-17T23:01:32+00:00",
+      "accessed_at": "2026-09-17T23:23:14+00:00",
+      "license": "Website terms not specified",
+      "license_status": "local-use-only-review-before-redistribution",
+      "source_tier": "Tier 1",
+      "rag_role": [
+        "dataset_context"
+      ],
+      "file_type": "html",
+      "sha256": "92d368315b74f77ed322776b1f7734d81d57a7f749491e3f1806933c17a4cec5",
+      "status": "available",
+      "notes": ""
+    },
+    {
+      "source_id": "PADERBORN_OPERATING_CONDITIONS",
+      "title": "Operating Conditions",
+      "publisher": "Paderborn University, KAt",
+      "source_type": "official_web_page",
+      "official_url": "https://mb.uni-paderborn.de/kat/forschung/bearing-datacenter/operating-conditions",
+      "local_path": "knowledge/bearing_v1/paderborn/operating_conditions.html",
+      "downloaded_at": "2026-09-17T23:01:33+00:00",
+      "accessed_at": "2026-09-17T23:23:14+00:00",
+      "license": "Website terms not specified",
+      "license_status": "local-use-only-review-before-redistribution",
+      "source_tier": "Tier 1",
+      "rag_role": [
+        "dataset_context",
+        "ground_truth"
+      ],
+      "file_type": "html",
+      "sha256": "274c48703b953d1b7a57bce93bf655162b9174f204a48787fea7e1b4470845c7",
+      "status": "available",
+      "notes": ""
+    },
+    {
+      "source_id": "PADERBORN_PUBLICATION",
+      "title": "Publication and References",
+      "publisher": "Paderborn University, KAt",
+      "source_type": "official_web_page",
+      "official_url": "https://mb.uni-paderborn.de/en/kat/research/bearing-datacenter/publication-and-references",
+      "local_path": "knowledge/bearing_v1/paderborn/publication_and_references.html",
+      "downloaded_at": "2026-09-17T23:01:34+00:00",
+      "accessed_at": "2026-09-17T23:23:14+00:00",
+      "license": "Website terms not specified",
+      "license_status": "local-use-only-review-before-redistribution",
+      "source_tier": "Tier 1",
+      "rag_role": [
+        "dataset_context"
+      ],
+      "file_type": "html",
+      "sha256": "1a5524326c5d59e19042220bfffb2382217cc20afeb4f0a3f750c6ef3acf7322",
+      "status": "available",
+      "notes": ""
+    },
+    {
+      "source_id": "PADERBORN_BENCHMARK_PAPER",
+      "title": "Condition Monitoring of Bearing Damage in Electromechanical Drive Systems",
+      "publisher": "Paderborn University, KAt",
+      "source_type": "official_publication",
+      "official_url": "https://mb.uni-paderborn.de/fileadmin-mb/kat/PDF/Veroeffentlichungen/20160703_PHME16_CM_bearing.pdf",
+      "local_path": "knowledge/bearing_v1/paderborn/paderborn_bearing_benchmark_paper.pdf",
+      "downloaded_at": "2026-09-17T23:01:41+00:00",
+      "accessed_at": "2026-09-17T23:23:14+00:00",
+      "license": "CC Attribution 3.0 United States",
+      "license_status": "attribution-required",
+      "source_tier": "Tier 1",
+      "rag_role": [
+        "dataset_context",
+        "ground_truth"
+      ],
+      "file_type": "pdf",
+      "sha256": "c1f75c79cfbcbcbfd24b32bf034cebb76d1c3ff7864827575d37387bb0955f84",
+      "status": "available",
+      "notes": ""
+    },
+    {
+      "source_id": "SKF_VIBRATION_DIAGNOSTIC_GUIDE",
+      "title": "Vibration Diagnostic Guide (CM5003 EN)",
+      "publisher": "SKF",
+      "source_type": "manufacturer_technical_guide",
+      "official_url": "https://skftechnicalsupport.zendesk.com/hc/en-us/article_attachments/360042513054",
+      "local_path": "knowledge/bearing_v1/vibration_diagnosis/skf_vibration_diagnostic_guide.pdf",
+      "downloaded_at": "2026-09-17T23:01:42+00:00",
+      "accessed_at": "2026-09-17T23:23:14+00:00",
+      "license": "SKF copyright; redistribution not granted",
+      "license_status": "local-use-only-review-before-redistribution",
+      "source_tier": "Tier 2",
+      "rag_role": [
+        "vibration_diagnosis"
+      ],
+      "file_type": "pdf",
+      "sha256": "e20c676b2a532da1acdcd2d398e02c5787e54a738288ce1773b345beb2e1bcf6",
+      "status": "available",
+      "notes": "Official SKF Technical Support attachment. The CDN URL in STEP 02A returned HTTP 404 at acquisition time."
+    },
+    {
+      "source_id": "SKF_BEARING_DAMAGE_FAILURE_ANALYSIS",
+      "title": "Bearing Damage and Failure Analysis (PUB BU/I3 14219/3 EN)",
+      "publisher": "SKF",
+      "source_type": "manufacturer_technical_guide",
+      "official_url": "https://cdn.skfmediahub.skf.com/api/public/093168a92d25cc46/pdf_preview_medium/14219_3_EN_-_Bearing_failures_LOW_pdf_preview_medium.pdf",
+      "local_path": "knowledge/bearing_v1/failure_analysis/skf_bearing_damage_failure_analysis.pdf",
+      "downloaded_at": "2026-09-17T23:01:44+00:00",
+      "accessed_at": "2026-09-17T23:23:14+00:00",
+      "license": "SKF Group 2025; all rights reserved",
+      "license_status": "local-use-only-review-before-redistribution",
+      "source_tier": "Tier 2",
+      "rag_role": [
+        "failure_analysis",
+        "inspection",
+        "maintenance"
+      ],
+      "file_type": "pdf",
+      "sha256": "f9474ccf8b489b810c0456d36464a327c1f01988e910bfd60c9cfeb9a2990b00",
+      "status": "available",
+      "notes": "Current 2025 official SKF edition. The older CDN URL in STEP 02A returned HTTP 404 at acquisition time."
+    }
+  ]
+}

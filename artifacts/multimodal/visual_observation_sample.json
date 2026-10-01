@@ -1,0 +1,25 @@
+{
+  "image_id": "image_535497ab771e4adca2a215514e09cf3f",
+  "provider": "local",
+  "model": "pillow-quality-observer-v1",
+  "observations": [
+    {
+      "observation_id": "visual_7707f9512d47bab6aac1",
+      "category": "image_quality",
+      "description": "Image quality is directly measurable at 720×480; mean brightness 61.9, contrast 37.4.",
+      "confidence_level": "high"
+    }
+  ],
+  "visible_components": [],
+  "quality": "USABLE",
+  "limitations": [
+    "The local observer evaluates image quality only; it does not identify internal bearing faults or confirm equipment safety."
+  ],
+  "metrics": {
+    "brightness": 61.906733217592596,
+    "contrast": 37.42779579337819,
+    "edge_variance": 1078.6911404256605
+  },
+  "analysis_error": null,
+  "created_at": "2026-09-18T15:44:10.034008Z"
+}

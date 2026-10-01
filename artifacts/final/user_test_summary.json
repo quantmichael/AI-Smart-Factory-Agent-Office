@@ -1,0 +1,7 @@
+{
+  "status": "NOT_COMPLETED",
+  "required_participants": 5,
+  "completed_participants": 0,
+  "reason": "No real external participants were available in this execution environment; no synthetic responses were created.",
+  "artifact": "artifacts/user_test/participant_results.csv"
+}

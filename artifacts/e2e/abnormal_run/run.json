@@ -1,0 +1,66 @@
+{
+  "run_id": "run_15db7993a01b45deafe48d2a25cee614",
+  "measurement_id": "paderborn:KA01:N09_M07_F10:01",
+  "workflow_status": "COMPLETED",
+  "version_trace": {
+    "application_version": "0.1.0",
+    "model_id": "bearing_rf_binary_v1",
+    "model_version": "1.0",
+    "knowledge_pack_id": "bearing_v1",
+    "knowledge_manifest_version": "1.0",
+    "workflow_version": "diagnosis_core_v1"
+  },
+  "evidence_status": "SUFFICIENT",
+  "memory_used_ids": [
+    "memory_7e1ffa71dab1562ac502",
+    "memory_f342abddab7d40fc8be6",
+    "memory_72aa44e944f2a87da211",
+    "memory_db2314a7fee9112bff70",
+    "memory_7aeca531990d345a9bfc",
+    "memory_1f5fd44a8804f2dd2a0d",
+    "memory_7fbc0800a65491ab13e5",
+    "memory_b57ee2994ed5f091f9b8",
+    "memory_e7cd43502a2e34e205dc",
+    "memory_acc3ee4bbeb22c10c323",
+    "memory_c1719592542f8273624c",
+    "memory_553a74dfe294dc88f181",
+    "memory_50ded672eae4255715cb",
+    "memory_27a3862fc1b901517ab2",
+    "memory_48ef34ea5d0ab9481ded",
+    "memory_dc70cf1a8a10478a8aa8",
+    "memory_347aa89bda0713fda89a",
+    "memory_763fa7b8a54846b302df",
+    "memory_b167874b225e253ce870",
+    "memory_329269362ee030dba4b0",
+    "memory_d4096d8b551592e60018",
+    "memory_a43fe82ca82aa71172f7"
+  ],
+  "visual_observations": [
+    {
+      "image_id": "image_dbfe90bb9ed545f5a72c2b2ebb3e0727",
+      "provider": "local",
+      "model": "pillow-quality-observer-v1",
+      "observations": [
+        {
+          "observation_id": "visual_8f70d588ec62f02f2e78",
+          "category": "image_quality",
+          "description": "Image quality is directly measurable at 720×480; mean brightness 61.9, contrast 37.4.",
+          "confidence_level": "high"
+        }
+      ],
+      "visible_components": [],
+      "quality": "USABLE",
+      "limitations": [
+        "The local observer evaluates image quality only; it does not identify internal bearing faults or confirm equipment safety."
+      ],
+      "metrics": {
+        "brightness": 61.906733217592596,
+        "contrast": 37.42779579337819,
+        "edge_variance": 1078.6911404256605
+      },
+      "analysis_error": null,
+      "created_at": "2026-09-18T22:40:02.397124Z"
+    }
+  ],
+  "elapsed_ms": 139.98525007627904
+}

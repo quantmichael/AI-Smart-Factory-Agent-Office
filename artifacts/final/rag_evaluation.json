@@ -1,0 +1,19 @@
+{
+  "case_count": 24,
+  "answerable_case_count": 23,
+  "unanswerable_case_count": 1,
+  "empty_result_rate": 0,
+  "mrr": 0.8623188405797102,
+  "hit_at_3": 0.9130434782608695,
+  "recall_at_3": 0.9130434782608695,
+  "hit_at_5": 0.9130434782608695,
+  "recall_at_5": 0.9130434782608695,
+  "expected_source_hit_rate_at_5": 0.9130434782608695,
+  "failure_case_ids_at_5": [
+    "dataset_signals",
+    "paderborn_damage_taxonomy"
+  ],
+  "unanswerable_nonempty_case_ids": [
+    "unanswerable_plc_recipe"
+  ]
+}

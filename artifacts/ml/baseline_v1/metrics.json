@@ -1,0 +1,520 @@
+{
+  "aggregation_rule": "mean damaged-class probability; threshold=0.5",
+  "window_level": {
+    "sample_count": 239,
+    "accuracy": 1.0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "roc_auc": 1.0,
+    "damaged_recall": 1.0,
+    "confusion_matrix": [
+      [
+        80,
+        0
+      ],
+      [
+        0,
+        159
+      ]
+    ]
+  },
+  "measurement_level": {
+    "sample_count": 60,
+    "accuracy": 1.0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "roc_auc": 1.0,
+    "damaged_recall": 1.0,
+    "confusion_matrix": [
+      [
+        20,
+        0
+      ],
+      [
+        0,
+        40
+      ]
+    ]
+  },
+  "bearing_level": {
+    "sample_count": 3,
+    "accuracy": 1.0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "roc_auc": 1.0,
+    "damaged_recall": 1.0,
+    "confusion_matrix": [
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        2
+      ]
+    ]
+  },
+  "operating_condition": {
+    "N09_M07_F10": {
+      "sample_count": 56,
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "roc_auc": 1.0,
+      "damaged_recall": 1.0,
+      "confusion_matrix": [
+        [
+          20,
+          0
+        ],
+        [
+          0,
+          36
+        ]
+      ]
+    },
+    "N15_M01_F10": {
+      "sample_count": 60,
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "roc_auc": 1.0,
+      "damaged_recall": 1.0,
+      "confusion_matrix": [
+        [
+          20,
+          0
+        ],
+        [
+          0,
+          40
+        ]
+      ]
+    },
+    "N15_M07_F04": {
+      "sample_count": 59,
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "roc_auc": 1.0,
+      "damaged_recall": 1.0,
+      "confusion_matrix": [
+        [
+          12,
+          0
+        ],
+        [
+          0,
+          47
+        ]
+      ]
+    },
+    "N15_M07_F10": {
+      "sample_count": 64,
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "roc_auc": 1.0,
+      "damaged_recall": 1.0,
+      "confusion_matrix": [
+        [
+          28,
+          0
+        ],
+        [
+          0,
+          36
+        ]
+      ]
+    }
+  },
+  "measurement_predictions": [
+    {
+      "group": "paderborn:K001:N09_M07_F10:01",
+      "ground_truth": "healthy",
+      "probability_damaged": 0.0,
+      "window_count": 4
+    },
+    {
+      "group": "paderborn:K001:N09_M07_F10:03",
+      "ground_truth": "healthy",
+      "probability_damaged": 0.0016666666666666668,
+      "window_count": 4
+    },
+    {
+      "group": "paderborn:K001:N09_M07_F10:06",
+      "ground_truth": "healthy",
+      "probability_damaged": 0.0008333333333333334,
+      "window_count": 4
+    },
+    {
+      "group": "paderborn:K001:N09_M07_F10:09",
+      "ground_truth": "healthy",
+      "probability_damaged": 0.0008333333333333334,
+      "window_count": 4
+    },
+    {
+      "group": "paderborn:K001:N09_M07_F10:15",
+      "ground_truth": "healthy",
+      "probability_damaged": 0.004861111111111111,
+      "window_count": 4
+    },
+    {
+      "group": "paderborn:K001:N15_M01_F10:04",
+      "ground_truth": "healthy",
+      "probability_damaged": 0.0,
+      "window_count": 4
+    },
+    {
+      "group": "paderborn:K001:N15_M01_F10:07",
+      "ground_truth": "healthy",
+      "probability_damaged": 0.0,
+      "window_count": 4
+    },
+    {
+      "group": "paderborn:K001:N15_M01_F10:08",
+      "ground_truth": "healthy",
+      "probability_damaged": 0.003611111111111111,
+      "window_count": 4
+    },
+    {
+      "group": "paderborn:K001:N15_M01_F10:10",
+      "ground_truth": "healthy",
+      "probability_damaged": 0.0008333333333333334,
+      "window_count": 4
+    },
+    {
+      "group": "paderborn:K001:N15_M01_F10:17",
+      "ground_truth": "healthy",
+      "probability_damaged": 0.0,
+      "window_count": 4
+    },
+    {
+      "group": "paderborn:K001:N15_M07_F04:02",
+      "ground_truth": "healthy",
+      "probability_damaged": 0.0,
+      "window_count": 4
+    },
+    {
+      "group": "paderborn:K001:N15_M07_F04:04",
+      "ground_truth": "healthy",
+      "probability_damaged": 0.0008333333333333334,
+      "window_count": 4
+    },
+    {
+      "group": "paderborn:K001:N15_M07_F04:11",
+      "ground_truth": "healthy",
+      "probability_damaged": 0.005,
+      "window_count": 4
+    },
+    {
+      "group": "paderborn:K001:N15_M07_F10:02",
+      "ground_truth": "healthy",
+      "probability_damaged": 0.0016666666666666668,
+      "window_count": 4
+    },
+    {
+      "group": "paderborn:K001:N15_M07_F10:11",
+      "ground_truth": "healthy",
+      "probability_damaged": 0.0033333333333333335,
+      "window_count": 4
+    },
+    {
+      "group": "paderborn:K001:N15_M07_F10:12",
+      "ground_truth": "healthy",
+      "probability_damaged": 0.006666666666666667,
+      "window_count": 4
+    },
+    {
+      "group": "paderborn:K001:N15_M07_F10:14",
+      "ground_truth": "healthy",
+      "probability_damaged": 0.005,
+      "window_count": 4
+    },
+    {
+      "group": "paderborn:K001:N15_M07_F10:15",
+      "ground_truth": "healthy",
+      "probability_damaged": 0.0,
+      "window_count": 4
+    },
+    {
+      "group": "paderborn:K001:N15_M07_F10:17",
+      "ground_truth": "healthy",
+      "probability_damaged": 0.0025,
+      "window_count": 4
+    },
+    {
+      "group": "paderborn:K001:N15_M07_F10:19",
+      "ground_truth": "healthy",
+      "probability_damaged": 0.0033333333333333335,
+      "window_count": 4
+    },
+    {
+      "group": "paderborn:KA01:N09_M07_F10:02",
+      "ground_truth": "damaged",
+      "probability_damaged": 1.0,
+      "window_count": 4
+    },
+    {
+      "group": "paderborn:KA01:N09_M07_F10:04",
+      "ground_truth": "damaged",
+      "probability_damaged": 0.9995833333333333,
+      "window_count": 4
+    },
+    {
+      "group": "paderborn:KA01:N09_M07_F10:14",
+      "ground_truth": "damaged",
+      "probability_damaged": 0.9995833333333333,
+      "window_count": 4
+    },
+    {
+      "group": "paderborn:KA01:N09_M07_F10:15",
+      "ground_truth": "damaged",
+      "probability_damaged": 0.99875,
+      "window_count": 4
+    },
+    {
+      "group": "paderborn:KA01:N09_M07_F10:18",
+      "ground_truth": "damaged",
+      "probability_damaged": 1.0,
+      "window_count": 4
+    },
+    {
+      "group": "paderborn:KA01:N15_M01_F10:01",
+      "ground_truth": "damaged",
+      "probability_damaged": 1.0,
+      "window_count": 4
+    },
+    {
+      "group": "paderborn:KA01:N15_M01_F10:02",
+      "ground_truth": "damaged",
+      "probability_damaged": 1.0,
+      "window_count": 4
+    },
+    {
+      "group": "paderborn:KA01:N15_M01_F10:18",
+      "ground_truth": "damaged",
+      "probability_damaged": 1.0,
+      "window_count": 4
+    },
+    {
+      "group": "paderborn:KA01:N15_M01_F10:19",
+      "ground_truth": "damaged",
+      "probability_damaged": 1.0,
+      "window_count": 4
+    },
+    {
+      "group": "paderborn:KA01:N15_M07_F04:09",
+      "ground_truth": "damaged",
+      "probability_damaged": 0.9997222222222222,
+      "window_count": 4
+    },
+    {
+      "group": "paderborn:KA01:N15_M07_F04:11",
+      "ground_truth": "damaged",
+      "probability_damaged": 1.0,
+      "window_count": 4
+    },
+    {
+      "group": "paderborn:KA01:N15_M07_F04:13",
+      "ground_truth": "damaged",
+      "probability_damaged": 1.0,
+      "window_count": 3
+    },
+    {
+      "group": "paderborn:KA01:N15_M07_F04:15",
+      "ground_truth": "damaged",
+      "probability_damaged": 1.0,
+      "window_count": 4
+    },
+    {
+      "group": "paderborn:KA01:N15_M07_F04:18",
+      "ground_truth": "damaged",
+      "probability_damaged": 1.0,
+      "window_count": 4
+    },
+    {
+      "group": "paderborn:KA01:N15_M07_F04:19",
+      "ground_truth": "damaged",
+      "probability_damaged": 1.0,
+      "window_count": 4
+    },
+    {
+      "group": "paderborn:KA01:N15_M07_F04:20",
+      "ground_truth": "damaged",
+      "probability_damaged": 1.0,
+      "window_count": 4
+    },
+    {
+      "group": "paderborn:KA01:N15_M07_F10:04",
+      "ground_truth": "damaged",
+      "probability_damaged": 1.0,
+      "window_count": 4
+    },
+    {
+      "group": "paderborn:KA01:N15_M07_F10:12",
+      "ground_truth": "damaged",
+      "probability_damaged": 1.0,
+      "window_count": 4
+    },
+    {
+      "group": "paderborn:KA01:N15_M07_F10:13",
+      "ground_truth": "damaged",
+      "probability_damaged": 1.0,
+      "window_count": 4
+    },
+    {
+      "group": "paderborn:KA01:N15_M07_F10:15",
+      "ground_truth": "damaged",
+      "probability_damaged": 1.0,
+      "window_count": 4
+    },
+    {
+      "group": "paderborn:KI01:N09_M07_F10:08",
+      "ground_truth": "damaged",
+      "probability_damaged": 0.9973611111111111,
+      "window_count": 4
+    },
+    {
+      "group": "paderborn:KI01:N09_M07_F10:09",
+      "ground_truth": "damaged",
+      "probability_damaged": 0.9991666666666666,
+      "window_count": 4
+    },
+    {
+      "group": "paderborn:KI01:N09_M07_F10:13",
+      "ground_truth": "damaged",
+      "probability_damaged": 0.99875,
+      "window_count": 4
+    },
+    {
+      "group": "paderborn:KI01:N09_M07_F10:20",
+      "ground_truth": "damaged",
+      "probability_damaged": 0.9952222222222222,
+      "window_count": 4
+    },
+    {
+      "group": "paderborn:KI01:N15_M01_F10:03",
+      "ground_truth": "damaged",
+      "probability_damaged": 0.9997222222222222,
+      "window_count": 4
+    },
+    {
+      "group": "paderborn:KI01:N15_M01_F10:04",
+      "ground_truth": "damaged",
+      "probability_damaged": 0.9993055555555556,
+      "window_count": 4
+    },
+    {
+      "group": "paderborn:KI01:N15_M01_F10:07",
+      "ground_truth": "damaged",
+      "probability_damaged": 1.0,
+      "window_count": 4
+    },
+    {
+      "group": "paderborn:KI01:N15_M01_F10:08",
+      "ground_truth": "damaged",
+      "probability_damaged": 1.0,
+      "window_count": 4
+    },
+    {
+      "group": "paderborn:KI01:N15_M01_F10:14",
+      "ground_truth": "damaged",
+      "probability_damaged": 0.9991666666666665,
+      "window_count": 4
+    },
+    {
+      "group": "paderborn:KI01:N15_M01_F10:17",
+      "ground_truth": "damaged",
+      "probability_damaged": 0.9995833333333333,
+      "window_count": 4
+    },
+    {
+      "group": "paderborn:KI01:N15_M07_F04:02",
+      "ground_truth": "damaged",
+      "probability_damaged": 0.996875,
+      "window_count": 4
+    },
+    {
+      "group": "paderborn:KI01:N15_M07_F04:10",
+      "ground_truth": "damaged",
+      "probability_damaged": 1.0,
+      "window_count": 4
+    },
+    {
+      "group": "paderborn:KI01:N15_M07_F04:11",
+      "ground_truth": "damaged",
+      "probability_damaged": 1.0,
+      "window_count": 4
+    },
+    {
+      "group": "paderborn:KI01:N15_M07_F04:14",
+      "ground_truth": "damaged",
+      "probability_damaged": 1.0,
+      "window_count": 4
+    },
+    {
+      "group": "paderborn:KI01:N15_M07_F04:18",
+      "ground_truth": "damaged",
+      "probability_damaged": 0.9991666666666666,
+      "window_count": 4
+    },
+    {
+      "group": "paderborn:KI01:N15_M07_F10:01",
+      "ground_truth": "damaged",
+      "probability_damaged": 0.9403935185185186,
+      "window_count": 4
+    },
+    {
+      "group": "paderborn:KI01:N15_M07_F10:11",
+      "ground_truth": "damaged",
+      "probability_damaged": 1.0,
+      "window_count": 4
+    },
+    {
+      "group": "paderborn:KI01:N15_M07_F10:15",
+      "ground_truth": "damaged",
+      "probability_damaged": 0.9981018518518519,
+      "window_count": 4
+    },
+    {
+      "group": "paderborn:KI01:N15_M07_F10:18",
+      "ground_truth": "damaged",
+      "probability_damaged": 0.9987499999999999,
+      "window_count": 4
+    },
+    {
+      "group": "paderborn:KI01:N15_M07_F10:20",
+      "ground_truth": "damaged",
+      "probability_damaged": 1.0,
+      "window_count": 4
+    }
+  ],
+  "bearing_predictions": [
+    {
+      "group": "K001",
+      "ground_truth": "healthy",
+      "probability_damaged": 0.0020486111111111113,
+      "window_count": 80
+    },
+    {
+      "group": "KA01",
+      "ground_truth": "damaged",
+      "probability_damaged": 0.9998804500703236,
+      "window_count": 79
+    },
+    {
+      "group": "KI01",
+      "ground_truth": "damaged",
+      "probability_damaged": 0.9960782407407409,
+      "window_count": 80
+    }
+  ]
+}

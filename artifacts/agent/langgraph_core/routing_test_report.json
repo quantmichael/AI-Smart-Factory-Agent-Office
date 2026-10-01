@@ -1,0 +1,14 @@
+{
+  "normal": "normal",
+  "abnormal": "abnormal",
+  "evidence_routes": {
+    "SUFFICIENT": "sufficient",
+    "PARTIAL": "refine",
+    "INSUFFICIENT": "additional_information",
+    "CONFLICTING": "counter_evidence"
+  },
+  "partial_at_retry_limit": "additional_information",
+  "conflicting_at_retry_limit": "additional_information",
+  "max_retrieval_retries": 2,
+  "checkpoint_reload_verified": true
+}

@@ -1,0 +1,1767 @@
+{
+  "waiting_checkpoint": {
+    "run_id": "run_step09_information_20260918T043924163474Z",
+    "measurement_id": "paderborn:KA01:N09_M07_F10:01",
+    "workflow_status": "WAITING",
+    "current_node": "request_additional_information",
+    "next_action": "ADDITIONAL_INFORMATION_REQUIRED",
+    "analysis_result": {
+      "analysis_id": "analysis_c351fa00185d42b0aa3e73bd070b29a3",
+      "model_id": "bearing_rf_binary_v1",
+      "status": "abnormal",
+      "predicted_class": "damaged",
+      "confidence": 1.0,
+      "signal_features": {
+        "rms": 0.22815111501008384,
+        "kurtosis": 12.75192826448162,
+        "crest_factor": 9.318470394395934,
+        "dominant_frequency_hz": 6074.75
+      }
+    },
+    "evidence_status": "INSUFFICIENT",
+    "evidence": [
+      {
+        "evidence_id": "evidence_b2e89b31c137c8501bb7",
+        "query_id": "query_cfa3b50c7a84a106e12a",
+        "purpose": "DIAGNOSTIC_EVIDENCE",
+        "document_id": "skf_vibration_diagnostic_guide",
+        "chunk_id": "skf_vibration_diagnostic_guide:p0008:sd45feb2c:c0008",
+        "source_id": "SKF_VIBRATION_DIAGNOSTIC_GUIDE",
+        "title": "Vibration Diagnostic Guide (CM5003 EN)",
+        "publisher": "SKF",
+        "source_tier": 2,
+        "page": 8,
+        "section": "Circumstances that can cause acoustic emissions include:",
+        "retrieval_score": 0.2959761619567871,
+        "official_url": "https://skftechnicalsupport.zendesk.com/hc/en-us/article_attachments/360042513054"
+      },
+      {
+        "evidence_id": "evidence_ce12f5e6ce483312aea5",
+        "query_id": "query_cfa3b50c7a84a106e12a",
+        "purpose": "DIAGNOSTIC_EVIDENCE",
+        "document_id": "skf_vibration_diagnostic_guide",
+        "chunk_id": "skf_vibration_diagnostic_guide:p0007:s4b35a1e0:c0007",
+        "source_id": "SKF_VIBRATION_DIAGNOSTIC_GUIDE",
+        "title": "Vibration Diagnostic Guide (CM5003 EN)",
+        "publisher": "SKF",
+        "source_tier": 2,
+        "page": 7,
+        "section": "By mounting accelerometers at strategic points on bearings, we can",
+        "retrieval_score": 0.28823769092559814,
+        "official_url": "https://skftechnicalsupport.zendesk.com/hc/en-us/article_attachments/360042513054"
+      },
+      {
+        "evidence_id": "evidence_3db1d495f7a0e361c6f8",
+        "query_id": "query_cfa3b50c7a84a106e12a",
+        "purpose": "DIAGNOSTIC_EVIDENCE",
+        "document_id": "paderborn_benchmark_paper",
+        "chunk_id": "paderborn_benchmark_paper:p0011:s6756c020:c0011",
+        "source_id": "PADERBORN_BENCHMARK_PAPER",
+        "title": "Condition Monitoring of Bearing Damage in Electromechanical Drive Systems",
+        "publisher": "Paderborn University, KAt",
+        "source_tier": 1,
+        "page": 11,
+        "section": "EUROPEAN CONFERENCE OF THE PROGNOSTICS AND HEALTH MANAGEMENT SOCIETY 2016",
+        "retrieval_score": 0.28770697116851807,
+        "official_url": "https://mb.uni-paderborn.de/fileadmin-mb/kat/PDF/Veroeffentlichungen/20160703_PHME16_CM_bearing.pdf"
+      },
+      {
+        "evidence_id": "evidence_d6135675831b0f78613d",
+        "query_id": "query_cfa3b50c7a84a106e12a",
+        "purpose": "DIAGNOSTIC_EVIDENCE",
+        "document_id": "skf_bearing_damage_failure_analysis",
+        "chunk_id": "skf_bearing_damage_failure_analysis:p0031:s385b1829:c0035",
+        "source_id": "SKF_BEARING_DAMAGE_FAILURE_ANALYSIS",
+        "title": "Bearing Damage and Failure Analysis (PUB BU/I3 14219/3 EN)",
+        "publisher": "SKF",
+        "source_tier": 2,
+        "page": 31,
+        "section": "a thorough inspection can provide valuable",
+        "retrieval_score": 0.2865733504295349,
+        "official_url": "https://cdn.skfmediahub.skf.com/api/public/093168a92d25cc46/pdf_preview_medium/14219_3_EN_-_Bearing_failures_LOW_pdf_preview_medium.pdf"
+      },
+      {
+        "evidence_id": "evidence_6f6bf21e107dca6d683a",
+        "query_id": "query_cfa3b50c7a84a106e12a",
+        "purpose": "DIAGNOSTIC_EVIDENCE",
+        "document_id": "paderborn_benchmark_paper",
+        "chunk_id": "paderborn_benchmark_paper:p0006:s6756c020:c0006",
+        "source_id": "PADERBORN_BENCHMARK_PAPER",
+        "title": "Condition Monitoring of Bearing Damage in Electromechanical Drive Systems",
+        "publisher": "Paderborn University, KAt",
+        "source_tier": 1,
+        "page": 6,
+        "section": "EUROPEAN CONFERENCE OF THE PROGNOSTICS AND HEALTH MANAGEMENT SOCIETY 2016",
+        "retrieval_score": 0.27683258056640625,
+        "official_url": "https://mb.uni-paderborn.de/fileadmin-mb/kat/PDF/Veroeffentlichungen/20160703_PHME16_CM_bearing.pdf"
+      },
+      {
+        "evidence_id": "evidence_a9755079d39e35d0a14d",
+        "query_id": "query_f2315937467588398ee6",
+        "purpose": "INSPECTION_ACTION",
+        "document_id": "skf_vibration_diagnostic_guide",
+        "chunk_id": "skf_vibration_diagnostic_guide:p0002:s27b44c8b:c0001",
+        "source_id": "SKF_VIBRATION_DIAGNOSTIC_GUIDE",
+        "title": "Vibration Diagnostic Guide (CM5003 EN)",
+        "publisher": "SKF",
+        "source_tier": 2,
+        "page": 2,
+        "section": "The SKF brand now stands for more",
+        "retrieval_score": 0.27453887462615967,
+        "official_url": "https://skftechnicalsupport.zendesk.com/hc/en-us/article_attachments/360042513054"
+      },
+      {
+        "evidence_id": "evidence_f1500a04e31beef90ea8",
+        "query_id": "query_f2315937467588398ee6",
+        "purpose": "INSPECTION_ACTION",
+        "document_id": "skf_bearing_damage_failure_analysis",
+        "chunk_id": "skf_bearing_damage_failure_analysis:p0001:s6f851918:c0000",
+        "source_id": "SKF_BEARING_DAMAGE_FAILURE_ANALYSIS",
+        "title": "Bearing Damage and Failure Analysis (PUB BU/I3 14219/3 EN)",
+        "publisher": "SKF",
+        "source_tier": 2,
+        "page": 1,
+        "section": "BEARING DAMAGE",
+        "retrieval_score": 0.26028966903686523,
+        "official_url": "https://cdn.skfmediahub.skf.com/api/public/093168a92d25cc46/pdf_preview_medium/14219_3_EN_-_Bearing_failures_LOW_pdf_preview_medium.pdf"
+      },
+      {
+        "evidence_id": "evidence_bd1513bf0fdda8cdf9a2",
+        "query_id": "query_f2315937467588398ee6",
+        "purpose": "INSPECTION_ACTION",
+        "document_id": "skf_bearing_damage_failure_analysis",
+        "chunk_id": "skf_bearing_damage_failure_analysis:p0010:s33de389c:c0014",
+        "source_id": "SKF_BEARING_DAMAGE_FAILURE_ANALYSIS",
+        "title": "Bearing Damage and Failure Analysis (PUB BU/I3 14219/3 EN)",
+        "publisher": "SKF",
+        "source_tier": 2,
+        "page": 10,
+        "section": "2 Inspection and troubleshooting",
+        "retrieval_score": 0.2411031723022461,
+        "official_url": "https://cdn.skfmediahub.skf.com/api/public/093168a92d25cc46/pdf_preview_medium/14219_3_EN_-_Bearing_failures_LOW_pdf_preview_medium.pdf"
+      },
+      {
+        "evidence_id": "evidence_a18f619e708185a94d57",
+        "query_id": "query_f2315937467588398ee6",
+        "purpose": "INSPECTION_ACTION",
+        "document_id": "skf_bearing_damage_failure_analysis",
+        "chunk_id": "skf_bearing_damage_failure_analysis:p0090:sbd452a7e:c0094",
+        "source_id": "SKF_BEARING_DAMAGE_FAILURE_ANALYSIS",
+        "title": "Bearing Damage and Failure Analysis (PUB BU/I3 14219/3 EN)",
+        "publisher": "SKF",
+        "source_tier": 2,
+        "page": 90,
+        "section": "Background information",
+        "retrieval_score": 0.22866040468215942,
+        "official_url": "https://cdn.skfmediahub.skf.com/api/public/093168a92d25cc46/pdf_preview_medium/14219_3_EN_-_Bearing_failures_LOW_pdf_preview_medium.pdf"
+      }
+    ],
+    "diagnosis_candidates": [
+      {
+        "candidate_id": "candidate_d90000f6aa25d30f",
+        "fault_type": "bearing_condition_anomaly",
+        "summary": "The ML result classified the measurement as damaged. Retrieved technical documents provide related diagnostic and inspection context, but do not by themselves establish a specific physical root cause.",
+        "supporting_evidence_ids": [
+          "evidence_b2e89b31c137c8501bb7",
+          "evidence_ce12f5e6ce483312aea5",
+          "evidence_3db1d495f7a0e361c6f8",
+          "evidence_d6135675831b0f78613d",
+          "evidence_6f6bf21e107dca6d683a",
+          "evidence_a9755079d39e35d0a14d",
+          "evidence_f1500a04e31beef90ea8",
+          "evidence_bd1513bf0fdda8cdf9a2"
+        ],
+        "contradicting_evidence_ids": [],
+        "confidence_level": "low",
+        "uncertainties": [
+          "The ML confidence is not a calibrated equipment-failure probability.",
+          "A specific physical failure mechanism requires inspection evidence."
+        ]
+      }
+    ],
+    "inspection_plan": [],
+    "recommended_actions": [],
+    "pending_human_request": {
+      "request_id": "request_54d4148990eae4967351",
+      "run_id": "run_step09_information_20260918T043924163474Z",
+      "request_type": "ADDITIONAL_INFORMATION",
+      "question": "Provide the requested observations without changing the ML analysis result.",
+      "requested_fields": [
+        "inspection_observation",
+        "operating_condition_confirmation"
+      ],
+      "reason": "inspection observation",
+      "related_candidate_ids": [
+        "candidate_d90000f6aa25d30f"
+      ],
+      "action_id": null,
+      "created_at": "2026-09-18T04:39:24.667413Z"
+    },
+    "human_interactions": [],
+    "human_observations": [],
+    "human_information_round_count": 0,
+    "action_revision_count": 0,
+    "final_report": null,
+    "events": [
+      {
+        "event_id": "event_f06572ca77425021c0cc",
+        "run_id": "run_step09_information_20260918T043924163474Z",
+        "sequence": 1,
+        "event_type": "workflow_started",
+        "node": "initialize_run",
+        "agent_role": "SYSTEM",
+        "message": "Workflow started.",
+        "payload": {
+          "max_retrieval_retries": 2
+        },
+        "created_at": "2026-09-18T04:39:24.593917Z"
+      },
+      {
+        "event_id": "event_705a3c7839a4b0132b34",
+        "run_id": "run_step09_information_20260918T043924163474Z",
+        "sequence": 2,
+        "event_type": "node_started",
+        "node": "initialize_run",
+        "agent_role": "SYSTEM",
+        "message": "initialize_run started.",
+        "payload": {
+          "max_retrieval_retries": 2
+        },
+        "created_at": "2026-09-18T04:39:24.593929Z"
+      },
+      {
+        "event_id": "event_769eeadb9210e1c87bec",
+        "run_id": "run_step09_information_20260918T043924163474Z",
+        "sequence": 3,
+        "event_type": "node_completed",
+        "node": "initialize_run",
+        "agent_role": "SYSTEM",
+        "message": "Workflow initialized.",
+        "payload": {
+          "max_retrieval_retries": 2
+        },
+        "created_at": "2026-09-18T04:39:24.593934Z"
+      },
+      {
+        "event_id": "event_50f08e3aacd60a1b4ffc",
+        "run_id": "run_step09_information_20260918T043924163474Z",
+        "sequence": 4,
+        "event_type": "node_started",
+        "node": "load_sensor_data",
+        "agent_role": "SENSOR_AGENT",
+        "message": "load_sensor_data started.",
+        "payload": {
+          "measurement_id": "paderborn:KA01:N09_M07_F10:01"
+        },
+        "created_at": "2026-09-18T04:39:24.594198Z"
+      },
+      {
+        "event_id": "event_7e5d7429b47f00426ad7",
+        "run_id": "run_step09_information_20260918T043924163474Z",
+        "sequence": 5,
+        "event_type": "node_completed",
+        "node": "load_sensor_data",
+        "agent_role": "SENSOR_AGENT",
+        "message": "Measurement metadata loaded.",
+        "payload": {
+          "measurement_id": "paderborn:KA01:N09_M07_F10:01"
+        },
+        "created_at": "2026-09-18T04:39:24.594205Z"
+      },
+      {
+        "event_id": "event_5607d8c5673fa0c80f75",
+        "run_id": "run_step09_information_20260918T043924163474Z",
+        "sequence": 6,
+        "event_type": "node_started",
+        "node": "run_detection",
+        "agent_role": "DETECTION_AGENT",
+        "message": "run_detection started.",
+        "payload": {
+          "analysis_status": "abnormal",
+          "model_id": "bearing_rf_binary_v1"
+        },
+        "created_at": "2026-09-18T04:39:24.659388Z"
+      },
+      {
+        "event_id": "event_3060ed3b4e630498ef05",
+        "run_id": "run_step09_information_20260918T043924163474Z",
+        "sequence": 7,
+        "event_type": "node_completed",
+        "node": "run_detection",
+        "agent_role": "DETECTION_AGENT",
+        "message": "ML detection completed.",
+        "payload": {
+          "analysis_status": "abnormal",
+          "model_id": "bearing_rf_binary_v1"
+        },
+        "created_at": "2026-09-18T04:39:24.659400Z"
+      },
+      {
+        "event_id": "event_62f5196a0e2a428d20bc",
+        "run_id": "run_step09_information_20260918T043924163474Z",
+        "sequence": 8,
+        "event_type": "node_started",
+        "node": "check_abnormal",
+        "agent_role": "DETECTION_AGENT",
+        "message": "check_abnormal started.",
+        "payload": {
+          "status": "abnormal"
+        },
+        "created_at": "2026-09-18T04:39:24.659721Z"
+      },
+      {
+        "event_id": "event_8621a7f87b957bc6c4bd",
+        "run_id": "run_step09_information_20260918T043924163474Z",
+        "sequence": 9,
+        "event_type": "node_completed",
+        "node": "check_abnormal",
+        "agent_role": "DETECTION_AGENT",
+        "message": "Analysis routed to the abnormal path.",
+        "payload": {
+          "status": "abnormal"
+        },
+        "created_at": "2026-09-18T04:39:24.659727Z"
+      },
+      {
+        "event_id": "event_f77a2eb683595a0c7430",
+        "run_id": "run_step09_information_20260918T043924163474Z",
+        "sequence": 10,
+        "event_type": "node_started",
+        "node": "build_rag_query",
+        "agent_role": "RAG_AGENT",
+        "message": "build_rag_query started.",
+        "payload": {
+          "query_count": 2
+        },
+        "created_at": "2026-09-18T04:39:24.660016Z"
+      },
+      {
+        "event_id": "event_d0621c516c1b1e551f1a",
+        "run_id": "run_step09_information_20260918T043924163474Z",
+        "sequence": 11,
+        "event_type": "node_completed",
+        "node": "build_rag_query",
+        "agent_role": "RAG_AGENT",
+        "message": "Purpose-specific RAG queries built.",
+        "payload": {
+          "query_count": 2
+        },
+        "created_at": "2026-09-18T04:39:24.660022Z"
+      },
+      {
+        "event_id": "event_a5993e97e7a4e700c844",
+        "run_id": "run_step09_information_20260918T043924163474Z",
+        "sequence": 12,
+        "event_type": "node_started",
+        "node": "retrieve_knowledge",
+        "agent_role": "RAG_AGENT",
+        "message": "retrieve_knowledge started.",
+        "payload": {
+          "evidence_count": 9,
+          "retry_count": 0
+        },
+        "created_at": "2026-09-18T04:39:24.666533Z"
+      },
+      {
+        "event_id": "event_e82593b6234aef6b0219",
+        "run_id": "run_step09_information_20260918T043924163474Z",
+        "sequence": 13,
+        "event_type": "node_completed",
+        "node": "retrieve_knowledge",
+        "agent_role": "RAG_AGENT",
+        "message": "Technical evidence retrieved.",
+        "payload": {
+          "evidence_count": 9,
+          "retry_count": 0
+        },
+        "created_at": "2026-09-18T04:39:24.666546Z"
+      },
+      {
+        "event_id": "event_f0a66ab910b720cef5b0",
+        "run_id": "run_step09_information_20260918T043924163474Z",
+        "sequence": 14,
+        "event_type": "node_started",
+        "node": "diagnose",
+        "agent_role": "DIAGNOSIS_AGENT",
+        "message": "diagnose started.",
+        "payload": {
+          "candidate_count": 1
+        },
+        "created_at": "2026-09-18T04:39:24.666921Z"
+      },
+      {
+        "event_id": "event_fd708d50292d5703dd37",
+        "run_id": "run_step09_information_20260918T043924163474Z",
+        "sequence": 15,
+        "event_type": "node_completed",
+        "node": "diagnose",
+        "agent_role": "DIAGNOSIS_AGENT",
+        "message": "Evidence-grounded diagnosis candidates created.",
+        "payload": {
+          "candidate_count": 1
+        },
+        "created_at": "2026-09-18T04:39:24.666927Z"
+      },
+      {
+        "event_id": "event_ceec5d07fc85aad60c2c",
+        "run_id": "run_step09_information_20260918T043924163474Z",
+        "sequence": 16,
+        "event_type": "node_started",
+        "node": "verify_evidence",
+        "agent_role": "DIAGNOSIS_AGENT",
+        "message": "verify_evidence started.",
+        "payload": {
+          "evidence_status": "INSUFFICIENT",
+          "retry_count": 0
+        },
+        "created_at": "2026-09-18T04:39:24.667186Z"
+      },
+      {
+        "event_id": "event_c69dda757d1618313d92",
+        "run_id": "run_step09_information_20260918T043924163474Z",
+        "sequence": 17,
+        "event_type": "node_completed",
+        "node": "verify_evidence",
+        "agent_role": "DIAGNOSIS_AGENT",
+        "message": "Evidence coverage verified.",
+        "payload": {
+          "evidence_status": "INSUFFICIENT",
+          "retry_count": 0
+        },
+        "created_at": "2026-09-18T04:39:24.667191Z"
+      },
+      {
+        "event_id": "event_0ea83b6ee62f2097b140",
+        "run_id": "run_step09_information_20260918T043924163474Z",
+        "sequence": 18,
+        "event_type": "node_started",
+        "node": "request_additional_information",
+        "agent_role": "DIAGNOSIS_AGENT",
+        "message": "request_additional_information started.",
+        "payload": {
+          "request_id": "request_54d4148990eae4967351",
+          "requested_fields": [
+            "inspection_observation",
+            "operating_condition_confirmation"
+          ]
+        },
+        "created_at": "2026-09-18T04:39:24.667425Z"
+      },
+      {
+        "event_id": "event_717e8f999d927c3fc393",
+        "run_id": "run_step09_information_20260918T043924163474Z",
+        "sequence": 19,
+        "event_type": "node_completed",
+        "node": "request_additional_information",
+        "agent_role": "DIAGNOSIS_AGENT",
+        "message": "Additional information requested.",
+        "payload": {
+          "request_id": "request_54d4148990eae4967351",
+          "requested_fields": [
+            "inspection_observation",
+            "operating_condition_confirmation"
+          ]
+        },
+        "created_at": "2026-09-18T04:39:24.667430Z"
+      },
+      {
+        "event_id": "event_8b92d039eaf503866cc7",
+        "run_id": "run_step09_information_20260918T043924163474Z",
+        "sequence": 20,
+        "event_type": "human_input_required",
+        "node": "request_additional_information",
+        "agent_role": "DIAGNOSIS_AGENT",
+        "message": "Additional information is required.",
+        "payload": {
+          "request_id": "request_54d4148990eae4967351",
+          "requested_fields": [
+            "inspection_observation",
+            "operating_condition_confirmation"
+          ]
+        },
+        "created_at": "2026-09-18T04:39:24.667435Z"
+      }
+    ],
+    "errors": []
+  },
+  "resumed_result": {
+    "run_id": "run_step09_information_20260918T043924163474Z",
+    "measurement_id": "paderborn:KA01:N09_M07_F10:01",
+    "workflow_status": "COMPLETED",
+    "current_node": "generate_report",
+    "next_action": "REPORT_COMPLETE",
+    "analysis_result": {
+      "analysis_id": "analysis_c351fa00185d42b0aa3e73bd070b29a3",
+      "model_id": "bearing_rf_binary_v1",
+      "status": "abnormal",
+      "predicted_class": "damaged",
+      "confidence": 1.0,
+      "signal_features": {
+        "rms": 0.22815111501008384,
+        "kurtosis": 12.75192826448162,
+        "crest_factor": 9.318470394395934,
+        "dominant_frequency_hz": 6074.75
+      }
+    },
+    "evidence_status": "SUFFICIENT",
+    "evidence": [
+      {
+        "evidence_id": "evidence_b2e89b31c137c8501bb7",
+        "query_id": "query_cfa3b50c7a84a106e12a",
+        "purpose": "DIAGNOSTIC_EVIDENCE",
+        "document_id": "skf_vibration_diagnostic_guide",
+        "chunk_id": "skf_vibration_diagnostic_guide:p0008:sd45feb2c:c0008",
+        "source_id": "SKF_VIBRATION_DIAGNOSTIC_GUIDE",
+        "title": "Vibration Diagnostic Guide (CM5003 EN)",
+        "publisher": "SKF",
+        "source_tier": 2,
+        "page": 8,
+        "section": "Circumstances that can cause acoustic emissions include:",
+        "retrieval_score": 0.2959761619567871,
+        "official_url": "https://skftechnicalsupport.zendesk.com/hc/en-us/article_attachments/360042513054"
+      },
+      {
+        "evidence_id": "evidence_ce12f5e6ce483312aea5",
+        "query_id": "query_cfa3b50c7a84a106e12a",
+        "purpose": "DIAGNOSTIC_EVIDENCE",
+        "document_id": "skf_vibration_diagnostic_guide",
+        "chunk_id": "skf_vibration_diagnostic_guide:p0007:s4b35a1e0:c0007",
+        "source_id": "SKF_VIBRATION_DIAGNOSTIC_GUIDE",
+        "title": "Vibration Diagnostic Guide (CM5003 EN)",
+        "publisher": "SKF",
+        "source_tier": 2,
+        "page": 7,
+        "section": "By mounting accelerometers at strategic points on bearings, we can",
+        "retrieval_score": 0.28823769092559814,
+        "official_url": "https://skftechnicalsupport.zendesk.com/hc/en-us/article_attachments/360042513054"
+      },
+      {
+        "evidence_id": "evidence_3db1d495f7a0e361c6f8",
+        "query_id": "query_cfa3b50c7a84a106e12a",
+        "purpose": "DIAGNOSTIC_EVIDENCE",
+        "document_id": "paderborn_benchmark_paper",
+        "chunk_id": "paderborn_benchmark_paper:p0011:s6756c020:c0011",
+        "source_id": "PADERBORN_BENCHMARK_PAPER",
+        "title": "Condition Monitoring of Bearing Damage in Electromechanical Drive Systems",
+        "publisher": "Paderborn University, KAt",
+        "source_tier": 1,
+        "page": 11,
+        "section": "EUROPEAN CONFERENCE OF THE PROGNOSTICS AND HEALTH MANAGEMENT SOCIETY 2016",
+        "retrieval_score": 0.28770697116851807,
+        "official_url": "https://mb.uni-paderborn.de/fileadmin-mb/kat/PDF/Veroeffentlichungen/20160703_PHME16_CM_bearing.pdf"
+      },
+      {
+        "evidence_id": "evidence_d6135675831b0f78613d",
+        "query_id": "query_cfa3b50c7a84a106e12a",
+        "purpose": "DIAGNOSTIC_EVIDENCE",
+        "document_id": "skf_bearing_damage_failure_analysis",
+        "chunk_id": "skf_bearing_damage_failure_analysis:p0031:s385b1829:c0035",
+        "source_id": "SKF_BEARING_DAMAGE_FAILURE_ANALYSIS",
+        "title": "Bearing Damage and Failure Analysis (PUB BU/I3 14219/3 EN)",
+        "publisher": "SKF",
+        "source_tier": 2,
+        "page": 31,
+        "section": "a thorough inspection can provide valuable",
+        "retrieval_score": 0.2865733504295349,
+        "official_url": "https://cdn.skfmediahub.skf.com/api/public/093168a92d25cc46/pdf_preview_medium/14219_3_EN_-_Bearing_failures_LOW_pdf_preview_medium.pdf"
+      },
+      {
+        "evidence_id": "evidence_6f6bf21e107dca6d683a",
+        "query_id": "query_cfa3b50c7a84a106e12a",
+        "purpose": "DIAGNOSTIC_EVIDENCE",
+        "document_id": "paderborn_benchmark_paper",
+        "chunk_id": "paderborn_benchmark_paper:p0006:s6756c020:c0006",
+        "source_id": "PADERBORN_BENCHMARK_PAPER",
+        "title": "Condition Monitoring of Bearing Damage in Electromechanical Drive Systems",
+        "publisher": "Paderborn University, KAt",
+        "source_tier": 1,
+        "page": 6,
+        "section": "EUROPEAN CONFERENCE OF THE PROGNOSTICS AND HEALTH MANAGEMENT SOCIETY 2016",
+        "retrieval_score": 0.27683258056640625,
+        "official_url": "https://mb.uni-paderborn.de/fileadmin-mb/kat/PDF/Veroeffentlichungen/20160703_PHME16_CM_bearing.pdf"
+      },
+      {
+        "evidence_id": "evidence_a9755079d39e35d0a14d",
+        "query_id": "query_f2315937467588398ee6",
+        "purpose": "INSPECTION_ACTION",
+        "document_id": "skf_vibration_diagnostic_guide",
+        "chunk_id": "skf_vibration_diagnostic_guide:p0002:s27b44c8b:c0001",
+        "source_id": "SKF_VIBRATION_DIAGNOSTIC_GUIDE",
+        "title": "Vibration Diagnostic Guide (CM5003 EN)",
+        "publisher": "SKF",
+        "source_tier": 2,
+        "page": 2,
+        "section": "The SKF brand now stands for more",
+        "retrieval_score": 0.27453887462615967,
+        "official_url": "https://skftechnicalsupport.zendesk.com/hc/en-us/article_attachments/360042513054"
+      },
+      {
+        "evidence_id": "evidence_f1500a04e31beef90ea8",
+        "query_id": "query_f2315937467588398ee6",
+        "purpose": "INSPECTION_ACTION",
+        "document_id": "skf_bearing_damage_failure_analysis",
+        "chunk_id": "skf_bearing_damage_failure_analysis:p0001:s6f851918:c0000",
+        "source_id": "SKF_BEARING_DAMAGE_FAILURE_ANALYSIS",
+        "title": "Bearing Damage and Failure Analysis (PUB BU/I3 14219/3 EN)",
+        "publisher": "SKF",
+        "source_tier": 2,
+        "page": 1,
+        "section": "BEARING DAMAGE",
+        "retrieval_score": 0.26028966903686523,
+        "official_url": "https://cdn.skfmediahub.skf.com/api/public/093168a92d25cc46/pdf_preview_medium/14219_3_EN_-_Bearing_failures_LOW_pdf_preview_medium.pdf"
+      },
+      {
+        "evidence_id": "evidence_bd1513bf0fdda8cdf9a2",
+        "query_id": "query_f2315937467588398ee6",
+        "purpose": "INSPECTION_ACTION",
+        "document_id": "skf_bearing_damage_failure_analysis",
+        "chunk_id": "skf_bearing_damage_failure_analysis:p0010:s33de389c:c0014",
+        "source_id": "SKF_BEARING_DAMAGE_FAILURE_ANALYSIS",
+        "title": "Bearing Damage and Failure Analysis (PUB BU/I3 14219/3 EN)",
+        "publisher": "SKF",
+        "source_tier": 2,
+        "page": 10,
+        "section": "2 Inspection and troubleshooting",
+        "retrieval_score": 0.2411031723022461,
+        "official_url": "https://cdn.skfmediahub.skf.com/api/public/093168a92d25cc46/pdf_preview_medium/14219_3_EN_-_Bearing_failures_LOW_pdf_preview_medium.pdf"
+      },
+      {
+        "evidence_id": "evidence_a18f619e708185a94d57",
+        "query_id": "query_f2315937467588398ee6",
+        "purpose": "INSPECTION_ACTION",
+        "document_id": "skf_bearing_damage_failure_analysis",
+        "chunk_id": "skf_bearing_damage_failure_analysis:p0090:sbd452a7e:c0094",
+        "source_id": "SKF_BEARING_DAMAGE_FAILURE_ANALYSIS",
+        "title": "Bearing Damage and Failure Analysis (PUB BU/I3 14219/3 EN)",
+        "publisher": "SKF",
+        "source_tier": 2,
+        "page": 90,
+        "section": "Background information",
+        "retrieval_score": 0.22866040468215942,
+        "official_url": "https://cdn.skfmediahub.skf.com/api/public/093168a92d25cc46/pdf_preview_medium/14219_3_EN_-_Bearing_failures_LOW_pdf_preview_medium.pdf"
+      },
+      {
+        "evidence_id": "evidence_1f59c2b145e783fedee2",
+        "query_id": "query_7e5000bcdcc970471c53",
+        "purpose": "DIAGNOSTIC_EVIDENCE",
+        "document_id": "skf_vibration_diagnostic_guide",
+        "chunk_id": "skf_vibration_diagnostic_guide:p0011:sf7d31bf6:c0011",
+        "source_id": "SKF_VIBRATION_DIAGNOSTIC_GUIDE",
+        "title": "Vibration Diagnostic Guide (CM5003 EN)",
+        "publisher": "SKF",
+        "source_tier": 2,
+        "page": 11,
+        "section": "Excessive Excessive Excessive Excessive",
+        "retrieval_score": 0.2342880368232727,
+        "official_url": "https://skftechnicalsupport.zendesk.com/hc/en-us/article_attachments/360042513054"
+      },
+      {
+        "evidence_id": "evidence_78b9c4c1bfe19d226d16",
+        "query_id": "query_7e5000bcdcc970471c53",
+        "purpose": "DIAGNOSTIC_EVIDENCE",
+        "document_id": "skf_bearing_damage_failure_analysis",
+        "chunk_id": "skf_bearing_damage_failure_analysis:p0016:s33de389c:c0020",
+        "source_id": "SKF_BEARING_DAMAGE_FAILURE_ANALYSIS",
+        "title": "Bearing Damage and Failure Analysis (PUB BU/I3 14219/3 EN)",
+        "publisher": "SKF",
+        "source_tier": 2,
+        "page": 16,
+        "section": "2 Inspection and troubleshooting",
+        "retrieval_score": 0.22307324409484863,
+        "official_url": "https://cdn.skfmediahub.skf.com/api/public/093168a92d25cc46/pdf_preview_medium/14219_3_EN_-_Bearing_failures_LOW_pdf_preview_medium.pdf"
+      },
+      {
+        "evidence_id": "evidence_791aa8309d2151562979",
+        "query_id": "query_7e5000bcdcc970471c53",
+        "purpose": "DIAGNOSTIC_EVIDENCE",
+        "document_id": "skf_bearing_damage_failure_analysis",
+        "chunk_id": "skf_bearing_damage_failure_analysis:p0029:s285ec850:c0033",
+        "source_id": "SKF_BEARING_DAMAGE_FAILURE_ANALYSIS",
+        "title": "Bearing Damage and Failure Analysis (PUB BU/I3 14219/3 EN)",
+        "publisher": "SKF",
+        "source_tier": 2,
+        "page": 29,
+        "section": "Troubleshooting",
+        "retrieval_score": 0.21901142597198486,
+        "official_url": "https://cdn.skfmediahub.skf.com/api/public/093168a92d25cc46/pdf_preview_medium/14219_3_EN_-_Bearing_failures_LOW_pdf_preview_medium.pdf"
+      },
+      {
+        "evidence_id": "evidence_480f0890891e3b57bb80",
+        "query_id": "query_7e5000bcdcc970471c53",
+        "purpose": "DIAGNOSTIC_EVIDENCE",
+        "document_id": "skf_vibration_diagnostic_guide",
+        "chunk_id": "skf_vibration_diagnostic_guide:p0009:s3b1f5d93:c0009",
+        "source_id": "SKF_VIBRATION_DIAGNOSTIC_GUIDE",
+        "title": "Vibration Diagnostic Guide (CM5003 EN)",
+        "publisher": "SKF",
+        "source_tier": 2,
+        "page": 9,
+        "section": "Phase measurement",
+        "retrieval_score": 0.21246933937072754,
+        "official_url": "https://skftechnicalsupport.zendesk.com/hc/en-us/article_attachments/360042513054"
+      }
+    ],
+    "diagnosis_candidates": [
+      {
+        "candidate_id": "candidate_d90000f6aa25d30f",
+        "fault_type": "bearing_condition_anomaly",
+        "summary": "The ML result classified the measurement as damaged. Retrieved technical documents provide related diagnostic and inspection context, but do not by themselves establish a specific physical root cause.",
+        "supporting_evidence_ids": [
+          "evidence_b2e89b31c137c8501bb7",
+          "evidence_ce12f5e6ce483312aea5",
+          "evidence_3db1d495f7a0e361c6f8",
+          "evidence_d6135675831b0f78613d",
+          "evidence_6f6bf21e107dca6d683a",
+          "evidence_a9755079d39e35d0a14d",
+          "evidence_f1500a04e31beef90ea8",
+          "evidence_bd1513bf0fdda8cdf9a2"
+        ],
+        "contradicting_evidence_ids": [],
+        "confidence_level": "low",
+        "uncertainties": [
+          "The ML confidence is not a calibrated equipment-failure probability.",
+          "A specific physical failure mechanism requires inspection evidence."
+        ]
+      }
+    ],
+    "inspection_plan": [
+      {
+        "step_id": "INS-001",
+        "order": 1,
+        "title": "Confirm the recorded vibration condition",
+        "description": "Review the measurement features and operating condition against the diagnostic context in Vibration Diagnostic Guide (CM5003 EN), Circumstances that can cause acoustic emissions include:.",
+        "reason": "Confirm that the anomaly remains relevant under the recorded condition.",
+        "related_candidate_ids": [
+          "candidate_d90000f6aa25d30f"
+        ],
+        "supporting_evidence_ids": [
+          "evidence_b2e89b31c137c8501bb7"
+        ],
+        "required_input": [
+          "operating_condition_confirmation",
+          "vibration_observation"
+        ],
+        "safety_note": "Follow site procedures; this step does not command equipment operation."
+      },
+      {
+        "step_id": "INS-002",
+        "order": 2,
+        "title": "Inspect accessible bearing-condition indicators",
+        "description": "Record observable bearing, lubrication, temperature, noise, and maintenance context while consulting Vibration Diagnostic Guide (CM5003 EN), The SKF brand now stands for more.",
+        "reason": "Physical observations are needed before assigning a specific root cause.",
+        "related_candidate_ids": [
+          "candidate_d90000f6aa25d30f"
+        ],
+        "supporting_evidence_ids": [
+          "evidence_a9755079d39e35d0a14d"
+        ],
+        "required_input": [
+          "inspection_observation",
+          "maintenance_history"
+        ],
+        "safety_note": "Do not bypass guards or perform work beyond authorized site procedures."
+      }
+    ],
+    "recommended_actions": [
+      {
+        "action_id": "action_80156a285b357d83",
+        "action_type": "INSPECT",
+        "priority": "medium",
+        "summary": "Perform the evidence-linked inspection plan before maintenance decisions.",
+        "reason": "The ML anomaly and retrieved technical context support inspection, but not an automatic shutdown or a confirmed root-cause finding.",
+        "supporting_evidence_ids": [
+          "evidence_b2e89b31c137c8501bb7",
+          "evidence_a9755079d39e35d0a14d"
+        ],
+        "requires_human_approval": false,
+        "limitations": [
+          "Priority is an internal workflow priority, not a legal safety classification.",
+          "No maintenance action is automatically executed."
+        ]
+      }
+    ],
+    "pending_human_request": null,
+    "human_interactions": [
+      {
+        "request_id": "request_54d4148990eae4967351",
+        "request_type": "ADDITIONAL_INFORMATION",
+        "request": {
+          "request_id": "request_54d4148990eae4967351",
+          "run_id": "run_step09_information_20260918T043924163474Z",
+          "request_type": "ADDITIONAL_INFORMATION",
+          "question": "Provide the requested observations without changing the ML analysis result.",
+          "requested_fields": [
+            "inspection_observation",
+            "operating_condition_confirmation"
+          ],
+          "reason": "inspection observation",
+          "related_candidate_ids": [
+            "candidate_d90000f6aa25d30f"
+          ],
+          "action_id": null,
+          "created_at": "2026-09-18T04:39:24.667413Z"
+        },
+        "response": {
+          "inspection_observation": "Controlled validation observation: abnormal noise noted; no visible leakage.",
+          "operating_condition_confirmation": "N09_M07_F10 confirmed."
+        },
+        "comment": "Controlled input used only to validate checkpoint resume and re-retrieval.",
+        "actor": null,
+        "recorded_at": "2026-09-18T04:39:24.670382Z"
+      }
+    ],
+    "human_observations": [
+      {
+        "source": "human",
+        "type": "inspection_observation",
+        "value": "Controlled validation observation: abnormal noise noted; no visible leakage.",
+        "recorded_at": "2026-09-18T04:39:24.670382+00:00"
+      },
+      {
+        "source": "human",
+        "type": "operating_condition_confirmation",
+        "value": "N09_M07_F10 confirmed.",
+        "recorded_at": "2026-09-18T04:39:24.670382+00:00"
+      }
+    ],
+    "human_information_round_count": 1,
+    "action_revision_count": 0,
+    "final_report": {
+      "run_id": "run_step09_information_20260918T043924163474Z",
+      "equipment_id": "paderborn-bearing-test-rig",
+      "measurement_id": "paderborn:KA01:N09_M07_F10:01",
+      "analysis_summary": {
+        "analysis_id": "analysis_c351fa00185d42b0aa3e73bd070b29a3",
+        "measurement_id": "paderborn:KA01:N09_M07_F10:01",
+        "model_id": "bearing_rf_binary_v1",
+        "status": "abnormal",
+        "predicted_class": "damaged",
+        "confidence": 1.0,
+        "anomaly_score": null,
+        "signal_features": {
+          "rms": 0.22815111501008384,
+          "kurtosis": 12.75192826448162,
+          "crest_factor": 9.318470394395934,
+          "dominant_frequency_hz": 6074.75
+        },
+        "metadata": {
+          "bearing_id": "KA01",
+          "operating_condition": "N09_M07_F10",
+          "window_aggregation": "mean damaged-class probability; threshold=0.5",
+          "window_count": 4,
+          "mean_damaged_class_probability": 1.0,
+          "model_version": "1.0",
+          "feature_version": "step03_v1",
+          "inference_timestamp": "2026-09-18T04:39:24.659+00:00",
+          "timing_ms": {
+            "measurement_load": 5.94608299434185,
+            "feature_extraction": 28.78233278170228,
+            "model_inference": 12.576667126268148,
+            "total": 47.3383751232177
+          },
+          "inference_latency_ms": 47.33870807103813,
+          "probability_note": "Model output; not a calibrated equipment failure probability."
+        }
+      },
+      "diagnosis_candidates": [
+        {
+          "candidate_id": "candidate_d90000f6aa25d30f",
+          "fault_type": "bearing_condition_anomaly",
+          "summary": "The ML result classified the measurement as damaged. Retrieved technical documents provide related diagnostic and inspection context, but do not by themselves establish a specific physical root cause.",
+          "supporting_evidence_ids": [
+            "evidence_b2e89b31c137c8501bb7",
+            "evidence_ce12f5e6ce483312aea5",
+            "evidence_3db1d495f7a0e361c6f8",
+            "evidence_d6135675831b0f78613d",
+            "evidence_6f6bf21e107dca6d683a",
+            "evidence_a9755079d39e35d0a14d",
+            "evidence_f1500a04e31beef90ea8",
+            "evidence_bd1513bf0fdda8cdf9a2"
+          ],
+          "contradicting_evidence_ids": [],
+          "confidence_level": "low",
+          "uncertainties": [
+            "The ML confidence is not a calibrated equipment-failure probability.",
+            "A specific physical failure mechanism requires inspection evidence."
+          ]
+        }
+      ],
+      "evidence_status": "SUFFICIENT",
+      "inspection_plan": [
+        {
+          "step_id": "INS-001",
+          "order": 1,
+          "title": "Confirm the recorded vibration condition",
+          "description": "Review the measurement features and operating condition against the diagnostic context in Vibration Diagnostic Guide (CM5003 EN), Circumstances that can cause acoustic emissions include:.",
+          "reason": "Confirm that the anomaly remains relevant under the recorded condition.",
+          "related_candidate_ids": [
+            "candidate_d90000f6aa25d30f"
+          ],
+          "supporting_evidence_ids": [
+            "evidence_b2e89b31c137c8501bb7"
+          ],
+          "required_input": [
+            "operating_condition_confirmation",
+            "vibration_observation"
+          ],
+          "safety_note": "Follow site procedures; this step does not command equipment operation."
+        },
+        {
+          "step_id": "INS-002",
+          "order": 2,
+          "title": "Inspect accessible bearing-condition indicators",
+          "description": "Record observable bearing, lubrication, temperature, noise, and maintenance context while consulting Vibration Diagnostic Guide (CM5003 EN), The SKF brand now stands for more.",
+          "reason": "Physical observations are needed before assigning a specific root cause.",
+          "related_candidate_ids": [
+            "candidate_d90000f6aa25d30f"
+          ],
+          "supporting_evidence_ids": [
+            "evidence_a9755079d39e35d0a14d"
+          ],
+          "required_input": [
+            "inspection_observation",
+            "maintenance_history"
+          ],
+          "safety_note": "Do not bypass guards or perform work beyond authorized site procedures."
+        }
+      ],
+      "recommended_actions": [
+        {
+          "action_id": "action_80156a285b357d83",
+          "action_type": "INSPECT",
+          "priority": "medium",
+          "summary": "Perform the evidence-linked inspection plan before maintenance decisions.",
+          "reason": "The ML anomaly and retrieved technical context support inspection, but not an automatic shutdown or a confirmed root-cause finding.",
+          "supporting_evidence_ids": [
+            "evidence_b2e89b31c137c8501bb7",
+            "evidence_a9755079d39e35d0a14d"
+          ],
+          "requires_human_approval": false,
+          "limitations": [
+            "Priority is an internal workflow priority, not a legal safety classification.",
+            "No maintenance action is automatically executed."
+          ]
+        }
+      ],
+      "human_interactions": [
+        {
+          "request_id": "request_54d4148990eae4967351",
+          "request_type": "ADDITIONAL_INFORMATION",
+          "request": {
+            "request_id": "request_54d4148990eae4967351",
+            "run_id": "run_step09_information_20260918T043924163474Z",
+            "request_type": "ADDITIONAL_INFORMATION",
+            "question": "Provide the requested observations without changing the ML analysis result.",
+            "requested_fields": [
+              "inspection_observation",
+              "operating_condition_confirmation"
+            ],
+            "reason": "inspection observation",
+            "related_candidate_ids": [
+              "candidate_d90000f6aa25d30f"
+            ],
+            "action_id": null,
+            "created_at": "2026-09-18T04:39:24.667413Z"
+          },
+          "response": {
+            "inspection_observation": "Controlled validation observation: abnormal noise noted; no visible leakage.",
+            "operating_condition_confirmation": "N09_M07_F10 confirmed."
+          },
+          "comment": "Controlled input used only to validate checkpoint resume and re-retrieval.",
+          "actor": null,
+          "recorded_at": "2026-09-18T04:39:24.670382Z"
+        }
+      ],
+      "limitations": [
+        "ML confidence is not a calibrated equipment-failure probability.",
+        "Recommendations support human decisions and do not control equipment.",
+        "Human decisions record workflow review and do not establish the diagnosis as fact."
+      ],
+      "citations": [
+        {
+          "evidence_id": "evidence_b2e89b31c137c8501bb7",
+          "document_id": "skf_vibration_diagnostic_guide",
+          "chunk_id": "skf_vibration_diagnostic_guide:p0008:sd45feb2c:c0008",
+          "title": "Vibration Diagnostic Guide (CM5003 EN)",
+          "publisher": "SKF",
+          "page": 8,
+          "section": "Circumstances that can cause acoustic emissions include:",
+          "official_url": "https://skftechnicalsupport.zendesk.com/hc/en-us/article_attachments/360042513054"
+        },
+        {
+          "evidence_id": "evidence_ce12f5e6ce483312aea5",
+          "document_id": "skf_vibration_diagnostic_guide",
+          "chunk_id": "skf_vibration_diagnostic_guide:p0007:s4b35a1e0:c0007",
+          "title": "Vibration Diagnostic Guide (CM5003 EN)",
+          "publisher": "SKF",
+          "page": 7,
+          "section": "By mounting accelerometers at strategic points on bearings, we can",
+          "official_url": "https://skftechnicalsupport.zendesk.com/hc/en-us/article_attachments/360042513054"
+        },
+        {
+          "evidence_id": "evidence_3db1d495f7a0e361c6f8",
+          "document_id": "paderborn_benchmark_paper",
+          "chunk_id": "paderborn_benchmark_paper:p0011:s6756c020:c0011",
+          "title": "Condition Monitoring of Bearing Damage in Electromechanical Drive Systems",
+          "publisher": "Paderborn University, KAt",
+          "page": 11,
+          "section": "EUROPEAN CONFERENCE OF THE PROGNOSTICS AND HEALTH MANAGEMENT SOCIETY 2016",
+          "official_url": "https://mb.uni-paderborn.de/fileadmin-mb/kat/PDF/Veroeffentlichungen/20160703_PHME16_CM_bearing.pdf"
+        },
+        {
+          "evidence_id": "evidence_d6135675831b0f78613d",
+          "document_id": "skf_bearing_damage_failure_analysis",
+          "chunk_id": "skf_bearing_damage_failure_analysis:p0031:s385b1829:c0035",
+          "title": "Bearing Damage and Failure Analysis (PUB BU/I3 14219/3 EN)",
+          "publisher": "SKF",
+          "page": 31,
+          "section": "a thorough inspection can provide valuable",
+          "official_url": "https://cdn.skfmediahub.skf.com/api/public/093168a92d25cc46/pdf_preview_medium/14219_3_EN_-_Bearing_failures_LOW_pdf_preview_medium.pdf"
+        },
+        {
+          "evidence_id": "evidence_6f6bf21e107dca6d683a",
+          "document_id": "paderborn_benchmark_paper",
+          "chunk_id": "paderborn_benchmark_paper:p0006:s6756c020:c0006",
+          "title": "Condition Monitoring of Bearing Damage in Electromechanical Drive Systems",
+          "publisher": "Paderborn University, KAt",
+          "page": 6,
+          "section": "EUROPEAN CONFERENCE OF THE PROGNOSTICS AND HEALTH MANAGEMENT SOCIETY 2016",
+          "official_url": "https://mb.uni-paderborn.de/fileadmin-mb/kat/PDF/Veroeffentlichungen/20160703_PHME16_CM_bearing.pdf"
+        },
+        {
+          "evidence_id": "evidence_a9755079d39e35d0a14d",
+          "document_id": "skf_vibration_diagnostic_guide",
+          "chunk_id": "skf_vibration_diagnostic_guide:p0002:s27b44c8b:c0001",
+          "title": "Vibration Diagnostic Guide (CM5003 EN)",
+          "publisher": "SKF",
+          "page": 2,
+          "section": "The SKF brand now stands for more",
+          "official_url": "https://skftechnicalsupport.zendesk.com/hc/en-us/article_attachments/360042513054"
+        },
+        {
+          "evidence_id": "evidence_f1500a04e31beef90ea8",
+          "document_id": "skf_bearing_damage_failure_analysis",
+          "chunk_id": "skf_bearing_damage_failure_analysis:p0001:s6f851918:c0000",
+          "title": "Bearing Damage and Failure Analysis (PUB BU/I3 14219/3 EN)",
+          "publisher": "SKF",
+          "page": 1,
+          "section": "BEARING DAMAGE",
+          "official_url": "https://cdn.skfmediahub.skf.com/api/public/093168a92d25cc46/pdf_preview_medium/14219_3_EN_-_Bearing_failures_LOW_pdf_preview_medium.pdf"
+        },
+        {
+          "evidence_id": "evidence_bd1513bf0fdda8cdf9a2",
+          "document_id": "skf_bearing_damage_failure_analysis",
+          "chunk_id": "skf_bearing_damage_failure_analysis:p0010:s33de389c:c0014",
+          "title": "Bearing Damage and Failure Analysis (PUB BU/I3 14219/3 EN)",
+          "publisher": "SKF",
+          "page": 10,
+          "section": "2 Inspection and troubleshooting",
+          "official_url": "https://cdn.skfmediahub.skf.com/api/public/093168a92d25cc46/pdf_preview_medium/14219_3_EN_-_Bearing_failures_LOW_pdf_preview_medium.pdf"
+        },
+        {
+          "evidence_id": "evidence_a18f619e708185a94d57",
+          "document_id": "skf_bearing_damage_failure_analysis",
+          "chunk_id": "skf_bearing_damage_failure_analysis:p0090:sbd452a7e:c0094",
+          "title": "Bearing Damage and Failure Analysis (PUB BU/I3 14219/3 EN)",
+          "publisher": "SKF",
+          "page": 90,
+          "section": "Background information",
+          "official_url": "https://cdn.skfmediahub.skf.com/api/public/093168a92d25cc46/pdf_preview_medium/14219_3_EN_-_Bearing_failures_LOW_pdf_preview_medium.pdf"
+        },
+        {
+          "evidence_id": "evidence_1f59c2b145e783fedee2",
+          "document_id": "skf_vibration_diagnostic_guide",
+          "chunk_id": "skf_vibration_diagnostic_guide:p0011:sf7d31bf6:c0011",
+          "title": "Vibration Diagnostic Guide (CM5003 EN)",
+          "publisher": "SKF",
+          "page": 11,
+          "section": "Excessive Excessive Excessive Excessive",
+          "official_url": "https://skftechnicalsupport.zendesk.com/hc/en-us/article_attachments/360042513054"
+        },
+        {
+          "evidence_id": "evidence_78b9c4c1bfe19d226d16",
+          "document_id": "skf_bearing_damage_failure_analysis",
+          "chunk_id": "skf_bearing_damage_failure_analysis:p0016:s33de389c:c0020",
+          "title": "Bearing Damage and Failure Analysis (PUB BU/I3 14219/3 EN)",
+          "publisher": "SKF",
+          "page": 16,
+          "section": "2 Inspection and troubleshooting",
+          "official_url": "https://cdn.skfmediahub.skf.com/api/public/093168a92d25cc46/pdf_preview_medium/14219_3_EN_-_Bearing_failures_LOW_pdf_preview_medium.pdf"
+        },
+        {
+          "evidence_id": "evidence_791aa8309d2151562979",
+          "document_id": "skf_bearing_damage_failure_analysis",
+          "chunk_id": "skf_bearing_damage_failure_analysis:p0029:s285ec850:c0033",
+          "title": "Bearing Damage and Failure Analysis (PUB BU/I3 14219/3 EN)",
+          "publisher": "SKF",
+          "page": 29,
+          "section": "Troubleshooting",
+          "official_url": "https://cdn.skfmediahub.skf.com/api/public/093168a92d25cc46/pdf_preview_medium/14219_3_EN_-_Bearing_failures_LOW_pdf_preview_medium.pdf"
+        },
+        {
+          "evidence_id": "evidence_480f0890891e3b57bb80",
+          "document_id": "skf_vibration_diagnostic_guide",
+          "chunk_id": "skf_vibration_diagnostic_guide:p0009:s3b1f5d93:c0009",
+          "title": "Vibration Diagnostic Guide (CM5003 EN)",
+          "publisher": "SKF",
+          "page": 9,
+          "section": "Phase measurement",
+          "official_url": "https://skftechnicalsupport.zendesk.com/hc/en-us/article_attachments/360042513054"
+        }
+      ],
+      "created_at": "2026-09-18T04:39:24.679019Z"
+    },
+    "events": [
+      {
+        "event_id": "event_f06572ca77425021c0cc",
+        "run_id": "run_step09_information_20260918T043924163474Z",
+        "sequence": 1,
+        "event_type": "workflow_started",
+        "node": "initialize_run",
+        "agent_role": "SYSTEM",
+        "message": "Workflow started.",
+        "payload": {
+          "max_retrieval_retries": 2
+        },
+        "created_at": "2026-09-18T04:39:24.593917Z"
+      },
+      {
+        "event_id": "event_705a3c7839a4b0132b34",
+        "run_id": "run_step09_information_20260918T043924163474Z",
+        "sequence": 2,
+        "event_type": "node_started",
+        "node": "initialize_run",
+        "agent_role": "SYSTEM",
+        "message": "initialize_run started.",
+        "payload": {
+          "max_retrieval_retries": 2
+        },
+        "created_at": "2026-09-18T04:39:24.593929Z"
+      },
+      {
+        "event_id": "event_769eeadb9210e1c87bec",
+        "run_id": "run_step09_information_20260918T043924163474Z",
+        "sequence": 3,
+        "event_type": "node_completed",
+        "node": "initialize_run",
+        "agent_role": "SYSTEM",
+        "message": "Workflow initialized.",
+        "payload": {
+          "max_retrieval_retries": 2
+        },
+        "created_at": "2026-09-18T04:39:24.593934Z"
+      },
+      {
+        "event_id": "event_50f08e3aacd60a1b4ffc",
+        "run_id": "run_step09_information_20260918T043924163474Z",
+        "sequence": 4,
+        "event_type": "node_started",
+        "node": "load_sensor_data",
+        "agent_role": "SENSOR_AGENT",
+        "message": "load_sensor_data started.",
+        "payload": {
+          "measurement_id": "paderborn:KA01:N09_M07_F10:01"
+        },
+        "created_at": "2026-09-18T04:39:24.594198Z"
+      },
+      {
+        "event_id": "event_7e5d7429b47f00426ad7",
+        "run_id": "run_step09_information_20260918T043924163474Z",
+        "sequence": 5,
+        "event_type": "node_completed",
+        "node": "load_sensor_data",
+        "agent_role": "SENSOR_AGENT",
+        "message": "Measurement metadata loaded.",
+        "payload": {
+          "measurement_id": "paderborn:KA01:N09_M07_F10:01"
+        },
+        "created_at": "2026-09-18T04:39:24.594205Z"
+      },
+      {
+        "event_id": "event_5607d8c5673fa0c80f75",
+        "run_id": "run_step09_information_20260918T043924163474Z",
+        "sequence": 6,
+        "event_type": "node_started",
+        "node": "run_detection",
+        "agent_role": "DETECTION_AGENT",
+        "message": "run_detection started.",
+        "payload": {
+          "analysis_status": "abnormal",
+          "model_id": "bearing_rf_binary_v1"
+        },
+        "created_at": "2026-09-18T04:39:24.659388Z"
+      },
+      {
+        "event_id": "event_3060ed3b4e630498ef05",
+        "run_id": "run_step09_information_20260918T043924163474Z",
+        "sequence": 7,
+        "event_type": "node_completed",
+        "node": "run_detection",
+        "agent_role": "DETECTION_AGENT",
+        "message": "ML detection completed.",
+        "payload": {
+          "analysis_status": "abnormal",
+          "model_id": "bearing_rf_binary_v1"
+        },
+        "created_at": "2026-09-18T04:39:24.659400Z"
+      },
+      {
+        "event_id": "event_62f5196a0e2a428d20bc",
+        "run_id": "run_step09_information_20260918T043924163474Z",
+        "sequence": 8,
+        "event_type": "node_started",
+        "node": "check_abnormal",
+        "agent_role": "DETECTION_AGENT",
+        "message": "check_abnormal started.",
+        "payload": {
+          "status": "abnormal"
+        },
+        "created_at": "2026-09-18T04:39:24.659721Z"
+      },
+      {
+        "event_id": "event_8621a7f87b957bc6c4bd",
+        "run_id": "run_step09_information_20260918T043924163474Z",
+        "sequence": 9,
+        "event_type": "node_completed",
+        "node": "check_abnormal",
+        "agent_role": "DETECTION_AGENT",
+        "message": "Analysis routed to the abnormal path.",
+        "payload": {
+          "status": "abnormal"
+        },
+        "created_at": "2026-09-18T04:39:24.659727Z"
+      },
+      {
+        "event_id": "event_f77a2eb683595a0c7430",
+        "run_id": "run_step09_information_20260918T043924163474Z",
+        "sequence": 10,
+        "event_type": "node_started",
+        "node": "build_rag_query",
+        "agent_role": "RAG_AGENT",
+        "message": "build_rag_query started.",
+        "payload": {
+          "query_count": 2
+        },
+        "created_at": "2026-09-18T04:39:24.660016Z"
+      },
+      {
+        "event_id": "event_d0621c516c1b1e551f1a",
+        "run_id": "run_step09_information_20260918T043924163474Z",
+        "sequence": 11,
+        "event_type": "node_completed",
+        "node": "build_rag_query",
+        "agent_role": "RAG_AGENT",
+        "message": "Purpose-specific RAG queries built.",
+        "payload": {
+          "query_count": 2
+        },
+        "created_at": "2026-09-18T04:39:24.660022Z"
+      },
+      {
+        "event_id": "event_a5993e97e7a4e700c844",
+        "run_id": "run_step09_information_20260918T043924163474Z",
+        "sequence": 12,
+        "event_type": "node_started",
+        "node": "retrieve_knowledge",
+        "agent_role": "RAG_AGENT",
+        "message": "retrieve_knowledge started.",
+        "payload": {
+          "evidence_count": 9,
+          "retry_count": 0
+        },
+        "created_at": "2026-09-18T04:39:24.666533Z"
+      },
+      {
+        "event_id": "event_e82593b6234aef6b0219",
+        "run_id": "run_step09_information_20260918T043924163474Z",
+        "sequence": 13,
+        "event_type": "node_completed",
+        "node": "retrieve_knowledge",
+        "agent_role": "RAG_AGENT",
+        "message": "Technical evidence retrieved.",
+        "payload": {
+          "evidence_count": 9,
+          "retry_count": 0
+        },
+        "created_at": "2026-09-18T04:39:24.666546Z"
+      },
+      {
+        "event_id": "event_f0a66ab910b720cef5b0",
+        "run_id": "run_step09_information_20260918T043924163474Z",
+        "sequence": 14,
+        "event_type": "node_started",
+        "node": "diagnose",
+        "agent_role": "DIAGNOSIS_AGENT",
+        "message": "diagnose started.",
+        "payload": {
+          "candidate_count": 1
+        },
+        "created_at": "2026-09-18T04:39:24.666921Z"
+      },
+      {
+        "event_id": "event_fd708d50292d5703dd37",
+        "run_id": "run_step09_information_20260918T043924163474Z",
+        "sequence": 15,
+        "event_type": "node_completed",
+        "node": "diagnose",
+        "agent_role": "DIAGNOSIS_AGENT",
+        "message": "Evidence-grounded diagnosis candidates created.",
+        "payload": {
+          "candidate_count": 1
+        },
+        "created_at": "2026-09-18T04:39:24.666927Z"
+      },
+      {
+        "event_id": "event_ceec5d07fc85aad60c2c",
+        "run_id": "run_step09_information_20260918T043924163474Z",
+        "sequence": 16,
+        "event_type": "node_started",
+        "node": "verify_evidence",
+        "agent_role": "DIAGNOSIS_AGENT",
+        "message": "verify_evidence started.",
+        "payload": {
+          "evidence_status": "INSUFFICIENT",
+          "retry_count": 0
+        },
+        "created_at": "2026-09-18T04:39:24.667186Z"
+      },
+      {
+        "event_id": "event_c69dda757d1618313d92",
+        "run_id": "run_step09_information_20260918T043924163474Z",
+        "sequence": 17,
+        "event_type": "node_completed",
+        "node": "verify_evidence",
+        "agent_role": "DIAGNOSIS_AGENT",
+        "message": "Evidence coverage verified.",
+        "payload": {
+          "evidence_status": "INSUFFICIENT",
+          "retry_count": 0
+        },
+        "created_at": "2026-09-18T04:39:24.667191Z"
+      },
+      {
+        "event_id": "event_0ea83b6ee62f2097b140",
+        "run_id": "run_step09_information_20260918T043924163474Z",
+        "sequence": 18,
+        "event_type": "node_started",
+        "node": "request_additional_information",
+        "agent_role": "DIAGNOSIS_AGENT",
+        "message": "request_additional_information started.",
+        "payload": {
+          "request_id": "request_54d4148990eae4967351",
+          "requested_fields": [
+            "inspection_observation",
+            "operating_condition_confirmation"
+          ]
+        },
+        "created_at": "2026-09-18T04:39:24.667425Z"
+      },
+      {
+        "event_id": "event_717e8f999d927c3fc393",
+        "run_id": "run_step09_information_20260918T043924163474Z",
+        "sequence": 19,
+        "event_type": "node_completed",
+        "node": "request_additional_information",
+        "agent_role": "DIAGNOSIS_AGENT",
+        "message": "Additional information requested.",
+        "payload": {
+          "request_id": "request_54d4148990eae4967351",
+          "requested_fields": [
+            "inspection_observation",
+            "operating_condition_confirmation"
+          ]
+        },
+        "created_at": "2026-09-18T04:39:24.667430Z"
+      },
+      {
+        "event_id": "event_8b92d039eaf503866cc7",
+        "run_id": "run_step09_information_20260918T043924163474Z",
+        "sequence": 20,
+        "event_type": "human_input_required",
+        "node": "request_additional_information",
+        "agent_role": "DIAGNOSIS_AGENT",
+        "message": "Additional information is required.",
+        "payload": {
+          "request_id": "request_54d4148990eae4967351",
+          "requested_fields": [
+            "inspection_observation",
+            "operating_condition_confirmation"
+          ]
+        },
+        "created_at": "2026-09-18T04:39:24.667435Z"
+      },
+      {
+        "event_id": "event_aa47f7a18b36a03c7177",
+        "run_id": "run_step09_information_20260918T043924163474Z",
+        "sequence": 21,
+        "event_type": "node_started",
+        "node": "await_human_input",
+        "agent_role": "DIAGNOSIS_AGENT",
+        "message": "await_human_input started.",
+        "payload": {
+          "request_id": "request_54d4148990eae4967351"
+        },
+        "created_at": "2026-09-18T04:39:24.670041Z"
+      },
+      {
+        "event_id": "event_49d50b81f5a15de0e340",
+        "run_id": "run_step09_information_20260918T043924163474Z",
+        "sequence": 22,
+        "event_type": "node_completed",
+        "node": "await_human_input",
+        "agent_role": "DIAGNOSIS_AGENT",
+        "message": "Human input received and workflow resumed.",
+        "payload": {
+          "request_id": "request_54d4148990eae4967351"
+        },
+        "created_at": "2026-09-18T04:39:24.670050Z"
+      },
+      {
+        "event_id": "event_bc532b6abb7943dd397d",
+        "run_id": "run_step09_information_20260918T043924163474Z",
+        "sequence": 23,
+        "event_type": "human_input_received",
+        "node": "await_human_input",
+        "agent_role": "DIAGNOSIS_AGENT",
+        "message": "Human input received.",
+        "payload": {
+          "request_id": "request_54d4148990eae4967351"
+        },
+        "created_at": "2026-09-18T04:39:24.670056Z"
+      },
+      {
+        "event_id": "event_bd809fe76f42a6b0a339",
+        "run_id": "run_step09_information_20260918T043924163474Z",
+        "sequence": 24,
+        "event_type": "workflow_resumed",
+        "node": "await_human_input",
+        "agent_role": "DIAGNOSIS_AGENT",
+        "message": "Workflow resumed from checkpoint.",
+        "payload": {
+          "request_id": "request_54d4148990eae4967351"
+        },
+        "created_at": "2026-09-18T04:39:24.670061Z"
+      },
+      {
+        "event_id": "event_b71ca2046e13bf0b9f5b",
+        "run_id": "run_step09_information_20260918T043924163474Z",
+        "sequence": 25,
+        "event_type": "node_started",
+        "node": "resume_after_human",
+        "agent_role": "DIAGNOSIS_AGENT",
+        "message": "resume_after_human started.",
+        "payload": {
+          "request_type": "ADDITIONAL_INFORMATION"
+        },
+        "created_at": "2026-09-18T04:39:24.670398Z"
+      },
+      {
+        "event_id": "event_6e0f868837ea6e85a369",
+        "run_id": "run_step09_information_20260918T043924163474Z",
+        "sequence": 26,
+        "event_type": "node_completed",
+        "node": "resume_after_human",
+        "agent_role": "DIAGNOSIS_AGENT",
+        "message": "Human interaction recorded separately from machine analysis.",
+        "payload": {
+          "request_type": "ADDITIONAL_INFORMATION"
+        },
+        "created_at": "2026-09-18T04:39:24.670404Z"
+      },
+      {
+        "event_id": "event_85e77a5df9249f72a3e4",
+        "run_id": "run_step09_information_20260918T043924163474Z",
+        "sequence": 27,
+        "event_type": "node_started",
+        "node": "update_context",
+        "agent_role": "DIAGNOSIS_AGENT",
+        "message": "update_context started.",
+        "payload": {
+          "observation_count": 2
+        },
+        "created_at": "2026-09-18T04:39:24.670703Z"
+      },
+      {
+        "event_id": "event_a1eabb03462fd3c85d01",
+        "run_id": "run_step09_information_20260918T043924163474Z",
+        "sequence": 28,
+        "event_type": "node_completed",
+        "node": "update_context",
+        "agent_role": "DIAGNOSIS_AGENT",
+        "message": "Human observations added to retrieval context without modifying ML output.",
+        "payload": {
+          "observation_count": 2
+        },
+        "created_at": "2026-09-18T04:39:24.670711Z"
+      },
+      {
+        "event_id": "event_c1ed1513145ccb599dce",
+        "run_id": "run_step09_information_20260918T043924163474Z",
+        "sequence": 29,
+        "event_type": "node_started",
+        "node": "build_rag_query",
+        "agent_role": "RAG_AGENT",
+        "message": "build_rag_query started.",
+        "payload": {
+          "query_count": 3
+        },
+        "created_at": "2026-09-18T04:39:24.671006Z"
+      },
+      {
+        "event_id": "event_f5455e38545fd2089172",
+        "run_id": "run_step09_information_20260918T043924163474Z",
+        "sequence": 30,
+        "event_type": "node_completed",
+        "node": "build_rag_query",
+        "agent_role": "RAG_AGENT",
+        "message": "Purpose-specific RAG queries built.",
+        "payload": {
+          "query_count": 3
+        },
+        "created_at": "2026-09-18T04:39:24.671012Z"
+      },
+      {
+        "event_id": "event_7080d7d08183c493ae9e",
+        "run_id": "run_step09_information_20260918T043924163474Z",
+        "sequence": 31,
+        "event_type": "node_started",
+        "node": "retrieve_knowledge",
+        "agent_role": "RAG_AGENT",
+        "message": "retrieve_knowledge started.",
+        "payload": {
+          "evidence_count": 13,
+          "retry_count": 0
+        },
+        "created_at": "2026-09-18T04:39:24.677050Z"
+      },
+      {
+        "event_id": "event_2d23a3a6f333c904845f",
+        "run_id": "run_step09_information_20260918T043924163474Z",
+        "sequence": 32,
+        "event_type": "node_completed",
+        "node": "retrieve_knowledge",
+        "agent_role": "RAG_AGENT",
+        "message": "Technical evidence retrieved.",
+        "payload": {
+          "evidence_count": 13,
+          "retry_count": 0
+        },
+        "created_at": "2026-09-18T04:39:24.677063Z"
+      },
+      {
+        "event_id": "event_dcdc0f5778f97fc7f0c6",
+        "run_id": "run_step09_information_20260918T043924163474Z",
+        "sequence": 33,
+        "event_type": "node_started",
+        "node": "diagnose",
+        "agent_role": "DIAGNOSIS_AGENT",
+        "message": "diagnose started.",
+        "payload": {
+          "candidate_count": 1
+        },
+        "created_at": "2026-09-18T04:39:24.677386Z"
+      },
+      {
+        "event_id": "event_9db8b5808d472e546823",
+        "run_id": "run_step09_information_20260918T043924163474Z",
+        "sequence": 34,
+        "event_type": "node_completed",
+        "node": "diagnose",
+        "agent_role": "DIAGNOSIS_AGENT",
+        "message": "Evidence-grounded diagnosis candidates created.",
+        "payload": {
+          "candidate_count": 1
+        },
+        "created_at": "2026-09-18T04:39:24.677393Z"
+      },
+      {
+        "event_id": "event_878b73f7e698ca840ffb",
+        "run_id": "run_step09_information_20260918T043924163474Z",
+        "sequence": 35,
+        "event_type": "node_started",
+        "node": "verify_evidence",
+        "agent_role": "DIAGNOSIS_AGENT",
+        "message": "verify_evidence started.",
+        "payload": {
+          "evidence_status": "SUFFICIENT",
+          "retry_count": 0
+        },
+        "created_at": "2026-09-18T04:39:24.677658Z"
+      },
+      {
+        "event_id": "event_74c1a3519fdbc44a8588",
+        "run_id": "run_step09_information_20260918T043924163474Z",
+        "sequence": 36,
+        "event_type": "node_completed",
+        "node": "verify_evidence",
+        "agent_role": "DIAGNOSIS_AGENT",
+        "message": "Evidence coverage verified.",
+        "payload": {
+          "evidence_status": "SUFFICIENT",
+          "retry_count": 0
+        },
+        "created_at": "2026-09-18T04:39:24.677665Z"
+      },
+      {
+        "event_id": "event_cba64516ebb0cb04bb19",
+        "run_id": "run_step09_information_20260918T043924163474Z",
+        "sequence": 37,
+        "event_type": "node_started",
+        "node": "build_inspection_plan",
+        "agent_role": "MAINTENANCE_AGENT",
+        "message": "build_inspection_plan started.",
+        "payload": {
+          "inspection_step_count": 2
+        },
+        "created_at": "2026-09-18T04:39:24.677962Z"
+      },
+      {
+        "event_id": "event_69b04d1068c98bcb7846",
+        "run_id": "run_step09_information_20260918T043924163474Z",
+        "sequence": 38,
+        "event_type": "node_completed",
+        "node": "build_inspection_plan",
+        "agent_role": "MAINTENANCE_AGENT",
+        "message": "Evidence-linked inspection plan created.",
+        "payload": {
+          "inspection_step_count": 2
+        },
+        "created_at": "2026-09-18T04:39:24.677967Z"
+      },
+      {
+        "event_id": "event_da484cd65ea11017398a",
+        "run_id": "run_step09_information_20260918T043924163474Z",
+        "sequence": 39,
+        "event_type": "inspection_plan_created",
+        "node": "build_inspection_plan",
+        "agent_role": "MAINTENANCE_AGENT",
+        "message": "Inspection plan created.",
+        "payload": {
+          "inspection_step_count": 2
+        },
+        "created_at": "2026-09-18T04:39:24.677972Z"
+      },
+      {
+        "event_id": "event_422f7a12e07eda968405",
+        "run_id": "run_step09_information_20260918T043924163474Z",
+        "sequence": 40,
+        "event_type": "node_started",
+        "node": "recommend_action",
+        "agent_role": "MAINTENANCE_AGENT",
+        "message": "recommend_action started.",
+        "payload": {
+          "action_count": 1,
+          "approval_required": false
+        },
+        "created_at": "2026-09-18T04:39:24.678194Z"
+      },
+      {
+        "event_id": "event_8cdaae064aedb4dba11f",
+        "run_id": "run_step09_information_20260918T043924163474Z",
+        "sequence": 41,
+        "event_type": "node_completed",
+        "node": "recommend_action",
+        "agent_role": "MAINTENANCE_AGENT",
+        "message": "Evidence-linked actions recommended.",
+        "payload": {
+          "action_count": 1,
+          "approval_required": false
+        },
+        "created_at": "2026-09-18T04:39:24.678199Z"
+      },
+      {
+        "event_id": "event_6d2c92c2f1205649b00f",
+        "run_id": "run_step09_information_20260918T043924163474Z",
+        "sequence": 42,
+        "event_type": "action_recommended",
+        "node": "recommend_action",
+        "agent_role": "MAINTENANCE_AGENT",
+        "message": "Action recommendation created.",
+        "payload": {
+          "action_count": 1,
+          "approval_required": false
+        },
+        "created_at": "2026-09-18T04:39:24.678204Z"
+      },
+      {
+        "event_id": "event_6daca946ad03b35401ac",
+        "run_id": "run_step09_information_20260918T043924163474Z",
+        "sequence": 43,
+        "event_type": "node_started",
+        "node": "check_human_approval",
+        "agent_role": "MAINTENANCE_AGENT",
+        "message": "check_human_approval started.",
+        "payload": {
+          "approval_required": false
+        },
+        "created_at": "2026-09-18T04:39:24.678640Z"
+      },
+      {
+        "event_id": "event_5dd969b3dfaaf444fc07",
+        "run_id": "run_step09_information_20260918T043924163474Z",
+        "sequence": 44,
+        "event_type": "node_completed",
+        "node": "check_human_approval",
+        "agent_role": "MAINTENANCE_AGENT",
+        "message": "Human approval policy evaluated.",
+        "payload": {
+          "approval_required": false
+        },
+        "created_at": "2026-09-18T04:39:24.678648Z"
+      },
+      {
+        "event_id": "event_90e7442b7580c9e5b23a",
+        "run_id": "run_step09_information_20260918T043924163474Z",
+        "sequence": 45,
+        "event_type": "node_started",
+        "node": "generate_report",
+        "agent_role": "MAINTENANCE_AGENT",
+        "message": "generate_report started.",
+        "payload": {
+          "citation_count": 13
+        },
+        "created_at": "2026-09-18T04:39:24.679051Z"
+      },
+      {
+        "event_id": "event_0d9d23f63aae992ae9e5",
+        "run_id": "run_step09_information_20260918T043924163474Z",
+        "sequence": 46,
+        "event_type": "node_completed",
+        "node": "generate_report",
+        "agent_role": "MAINTENANCE_AGENT",
+        "message": "Final structured report generated.",
+        "payload": {
+          "citation_count": 13
+        },
+        "created_at": "2026-09-18T04:39:24.679058Z"
+      },
+      {
+        "event_id": "event_254b4197079ca446d526",
+        "run_id": "run_step09_information_20260918T043924163474Z",
+        "sequence": 47,
+        "event_type": "report_generated",
+        "node": "generate_report",
+        "agent_role": "MAINTENANCE_AGENT",
+        "message": "Final report generated.",
+        "payload": {
+          "citation_count": 13
+        },
+        "created_at": "2026-09-18T04:39:24.679062Z"
+      },
+      {
+        "event_id": "event_ab89438c7878b462f498",
+        "run_id": "run_step09_information_20260918T043924163474Z",
+        "sequence": 48,
+        "event_type": "workflow_completed",
+        "node": "generate_report",
+        "agent_role": "MAINTENANCE_AGENT",
+        "message": "Workflow completed.",
+        "payload": {
+          "citation_count": 13
+        },
+        "created_at": "2026-09-18T04:39:24.679067Z"
+      }
+    ],
+    "errors": []
+  }
+}

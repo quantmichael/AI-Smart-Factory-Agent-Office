@@ -1,0 +1,9 @@
+{
+  "status": "LOCAL_SMOKE_ONLY",
+  "url": "http://127.0.0.1:8000",
+  "health": "verified in STEP 14",
+  "ready": "verified in STEP 14",
+  "smoke_test": "verified in STEP 14",
+  "external_deployment": "NOT_COMPLETED",
+  "reason": "No external hosting target or deployment credentials were provided."
+}

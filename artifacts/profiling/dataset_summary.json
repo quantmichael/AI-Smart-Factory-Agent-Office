@@ -1,0 +1,95 @@
+{
+  "profiling_version": "1.0",
+  "random_state": 42,
+  "generated_at": "2026-09-18T00:07:50+00:00",
+  "measurement_count": 240,
+  "bearing_count": 3,
+  "class_distribution": {
+    "healthy": 80,
+    "damaged": 160,
+    "unknown": 0
+  },
+  "class_ratio_damaged_to_healthy": 2.0,
+  "operating_condition_distribution": {
+    "N09_M07_F10": 60,
+    "N15_M01_F10": 60,
+    "N15_M07_F04": 60,
+    "N15_M07_F10": 60
+  },
+  "signal_channels": [
+    "force",
+    "phase_current_1",
+    "phase_current_2",
+    "speed",
+    "temp_2_bearing_module",
+    "torque",
+    "vibration_1"
+  ],
+  "signal_length_distribution": {
+    "force": {
+      "count": 240,
+      "min": 16001,
+      "max": 16008
+    },
+    "phase_current_1": {
+      "count": 240,
+      "min": 255998,
+      "max": 277049
+    },
+    "phase_current_2": {
+      "count": 240,
+      "min": 255998,
+      "max": 277049
+    },
+    "speed": {
+      "count": 240,
+      "min": 16001,
+      "max": 16008
+    },
+    "temp_2_bearing_module": {
+      "count": 240,
+      "min": 4,
+      "max": 5
+    },
+    "torque": {
+      "count": 240,
+      "min": 16001,
+      "max": 16008
+    },
+    "vibration_1": {
+      "count": 240,
+      "min": 255998,
+      "max": 277049
+    }
+  },
+  "nominal_sampling_rate_distribution": {
+    "force": {
+      "4000.0": 240
+    },
+    "phase_current_1": {
+      "64000.0": 240
+    },
+    "phase_current_2": {
+      "64000.0": 240
+    },
+    "speed": {
+      "4000.0": 240
+    },
+    "temp_2_bearing_module": {
+      "1.0": 240
+    },
+    "torque": {
+      "4000.0": 240
+    },
+    "vibration_1": {
+      "64000.0": 240
+    }
+  },
+  "selected_measurement_ids": {
+    "healthy": "paderborn:K001:N15_M07_F10:01",
+    "damaged": "paderborn:KA01:N15_M07_F10:01"
+  },
+  "source_acquisition_warnings": [
+    "Dataset acquisition is partial: 3/32 bearing-state archives are present."
+  ]
+}

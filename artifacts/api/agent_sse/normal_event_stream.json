@@ -1,0 +1,207 @@
+[
+  {
+    "event_id": "event_6fa1f399662078964e28",
+    "run_id": "run_92be75bdf57b4776965c121d19f5019c",
+    "sequence": 1,
+    "event_type": "workflow_started",
+    "node": "initialize_run",
+    "agent_role": "SYSTEM",
+    "message": "Workflow started.",
+    "payload": {
+      "max_retrieval_retries": 2
+    },
+    "created_at": "2026-09-18T09:04:24.962918Z"
+  },
+  {
+    "event_id": "event_50a745c1155b8779d1e8",
+    "run_id": "run_92be75bdf57b4776965c121d19f5019c",
+    "sequence": 2,
+    "event_type": "node_started",
+    "node": "initialize_run",
+    "agent_role": "SYSTEM",
+    "message": "initialize_run started.",
+    "payload": {
+      "max_retrieval_retries": 2
+    },
+    "created_at": "2026-09-18T09:04:24.962941Z"
+  },
+  {
+    "event_id": "event_be58ae59e00d9dbd5425",
+    "run_id": "run_92be75bdf57b4776965c121d19f5019c",
+    "sequence": 3,
+    "event_type": "node_completed",
+    "node": "initialize_run",
+    "agent_role": "SYSTEM",
+    "message": "Workflow initialized.",
+    "payload": {
+      "max_retrieval_retries": 2
+    },
+    "created_at": "2026-09-18T09:04:24.962949Z"
+  },
+  {
+    "event_id": "event_f1356bead7efad3f9c41",
+    "run_id": "run_92be75bdf57b4776965c121d19f5019c",
+    "sequence": 4,
+    "event_type": "node_started",
+    "node": "load_sensor_data",
+    "agent_role": "SENSOR_AGENT",
+    "message": "load_sensor_data started.",
+    "payload": {
+      "measurement_id": "paderborn:K001:N09_M07_F10:01"
+    },
+    "created_at": "2026-09-18T09:04:24.964134Z"
+  },
+  {
+    "event_id": "event_ef93c225d4c24707c717",
+    "run_id": "run_92be75bdf57b4776965c121d19f5019c",
+    "sequence": 5,
+    "event_type": "node_completed",
+    "node": "load_sensor_data",
+    "agent_role": "SENSOR_AGENT",
+    "message": "Measurement metadata loaded.",
+    "payload": {
+      "measurement_id": "paderborn:K001:N09_M07_F10:01"
+    },
+    "created_at": "2026-09-18T09:04:24.964145Z"
+  },
+  {
+    "event_id": "event_5b35cfd6b564d4d23f5b",
+    "run_id": "run_92be75bdf57b4776965c121d19f5019c",
+    "sequence": 6,
+    "event_type": "node_started",
+    "node": "run_detection",
+    "agent_role": "DETECTION_AGENT",
+    "message": "run_detection started.",
+    "payload": {
+      "status": "normal",
+      "predicted_class": "healthy",
+      "confidence": 1.0,
+      "model_id": "bearing_rf_binary_v1"
+    },
+    "created_at": "2026-09-18T09:04:25.173692Z"
+  },
+  {
+    "event_id": "event_d2e1e6e614a018502d77",
+    "run_id": "run_92be75bdf57b4776965c121d19f5019c",
+    "sequence": 7,
+    "event_type": "node_completed",
+    "node": "run_detection",
+    "agent_role": "DETECTION_AGENT",
+    "message": "ML detection completed.",
+    "payload": {
+      "status": "normal",
+      "predicted_class": "healthy",
+      "confidence": 1.0,
+      "model_id": "bearing_rf_binary_v1"
+    },
+    "created_at": "2026-09-18T09:04:25.173713Z"
+  },
+  {
+    "event_id": "event_170a190810be6e713444",
+    "run_id": "run_92be75bdf57b4776965c121d19f5019c",
+    "sequence": 8,
+    "event_type": "detection_normal",
+    "node": "run_detection",
+    "agent_role": "DETECTION_AGENT",
+    "message": "Detection result is normal.",
+    "payload": {
+      "status": "normal",
+      "predicted_class": "healthy",
+      "confidence": 1.0,
+      "model_id": "bearing_rf_binary_v1"
+    },
+    "created_at": "2026-09-18T09:04:25.173721Z"
+  },
+  {
+    "event_id": "event_b4e2ac825d6c1c3c7666",
+    "run_id": "run_92be75bdf57b4776965c121d19f5019c",
+    "sequence": 9,
+    "event_type": "node_started",
+    "node": "check_abnormal",
+    "agent_role": "DETECTION_AGENT",
+    "message": "check_abnormal started.",
+    "payload": {
+      "status": "normal"
+    },
+    "created_at": "2026-09-18T09:04:25.175175Z"
+  },
+  {
+    "event_id": "event_56c87878682e9362b2ab",
+    "run_id": "run_92be75bdf57b4776965c121d19f5019c",
+    "sequence": 10,
+    "event_type": "node_completed",
+    "node": "check_abnormal",
+    "agent_role": "DETECTION_AGENT",
+    "message": "Analysis routed to the normal path.",
+    "payload": {
+      "status": "normal"
+    },
+    "created_at": "2026-09-18T09:04:25.175187Z"
+  },
+  {
+    "event_id": "event_a2393f3fa3a413ed04dc",
+    "run_id": "run_92be75bdf57b4776965c121d19f5019c",
+    "sequence": 11,
+    "event_type": "node_started",
+    "node": "save_normal_state",
+    "agent_role": "DETECTION_AGENT",
+    "message": "save_normal_state started.",
+    "payload": {},
+    "created_at": "2026-09-18T09:04:25.176176Z"
+  },
+  {
+    "event_id": "event_9b1877b0dd954ae76004",
+    "run_id": "run_92be75bdf57b4776965c121d19f5019c",
+    "sequence": 12,
+    "event_type": "node_completed",
+    "node": "save_normal_state",
+    "agent_role": "DETECTION_AGENT",
+    "message": "Normal analysis state recorded.",
+    "payload": {},
+    "created_at": "2026-09-18T09:04:25.176184Z"
+  },
+  {
+    "event_id": "event_68c49cd37809484b4ac3",
+    "run_id": "run_92be75bdf57b4776965c121d19f5019c",
+    "sequence": 13,
+    "event_type": "node_started",
+    "node": "generate_normal_report",
+    "agent_role": "DETECTION_AGENT",
+    "message": "generate_normal_report started.",
+    "payload": {},
+    "created_at": "2026-09-18T09:04:25.177041Z"
+  },
+  {
+    "event_id": "event_7d4bf1649131a9c761f8",
+    "run_id": "run_92be75bdf57b4776965c121d19f5019c",
+    "sequence": 14,
+    "event_type": "node_completed",
+    "node": "generate_normal_report",
+    "agent_role": "DETECTION_AGENT",
+    "message": "Normal analysis report generated.",
+    "payload": {},
+    "created_at": "2026-09-18T09:04:25.177048Z"
+  },
+  {
+    "event_id": "event_e00cad2d23dd5914ca04",
+    "run_id": "run_92be75bdf57b4776965c121d19f5019c",
+    "sequence": 15,
+    "event_type": "report_generated",
+    "node": "generate_normal_report",
+    "agent_role": "DETECTION_AGENT",
+    "message": "Final report generated.",
+    "payload": {},
+    "created_at": "2026-09-18T09:04:25.177053Z"
+  },
+  {
+    "event_id": "event_bec94b948372f3439112",
+    "run_id": "run_92be75bdf57b4776965c121d19f5019c",
+    "sequence": 16,
+    "event_type": "workflow_completed",
+    "node": "generate_normal_report",
+    "agent_role": "DETECTION_AGENT",
+    "message": "Workflow completed.",
+    "payload": {},
+    "created_at": "2026-09-18T09:04:25.177057Z"
+  }
+]

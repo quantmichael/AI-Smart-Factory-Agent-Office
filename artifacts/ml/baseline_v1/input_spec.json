@@ -1,0 +1,52 @@
+{
+  "input_unit": "one 1.0-second non-overlapping window",
+  "diagnostic_channels": [
+    "vibration_1",
+    "phase_current_1",
+    "phase_current_2"
+  ],
+  "window_duration_sec": 1.0,
+  "overlap_percent": 0,
+  "sampling_rate_hz": 64000,
+  "time_domain_features": [
+    "mean",
+    "std",
+    "rms",
+    "peak",
+    "peak_to_peak",
+    "crest_factor",
+    "skewness",
+    "kurtosis"
+  ],
+  "frequency_domain_features": [
+    "dominant_frequency_hz",
+    "spectral_centroid_hz",
+    "spectral_energy",
+    "spectral_entropy"
+  ],
+  "required_identifiers": [
+    "measurement_id",
+    "bearing_id",
+    "operating_condition",
+    "ground_truth",
+    "window_id",
+    "window_start",
+    "window_end"
+  ],
+  "normalization": {
+    "random_forest": "not required",
+    "linear_or_distance_models": "fit scaler on training split only",
+    "raw_signal_models": "deferred to the later CNN step"
+  },
+  "outlier_policy": "preserve; flag but do not remove without sensor-error evidence",
+  "class_imbalance_policy": "report 2:1 damaged-to-healthy ratio; do not apply SMOTE by default",
+  "split": {
+    "strategy": "stratified group split",
+    "group": "measurement_id",
+    "target": "ground_truth",
+    "random_state": 42,
+    "rule": "All windows from one measurement must remain in exactly one split.",
+    "limitation": "Bearing identity is shared across splits; results do not estimate unseen-bearing generalization."
+  },
+  "leakage_guard": "assert_no_group_leakage(train measurement IDs, test measurement IDs)"
+}

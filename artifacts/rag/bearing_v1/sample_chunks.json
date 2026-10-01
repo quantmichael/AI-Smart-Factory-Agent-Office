@@ -1,0 +1,395 @@
+[
+  {
+    "document_id": "paderborn_damage_fact_sheets_k001",
+    "chunk_id": "paderborn_damage_fact_sheets_k001:p0001:s4a2f618f:c0000",
+    "page": 1,
+    "section": "Profile of rolling bearing damage Dipl.-Ing. Christian Lessmeier Chair of Design and Drive Technology",
+    "source_id": "PADERBORN_DAMAGE_FACT_SHEETS",
+    "title": "Paderborn bearing damage fact sheets — K001",
+    "publisher": "Paderborn University, KAt",
+    "document_type": "damage_fact_sheet",
+    "source_tier": 1,
+    "rag_roles": [
+      "ground_truth",
+      "damage_taxonomy"
+    ],
+    "official_url": "https://groups.uni-paderborn.de/kat/BearingDataCenter/",
+    "bearing_id": "K001",
+    "fault_type": null,
+    "sha256": "b6ef87e2fc60c7fdd50b6a8762c8a099d16d5242f897c60d5425c0e69478348a",
+    "license_status": "noncommercial-use-with-attribution",
+    "metadata": {
+      "extraction_method": "pypdf-native-text",
+      "chunking_version": "section-word-v1",
+      "token_count_approx": 185
+    },
+    "content": "Profile of rolling bearing damage Dipl.-Ing. Christian Lessmeier Chair of Design and Drive Technology Pohlweg 47-49, 33098 Paderborn, Germany Prof. Dr.-Ing. Detmar Zimmer Tel.: +49 5251-60-2299 Email: christian.lessmeier@upb.de 1/1 Profile of rolling bearing damage (Bearing: K001) Category Unit Specification/Value General info Bearing Type - deep groove ball bearing Bearing designation (dimension series, bore code) - 6203 Suffix - - Manufacturer specific information Geometry Diameter of inner raceway mm n/a Diameter of outer raceway mm n/a Pitch circle diameter mm 29.05 Number of rolling elements pc. 8 Rolling element diameter mm 6.75 Length of rolling element mm 6.75 Nominal pressure angle ° 0 Parameters Static load rating N n/a Dynamic load rating N n/a Speed limit min-1 n/a Manufacturer - IBU Application specific information Identification Bearing code - K001 Sample number - - Place of operatio n Installation site - - Installation type (system type) - - Operator - Chair of design and Drive Technology, Paderborn Operating conditions Number of load cycles cycles - Lifetime h >50 Load N 1000-3000 Dynamic equivalent load N - Rotational speed min-1 1500-2000 Load direction ° - Comment - -"
+  },
+  {
+    "document_id": "paderborn_damage_fact_sheets_ka01",
+    "chunk_id": "paderborn_damage_fact_sheets_ka01:p0001:s4a2f618f:c0000",
+    "page": 1,
+    "section": "Profile of rolling bearing damage Dipl.-Ing. Christian Lessmeier Chair of Design and Drive Technology",
+    "source_id": "PADERBORN_DAMAGE_FACT_SHEETS",
+    "title": "Paderborn bearing damage fact sheets — KA01",
+    "publisher": "Paderborn University, KAt",
+    "document_type": "damage_fact_sheet",
+    "source_tier": 1,
+    "rag_roles": [
+      "ground_truth",
+      "damage_taxonomy"
+    ],
+    "official_url": "https://groups.uni-paderborn.de/kat/BearingDataCenter/",
+    "bearing_id": "KA01",
+    "fault_type": "artificial",
+    "sha256": "f21f0ffbda26a1c54a32c338e298dca834be367f9bc3b26f7295eeb75d417111",
+    "license_status": "noncommercial-use-with-attribution",
+    "metadata": {
+      "extraction_method": "pypdf-native-text",
+      "chunking_version": "section-word-v1",
+      "token_count_approx": 184
+    },
+    "content": "Profile of rolling bearing damage Dipl.-Ing. Christian Lessmeier Chair of Design and Drive Technology Pohlweg 47-49, 33098 Paderborn, Germany Prof. Dr.-Ing. Detmar Zimmer Tel.: +49 5251-60-2299 Email: christian.lessmeier@upb.de 1/2 Profile of rolling bearing damage (Bearing: KA01) Category Unit Specification/Value General info Bearing Type - deep groove ball bearing Bearing designation (dimension series, bore code) - 6203 Suffix - - Manufacturer specific information Geometry Diameter of inner raceway mm n/a Diameter of outer raceway mm n/a Pitch circle diameter mm 29.05 Number of rolling elements pc. 8 Rolling element diameter mm 6.75 Length of rolling element mm 6.75 Nominal pressure angle ° 0 Parameters Static load rating N n/a Dynamic load rating N n/a Speed limit min-1 n/a Manufacturer - MTK Application specific information Identification Bearing code - KA01 Sample number - 6203-A1 Place of operatio n Installation site - - Installation type (system type) - - Operator - Chair of design and Drive Technology, Paderborn Operating conditions Number of load cycles cycles artificial damage, bearing was not operated Lifetime h:min Load N Dynamic equivalent load N Rotational speed min-1 Load direction ° Comment -"
+  },
+  {
+    "document_id": "paderborn_damage_fact_sheets_ki01",
+    "chunk_id": "paderborn_damage_fact_sheets_ki01:p0001:s4a2f618f:c0000",
+    "page": 1,
+    "section": "Profile of rolling bearing damage Dipl.-Ing. Christian Lessmeier Chair of Design and Drive Technology",
+    "source_id": "PADERBORN_DAMAGE_FACT_SHEETS",
+    "title": "Paderborn bearing damage fact sheets — KI01",
+    "publisher": "Paderborn University, KAt",
+    "document_type": "damage_fact_sheet",
+    "source_tier": 1,
+    "rag_roles": [
+      "ground_truth",
+      "damage_taxonomy"
+    ],
+    "official_url": "https://groups.uni-paderborn.de/kat/BearingDataCenter/",
+    "bearing_id": "KI01",
+    "fault_type": "artificial",
+    "sha256": "ccc94de46dc35de11f3ede602a68b41f1a692900a05a80cbde609a98482f5905",
+    "license_status": "noncommercial-use-with-attribution",
+    "metadata": {
+      "extraction_method": "pypdf-native-text",
+      "chunking_version": "section-word-v1",
+      "token_count_approx": 184
+    },
+    "content": "Profile of rolling bearing damage Dipl.-Ing. Christian Lessmeier Chair of Design and Drive Technology Pohlweg 47-49, 33098 Paderborn, Germany Prof. Dr.-Ing. Detmar Zimmer Tel.: +49 5251-60-2299 Email: christian.lessmeier@upb.de 1/2 Profile of rolling bearing damage (Bearing: KI01) Category Unit Specification/Value General info Bearing Type - deep groove ball bearing Bearing designation (dimension series, bore code) - 6203 Suffix - - Manufacturer specific information Geometry Diameter of inner raceway mm n/a Diameter of outer raceway mm n/a Pitch circle diameter mm 29.05 Number of rolling elements pc. 8 Rolling element diameter mm 6.75 Length of rolling element mm 6.75 Nominal pressure angle ° 0 Parameters Static load rating N n/a Dynamic load rating N n/a Speed limit min-1 n/a Manufacturer - MTK Application specific information Identification Bearing code - KI01 Sample number - 6203-I1 Place of operatio n Installation site - - Installation type (system type) - - Operator - Chair of design and Drive Technology, Paderborn Operating conditions Number of load cycles cycles artificial damage, bearing was not operated Lifetime h:min Load N Dynamic equivalent load N Rotational speed min-1 Load direction ° Comment -"
+  },
+  {
+    "document_id": "paderborn_measurement_logs_k001",
+    "chunk_id": "paderborn_measurement_logs_k001:p0001:s7773fa58:c0000",
+    "page": 1,
+    "section": "Measuring log Dipl.-Ing. Christian Lessmeier Chair of Design and Drive Technology",
+    "source_id": "PADERBORN_MEASUREMENT_LOGS",
+    "title": "Paderborn measurement logs — K001",
+    "publisher": "Paderborn University, KAt",
+    "document_type": "measurement_log",
+    "source_tier": 1,
+    "rag_roles": [
+      "dataset_context",
+      "ground_truth"
+    ],
+    "official_url": "https://groups.uni-paderborn.de/kat/BearingDataCenter/",
+    "bearing_id": "K001",
+    "fault_type": null,
+    "sha256": "827f5ae9eec40ed96b2078fc4529bf0f07f4ffe063fceeb2a5a569d1ac809cb2",
+    "license_status": "noncommercial-use-with-attribution",
+    "metadata": {
+      "extraction_method": "pypdf-native-text",
+      "chunking_version": "section-word-v1",
+      "token_count_approx": 234
+    },
+    "content": "Measuring log Dipl.-Ing. Christian Lessmeier Chair of Design and Drive Technology Bearing data center Pohlweg 47-49, 33098 Paderborn, Germany Prof. Dr.-Ing. Detmar Zimmer http://mb.uni-paderborn.de/kat/datacenter Tel.: +49 5251-60-2299 Email: christian.lessmeier@upb.de 1/1 measuring log bearing code: K001 bearing designation: - test setup: - test motor module (Hanning-Motor SD4CDu8S-009/425W/Y230V); operation by frequency converter KEB Combivert 07F5E 1D-2B0A - measuring shaft module - radial force module - flywheel module - load motor module (Siemens-Motor 1FT7062-1AF70-1DG1) measuring devices: - current measurement: current measurement box (self-construction): current transformer LEM Typ CKSR 15-NP, Bessel-Filter (4th order, cut-off frequency: 25 kHz) - force measurement: load cell K11 (10 kN, Lorenz Messtechnik GmbH ) - speed measurement: measuring shaft TM305 (Magtrol Inc.) - torque measurement: measuring shaft TM305 (Magtrol Inc.) - vibration measurement: vibration transducer 336C04 (97/F/3, 100 mV/g, PCB Piezotronics Inc.), charge amplifier type 5015 (filter 30 kHz , 2. Order, Kistler) - temperature measurement: temperature transducer MINI MCR-SL-TC_UI-NC (Phoenix Contact) - hardware: processor-Board DS 1006 Single Core (with DS2004) (dSpace GmbH) Simulink-model: Messung_Strom64kHz_Mech4kHz_Temp1Hz_05_14 - motor current sampling frequency: 64 kHz - vibration sampling frequency: 64 kHz - sampling frequency of mechanic parameters (load force, load torque, speed): 4 kHz - temperature sampling frequency: 1 Hz load variants: - K0: N15_M07_F10_... - K1: N09_M07_F10_... - K2: N15_M01_F10_... - K3: N15_M07_F04_... preheating: - (F=2000 N; n=2000 1/min): - duration of preheating: 37 min - temperature reached: 45°C remarks: name: Waldemar Dück date: 17.09.2015"
+  },
+  {
+    "document_id": "paderborn_measurement_logs_ka01",
+    "chunk_id": "paderborn_measurement_logs_ka01:p0001:s7773fa58:c0000",
+    "page": 1,
+    "section": "Measuring log Dipl.-Ing. Christian Lessmeier Chair of Design and Drive Technology",
+    "source_id": "PADERBORN_MEASUREMENT_LOGS",
+    "title": "Paderborn measurement logs — KA01",
+    "publisher": "Paderborn University, KAt",
+    "document_type": "measurement_log",
+    "source_tier": 1,
+    "rag_roles": [
+      "dataset_context",
+      "ground_truth"
+    ],
+    "official_url": "https://groups.uni-paderborn.de/kat/BearingDataCenter/",
+    "bearing_id": "KA01",
+    "fault_type": null,
+    "sha256": "942aa35cd3c6bb3069046c2d5e6cadbd1b91c1768f44c5d1cef8a072cf4fdf7a",
+    "license_status": "noncommercial-use-with-attribution",
+    "metadata": {
+      "extraction_method": "pypdf-native-text",
+      "chunking_version": "section-word-v1",
+      "token_count_approx": 234
+    },
+    "content": "Measuring log Dipl.-Ing. Christian Lessmeier Chair of Design and Drive Technology Bearing data center Pohlweg 47-49, 33098 Paderborn, Germany Prof. Dr.-Ing. Detmar Zimmer http://mb.uni-paderborn.de/kat/datacenter Tel.: +49 5251-60-2299 Email: christian.lessmeier@upb.de 1/1 measuring log bearing code: KA01 bearing designation: 6203_A1 test setup: - test motor module (Hanning-Motor SD4CDu8S-009/425W/Y230V); operation by frequency converter KEB Combivert 07F5E 1D-2B0A - measuring shaft module - radial force module - flywheel module - load motor module (Siemens-Motor 1FT7062-1AF70-1DG1) measuring devices: - current measurement: current measurement box (self-construction): current transformer LEM Typ CKSR 15-NP, Bessel-Filter (4th order, cut-off frequency: 25 kHz) - force measurement: load cell K11 (10 kN, Lorenz Messtechnik GmbH ) - speed measurement: measuring shaft TM305 (Magtrol Inc.) - torque measurement: measuring shaft TM305 (Magtrol Inc.) - vibration measurement: vibration transducer 336C04 (97/F/3, 100 mV/g, PCB Piezotronics Inc.), charge amplifier type 5015 (filter 30 kHz , 2. Order, Kistler) - temperature measurement: temperature transducer MINI MCR-SL-TC_UI-NC (Phoenix Contact) - hardware: processor-Board DS 1006 Single Core (with DS2004) (dSpace GmbH) Simulink-model: Messung_Strom64kHz_Mech4kHz_Temp1Hz_05_14 - motor current sampling frequency: 64 kHz - vibration sampling frequency: 64 kHz - sampling frequency of mechanic parameters (load force, load torque, speed): 4 kHz - temperature sampling frequency: 1 Hz load variants: - K0: N15_M07_F10_... - K1: N09_M07_F10_... - K2: N15_M01_F10_... - K3: N15_M07_F04_... preheating: - (F=2000 N; n=2000 1/min): - duration of preheating: 50 min - temperature reached: 49°C remarks: name: Stefan Brocke date: 10.11.2014"
+  },
+  {
+    "document_id": "paderborn_measurement_logs_ki01",
+    "chunk_id": "paderborn_measurement_logs_ki01:p0001:s7773fa58:c0000",
+    "page": 1,
+    "section": "Measuring log Dipl.-Ing. Christian Lessmeier Chair of Design and Drive Technology",
+    "source_id": "PADERBORN_MEASUREMENT_LOGS",
+    "title": "Paderborn measurement logs — KI01",
+    "publisher": "Paderborn University, KAt",
+    "document_type": "measurement_log",
+    "source_tier": 1,
+    "rag_roles": [
+      "dataset_context",
+      "ground_truth"
+    ],
+    "official_url": "https://groups.uni-paderborn.de/kat/BearingDataCenter/",
+    "bearing_id": "KI01",
+    "fault_type": null,
+    "sha256": "c0036ff0a77ce0886ec2675b95577e0f2a18c15d7c613af20d3d5c2210e615a0",
+    "license_status": "noncommercial-use-with-attribution",
+    "metadata": {
+      "extraction_method": "pypdf-native-text",
+      "chunking_version": "section-word-v1",
+      "token_count_approx": 234
+    },
+    "content": "Measuring log Dipl.-Ing. Christian Lessmeier Chair of Design and Drive Technology Bearing data center Pohlweg 47-49, 33098 Paderborn, Germany Prof. Dr.-Ing. Detmar Zimmer http://mb.uni-paderborn.de/kat/datacenter Tel.: +49 5251-60-2299 Email: christian.lessmeier@upb.de 1/1 measuring log bearing code: KI01 bearing designation: 6203-I1 test setup: - test motor module (Hanning-Motor SD4CDu8S-009/425W/Y230V); operation by frequency converter KEB Combivert 07F5E 1D-2B0A - measuring shaft module - radial force module - flywheel module - load motor module (Siemens-Motor 1FT7062-1AF70-1DG1) measuring devices: - current measurement: current measurement box (self-construction): current transformer LEM Typ CKSR 15-NP, Bessel-Filter (4th order, cut-off frequency: 25 kHz) - force measurement: load cell K11 (10 kN, Lorenz Messtechnik GmbH ) - speed measurement: measuring shaft TM305 (Magtrol Inc.) - torque measurement: measuring shaft TM305 (Magtrol Inc.) - vibration measurement: vibration transducer 336C04 (97/F/3, 100 mV/g, PCB Piezotronics Inc.), charge amplifier type 5015 (filter 30 kHz , 2. Order, Kistler) - temperature measurement: temperature transducer MINI MCR-SL-TC_UI-NC (Phoenix Contact) - hardware: processor-Board DS 1006 Single Core (with DS2004) (dSpace GmbH) Simulink-model: Messung_Strom64kHz_Mech4kHz_Temp1Hz_05_14 - motor current sampling frequency: 64 kHz - vibration sampling frequency: 64 kHz - sampling frequency of mechanic parameters (load force, load torque, speed): 4 kHz - temperature sampling frequency: 1 Hz load variants: - K0: N15_M07_F10_... - K1: N09_M07_F10_... - K2: N15_M01_F10_... - K3: N15_M07_F04_... preheating: - (F=2000 N; n=2000 1/min): - duration of preheating: 36 min - temperature reached: 45°C remarks: name: Waldemar Dück date: 18.09.2015"
+  },
+  {
+    "document_id": "paderborn_overview",
+    "chunk_id": "paderborn_overview:p0000:s85e0cc71:c0001",
+    "page": null,
+    "section": "Bearing DataCenter",
+    "source_id": "PADERBORN_OVERVIEW",
+    "title": "Bearing DataCenter overview",
+    "publisher": "Paderborn University, KAt",
+    "document_type": "dataset_overview",
+    "source_tier": 1,
+    "rag_roles": [
+      "dataset_context"
+    ],
+    "official_url": "https://mb.uni-paderborn.de/kat/forschung/bearing-datacenter",
+    "bearing_id": null,
+    "fault_type": null,
+    "sha256": "ef15cd3aca7eb62b7f955bcea917eb164da2ed9564067fd4aa8391778b0e349d",
+    "license_status": "local-use-only-review-before-redistribution",
+    "metadata": {
+      "html_element": "p",
+      "combined_structural_blocks": 5,
+      "chunking_version": "section-word-v1",
+      "token_count_approx": 186
+    },
+    "content": "On this website, experimental bearing data sets for condition monitoring (CM) based on vibration and motor current signals are provided as a download. This data set of the Chair of Design and Drive Technology, Paderborn University, Germany is provided to enable and encourage collaboration in the field of bearing condition monitoring. The data is licensed under the Creative Commons Attribution-NonCommercial 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc/4.0/ Noncommercial academic use of the data is allowed, but a citation of the origin is required. Please cite the following publication and give name of the author, institute and link to the KAt-DataCenter: Christian Lessmeier et al., KAt-DataCenter: mb.uni-paderborn.de/konstruktions-und-antriebstechnik-kat/forschung/bearing-datacenter , Chair of Design and Drive Technology, Paderborn University. For commercial use, please contact the author. Further information is provided at the following pages and in the publication: Lessmeier, C.; Kimotho, J. K.; Zimmer, D.; Sextro, W.: Condition Monitoring of Bearing Damage in Electromechanical Drive Systems by Using Motor Current Signals of Electric Motors: A Benchmark Data Set for Data-Driven Classification, European Conference of the Prognostics and Health Management Society, Bilbao (Spain), 2016.( pdf )"
+  },
+  {
+    "document_id": "paderborn_datasets_and_download",
+    "chunk_id": "paderborn_datasets_and_download:p0000:sa05f9543:c0000",
+    "page": null,
+    "section": "Data Sets and Download",
+    "source_id": "PADERBORN_DATASETS_AND_DOWNLOAD",
+    "title": "Data Sets and Download",
+    "publisher": "Paderborn University, KAt",
+    "document_type": "dataset_overview",
+    "source_tier": 1,
+    "rag_roles": [
+      "dataset_context",
+      "ground_truth"
+    ],
+    "official_url": "https://mb.uni-paderborn.de/kat/forschung/bearing-datacenter/data-sets-and-download",
+    "bearing_id": null,
+    "fault_type": null,
+    "sha256": "e10d23829dbcc02d0022b1b8795d4101261e9c1ec92eb5a9fe78acdac0e7ea9f",
+    "license_status": "local-use-only-review-before-redistribution",
+    "metadata": {
+      "html_element": "p",
+      "combined_structural_blocks": 11,
+      "chunking_version": "section-word-v1",
+      "token_count_approx": 163
+    },
+    "content": "The main characteristic of the data set are: synchronously measured motor currents and vibration signals with high resolution and sampling rate of 26 damaged bearing states and 6 undamaged (healthy) states for reference. supportive measurement of speed, torque, radial load, and temperature. Four different operating conditions (see operating conditions ). 20 measurements of 4 seconds each for each setting, saved as a MatLab file with a name consisting of the code of the operating condition and the four-digit bearing code (e.g. N15_M07_F10_KA01_1.mat). systematic description of the bearing damage by uniform fact sheets and a measuring log, which can be downloaded with the data. In total, experiments with 32 different bearing damages in ball bearings of type 6203 were performed: undamaged (healthy) bearings (6x), see Table 6 in ( pdf ). artificially damaged bearings (12x), see Table 4 in ( pdf ). bearings with real damages caused by accelerated lifetime tests, (14x) see Table 5 in ( pdf ) measurement data ( download )"
+  },
+  {
+    "document_id": "paderborn_damage",
+    "chunk_id": "paderborn_damage:p0000:sbd6228e9:c0000",
+    "page": null,
+    "section": "Bearing Damage",
+    "source_id": "PADERBORN_DAMAGE",
+    "title": "Bearing Damage",
+    "publisher": "Paderborn University, KAt",
+    "document_type": "damage_fact_sheet",
+    "source_tier": 1,
+    "rag_roles": [
+      "damage_taxonomy",
+      "ground_truth"
+    ],
+    "official_url": "https://mb.uni-paderborn.de/kat/forschung/bearing-datacenter/bearing-damage",
+    "bearing_id": null,
+    "fault_type": null,
+    "sha256": "61e6310048eb19979c99889e66d69e4971bd927af47a3c1c3fcef77ec4eb57eb",
+    "license_status": "local-use-only-review-before-redistribution",
+    "metadata": {
+      "html_element": "p",
+      "combined_structural_blocks": 7,
+      "chunking_version": "section-word-v1",
+      "token_count_approx": 174
+    },
+    "content": "A comprehensive methodology for categorizing bearings and their specific damages was developed. It focuses on the detailed description of the damage as well as on the corresponding bearing and its application. 41 description criteria are sorted into a hierarchic structure of categories and sub-categories. The four main categories are: Category “general info” names the bearing type and the standardized code according to the standards of each bearing series. Category “manufacturer specific information” gives information about the internal geometry and parameters of the bearing. Category “application specific information” lists the specific information of the individual bearing in the form of distinct identification codes and information concerning the place of operation and the corresponding operating conditions Category “damage” describes the damages themselves by type and subtype according to ISO 15243 (2010), location, geometry, and occurrence. According to the criteria, a detailed profile (or fact sheet) is created for the damaged bearing. It will be downloaded with the CM-data. For detailed information on the categorization method and an overview of bearing specifications see the corresponding publication ."
+  },
+  {
+    "document_id": "paderborn_test_rig",
+    "chunk_id": "paderborn_test_rig:p0000:sb8c2c19c:c0000",
+    "page": null,
+    "section": "Test rig and measurement equipment",
+    "source_id": "PADERBORN_TEST_RIG",
+    "title": "Test Rig and Measurement Equipment",
+    "publisher": "Paderborn University, KAt",
+    "document_type": "experiment_description",
+    "source_tier": 1,
+    "rag_roles": [
+      "dataset_context"
+    ],
+    "official_url": "https://mb.uni-paderborn.de/kat/forschung/bearing-datacenter/test-rig-and-measurement-equipment",
+    "bearing_id": null,
+    "fault_type": null,
+    "sha256": "92d368315b74f77ed322776b1f7734d81d57a7f749491e3f1806933c17a4cec5",
+    "license_status": "local-use-only-review-before-redistribution",
+    "metadata": {
+      "html_element": "p",
+      "combined_structural_blocks": 7,
+      "chunking_version": "section-word-v1",
+      "token_count_approx": 392
+    },
+    "content": "A continuous condition monitoring (CM) for defect detection of drive elements can reduce maintenance costs and significantly increase the safety of the application. In practice, the analysis of vibrations is the predominant method to diagnose damages in rolling bearings. Current research focuses on condition monitoring by using the motor current signals of the electric driving machine. The particular aspect of the method presented here is that the drive motor is used as a sensor, thus making the implementation of additional expensive sensor technology superfluous. The objective is to identify defective bearings by the signature of the stator current signal. The purpose of the test rig is the reproduction of relevant faults and damages so that the required data base can be obtained through experiments. The data base provides the basis for the development, validation and training of diagnostic algorithms for condition monitoring of rolling bearings. The test rig is a modular system generating the measurement data required for the analysis of corresponding signature and damage characteristics derived from motor current signals. The basic components of the test rig are the drive motor (a permanent magnet synchronous motor) acting as a sensor, a torque measurement shaft, the test modules and a load motor (synchronous servo motor). The modular setup ensures a flexible application for the analysis of various mechanical defects and damages. Misalignment and tilting of the bearing shafts and of gearing are constructively integrated into the modules of the test rig. Component damages to rolling bearing and even gearing, caused by e. g. wear, can be used in the test rig as artificially damaged machine components. Grooved ball bearings and cylindrical roller bearings of type 6203, N203 or NU203 can be inserted in the rolling bearing test module. By using cylindrical roller bearings, damages to the removable inner as well as to the outer ring can easily be introduced. A distinction is made between real bearing damage and artificially damaged bearings. The real bearing damages are generated in an accelerated lifetime test rig by pre-defined continuous loads ( see accelerated lifetime test rig ). Artificially damaged bearings on the other hand are damaged by conventional machining processes such as drilling or eroding. The stator current at the drive motor and the housing vibrations in the form of acceleration at the bearing housing are the main measurement variables in the bearing test stand."
+  },
+  {
+    "document_id": "paderborn_operating_conditions",
+    "chunk_id": "paderborn_operating_conditions:p0000:s15fe5eb0:c0000",
+    "page": null,
+    "section": "Operating Conditions",
+    "source_id": "PADERBORN_OPERATING_CONDITIONS",
+    "title": "Operating Conditions",
+    "publisher": "Paderborn University, KAt",
+    "document_type": "experiment_description",
+    "source_tier": 1,
+    "rag_roles": [
+      "dataset_context",
+      "ground_truth"
+    ],
+    "official_url": "https://mb.uni-paderborn.de/kat/forschung/bearing-datacenter/operating-conditions",
+    "bearing_id": null,
+    "fault_type": null,
+    "sha256": "274c48703b953d1b7a57bce93bf655162b9174f204a48787fea7e1b4470845c7",
+    "license_status": "local-use-only-review-before-redistribution",
+    "metadata": {
+      "html_element": "p",
+      "combined_structural_blocks": 3,
+      "chunking_version": "section-word-v1",
+      "token_count_approx": 204
+    },
+    "content": "The test rig was operated under different operating conditions to ensure the robustness of CM methods at different operating conditions. The rotational speed of the drive system, the radial force onto the test bearing and the load torque in the drive train are the main operation parameters. To ensure comparability of the experiments, fixed levels were defined for each parameter (see table below). All three parameters were kept constant for each measurement. At the basic setup (set no. 0) of the operation parameters, the test rig runs at n = 1,500 rpm with a load torque of M = 0.7 Nm and a radial force on the bearing of F = 1,000 N. Three additional settings are used by reducing the parameters one by one to n = 900 rpm, M = 0.1 Nm and F = 400 N (set no. 1-3), respectively. For each of the settings, 20 measurements of 4 seconds each were recorded. Another parameter is the temperature, which was kept roughly at 45-50 °C during all experiments. No. Rotational speed [rpm] Load Torque3 [Nm] Radial force [N] Name of Setting 0 1500 0.7 1000 N15_M07_F10 1 900 0.7 1000 N09_M07_F10 2 1500 0.1 1000 N15_M01_F10 3 1500 0.7 400 N15_M07_F04"
+  },
+  {
+    "document_id": "paderborn_publication",
+    "chunk_id": "paderborn_publication:p0000:scf715842:c0000",
+    "page": null,
+    "section": "Condition Monitoring of Bearing Damage in Electromechanical Drive Systems by Using Motor Current Signals of Electric Motors",
+    "source_id": "PADERBORN_PUBLICATION",
+    "title": "Publication and References",
+    "publisher": "Paderborn University, KAt",
+    "document_type": "publication",
+    "source_tier": 1,
+    "rag_roles": [
+      "dataset_context"
+    ],
+    "official_url": "https://mb.uni-paderborn.de/en/kat/research/bearing-datacenter/publication-and-references",
+    "bearing_id": null,
+    "fault_type": null,
+    "sha256": "1a5524326c5d59e19042220bfffb2382217cc20afeb4f0a3f750c6ef3acf7322",
+    "license_status": "local-use-only-review-before-redistribution",
+    "metadata": {
+      "html_element": "p",
+      "combined_structural_blocks": 8,
+      "chunking_version": "section-word-v1",
+      "token_count_approx": 163
+    },
+    "content": "Lessmeier, Christian; Kimotho, J. Kimotho; Zimmer, Detmar; Sextro, Walter: A Benchmark Data Set for Data-Driven Classification, European Conference of the Prognostics and Health Management Society (PHM Society), Bilbao (Spain), 05.-08.07.2016. ( pdf ) Data Acquisition and Signal Analysis from Measured Motor Currents for Defect Detection in Electromechanical Drive Systems. Lessmeier, Christian; Enge-Rosenblatt, Olaf; Bayer, Christian; Zimmer, Detmar (2014): In: Prognostics and Health Management Society (Hg.): European Conference of the PHM Society 2014 Proceedings. European Conference of the PHM Society 2014 (EPHM14). Nantes, 08.-10.07.2014. Online verfügbar unter https://www.phmsociety.org/events/conference/europhm/14/proceedings AutASS - Autonome Antriebstechnik durch Sensorfusion für die intelligente, simulationsbasierte Überwachung & Steuerung von Produktionsanlagen Lessmeier, Christian; Kürpick, Markus; Zimmer, Detmar (2013): Schlussbericht zum Verbundvorhaben Teilvorhaben: „Beanspruchungs- und Lastkollektivbestimmung“. BMWi-Förderkennzeichen: 01MA09060. Hg. v. Lehrstuhl für Konstruktions- und Antriebstechnik. Universität Paderborn. Paderborn. Untersuchung von Bauteilschäden elektrischer Antriebsstränge im Belastungsprüfstand mittels Statorstromanalyse Lessmeier, C.; Piantsop Mbo'o, Christelle; Coenen, Isabel; Zimmer, Detmar; Hameyer. K., K. (2012): In: ant Journal - Anwendungsnahe Forschung für Antriebstechnik im Maschinenbau (1), S. 8–13."
+  },
+  {
+    "document_id": "paderborn_benchmark_paper",
+    "chunk_id": "paderborn_benchmark_paper:p0007:s6756c020:c0007",
+    "page": 7,
+    "section": "EUROPEAN CONFERENCE OF THE PROGNOSTICS AND HEALTH MANAGEMENT SOCIETY 2016",
+    "source_id": "PADERBORN_BENCHMARK_PAPER",
+    "title": "Condition Monitoring of Bearing Damage in Electromechanical Drive Systems",
+    "publisher": "Paderborn University, KAt",
+    "document_type": "publication",
+    "source_tier": 1,
+    "rag_roles": [
+      "dataset_context",
+      "ground_truth"
+    ],
+    "official_url": "https://mb.uni-paderborn.de/fileadmin-mb/kat/PDF/Veroeffentlichungen/20160703_PHME16_CM_bearing.pdf",
+    "bearing_id": null,
+    "fault_type": null,
+    "sha256": "c1f75c79cfbcbcbfd24b32bf034cebb76d1c3ff7864827575d37387bb0955f84",
+    "license_status": "attribution-required",
+    "metadata": {
+      "extraction_method": "pypdf-native-text",
+      "chunking_version": "section-word-v1",
+      "token_count_approx": 785
+    },
+    "content": "EUROPEAN CONFERENCE OF THE PROGNOSTICS AND HEALTH MANAGEMENT SOCIETY 2016 7 the inner ring. For the experiments, representative samples with different properties were selected (see Table 5). 4. EXPERIMENTAL SET-UP To generate the experimental data for the development of CM methods of damaged bearing s by using motor current signals, a specific test rig was designed and operated at the Chair of Design and Drive Technology, Paderborn University. The test rig is a modular system to ensure flexible use of different defects in an electrical driven mechanical drive train. Defects in mechanical components, as they occur in gearboxes or electrical machines, ar e experimentally reproduced to generate failure data using the test rig. For the generation of the measurement data , t he current signal s of the electric motor are recorded. Additionally, the vibration signal of the housing of the test bearings are measured as reference. 4.1. Test Rig The test rig consists of several modules: a n electric motor (1), a torque -measurement shaft (2), a rolling bearing test module (3), a flywheel (4) and a load motor (5), see Figure 4. The ball bearings with d ifferent types of damage are mounted in the bearing test module to generate the experimental data. The rolling bearing module provides the possibility of using a test bearing under a consta nt radial load , which can be continuously adjusted up to 10 kN before each experiment. An adapter gives the possibility to measure the vibration of the inner housing, which holds the test bearing in the main direction of the load. The precise design of the bearing module and additional features, such as the possibility to simulate tilting faults or the use of roller bearings, are described by Lessmeier, Enge -Rosenblatt, Bayer, & Zimmer, 2014. Figure 4. Modular test rig. The motor (1) is a 425 W Permanent Magnet Synchronous Motor (PMSM) with a nominal torque of T = 1.35 Nm, a nominal speed of n = 3 ,000 rpm, a nominal current of I = 2.3 A and a pole pair number p = 4 (Type SD4CDu8S - 009, Hanning Elektro-Werke GmbH & Co. KG). It is operated by a frequency inverter (KEB Combivert 07F5E 1D-2B0A) with a switching frequency of 16 kHz. This standard industrial inverter is used to provide conditions similar to motors used in the industry because the current signals show significant noise due to the pulse -width modulation of the inverter . (Lessmeier, Piantsop Mbo'o, Coenen, Zimmer, & Hameyer, 2012) Figure 5 shows the schema of the measurement procedure and the recorded measurands. The motor phase currents are measured by a current transducer of the type LEM CKSR 15-NP with an accuracy of 0.8 % o f I PN = 15 A. The MCS are then filtered by a 25 kHz low -pass filter and converted from an analogue to a digital signal with a sampling rate of 64 kHz. The current transducers are used instead of the internal ammeters of the inverter because of their easy signal access as the currents can be measured externally between motor and inverter. Figure 5. Schema of measurement procedure. At this scientific level of development, a high sampling rate and accuracy are additional advantages of this setup. Nevertheless, the used transducers are similar to the ones commonly used in industry applications, so that few difficulties are expected transferring the research outcomes to industrial CM systems. The acceleration of the bearing housing is measured at the adapter at the top end of the rolling bearing module using a piezoelectric accelerometer (Model No. 336C04, PCB Piezotronics, Inc.) and a charge amplifier (Type 5015A, Kistler Group) with a low -pass filter at 30 kHz. The signal is digitali zed and saved synchronously to the MCS with a sampling rate of 64 kHz. The flywheel and the load machine simulate inertia and load of the driven equipment, respectively. The load motor is a PMSM with a nominal torque of 6 Nm (power of 1.7 kW). To record t he operating conditions the following additional parameters are measured synchronously to the motor currents and vibration signal but with lower sampling rates : the radial force on the bearings (Compression and Tension Force Sensor Type K11, Lorenz, 10 kN), the load torque at the torque -measuring shaft, the rotational speed (Torque Transducer Model 305, Magtrol, 2 Nm ) and the oil temperature in the bearing module. 4.2. Experiments The test rig was operated under different operating conditions to analyze the inf luence of operation parameters motor measuring shaft bearing module load motor current transducer frequency inverter A/D converter data storage Current u, v speed - n torque- M surface acceleration - a radial force- F temperature - T testbed"
+  },
+  {
+    "document_id": "skf_vibration_diagnostic_guide",
+    "chunk_id": "skf_vibration_diagnostic_guide:p0028:s7427cf69:c0028",
+    "page": 28,
+    "section": "Glossary",
+    "source_id": "SKF_VIBRATION_DIAGNOSTIC_GUIDE",
+    "title": "Vibration Diagnostic Guide (CM5003 EN)",
+    "publisher": "SKF",
+    "document_type": "vibration_diagnostic_guide",
+    "source_tier": 2,
+    "rag_roles": [
+      "vibration_diagnosis"
+    ],
+    "official_url": "https://skftechnicalsupport.zendesk.com/hc/en-us/article_attachments/360042513054",
+    "bearing_id": null,
+    "fault_type": null,
+    "sha256": "e20c676b2a532da1acdcd2d398e02c5787e54a738288ce1773b345beb2e1bcf6",
+    "license_status": "local-use-only-review-before-redistribution",
+    "metadata": {
+      "extraction_method": "pypdf-native-text",
+      "chunking_version": "section-word-v1",
+      "token_count_approx": 800
+    },
+    "content": "Glossary 1x – The running speed of the machine (fundamental frequency). 2x, 3x, etc. – The frequency at 2, 3, etc., times the running speed of the machine. Acceleration – The time rate of change of velocity. Acceleration measurements are usually made with accelerometers. Accelerometer – A sensor whose output is directly proportional to acceleration. Alarm setpoint – Any value beyond which is considered unacceptable or dangerous to machinery operation. Alignment – A condition whereby the axes of machine components are either coincident, parallel or perpendicular, according to design requirements. Amplitude – The magnitude of dynamic motion or vibration. Expressed in terms of peak-to-peak, zero-to-peak or RMS. Analog-to-digital converter – A device, or subsystem, that changes real-world analog data (as from sensors, for example) to a form compatible with digital (binary) processing. Asynchronous – Vibration components that are not related to rotating speed (nonsynchronous). Averaging – In a dynamic signal analyzer, digitally averaging several measurements to improve statistical accuracy or to reduce the level of random asynchronous components. Axial – In the same direction as the shaft centerline. Axial vibration – Vibration that is in line with a shaft centerline. Axis – The reference plane used in plotting routines. The X-axis is the frequency plane. The Y-axis is the amplitude plane. Balancing – A procedure for adjusting the radial mass distribution of a rotor so that the centerline of the mass approaches the geometric centerline of the rotor. Band-pass filter – A filter with a single transmission band extending from lower to upper cutoff frequencies. The width of the band is determined by the separation of frequencies at which amplitude is attenuated by 3 dB (0,707). Bandwidth – The spacing between frequencies at which a band pass filter attenuates the signal by 3 dB. Base-line spectrum – A vibration spectrum taken when a machine is in good operating condition; used as a reference for monitoring and analysis. Center frequency – For a band pass filter, the center of the transmission band. Centerline position – The average location, relative to the radial bearing centerline, of the shaft dynamic motion. Condition monitoring – Determining the condition of a machine by interpretation of measurements taken either periodically or continuously while the machine is running. CPM – Cycles per minute. CPS – Cycles per second. Also referred to as Hertz (Hz). Critical speeds – In general, any rotating speed that is associated with high vibration amplitude. Often the rotor speeds that correspond to natural frequencies of the system. Cycle – One complete sequence of values of a periodic quantity. Displacement – The change in distance or position of an object relative to a reference. Download – T ransferring information to the measurement device from the host computer. Engineering units – Physical units in which a measurement is expressed, such as in./ sec, micrometers or mils. Selected by the user. EU – See engineering units. Fast Fourier Transform – A calculation method of converting a time waveform to a frequency display that shows the relationship of discrete frequencies and their amplitudes. FFT – See Fast Fourier Transform. Field – One data item. Examples of fields are POINT type, description, etc. Filter – An electronic device designed to pass or reject a specific frequency band. Free running – A term used to describe the operation of an analyzer or processor that operates continuously at a fixed rate, not in synchronism with some external reference event. Frequency – The repetition rate of a periodic event, usually expressed in cycles per second (Hz), cycles per minute (CPM), revolutions per minute (RPM) or multiples of running speed (orders). Orders are commonly referred to as 1x for running speed, 2x for twice running speed, and so on. Frequency domain – An FFT graph (amplitude versus frequency). Frequency range – The frequency range (bandwidth) over which a measurement is considered valid. Usually refers to upper frequency limit of analysis, considering zero as the lower analysis limit. Gap – See probe gap. Gear mesh frequency – The frequency generated by two or more gears meshing teeth together. Global bearing defect – Relatively large damage on a bearing element. Hanning window – DSA window function that provides better frequency resolution than the flat top window, but with reduced amplitude accuracy. Harmonic – A frequency that is an integer multiple of a fundamental frequency. For example, 5 400 r/min is the third harmonic of 1 800 r/min. Harmonics are produced either by an event that occurs multiple times per revolution or by a distortion of the running speed component’s pure sine wave. Hertz (Hz) – Cycles per second. CPM/60. Hertzian contact zone – In a bearing, the area at which the ball transfers the load on the raceway. High pass filter – A filter with a transmission band starting at a lower cutoff frequency"
+  },
+  {
+    "document_id": "skf_bearing_damage_failure_analysis",
+    "chunk_id": "skf_bearing_damage_failure_analysis:p0009:sa070d661:c0012",
+    "page": 9,
+    "section": "to be noticeable, the damage may already",
+    "source_id": "SKF_BEARING_DAMAGE_FAILURE_ANALYSIS",
+    "title": "Bearing Damage and Failure Analysis (PUB BU/I3 14219/3 EN)",
+    "publisher": "SKF",
+    "document_type": "failure_analysis_guide",
+    "source_tier": 2,
+    "rag_roles": [
+      "failure_analysis",
+      "inspection",
+      "maintenance"
+    ],
+    "official_url": "https://cdn.skfmediahub.skf.com/api/public/093168a92d25cc46/pdf_preview_medium/14219_3_EN_-_Bearing_failures_LOW_pdf_preview_medium.pdf",
+    "bearing_id": null,
+    "fault_type": null,
+    "sha256": "f9474ccf8b489b810c0456d36464a327c1f01988e910bfd60c9cfeb9a2990b00",
+    "license_status": "local-use-only-review-before-redistribution",
+    "metadata": {
+      "extraction_method": "pypdf-native-text",
+      "chunking_version": "section-word-v1",
+      "token_count_approx": 800
+    },
+    "content": "9 to be noticeable, the damage may already be extensive . The advantage of employing object ive technologies, such as advanced vibration analysis, is that damage is detected at an early stage of development, before it becomes problematic (diagram 1) . By using professional condition monitoring instruments and the SKF enveloped acceleration technology, the pre-warning time can be maximized . Fig . 1 shows the progress of damage as illustrated in diagram 1: 1 . Bearing exhibits incipient abrasive wear . 2 . First spall, detected by SKF enveloped acceleration technology . 3 . Spalling has developed to an extent that the damage can be detected by standard vibration monitoring . 4 . Advanced spalling causes high vibration and noise levels and an increase in operating temperature . 5 . Severe damage occurs: fatigue fracture of the bearing inner ring . 6 . Catastrophic failure occurs with secondary damage to other components . Monitoring noise and vibration A common method used to try to identify deterioration or damage in a bearing is by listening . Bearings that are in good condition produce a soft purring noise . Grinding, squeaking and other irregular sounds usually indicate that the bearings are in poor condition, or that something is wrong . The need for vibration monitoring comes from three fundamental facts: • All machines vibrate . • The onset of a mechanical problem is generally accompanied by an increase in vibration levels . • The nature of the fault can be determined from the vibration characteristics . Monitoring temperature It is important to monitor the operating temperature at bearing positions . If the operating conditions have not been altered, an increase in temperature is often an indication of imminent bearing damage . However, keep in mind that a natural temperature rise lasting one or two days normally occurs immediately after first machine start up and after each relubrication when using grease . Monitoring lubrication conditions Bearings can only achieve maximum performance levels with adequate lubrication . The lubrication conditions of a bearing should therefore be monitored closely . The condition of the lubricant itself should also be assessed periodically, preferably by taking samples and having them analyzed . SKF recommends the following general guidelines for lubrication-related inspection activities: • Check for lubricant leaks in the areas surrounding the bearing positions . • Keep protective collars and labyrinth seals filled with grease for maximum protection . • Check that automatic lubricating systems are functioning properly and providing the appropriate amount of lubricant to the bearings . • Check the lubricant level in sumps and reservoirs, and replenish as necessary . • Where manual grease lubrication is employed, relubricate according to schedule . • Where oil lubrication is used, change oil according to schedule . • Always make sure that the specified lubricant is used . Inspection during a machine shutdown When a machine is not operating, it is an opportunity to assess the condition of bearings, seals, seal counterfaces, housings and lubricant . A general inspection can often be done by removing a housing cover or cap . If a bearing appears to be damaged, it should be dismounted and thoroughly inspected . Shaft and belt alignment as well as a thorough inspection of the machine foundation and exterior can also be done during a machine shutdown . Any condition, whether it is a missing shim or a deteriorating foundation, can negatively affect machine performance . Inspection during a machine shutdown The sooner any problem is identified, the sooner corrective action can begin . It is far less costly to replace bearings and associated components during a regularly scheduled shutdown as opposed to unscheduled downtime, which unexpectedly takes the machine out of service . Inspecting bearings Bearings are not always easily accessible . However, when bearings are partially exposed, visual checks can be made . The most practical time to inspect bearings is during routine maintenance . When inspecting a mounted bearing, SKF recommends following these general guidelines: Preparation • Clean the external surface of the machine . • Remove the housing cover, or the housing cap, to expose the bearing . • Take lubricant samples for analysis . • For oil lubrication, take samples from sump/reservoir . For grease lubricated open bearings, take samples from various positions within the bearing . Visually inspect the condition of the lubricant . Often impurities can be detected by spreading a thin layer on a sheet of paper and examining it under a light . • Clean the exposed external surfaces of the bearing with a lint-free cloth . Inspection • Inspect the exposed external surfaces of the bearing for fretting corrosion . Inspect the bearing rings for cracks . • For sealed bearings, inspect the seals for wear or damage . • Where possible, rotate the"
+  }
+]

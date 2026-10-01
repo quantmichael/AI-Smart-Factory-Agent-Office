@@ -1,0 +1,255 @@
+{
+  "source": "https://groups.uni-paderborn.de/kat/BearingDataCenter",
+  "accessed_at": "2026-09-17T23:23:14+00:00",
+  "expected_archive_count": 32,
+  "present_archive_count": 3,
+  "extracted_bearing_states": [
+    "K001",
+    "KA01",
+    "KI01"
+  ],
+  "extracted_mat_file_count": 240,
+  "extracted_fact_sheet_count": 3,
+  "extracted_measurement_log_count": 3,
+  "files": [
+    {
+      "name": "K001.rar",
+      "official_url": "https://groups.uni-paderborn.de/kat/BearingDataCenter/K001.rar",
+      "local_path": "data/paderborn/raw/K001.rar",
+      "present": true,
+      "valid_signature": true,
+      "size_bytes": 173881721,
+      "sha256": "0f119ebdb28fb2f4d9fac1beb1319429f63f7ae1256c23c872f280f3560918e5"
+    },
+    {
+      "name": "K002.rar",
+      "official_url": "https://groups.uni-paderborn.de/kat/BearingDataCenter/K002.rar",
+      "local_path": "data/paderborn/raw/K002.rar",
+      "present": false,
+      "valid_signature": false
+    },
+    {
+      "name": "K003.rar",
+      "official_url": "https://groups.uni-paderborn.de/kat/BearingDataCenter/K003.rar",
+      "local_path": "data/paderborn/raw/K003.rar",
+      "present": false,
+      "valid_signature": false
+    },
+    {
+      "name": "K004.rar",
+      "official_url": "https://groups.uni-paderborn.de/kat/BearingDataCenter/K004.rar",
+      "local_path": "data/paderborn/raw/K004.rar",
+      "present": false,
+      "valid_signature": false
+    },
+    {
+      "name": "K005.rar",
+      "official_url": "https://groups.uni-paderborn.de/kat/BearingDataCenter/K005.rar",
+      "local_path": "data/paderborn/raw/K005.rar",
+      "present": false,
+      "valid_signature": false
+    },
+    {
+      "name": "K006.rar",
+      "official_url": "https://groups.uni-paderborn.de/kat/BearingDataCenter/K006.rar",
+      "local_path": "data/paderborn/raw/K006.rar",
+      "present": false,
+      "valid_signature": false
+    },
+    {
+      "name": "KA01.rar",
+      "official_url": "https://groups.uni-paderborn.de/kat/BearingDataCenter/KA01.rar",
+      "local_path": "data/paderborn/raw/KA01.rar",
+      "present": true,
+      "valid_signature": true,
+      "size_bytes": 166571438,
+      "sha256": "6a6be1e11132730cc6f560d51eacedcbfd5fd74b829e9d8d3728c6c8a7cd4c0e"
+    },
+    {
+      "name": "KA03.rar",
+      "official_url": "https://groups.uni-paderborn.de/kat/BearingDataCenter/KA03.rar",
+      "local_path": "data/paderborn/raw/KA03.rar",
+      "present": false,
+      "valid_signature": false
+    },
+    {
+      "name": "KA04.rar",
+      "official_url": "https://groups.uni-paderborn.de/kat/BearingDataCenter/KA04.rar",
+      "local_path": "data/paderborn/raw/KA04.rar",
+      "present": false,
+      "valid_signature": false
+    },
+    {
+      "name": "KA05.rar",
+      "official_url": "https://groups.uni-paderborn.de/kat/BearingDataCenter/KA05.rar",
+      "local_path": "data/paderborn/raw/KA05.rar",
+      "present": false,
+      "valid_signature": false
+    },
+    {
+      "name": "KA06.rar",
+      "official_url": "https://groups.uni-paderborn.de/kat/BearingDataCenter/KA06.rar",
+      "local_path": "data/paderborn/raw/KA06.rar",
+      "present": false,
+      "valid_signature": false
+    },
+    {
+      "name": "KA07.rar",
+      "official_url": "https://groups.uni-paderborn.de/kat/BearingDataCenter/KA07.rar",
+      "local_path": "data/paderborn/raw/KA07.rar",
+      "present": false,
+      "valid_signature": false
+    },
+    {
+      "name": "KA08.rar",
+      "official_url": "https://groups.uni-paderborn.de/kat/BearingDataCenter/KA08.rar",
+      "local_path": "data/paderborn/raw/KA08.rar",
+      "present": false,
+      "valid_signature": false
+    },
+    {
+      "name": "KA09.rar",
+      "official_url": "https://groups.uni-paderborn.de/kat/BearingDataCenter/KA09.rar",
+      "local_path": "data/paderborn/raw/KA09.rar",
+      "present": false,
+      "valid_signature": false
+    },
+    {
+      "name": "KA15.rar",
+      "official_url": "https://groups.uni-paderborn.de/kat/BearingDataCenter/KA15.rar",
+      "local_path": "data/paderborn/raw/KA15.rar",
+      "present": false,
+      "valid_signature": false
+    },
+    {
+      "name": "KA16.rar",
+      "official_url": "https://groups.uni-paderborn.de/kat/BearingDataCenter/KA16.rar",
+      "local_path": "data/paderborn/raw/KA16.rar",
+      "present": false,
+      "valid_signature": false
+    },
+    {
+      "name": "KA22.rar",
+      "official_url": "https://groups.uni-paderborn.de/kat/BearingDataCenter/KA22.rar",
+      "local_path": "data/paderborn/raw/KA22.rar",
+      "present": false,
+      "valid_signature": false
+    },
+    {
+      "name": "KA30.rar",
+      "official_url": "https://groups.uni-paderborn.de/kat/BearingDataCenter/KA30.rar",
+      "local_path": "data/paderborn/raw/KA30.rar",
+      "present": false,
+      "valid_signature": false
+    },
+    {
+      "name": "KB23.rar",
+      "official_url": "https://groups.uni-paderborn.de/kat/BearingDataCenter/KB23.rar",
+      "local_path": "data/paderborn/raw/KB23.rar",
+      "present": false,
+      "valid_signature": false
+    },
+    {
+      "name": "KB24.rar",
+      "official_url": "https://groups.uni-paderborn.de/kat/BearingDataCenter/KB24.rar",
+      "local_path": "data/paderborn/raw/KB24.rar",
+      "present": false,
+      "valid_signature": false
+    },
+    {
+      "name": "KB27.rar",
+      "official_url": "https://groups.uni-paderborn.de/kat/BearingDataCenter/KB27.rar",
+      "local_path": "data/paderborn/raw/KB27.rar",
+      "present": false,
+      "valid_signature": false
+    },
+    {
+      "name": "KI01.rar",
+      "official_url": "https://groups.uni-paderborn.de/kat/BearingDataCenter/KI01.rar",
+      "local_path": "data/paderborn/raw/KI01.rar",
+      "present": true,
+      "valid_signature": true,
+      "size_bytes": 175265779,
+      "sha256": "b1dd6d99bb64d556f889fefaedb7e6e672900f5f015125615feaae776f055348"
+    },
+    {
+      "name": "KI03.rar",
+      "official_url": "https://groups.uni-paderborn.de/kat/BearingDataCenter/KI03.rar",
+      "local_path": "data/paderborn/raw/KI03.rar",
+      "present": false,
+      "valid_signature": false
+    },
+    {
+      "name": "KI04.rar",
+      "official_url": "https://groups.uni-paderborn.de/kat/BearingDataCenter/KI04.rar",
+      "local_path": "data/paderborn/raw/KI04.rar",
+      "present": false,
+      "valid_signature": false
+    },
+    {
+      "name": "KI05.rar",
+      "official_url": "https://groups.uni-paderborn.de/kat/BearingDataCenter/KI05.rar",
+      "local_path": "data/paderborn/raw/KI05.rar",
+      "present": false,
+      "valid_signature": false
+    },
+    {
+      "name": "KI07.rar",
+      "official_url": "https://groups.uni-paderborn.de/kat/BearingDataCenter/KI07.rar",
+      "local_path": "data/paderborn/raw/KI07.rar",
+      "present": false,
+      "valid_signature": false
+    },
+    {
+      "name": "KI08.rar",
+      "official_url": "https://groups.uni-paderborn.de/kat/BearingDataCenter/KI08.rar",
+      "local_path": "data/paderborn/raw/KI08.rar",
+      "present": false,
+      "valid_signature": false
+    },
+    {
+      "name": "KI14.rar",
+      "official_url": "https://groups.uni-paderborn.de/kat/BearingDataCenter/KI14.rar",
+      "local_path": "data/paderborn/raw/KI14.rar",
+      "present": false,
+      "valid_signature": false
+    },
+    {
+      "name": "KI16.rar",
+      "official_url": "https://groups.uni-paderborn.de/kat/BearingDataCenter/KI16.rar",
+      "local_path": "data/paderborn/raw/KI16.rar",
+      "present": false,
+      "valid_signature": false
+    },
+    {
+      "name": "KI17.rar",
+      "official_url": "https://groups.uni-paderborn.de/kat/BearingDataCenter/KI17.rar",
+      "local_path": "data/paderborn/raw/KI17.rar",
+      "present": false,
+      "valid_signature": false
+    },
+    {
+      "name": "KI18.rar",
+      "official_url": "https://groups.uni-paderborn.de/kat/BearingDataCenter/KI18.rar",
+      "local_path": "data/paderborn/raw/KI18.rar",
+      "present": false,
+      "valid_signature": false
+    },
+    {
+      "name": "KI21.rar",
+      "official_url": "https://groups.uni-paderborn.de/kat/BearingDataCenter/KI21.rar",
+      "local_path": "data/paderborn/raw/KI21.rar",
+      "present": false,
+      "valid_signature": false
+    },
+    {
+      "name": "readme_versions.txt",
+      "official_url": "https://groups.uni-paderborn.de/kat/BearingDataCenter/readme_versions.txt",
+      "local_path": "data/paderborn/raw/readme_versions.txt",
+      "present": true,
+      "valid_signature": true,
+      "size_bytes": 112,
+      "sha256": "0458cfdc33a09702e88a878b359c8c4f7606cf1d78ab4acab685a7a0b0031be0"
+    }
+  ]
+}

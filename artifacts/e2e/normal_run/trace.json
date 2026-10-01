@@ -1,0 +1,55 @@
+{
+  "nodes": [
+    "initialize_run",
+    "load_sensor_data",
+    "load_equipment_memory",
+    "run_detection",
+    "check_abnormal",
+    "save_normal_state",
+    "generate_normal_report"
+  ],
+  "queries": [],
+  "evidence_ids": [],
+  "diagnosis": [],
+  "verification": null,
+  "inspection": [],
+  "actions": [],
+  "human_interactions": [],
+  "node_timings": [
+    {
+      "node": "initialize_run",
+      "duration_ms": 0.06174994632601738
+    },
+    {
+      "node": "load_sensor_data",
+      "duration_ms": 0.028291018679738045
+    },
+    {
+      "node": "load_equipment_memory",
+      "duration_ms": 4.020084161311388
+    },
+    {
+      "node": "run_detection",
+      "duration_ms": 212.41349983029068
+    },
+    {
+      "node": "check_abnormal",
+      "duration_ms": 0.02350006252527237
+    },
+    {
+      "node": "save_normal_state",
+      "duration_ms": 0.02354104071855545
+    },
+    {
+      "node": "generate_normal_report",
+      "duration_ms": 0.04895799793303013
+    }
+  ],
+  "event_contract": {
+    "unique_sequence": true,
+    "ordered_sequence": true,
+    "run_id_consistent": true,
+    "roles_present": true,
+    "completed_event": true
+  }
+}

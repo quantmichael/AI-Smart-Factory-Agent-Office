@@ -1,0 +1,10 @@
+{
+  "ground_truth_leakage": true,
+  "citation_trace_to_manifest": true,
+  "unsupported_evidence_references": true,
+  "automatic_control_absent": true,
+  "memory_used_on_second_run": true,
+  "fake_maintenance_absent": true,
+  "multimodal_relationship_disclosed": true,
+  "visual_not_fault_diagnosis": true
+}
