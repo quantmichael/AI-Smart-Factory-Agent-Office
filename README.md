@@ -6,7 +6,7 @@
 
 > 현재 입력은 Paderborn의 저장 Measurement Replay입니다. 실제 공장 센서의 연속 수집이나 PLC 자동제어 기능은 포함하지 않습니다.
 
-![통합 관제 화면](artifacts/ui/agent_office/bilingual_overview_cropped.png)
+![통합 관제 화면](artifacts/ui/agent_office/integrated_control_20261002.png)
 
 ## 1. Problem
 
