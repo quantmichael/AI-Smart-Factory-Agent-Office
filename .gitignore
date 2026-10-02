@@ -17,6 +17,10 @@ node_modules/
 .idea/
 .vscode/
 
+# Internal Codex prompts and working documents are local-only.
+/codex/
+/docs/*.md
+
 data/raw/*
 data/paderborn/raw/*
 models/*
