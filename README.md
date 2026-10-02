@@ -110,14 +110,25 @@ Source of truth는 Measurement Adapter, `AnalysisResult`, `EvidenceObject`, Lang
 
 ## 8. Data
 
-- Source: Paderborn University Bearing DataCenter
+- Source: [Paderborn University Bearing DataCenter](https://mb.uni-paderborn.de/en/kat/research/bearing-datacenter)
+- Official dataset page: [Data Sets and Download](https://mb.uni-paderborn.de/en/kat/research/bearing-datacenter/data-sets-and-download)
+- Official download index: [KAt BearingDataCenter](https://groups.uni-paderborn.de/kat/BearingDataCenter/)
 - 현재 대표 subset: `K001`, `KA01`, `KI01`
 - Measurement: 240건
 - Class: healthy 80건, damaged 160건
 - 채널: `vibration_1`, `phase_current_1`, `phase_current_2`, `speed`, `torque`, `force`, temperature metadata
 - UI Replay: 저장된 MAT 신호와 운전값을 동일 normalized timeline에서 재생
 
-원본 RAR/MAT 데이터는 저장소에 포함하지 않습니다. 현장 Sensor, MQTT, OPC-UA, API 입력이 확보되면 Measurement Adapter 앞단을 교체·확장할 수 있으나, 해당 실시간 수집기는 현재 구현되어 있지 않습니다.
+Paderborn Dataset과 Dataset에 포함된 Fact Sheet·Measurement Log는
+[CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/) 조건을 따릅니다.
+비상업적 이용과 재배포에는 출처표시, 라이선스 링크, 변경 여부 표시가 필요하며,
+상업적 이용은 Paderborn University 측의 별도 허가를 확인해야 합니다.
+
+원본 RAR/MAT 학습데이터는 저장소에 포함하지 않습니다. 공식 원본에서 로컬로 내려받는
+방법은 [Setup](#16-setup), 상세한 출처·재배포 범위는
+[Sources / Attribution](#21-sources--attribution)을 참조하십시오. 현장 Sensor, MQTT,
+OPC-UA, API 입력이 확보되면 Measurement Adapter 앞단을 교체·확장할 수 있으나,
+해당 실시간 수집기는 현재 구현되어 있지 않습니다.
 
 ## 9. ML
 
@@ -221,12 +232,36 @@ scripts/              acquisition, ingestion, evaluation, verification tools
 
 저장소 루트에서 실행합니다.
 
+대표 학습데이터 3종(`K001`, `KA01`, `KI01`)과 RAG 문서를 함께 내려받고 압축을 해제합니다.
+
 ```bash
 cp .env.example .env
 python3 scripts/download_project_sources.py --dataset sample --extract
 ```
 
-다운로드 스크립트는 공식 Paderborn/SKF URL만 사용합니다. 원본 Dataset과 재배포 권한이 확인되지 않은 기술문서는 Git에 포함하지 않습니다.
+필요한 자산만 내려받으려면 다음 명령을 사용합니다.
+
+```bash
+# RAG 문서만 다운로드
+python3 scripts/download_project_sources.py --dataset none
+
+# 대표 학습데이터 3종만 다운로드·압축 해제
+python3 scripts/download_project_sources.py --dataset sample --skip-documents --extract
+
+# 전체 Paderborn 학습데이터 32종만 다운로드·압축 해제
+python3 scripts/download_project_sources.py --dataset all --skip-documents --extract
+```
+
+다운로드 스크립트는 아래 공식 배포처만 사용합니다.
+
+- Paderborn Dataset: <https://groups.uni-paderborn.de/kat/BearingDataCenter/>
+- Paderborn Dataset 안내: <https://mb.uni-paderborn.de/en/kat/research/bearing-datacenter/data-sets-and-download>
+- Paderborn Benchmark Paper: <https://mb.uni-paderborn.de/fileadmin-mb/kat/PDF/Veroeffentlichungen/20160703_PHME16_CM_bearing.pdf>
+- SKF 문서 URL과 파일별 조건: [Source Manifest](knowledge/bearing_v1/manifests/SOURCE_MANIFEST.md)
+
+원본 RAR/MAT, 다운로드한 웹페이지·외부 기술문서 및 생성된 Chroma Vector DB는 로컬에서만
+사용하고 Git에 포함하지 않습니다. Paderborn 압축파일에서 추출한 소형 Fact Sheet와
+Measurement Log PDF만 원본 그대로 저장소에 포함하며, CC BY-NC 4.0 조건을 유지합니다.
 
 ### Backend
 
@@ -312,4 +347,32 @@ npm run build
 
 ## 21. Sources / Attribution
 
-Dataset, 기술문서, 오픈소스 라이브러리, AI 개발도구의 출처·사용 범위·확인 가능한 사용조건은 [SOURCES_AND_AI_USAGE.md](docs/competition/SOURCES_AND_AI_USAGE.md)에 정리했습니다. 외부 원문은 각 권리자의 라이선스와 이용조건을 따릅니다. 이 저장소에는 별도의 프로젝트 전체 라이선스가 선언되어 있지 않습니다.
+### External data and documents
+
+| 자산 | 공식 출처 | 라이선스·저장소 정책 |
+|---|---|---|
+| Paderborn Measurement Dataset | [Bearing DataCenter](https://mb.uni-paderborn.de/en/kat/research/bearing-datacenter), [공식 다운로드](https://groups.uni-paderborn.de/kat/BearingDataCenter/) | [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/). 원본 RAR/MAT는 Git 제외 |
+| Paderborn Fact Sheet / Measurement Log | Dataset 공식 압축파일에 포함 | CC BY-NC 4.0. `data/paderborn/docs/`의 PDF는 원본에서 수정하지 않은 파일이며 프로젝트 코드와 별도 라이선스 적용 |
+| Paderborn Benchmark Paper | [Official PDF](https://mb.uni-paderborn.de/fileadmin-mb/kat/PDF/Veroeffentlichungen/20160703_PHME16_CM_bearing.pdf) | 문서에 표시된 별도 CC Attribution 조건 적용. 로컬 다운로드만 허용하고 Git 제외 |
+| Paderborn 공식 웹페이지 | [Bearing DataCenter](https://mb.uni-paderborn.de/en/kat/research/bearing-datacenter) | 웹페이지 재배포 조건이 별도로 확인되지 않아 로컬 다운로드만 허용하고 Git 제외 |
+| SKF 기술문서 | [파일별 공식 URL과 조건](knowledge/bearing_v1/manifests/SOURCE_MANIFEST.md) | SKF 저작권 자산. 재배포 권한이 확인되지 않아 로컬 다운로드만 허용하고 Git 제외 |
+
+### Required Paderborn attribution
+
+이 저장소에 포함된 Paderborn Dataset 파생 자료와 Fact Sheet·Measurement Log의 출처는
+다음과 같습니다.
+
+> Christian Lessmeier et al., KAt-DataCenter, Chair of Design and Drive
+> Technology, Paderborn University,
+> <https://mb.uni-paderborn.de/en/kat/research/bearing-datacenter>
+
+- License: [Creative Commons Attribution-NonCommercial 4.0 International](https://creativecommons.org/licenses/by-nc/4.0/)
+- Included PDF changes: none; files were copied unchanged from the official Dataset archives.
+- Commercial use: contact Paderborn University / the Dataset author before use.
+
+Dataset, 기술문서, 오픈소스 라이브러리, AI 개발도구의 파일별 출처·사용 범위·체크섬은
+[SOURCES_AND_AI_USAGE.md](docs/competition/SOURCES_AND_AI_USAGE.md)와
+[canonical source manifest](knowledge/bearing_v1/manifests/source_manifest.json)에 정리했습니다.
+외부 자산에는 각 권리자의 라이선스와 이용조건이 계속 적용됩니다. 이 저장소에는 현재
+프로젝트 전체에 적용되는 별도 오픈소스 라이선스가 선언되어 있지 않으므로, 저장소 공개가
+프로젝트 코드의 자유로운 복제·재사용을 허가한다는 의미는 아닙니다.
