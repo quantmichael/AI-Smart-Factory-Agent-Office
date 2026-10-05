@@ -126,7 +126,7 @@ Knowledge Base는 Paderborn 공식 자료와 SKF 기술문서를 포함한 15개
 
 | 검증 항목 | 결과 |
 |---|---:|
-| Backend 전체 테스트 | 163 passed |
+| Backend 전체 테스트 | 162 passed |
 | Frontend 전체 테스트 | 28 passed |
 | TypeScript 검사 | 통과 |
 | Next.js Production Build | 통과, 7개 Route 생성 |
