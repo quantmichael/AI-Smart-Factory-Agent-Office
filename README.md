@@ -326,7 +326,7 @@ npm run lint
 npm run build
 ```
 
-2026-10-01 현재 검증 결과:
+2026-10-05 현재 검증 결과:
 
 - Backend: 162 passed
 - Frontend: 28 passed
