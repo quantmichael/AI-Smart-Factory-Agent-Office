@@ -136,6 +136,9 @@ OPC-UA, API 입력이 확보되면 Measurement Adapter 앞단을 교체·확장�
 |---|---|
 | Model ID | `bearing_rf_binary_v1` |
 | Algorithm | `RandomForestClassifier` v1.0 |
+| Model Artifact | `artifacts/ml/baseline_v1/model.joblib` |
+| Training Data | Paderborn `K001`, `KA01`, `KI01` |
+| Training Type | Paderborn 측정데이터를 이용한 별도 Random Forest supervised training (사전학습 모델 Fine-tuning 아님) |
 | Input | 3개 신호 채널에서 추출한 36개 Feature |
 | Window | 1초, overlap 0% |
 | Split | Measurement ID 기준 stratified group split |
