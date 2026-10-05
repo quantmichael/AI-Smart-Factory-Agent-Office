@@ -8,6 +8,11 @@
 
 ![통합 관제 화면](artifacts/ui/agent_office/integrated_control_20261002.png)
 
+### Live Demo
+https://factory.aipath.kr
+
+> 심사 및 검증을 위한 외부 접속 주소입니다.
+
 ## 1. Problem
 
 제조설비 이상이 발견된 뒤 기술문서 검색, 원인 검토, 점검 계획 작성, 조치 판단이 서로 분리되어 있으면 담당자의 경험과 반복적인 수작업에 크게 의존합니다. 판단 근거와 실행 이력을 함께 추적하기도 어렵습니다.
