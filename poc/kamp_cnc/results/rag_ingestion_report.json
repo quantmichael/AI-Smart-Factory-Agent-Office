@@ -1,0 +1,74 @@
+{
+  "knowledge_pack": "kamp_cnc_v1",
+  "source_documents": 1,
+  "chunks": 49,
+  "included_pages": [
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40
+  ],
+  "retrieval_method": "deterministic signed SHA-256 hashing vectors with cosine similarity",
+  "threshold": 0.15845555,
+  "threshold_calibration": {
+    "method": "deterministic signed SHA-256 hashing vectors with cosine similarity",
+    "dimensions": 512,
+    "threshold": 0.15845555,
+    "threshold_policy": "midpoint between the lowest supported-control top score and highest unrelated-control top score; controls declared in code before retrieval",
+    "supported_control_top_scores": {
+      "tool_wear_load": 0.19662980173044994,
+      "wear_quality": 0.24485467804107364,
+      "process_quality": 0.43581854418889776,
+      "inspection_action": 0.27427904897781075
+    },
+    "unsupported_control_top_scores": [
+      0.09320546490018,
+      0.12028130608117202,
+      0.1094778140367639
+    ],
+    "supported_floor": 0.19662980173044994,
+    "unsupported_ceiling": 0.12028130608117202
+  },
+  "FAIL_observations_tested": 3,
+  "FAIL_evidence_found": 3,
+  "PASS_controls_tested": 1,
+  "topic_statuses": {
+    "tool_wear_load": "EVIDENCE_FOUND",
+    "wear_quality": "EVIDENCE_FOUND",
+    "process_quality": "EVIDENCE_FOUND",
+    "inspection_action": "EVIDENCE_FOUND"
+  },
+  "abstention_statuses": {
+    "unsupported_query": "OUT_OF_SCOPE",
+    "specific_fault_overclaim": "INSUFFICIENT_EVIDENCE",
+    "automatic_control": "OUT_OF_SCOPE"
+  },
+  "all_returned_evidence_verified": true
+}
