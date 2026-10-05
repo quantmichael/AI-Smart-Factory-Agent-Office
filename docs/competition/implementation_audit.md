@@ -60,7 +60,7 @@
 | 사용자 Workflow 단계 | 13개 | `frontend/src/components/LangGraphView.tsx` |
 | 대표 정상 Run | COMPLETED, Evidence 0건, Event 19건 | 실제 E2E 실행 |
 | 대표 손상 Run | COMPLETED, Evidence 9건, Event 37건 | 실제 E2E 실행 |
-| Backend 테스트 | 163 passed | 전체 pytest 실행 |
+| Backend 테스트 | 162 passed | 전체 pytest 실행 |
 | Frontend 테스트 | 28 passed | 전체 npm test 실행 |
 
 ## 모델 평가 해석 제한
