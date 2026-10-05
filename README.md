@@ -131,7 +131,7 @@ Paderborn Dataset과 Dataset에 포함된 Fact Sheet·Measurement Log는
 
 원본 RAR/MAT 학습데이터는 저장소에 포함하지 않습니다. 공식 원본에서 로컬로 내려받는
 방법은 [Setup](#16-setup), 상세한 출처·재배포 범위는
-[Sources / Attribution](#21-sources--attribution)을 참조하십시오. 현장 Sensor, MQTT,
+[Sources / Attribution](#22-sources--attribution)을 참조하십시오. 현장 Sensor, MQTT,
 OPC-UA, API 입력이 확보되면 Measurement Adapter 앞단을 교체·확장할 수 있으나,
 해당 실시간 수집기는 현재 구현되어 있지 않습니다.
 
@@ -345,7 +345,59 @@ npm run build
 - 실제 PLC 제어, 자동 설비 정지, 정비 실행 기능이 없습니다.
 - 원본 Dataset, 저작권 기술문서, Chroma index와 Runtime DB는 Git에 포함하지 않습니다.
 
-## 20. Competition Documents
+## 20. KAMP CNC Expansion PoC
+
+기존 Paderborn 기반 Production E2E와 독립적으로, KAMP 「정밀가공 품질보증 AI 데이터셋」을 이용해 다른 제조 도메인으로의 **Data Adapter 및 Knowledge/RAG 확장 가능성**을 별도 PoC로 검증했습니다.
+
+```text
+KAMP CNC Data
+    ↓
+KAMPCNCAdapter
+    ↓
+Ground Truth Context
+    ↓
+kamp_cnc_v1 RAG
+    ↓
+Evidence / Abstention
+```
+
+### 검증 결과
+
+- Dataset: **1,085 observations / 43 columns**
+- Ground Truth: **PASS 986 / FAIL 99**
+- CNC Adapter: **1,085 / 1,085 observations 변환**
+- Feature mismatch: **0**
+- Validation failure: **0**
+- Adapter + RAG Tests: **29 / 29 passed**
+- Knowledge Pack: **`kamp_cnc_v1` / 49 chunks**
+- FAIL Observation Retrieval: **3 / 3**
+- Abstention Checks: **3 / 3**
+- Production Code / DB / Chroma 변경: **0**
+
+### 검증 범위
+
+- `passorfail`의 `0=PASS`, `1=FAIL`은 KAMP 데이터셋이 제공하는 **Ground Truth**입니다.
+- CNC 상태는 본 PoC에서 새로 학습한 ML Prediction이 아닙니다.
+- CNC 전용 ML 모델의 학습 및 Accuracy/F1 평가는 수행하지 않았습니다.
+- 현장 일반화 검증은 수행하지 않았으며, 현장 일반화 성능을 주장하지 않습니다.
+- Sensor Feature만으로 특정 고장 원인을 확정하지 않습니다.
+- RAG Knowledge Source는 해당 KAMP 데이터셋의 **공식 Guidebook**만 사용했습니다.
+- Evidence가 부족하거나 범위를 벗어나는 요청에는 Abstention 정책을 적용했습니다.
+- 기존 Paderborn Production E2E와 완전히 독립된 실험입니다.
+
+### Paired Observation
+
+실제 데이터 감사 과정에서 동일 `SerialNo`와 동일 `ReceivedDateTime`을 가진 99개 쌍이 확인되었습니다.
+
+- 각 쌍은 PASS 1개와 FAIL 1개로 구성됩니다.
+- 99개 쌍 모두 Feature vector가 서로 달랐습니다.
+- 동일 Feature에 Label만 다른 사례는 없었습니다.
+- 원본 Row를 병합하거나 Label을 수정하지 않았습니다.
+- 복수 Observation의 생성 원인은 공식 자료에서 확인되지 않아 임의로 추론하지 않았습니다.
+
+상세 구현, 데이터 감사, Adapter/RAG 검증 결과는 [`poc/kamp_cnc/README.md`](poc/kamp_cnc/README.md)를 참고하십시오.
+
+## 21. Competition Documents
 
 - [개발완료보고서](docs/competition/development_completion_report.md)
 - [AI Agent 기술설명서](docs/competition/agent_technical_description.md)
@@ -353,7 +405,7 @@ npm run build
 - [출처 및 AI 활용 내역](docs/competition/SOURCES_AND_AI_USAGE.md)
 - [테스트 결과](docs/competition/TEST_RESULTS.md)
 
-## 21. Sources / Attribution
+## 22. Sources / Attribution
 
 ### External data and documents
 
@@ -364,6 +416,7 @@ npm run build
 | Paderborn Benchmark Paper | [Official PDF](https://mb.uni-paderborn.de/fileadmin-mb/kat/PDF/Veroeffentlichungen/20160703_PHME16_CM_bearing.pdf) | 문서에 표시된 별도 CC Attribution 조건 적용. 로컬 다운로드만 허용하고 Git 제외 |
 | Paderborn 공식 웹페이지 | [Bearing DataCenter](https://mb.uni-paderborn.de/en/kat/research/bearing-datacenter) | 웹페이지 재배포 조건이 별도로 확인되지 않아 로컬 다운로드만 허용하고 Git 제외 |
 | SKF 기술문서 | [파일별 공식 URL과 조건](knowledge/bearing_v1/manifests/SOURCE_MANIFEST.md) | SKF 저작권 자산. 재배포 권한이 확인되지 않아 로컬 다운로드만 허용하고 Git 제외 |
+| KAMP 정밀가공 품질보증 AI 데이터셋 / Guidebook | [Korea AI Manufacturing Platform (KAMP)](https://www.kamp-ai.kr/) | 중소벤처기업부·스마트제조혁신추진단(㈜인터엑스), 2022.12.23. 원본 CSV/PDF 및 원문 파생 Chunk/Index는 Git 제외 |
 
 ### Required Paderborn attribution
 
@@ -377,6 +430,17 @@ npm run build
 - License: [Creative Commons Attribution-NonCommercial 4.0 International](https://creativecommons.org/licenses/by-nc/4.0/)
 - Included PDF changes: none; files were copied unchanged from the official Dataset archives.
 - Commercial use: contact Paderborn University / the Dataset author before use.
+
+### Required KAMP attribution
+
+KAMP CNC Expansion PoC에서 사용한 데이터셋과 공식 Guidebook의 출처는 다음과 같습니다.
+
+> 중소벤처기업부, Korea AI Manufacturing Platform(KAMP),  
+> 정밀가공 품질보증 AI 데이터셋,  
+> 스마트제조혁신추진단(㈜인터엑스), 2022.12.23.  
+> <https://www.kamp-ai.kr/>
+
+KAMP 원본 CSV와 Guidebook PDF 및 원문 파생 Chunk/Index는 Git에 포함하지 않습니다. PoC에는 공개 가능한 구현 코드, 테스트 및 집계된 검증 결과만 포함합니다.
 
 Dataset, 기술문서, 오픈소스 라이브러리, AI 개발도구의 파일별 출처·사용 범위·체크섬은
 [SOURCES_AND_AI_USAGE.md](docs/competition/SOURCES_AND_AI_USAGE.md)와
