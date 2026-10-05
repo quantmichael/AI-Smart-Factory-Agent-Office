@@ -18,7 +18,7 @@
 
 | Suite | Command | Result |
 |---|---|---|
-| Backend | `cd backend && .venv/bin/pytest -q` | 163 passed, 0 failed; Starlette TestClient deprecation warning 1건 |
+| Backend | `cd backend && .venv/bin/pytest -q` | 162 passed, 0 failed; Starlette TestClient deprecation warning 1건 |
 | Frontend | `cd frontend && npm test` | 28 passed, 0 failed |
 | TypeScript | `cd frontend && npm run lint` | passed |
 | Production Build | `cd frontend && npm run build` | passed; `/`, `/history`, `/history/[runId]`, `/knowledge`, `/models`, `/system`, `/_not-found` 생성 |
