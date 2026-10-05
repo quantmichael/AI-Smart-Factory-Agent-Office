@@ -25,6 +25,22 @@
 | Production DB 기록 | 0 |
 | Production Chroma 기록 | 0 |
 
+### 검증 산출물
+
+상세 감사 및 검증 결과는 다음 문서에서 확인할 수 있습니다.
+
+- [데이터셋 감사 결과](results/dataset_audit.md)
+  - 데이터 구조, PASS/FAIL 분포, SerialNo 중복, Guidebook 교차검증, Leakage 위험 분석
+
+- [Paired Serial Observation 감사 결과](results/paired_serial_audit.md)
+  - 동일 SerialNo·동일 timestamp의 99개 PASS/FAIL 쌍에 대한 Feature 차이 분석
+
+- [CNC Adapter 호환성 검증](results/compatibility_report.md)
+  - 1,085개 Observation 변환, Ground Truth/Feature 보존 및 Adapter 호환성 검증
+
+- [KAMP Guidebook RAG Evidence 검증](results/rag_evidence_report.md)
+  - FAIL Observation 검색, 페이지·Section Evidence 추적 및 Abstention 검증
+
 ## 흐름
 
 ```text
