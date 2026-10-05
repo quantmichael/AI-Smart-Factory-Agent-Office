@@ -323,7 +323,7 @@ npm run build
 
 2026-10-01 현재 검증 결과:
 
-- Backend: 163 passed
+- Backend: 162 passed
 - Frontend: 28 passed
 - TypeScript: passed
 - Next.js production build: passed, 7 routes
