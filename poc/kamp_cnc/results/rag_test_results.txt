@@ -1,0 +1,34 @@
+test_01_normal_pass_row (test_adapter.KAMPCNCAdapterTests.test_01_normal_pass_row) ... ok
+test_02_normal_fail_mapping_with_valid_unpaired_fixture (test_adapter.KAMPCNCAdapterTests.test_02_normal_fail_mapping_with_valid_unpaired_fixture) ... ok
+test_03_paired_pass_observation (test_adapter.KAMPCNCAdapterTests.test_03_paired_pass_observation) ... ok
+test_04_paired_fail_observation (test_adapter.KAMPCNCAdapterTests.test_04_paired_fail_observation) ... ok
+test_05_ground_truth_mapping (test_adapter.KAMPCNCAdapterTests.test_05_ground_truth_mapping) ... ok
+test_06_ground_truth_is_not_prediction (test_adapter.KAMPCNCAdapterTests.test_06_ground_truth_is_not_prediction) ... ok
+test_07_all_40_features_are_preserved (test_adapter.KAMPCNCAdapterTests.test_07_all_40_features_are_preserved) ... ok
+test_08_paired_metadata (test_adapter.KAMPCNCAdapterTests.test_08_paired_metadata) ... ok
+test_09_deterministic_sample_id (test_adapter.KAMPCNCAdapterTests.test_09_deterministic_sample_id) ... ok
+test_10_invalid_label_fails_closed (test_adapter.KAMPCNCAdapterTests.test_10_invalid_label_fails_closed) ... ok
+test_11_missing_feature_fails_closed (test_adapter.KAMPCNCAdapterTests.test_11_missing_feature_fails_closed) ... ok
+test_12_invalid_numeric_fails_closed (test_adapter.KAMPCNCAdapterTests.test_12_invalid_numeric_fails_closed) ... ok
+test_13_invalid_timestamp_fails_closed (test_adapter.KAMPCNCAdapterTests.test_13_invalid_timestamp_fails_closed) ... ok
+test_14_missing_metadata_fails_closed (test_adapter.KAMPCNCAdapterTests.test_14_missing_metadata_fails_closed) ... ok
+test_15_full_dataset_compatibility (test_adapter.KAMPCNCAdapterTests.test_15_full_dataset_compatibility) ... ok
+test_16_guidebook_ingestion (test_rag.KAMPCNCRAGTests.test_16_guidebook_ingestion) ... ok
+test_17_chunk_metadata (test_rag.KAMPCNCRAGTests.test_17_chunk_metadata) ... ok
+test_18_deterministic_retrieval (test_rag.KAMPCNCRAGTests.test_18_deterministic_retrieval) ... ok
+test_19_fail_observation_query (test_rag.KAMPCNCRAGTests.test_19_fail_observation_query) ... ok
+test_20_evidence_provenance (test_rag.KAMPCNCRAGTests.test_20_evidence_provenance) ... ok
+test_21_page_and_section_preserved (test_rag.KAMPCNCRAGTests.test_21_page_and_section_preserved) ... ok
+test_22_pass_control_does_not_create_diagnosis (test_rag.KAMPCNCRAGTests.test_22_pass_control_does_not_create_diagnosis) ... ok
+test_23_unsupported_query_abstains (test_rag.KAMPCNCRAGTests.test_23_unsupported_query_abstains) ... ok
+test_24_specific_fault_overclaim_abstains (test_rag.KAMPCNCRAGTests.test_24_specific_fault_overclaim_abstains) ... ok
+test_25_automatic_control_abstains (test_rag.KAMPCNCRAGTests.test_25_automatic_control_abstains) ... ok
+test_26_returned_excerpt_exists_on_source_page (test_rag.KAMPCNCRAGTests.test_26_returned_excerpt_exists_on_source_page) ... ok
+test_27_ground_truth_is_not_prediction (test_rag.KAMPCNCRAGTests.test_27_ground_truth_is_not_prediction) ... ok
+test_28_production_isolation (test_rag.KAMPCNCRAGTests.test_28_production_isolation) ... ok
+test_29_threshold_calibration_is_separated (test_rag.KAMPCNCRAGTests.test_29_threshold_calibration_is_separated) ... ok
+
+----------------------------------------------------------------------
+Ran 29 tests in 1.720s
+
+OK

@@ -1,0 +1,32 @@
+{
+  "phase": "K1-B",
+  "contract": "CNCObservation",
+  "contract_version": "1.0.0",
+  "adapter": "KAMPCNCAdapter",
+  "adapter_version": "1.0.0",
+  "input_csv": "poc/kamp_cnc/data/raw/정밀가공_품질보증_데이터셋.csv",
+  "input_rows": 1085,
+  "converted": 1085,
+  "PASS": 986,
+  "FAIL": 99,
+  "paired_observation_rows": 198,
+  "paired_serial_groups": 99,
+  "validation_failures": 0,
+  "failure_details": [],
+  "unique_sample_ids": 1085,
+  "duplicate_sample_ids": 0,
+  "feature_columns_expected": 40,
+  "feature_values_per_observation": [
+    40
+  ],
+  "feature_value_mismatches": 0,
+  "ground_truth": {
+    "mapping": {
+      "0": "PASS",
+      "1": "FAIL"
+    },
+    "source_type": "dataset_ground_truth",
+    "prediction": false
+  },
+  "verdict": "PASS"
+}

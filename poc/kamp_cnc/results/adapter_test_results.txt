@@ -1,0 +1,20 @@
+test_01_normal_pass_row (test_adapter.KAMPCNCAdapterTests.test_01_normal_pass_row) ... ok
+test_02_normal_fail_mapping_with_valid_unpaired_fixture (test_adapter.KAMPCNCAdapterTests.test_02_normal_fail_mapping_with_valid_unpaired_fixture) ... ok
+test_03_paired_pass_observation (test_adapter.KAMPCNCAdapterTests.test_03_paired_pass_observation) ... ok
+test_04_paired_fail_observation (test_adapter.KAMPCNCAdapterTests.test_04_paired_fail_observation) ... ok
+test_05_ground_truth_mapping (test_adapter.KAMPCNCAdapterTests.test_05_ground_truth_mapping) ... ok
+test_06_ground_truth_is_not_prediction (test_adapter.KAMPCNCAdapterTests.test_06_ground_truth_is_not_prediction) ... ok
+test_07_all_40_features_are_preserved (test_adapter.KAMPCNCAdapterTests.test_07_all_40_features_are_preserved) ... ok
+test_08_paired_metadata (test_adapter.KAMPCNCAdapterTests.test_08_paired_metadata) ... ok
+test_09_deterministic_sample_id (test_adapter.KAMPCNCAdapterTests.test_09_deterministic_sample_id) ... ok
+test_10_invalid_label_fails_closed (test_adapter.KAMPCNCAdapterTests.test_10_invalid_label_fails_closed) ... ok
+test_11_missing_feature_fails_closed (test_adapter.KAMPCNCAdapterTests.test_11_missing_feature_fails_closed) ... ok
+test_12_invalid_numeric_fails_closed (test_adapter.KAMPCNCAdapterTests.test_12_invalid_numeric_fails_closed) ... ok
+test_13_invalid_timestamp_fails_closed (test_adapter.KAMPCNCAdapterTests.test_13_invalid_timestamp_fails_closed) ... ok
+test_14_missing_metadata_fails_closed (test_adapter.KAMPCNCAdapterTests.test_14_missing_metadata_fails_closed) ... ok
+test_15_full_dataset_compatibility (test_adapter.KAMPCNCAdapterTests.test_15_full_dataset_compatibility) ... ok
+
+----------------------------------------------------------------------
+Ran 15 tests in 0.027s
+
+OK

@@ -1,0 +1,12 @@
+# Source redistribution requires separate permission review.
+data/raw/*.csv
+references/*.pdf
+
+# Generated from source material and intentionally kept local.
+knowledge/kamp_cnc_v1/chunks.json
+knowledge/kamp_cnc_v1/index.json
+
+# These examples contain source-row values or Guidebook excerpts.
+results/adapter_examples.json
+results/rag_retrieval_examples.json
+

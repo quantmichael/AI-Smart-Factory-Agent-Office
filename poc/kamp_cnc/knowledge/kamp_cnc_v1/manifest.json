@@ -1,0 +1,78 @@
+{
+  "knowledge_pack": "kamp_cnc_v1",
+  "source_documents": 1,
+  "source": {
+    "source_id": "kamp-cnc-guidebook",
+    "provider": "KAMP",
+    "title": "정밀가공 품질보증 AI 데이터셋 분석실습 가이드북",
+    "file": "Guidebook_정밀가공_품질보증_AI_데이터셋.pdf",
+    "sha256": "7b12976200bb405732755e3f05cc47745c5ef1c40c6e00c10b2ef93cf123ffab"
+  },
+  "ingestion": {
+    "pdf_pages": 58,
+    "included_pages": [
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40
+    ],
+    "excluded_policy": "Exclude cover/contents, environment setup pages 18-22, and installation/appendix pages 41-58",
+    "chunk_count": 49,
+    "max_chars": 600,
+    "metadata_fields": [
+      "source_id",
+      "document_title",
+      "provider",
+      "page",
+      "section",
+      "chunk_id",
+      "text"
+    ]
+  },
+  "retrieval": {
+    "method": "deterministic signed SHA-256 hashing vectors with cosine similarity",
+    "dimensions": 512,
+    "threshold": 0.15845555,
+    "threshold_policy": "midpoint between the lowest supported-control top score and highest unrelated-control top score; controls declared in code before retrieval",
+    "supported_control_top_scores": {
+      "tool_wear_load": 0.19662980173044994,
+      "wear_quality": 0.24485467804107364,
+      "process_quality": 0.43581854418889776,
+      "inspection_action": 0.27427904897781075
+    },
+    "unsupported_control_top_scores": [
+      0.09320546490018,
+      0.12028130608117202,
+      0.1094778140367639
+    ],
+    "supported_floor": 0.19662980173044994,
+    "unsupported_ceiling": 0.12028130608117202
+  }
+}

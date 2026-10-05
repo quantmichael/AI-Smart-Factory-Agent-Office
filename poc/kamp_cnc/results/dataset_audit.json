@@ -1,0 +1,336 @@
+{
+  "audit": {
+    "phase": "K1-A",
+    "mode": "read-only",
+    "source_of_truth": "CSV for values and structure; Guidebook for definitions and collection/processing description",
+    "csv_path": "poc/kamp_cnc/data/raw/정밀가공_품질보증_데이터셋.csv",
+    "guidebook_path": "poc/kamp_cnc/references/Guidebook_정밀가공_품질보증_AI_데이터셋.pdf"
+  },
+  "dataset_integrity": {
+    "shape": [1085, 43],
+    "columns": [
+      "SerialNo",
+      "ReceivedDateTime",
+      "SpindleSpeed_max",
+      "ServoCurrent_X_max",
+      "ServoCurrent_Z1_max",
+      "ServoCurrent_Z2_max",
+      "ServoCurrent_Z3_max",
+      "ServoLoad_X_max",
+      "ServoLoad_Z1_max",
+      "ServoLoad_Z2_max",
+      "ServoLoad_Z3_max",
+      "SpindleSpeed_mean",
+      "ServoCurrent_X_mean",
+      "ServoCurrent_Z1_mean",
+      "ServoCurrent_Z2_mean",
+      "ServoCurrent_Z3_mean",
+      "ServoLoad_X_mean",
+      "ServoLoad_Z1_mean",
+      "ServoLoad_Z2_mean",
+      "ServoLoad_Z3_mean",
+      "SpindleSpeed_min",
+      "ServoCurrent_X_min",
+      "ServoCurrent_Z1_min",
+      "ServoCurrent_Z2_min",
+      "ServoCurrent_Z3_min",
+      "ServoLoad_X_min",
+      "ServoLoad_Z1_min",
+      "ServoLoad_Z2_min",
+      "ServoLoad_Z3_min",
+      "SpindleSpeed_std",
+      "ServoCurrent_X_std",
+      "ServoCurrent_Z1_std",
+      "ServoCurrent_Z2_std",
+      "ServoCurrent_Z3_std",
+      "ServoLoad_X_std",
+      "ServoLoad_Z1_std",
+      "ServoLoad_Z2_std",
+      "ServoLoad_Z3_std",
+      "SpindleLoad_max",
+      "SpindleLoad_mean",
+      "SpindleLoad_min",
+      "SpindleLoad_std",
+      "passorfail"
+    ],
+    "dtypes": {
+      "SerialNo": "object",
+      "ReceivedDateTime": "object (parseable as datetime; 0 parse failures)",
+      "SpindleSpeed_max": "float64",
+      "ServoCurrent_X_max": "float64",
+      "ServoCurrent_Z1_max": "float64",
+      "ServoCurrent_Z2_max": "float64",
+      "ServoCurrent_Z3_max": "float64",
+      "ServoLoad_X_max": "float64",
+      "ServoLoad_Z1_max": "float64",
+      "ServoLoad_Z2_max": "float64",
+      "ServoLoad_Z3_max": "float64",
+      "SpindleSpeed_mean": "float64",
+      "ServoCurrent_X_mean": "float64",
+      "ServoCurrent_Z1_mean": "float64",
+      "ServoCurrent_Z2_mean": "float64",
+      "ServoCurrent_Z3_mean": "float64",
+      "ServoLoad_X_mean": "float64",
+      "ServoLoad_Z1_mean": "float64",
+      "ServoLoad_Z2_mean": "float64",
+      "ServoLoad_Z3_mean": "float64",
+      "SpindleSpeed_min": "float64",
+      "ServoCurrent_X_min": "float64",
+      "ServoCurrent_Z1_min": "float64",
+      "ServoCurrent_Z2_min": "float64",
+      "ServoCurrent_Z3_min": "float64",
+      "ServoLoad_X_min": "float64",
+      "ServoLoad_Z1_min": "float64",
+      "ServoLoad_Z2_min": "float64",
+      "ServoLoad_Z3_min": "float64",
+      "SpindleSpeed_std": "float64",
+      "ServoCurrent_X_std": "float64",
+      "ServoCurrent_Z1_std": "float64",
+      "ServoCurrent_Z2_std": "float64",
+      "ServoCurrent_Z3_std": "float64",
+      "ServoLoad_X_std": "float64",
+      "ServoLoad_Z1_std": "float64",
+      "ServoLoad_Z2_std": "float64",
+      "ServoLoad_Z3_std": "float64",
+      "SpindleLoad_max": "float64",
+      "SpindleLoad_mean": "float64",
+      "SpindleLoad_min": "float64",
+      "SpindleLoad_std": "float64",
+      "passorfail": "int64"
+    },
+    "missing_total": 0,
+    "missing_by_column": {},
+    "full_duplicate_rows_beyond_first": 0,
+    "rows_in_full_duplicate_groups": 0,
+    "date_range": {
+      "min": "2022-08-23T03:14:36.906",
+      "max": "2022-08-25T10:14:44.102",
+      "rows_by_date": {
+        "2022-08-23": 337,
+        "2022-08-24": 338,
+        "2022-08-25": 410
+      }
+    },
+    "labels": {
+      "mapping": {
+        "0": "PASS / 양품",
+        "1": "FAIL / 불량"
+      },
+      "unique_values": [0, 1],
+      "PASS": {
+        "count": 986,
+        "ratio": 0.9087557604
+      },
+      "FAIL": {
+        "count": 99,
+        "ratio": 0.0912442396
+      },
+      "class_ratio_PASS_to_FAIL": "986:99 (9.9596:1)",
+      "mapping_matches_guidebook": true
+    }
+  },
+  "serial_no_audit": {
+    "definition_in_guidebook": "제품 번호",
+    "unique_count": 986,
+    "duplicate_rows_beyond_first": 99,
+    "serials_with_multiple_rows": 99,
+    "rows_per_serial": {
+      "one_row": 887,
+      "two_rows": 99,
+      "minimum": 1,
+      "maximum": 2,
+      "mean": 1.1004056795
+    },
+    "repeated_structure": {
+      "all_99_repeated_serials_have_same_ReceivedDateTime_within_group": true,
+      "all_99_repeated_serials_have_different_feature_vectors_within_group": true,
+      "all_99_repeated_serials_have_labels_0_and_1": true,
+      "cause_determinable_from_csv_or_guidebook": false
+    },
+    "conflicting_label_serials": 99,
+    "conflicting_label_rows": 198,
+    "representative_examples": [
+      {
+        "SerialNo": "20220823-0000210",
+        "ReceivedDateTime": "2022-08-23 03:44:05.884",
+        "labels": [0, 1]
+      },
+      {
+        "SerialNo": "20220823-0000219",
+        "ReceivedDateTime": "2022-08-23 03:54:14.872",
+        "labels": [0, 1]
+      },
+      {
+        "SerialNo": "20220823-0000231",
+        "ReceivedDateTime": "2022-08-23 04:08:24.375",
+        "labels": [0, 1]
+      }
+    ],
+    "group_split_suitability": {
+      "verdict": "REQUIRED_WITH_GROUND_TRUTH_BLOCKER",
+      "reason": "SerialNo grouping prevents the same product number from crossing train/test, but every repeated SerialNo has conflicting labels; the product-level label contract must be clarified before a defensible supervised evaluation."
+    }
+  },
+  "feature_audit": {
+    "groups": {
+      "metadata": ["SerialNo", "ReceivedDateTime"],
+      "SpindleSpeed": ["SpindleSpeed_max", "SpindleSpeed_mean", "SpindleSpeed_min", "SpindleSpeed_std"],
+      "ServoCurrent": [
+        "ServoCurrent_X_max", "ServoCurrent_Z1_max", "ServoCurrent_Z2_max", "ServoCurrent_Z3_max",
+        "ServoCurrent_X_mean", "ServoCurrent_Z1_mean", "ServoCurrent_Z2_mean", "ServoCurrent_Z3_mean",
+        "ServoCurrent_X_min", "ServoCurrent_Z1_min", "ServoCurrent_Z2_min", "ServoCurrent_Z3_min",
+        "ServoCurrent_X_std", "ServoCurrent_Z1_std", "ServoCurrent_Z2_std", "ServoCurrent_Z3_std"
+      ],
+      "ServoLoad": [
+        "ServoLoad_X_max", "ServoLoad_Z1_max", "ServoLoad_Z2_max", "ServoLoad_Z3_max",
+        "ServoLoad_X_mean", "ServoLoad_Z1_mean", "ServoLoad_Z2_mean", "ServoLoad_Z3_mean",
+        "ServoLoad_X_min", "ServoLoad_Z1_min", "ServoLoad_Z2_min", "ServoLoad_Z3_min",
+        "ServoLoad_X_std", "ServoLoad_Z1_std", "ServoLoad_Z2_std", "ServoLoad_Z3_std"
+      ],
+      "SpindleLoad": ["SpindleLoad_max", "SpindleLoad_mean", "SpindleLoad_min", "SpindleLoad_std"],
+      "ground_truth": ["passorfail"]
+    },
+    "constant_columns": {
+      "count": 13,
+      "columns_and_values": {
+        "ServoCurrent_Z2_max": 30.3,
+        "ServoLoad_Z2_max": 30.3,
+        "ServoCurrent_Z2_mean": 30.3,
+        "ServoLoad_Z2_mean": 30.3,
+        "SpindleSpeed_min": 0.0,
+        "ServoCurrent_Z2_min": 30.3,
+        "ServoCurrent_Z3_min": 40.4,
+        "ServoLoad_X_min": 0.0,
+        "ServoLoad_Z2_min": 30.3,
+        "ServoLoad_Z3_min": 40.4,
+        "ServoCurrent_Z2_std": 0.0,
+        "ServoLoad_Z2_std": 0.0,
+        "SpindleLoad_min": 0.0
+      }
+    },
+    "near_zero_variance": {
+      "criterion": "non-constant; unique percentage <= 10% and most-common/second-most-common frequency ratio > 19",
+      "columns": []
+    },
+    "identical_features": {
+      "nonconstant_exactly_identical_pairs": [],
+      "constant_identical_value_groups": {
+        "30.3": ["ServoCurrent_Z2_max", "ServoLoad_Z2_max", "ServoCurrent_Z2_mean", "ServoLoad_Z2_mean", "ServoCurrent_Z2_min", "ServoLoad_Z2_min"],
+        "0.0": ["SpindleSpeed_min", "ServoLoad_X_min", "ServoCurrent_Z2_std", "ServoLoad_Z2_std", "SpindleLoad_min"],
+        "40.4": ["ServoCurrent_Z3_min", "ServoLoad_Z3_min"]
+      }
+    }
+  },
+  "guidebook_cross_check": {
+    "matched": [
+      "1,085 rows",
+      "43 columns",
+      "PASS 986 / FAIL 99",
+      "passorfail 0=PASS(양품), 1=FAIL(불량)",
+      "SerialNo is object and defined as product number",
+      "ReceivedDateTime is object in the raw CSV and all values parse as datetime",
+      "max / mean / min / std feature families",
+      "13 constant numeric columns; after dropping constants and two object columns, 28 columns remain",
+      "All observed timestamps fall within the stated 2022-08-23 through 2022-08-27 validity interval"
+    ],
+    "reference_only_not_independently_provable_from_csv": [
+      "PLC / sensor collection",
+      "raw acquisition at 10-100 ms intervals",
+      "product-level feature engineering"
+    ],
+    "guidebook_final_9_variables": [
+      "SpindleSpeed_max",
+      "ServoLoad_Z1_max",
+      "ServoCurrent_X_mean",
+      "ServoCurrent_X_std",
+      "ServoLoad_X_std",
+      "SpindleLoad_max",
+      "upper_mold_temp1",
+      "SpindleLoad_mean",
+      "SpindleLoad_std"
+    ],
+    "inconsistencies": [
+      "upper_mold_temp1 is listed among the final 9 variables but is absent from the 43-column CSV; no substitute was inferred.",
+      "The guidebook states a collection period through 2022-08-27, while the latest timestamp actually present is 2022-08-25 10:14:44.102 (the values are within, but do not cover, the full stated period).",
+      "The guidebook states one row represents one product and SerialNo is the product number, but 99 SerialNo values each occur twice at the same timestamp with conflicting 0/1 labels and different feature vectors.",
+      "The guidebook reports SerialNo uniqueness as 90.9%, which matches 986/1,085, but does not explain the conflicting labels for repeated SerialNo values."
+    ]
+  },
+  "leakage_risks": [
+    {
+      "risk": "random row split",
+      "severity": "HIGH",
+      "finding": "99 product identifiers repeat; a row split can place the same SerialNo and timestamp in both train and test."
+    },
+    {
+      "risk": "conflicting product-level ground truth",
+      "severity": "CRITICAL",
+      "finding": "All 99 repeated SerialNo groups contain both PASS and FAIL; label resolution cannot be inferred safely."
+    },
+    {
+      "risk": "temporal dependence",
+      "severity": "HIGH",
+      "finding": "Only three observed dates are present; random mixing can hide day/batch drift."
+    },
+    {
+      "risk": "feature-selection leakage",
+      "severity": "HIGH",
+      "finding": "Selecting variables by T-test on all rows before splitting uses evaluation labels."
+    },
+    {
+      "risk": "SMOTE before split",
+      "severity": "CRITICAL",
+      "finding": "Synthetic samples created before split would leak training information into evaluation."
+    },
+    {
+      "risk": "preprocessing fit scope",
+      "severity": "HIGH",
+      "finding": "Imputation, scaling/normalization, outlier thresholds, constant filtering, and selection must be fit on training data only."
+    }
+  ],
+  "safe_ml_evaluation_design": [
+    "First obtain an authoritative rule for the 99 conflicting SerialNo labels; do not silently deduplicate or relabel.",
+    "Keep all rows sharing a SerialNo in one fold using a group-aware split; validate that no SerialNo overlaps folds.",
+    "Add a forward temporal holdout by ReceivedDateTime where sample size permits; report the narrow three-day coverage.",
+    "Fit feature selection, outlier rules, imputation, scaling/normalization, and SMOTE only inside each training fold.",
+    "Apply SMOTE only to training partitions after the split; never to validation/test data.",
+    "Report class-aware metrics and confidence intervals, not accuracy alone."
+  ],
+  "poc_suitability": {
+    "CNC_Adapter_PoC": {
+      "rating": "GOOD",
+      "reason": "The raw schema, types, feature families, timestamp parsing, and row-level records are usable for an isolated adapter, provided the adapter preserves rows and exposes label conflicts without resolving them."
+    },
+    "Ground_Truth_Context_PoC": {
+      "rating": "LIMITED",
+      "reason": "The official 0/1 meaning is clear, but 99 product identifiers have conflicting labels."
+    },
+    "CNC_RAG_PoC": {
+      "rating": "LIMITED",
+      "reason": "The Guidebook is a useful official reference, but retrieval answers must surface the upper_mold_temp1 and SerialNo/label inconsistencies."
+    },
+    "simple_ML_Baseline_PoC": {
+      "rating": "LIMITED",
+      "reason": "A guarded experiment is possible only after label handling is explicitly decided and group/temporal leakage controls are applied."
+    },
+    "DNN_performance_evaluation": {
+      "rating": "NOT RECOMMENDED",
+      "reason": "1,085 rows, only 99 FAIL rows, a three-day observed period, and unresolved product-level label conflicts do not support a reliable DNN performance claim."
+    },
+    "Production_generalization_claim": {
+      "rating": "NOT RECOMMENDED",
+      "reason": "No independent site/machine/time-period holdout exists, and product-level ground truth is unresolved."
+    }
+  },
+  "verdict": {
+    "K1_A": "PASS",
+    "meaning": "The read-only audit completed and the inconsistencies are explicitly captured; PASS is not a claim that the dataset is production-ready.",
+    "K1_B_Adapter_Implementation": "GO",
+    "guardrails": [
+      "Preserve all source rows unchanged.",
+      "Do not collapse SerialNo to one row or infer a replacement label.",
+      "Expose conflicting-label status in the adapter contract.",
+      "Do not start ML evaluation until the ground-truth conflict has an authoritative resolution."
+    ]
+  }
+}
