@@ -1,16 +1,19 @@
 "use client";
 
+import Link from "next/link";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 import { AgentOffice } from "@/components/AgentOffice";
 import { AppHeader } from "@/components/AppHeader";
 import { DetailTabs } from "@/components/DetailTabs";
+import type { DetailTab } from "@/components/DetailTabs";
 import { EventTimeline } from "@/components/EventTimeline";
 import { HumanInputModal } from "@/components/HumanInputModal";
 import { InspectionImageInput } from "@/components/InspectionImageInput";
 import { LangGraphView } from "@/components/LangGraphView";
 import { Waveform } from "@/components/Waveform";
-import { CONNECTION_LABEL, currentTaskDisplay, EVIDENCE_STATUS_LABEL, executionStatusDisplay, measurementReplayState, ROLE_LABEL, WORKFLOW_LABEL, measurementDisplayName } from "@/features/agent-run/event-mapper";
+import { connectionStatusDisplay, currentTaskDisplay, EVIDENCE_STATUS_LABEL, executionStatusDisplay, measurementReplayState, ROLE_LABEL, WORKFLOW_LABEL, measurementDisplayName } from "@/features/agent-run/event-mapper";
+import { resultOverview } from "@/features/agent-run/result-overview";
 import { useAgentRun } from "@/features/agent-run/hooks/use-agent-run";
 import type { MeasurementPreview, MemoryHistory } from "@/features/agent-run/types";
 import { fetchEquipmentHistory, fetchHealth, fetchMeasurementPreview } from "@/lib/api";
@@ -65,9 +68,18 @@ export default function HomePage() {
   const [healthCheckKey, setHealthCheckKey] = useState(0);
   const [history, setHistory] = useState<MemoryHistory>();
   const [inspectionImage, setInspectionImage] = useState<File>();
+  const [detailTab, setDetailTab] = useState<DetailTab>("Evidence");
+  const [desktopLayout, setDesktopLayout] = useState(false);
   const [, setClock] = useState(0);
   const synchronizedRunRef = useRef<string | undefined>(undefined);
 
+  useEffect(() => {
+    const query = window.matchMedia("(min-width: 901px)");
+    const update = () => setDesktopLayout(query.matches);
+    update();
+    query.addEventListener("change", update);
+    return () => query.removeEventListener("change", update);
+  }, []);
   useEffect(() => {
     let cancelled = false;
     let nextCheck: number | undefined;
@@ -147,10 +159,12 @@ export default function HomePage() {
     ? Math.max(0, ((elapsedEnd ? new Date(elapsedEnd).getTime() : Date.now()) - new Date(state.startedAt).getTime()) / 1000)
     : 0;
   const featureCards = useMemo(() => features.slice(0, 4), [features]);
+  const overview = resultOverview(state, Boolean(measurementId || state.run?.measurement_id), Boolean(loadingPhase?.startsWith("AI 에이전트를 시작")));
+  const resultMeasurement = measurementDisplayName(state.run?.measurement_id ?? measurementId, state.run?.demo_scenario ?? selectedSample?.demoScenario);
 
   return (
     <main className="app-shell">
-      <AppHeader active="dashboard" status={<div className="system-health"><span className={`connection-dot ${backendOnline === true ? "online" : backendOnline === false ? "offline" : ""}`} /><div><strong>{backendOnline === undefined ? "서버 준비 중" : backendOnline ? "시스템 정상" : "백엔드 연결 실패"}</strong><small>{CONNECTION_LABEL[state.connectionStatus] ?? state.connectionStatus}</small></div>{backendOnline === false && <button className="health-retry" type="button" onClick={() => { setBackendOnline(undefined); setHealthCheckKey((value) => value + 1); }}>연결 다시 시도</button>}</div>} />
+        <AppHeader active="dashboard" status={<div className="system-health"><span className={`connection-dot ${backendOnline === true ? "online" : backendOnline === false ? "offline" : ""}`} /><div><strong>{backendOnline === undefined ? "백엔드 확인 중" : backendOnline ? "백엔드 응답" : "백엔드 연결 실패"}</strong><small>{connectionStatusDisplay(state.connectionStatus, state.workflowStatus)}</small></div>{backendOnline === false && <button className="health-retry" type="button" onClick={() => { setBackendOnline(undefined); setHealthCheckKey((value) => value + 1); }}>연결 다시 시도</button>}</div>} />
 
       <section className="command-header">
         <div><h1 className="command-title">AI 기반 설비 상태진단</h1><p>저장된 Paderborn 측정 데이터를 센서 입력처럼 사용해 ML 판정과 이상 시 근거 기반 진단을 수행합니다.</p></div>
@@ -161,6 +175,38 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section className={`result-overview surface result-overview-${overview.phase}`} aria-label="진단 결과 요약" aria-live="polite">
+        <div className="result-overview-heading"><span className="kicker">진단 결과 · 핵심 요약</span><span className={`result-phase phase-${overview.phase}`}>{overview.workflowTitle}</span></div>
+        <div className="result-overview-main">
+          <div className="result-prediction"><span>ML 판정</span><strong className={`prediction-${overview.prediction ?? "pending"}`}>{overview.predictionTitle}</strong><p>{overview.predictionDescription}</p></div>
+          <div className="result-context"><span>진단 워크플로</span><strong>{overview.workflowTitle}</strong><p>{overview.workflowDescription}</p><small>분석 대상: {measurementId || state.run?.measurement_id ? resultMeasurement : "측정 데이터 선택 전"}</small></div>
+        </div>
+        {overview.diagnosisSummary && <p className="result-diagnosis"><strong>주요 진단 후보</strong>{overview.diagnosisSummary}</p>}
+        {overview.recommendation && <p className="result-recommendation"><strong>첫 번째 권고 조치</strong>{overview.recommendation}</p>}
+        {state.connectionStatus === "error" && <p className="result-connection-note">실시간 연결이 끊겼습니다. 저장된 진단 상태를 확인하거나 연결을 다시 시도하세요.</p>}
+        {backendOnline === false && <p className="result-connection-note">백엔드에 연결할 수 없습니다. 서버 상태를 확인한 뒤 다시 시도하세요.</p>}
+        <nav className="result-links" aria-label="진단 결과 바로가기">
+          {overview.evidenceAvailable && <a href="#run-details" onClick={() => setDetailTab("Evidence")}>판정 근거 보기</a>}
+          {overview.inspectionAvailable && <a href="#run-details" onClick={() => setDetailTab("Inspection")}>점검 계획 보기</a>}
+          {overview.actionAvailable && <a href="#run-details" onClick={() => setDetailTab("Action")}>권고 조치 보기</a>}
+          {overview.reportAvailable && <a href="#run-details" onClick={() => setDetailTab("Report")}>최종 보고서 보기</a>}
+          {state.runId && <a href="#run-details" onClick={() => setDetailTab("History")}>설비 이력 보기</a>}
+          <Link href="/history">지난 진단 이력 보기</Link>
+        </nav>
+      </section>
+
+      <section className="quick-start surface" aria-label="진단 사용 안내">
+        <div className="quick-start-heading"><span className="kicker">처음 사용하시나요?</span><strong>4단계로 진단 결과 확인</strong></div>
+        <ol className="quick-steps"><li>측정 데이터 선택</li><li>AI 진단 시작</li><li>진행 상태 확인</li><li>판정·근거·점검 권고 확인</li></ol>
+        <details className="quick-terms"><summary>화면 용어와 사람 확인 절차 알아보기</summary><dl>
+          <div><dt>ML 분석</dt><dd>측정 신호로 정상 또는 이상 여부를 분류합니다. 고장 원인 확정은 아닙니다.</dd></div>
+          <div><dt>RAG 검색</dt><dd>이상 판정과 관련된 기술자료를 찾아 근거로 제시합니다.</dd></div>
+          <div><dt>Agent Workflow</dt><dd>분석부터 근거 확인과 점검 권고까지의 처리 과정입니다.</dd></div>
+          <div><dt>HITL · 사람 확인</dt><dd>중요한 권고 조치는 작업자의 판단을 기다립니다. 설비 명령은 실행하지 않습니다.</dd></div>
+          <div><dt>Equipment Memory · 설비 이력</dt><dd>이전에 저장된 분석·관찰·정비 기록입니다.</dd></div>
+        </dl></details>
+      </section>
+
       {selectedSample?.demoScenario === "HITL_CONTROLLED" && <div className="controlled-demo-banner" role="note"><strong>HITL 시연 조건</strong><span>실제 KA01 측정 데이터와 ML·RAG를 사용하며, 조치 검토 단계에서 작업자 승인 흐름을 확인하기 위한 통제 조건만 적용합니다. 설비 명령은 실행하지 않습니다.</span></div>}
 
       {state.error && <div className="error-banner" role="alert"><strong>실행 알림</strong><span>{state.error}</span>{state.connectionStatus === "error" && state.runId && <button type="button" onClick={retryConnection}>실시간 연결 다시 시도</button>}</div>}
@@ -168,11 +214,12 @@ export default function HomePage() {
 
       <section className="run-strip surface" aria-label="Active run summary">
         <div><span>워크플로</span><strong className={`tone-${statusTone}`}>{WORKFLOW_LABEL[state.workflowStatus] ?? state.workflowStatus}</strong></div>
-        <div><span>대상 설비</span><strong>{preview?.equipment_id ?? "베어링 시험 설비"}</strong></div>
+        <div className="run-strip-equipment"><span>대상 설비</span><strong>{preview?.equipment_id ?? "베어링 시험 설비"}</strong></div>
+        <div className="run-strip-ml"><span>ML 판정</span><strong className={`prediction-${overview.prediction ?? "pending"}`}>{overview.predictionTitle}</strong></div>
         <div><span>측정 데이터</span><strong>{measurementDisplayName(state.run?.measurement_id ?? measurementId, state.run?.demo_scenario ?? selectedSample?.demoScenario)}</strong>{measurementId && <details className="technical-details run-tech"><summary>상세 기술정보</summary><div>Measurement ID: {state.run?.measurement_id ?? measurementId}</div>{(state.run?.demo_scenario ?? selectedSample?.demoScenario) && <div>시연 조건: HITL Controlled</div>}</details>}</div>
         <div><span>실행 상태</span><strong>{executionStatusDisplay(state.workflowStatus, Boolean(state.runId))}</strong>{state.runId && <details className="technical-details run-tech"><summary>상세 기술정보</summary><div>Run ID: {state.runId}</div></details>}</div>
         <div><span>현재 작업</span><strong>{currentTaskDisplay(state.workflowStatus, state.currentNode, Boolean(state.runId))}</strong></div>
-        <div><span>워크플로 연결</span><strong className={`connection-${state.connectionStatus}`}><i />{CONNECTION_LABEL[state.connectionStatus] ?? state.connectionStatus}</strong></div>
+        <div><span>워크플로 스트림</span><strong className={`connection-${state.connectionStatus}`}><i />{connectionStatusDisplay(state.connectionStatus, state.workflowStatus)}</strong></div>
       </section>
 
       <div className="dashboard-grid">
@@ -192,25 +239,25 @@ export default function HomePage() {
             <div className="machine-caption-flow">저장 측정 데이터 기반 시뮬레이션 · 실시간 센서 수집 아님</div>
             <dl className="equipment-data"><div><dt>선택 데이터</dt><dd>{selectedSample?.label ?? "선택 안 됨"}</dd></div><div><dt>운전 조건 코드</dt><dd>{String(condition.code ?? "N/A")}</dd></div><div className="equipment-reading-group"><dt>시험 설정값</dt><dd><span>회전속도 <b>{typeof condition.rpm === "number" ? `${condition.rpm} RPM` : "—"}</b></span><span>토크 <b>{typeof condition.load_torque_nm === "number" ? `${condition.load_torque_nm} Nm` : "—"}</b></span><span>반경하중 <b>{typeof condition.radial_force_n === "number" ? `${condition.radial_force_n} N` : "—"}</b></span><small>시험 시 설정한 기준 운전조건</small></dd></div><div className="equipment-reading-group is-measured"><dt>현재 실측값 · Replay</dt><dd><span>회전속도 <b>{measuredSpeed === undefined ? "—" : `${measuredSpeed.toFixed(2)} RPM`}</b></span><span>토크 <b>{measuredTorque === undefined ? "—" : `${measuredTorque.toFixed(2)} Nm`}</b></span><span>반경하중 <b>{measuredForce === undefined ? "—" : `${Math.round(measuredForce)} N`}</b></span><small>측정 당시 기록된 값 · Replay 시간에 따라 변경</small></dd></div><div><dt>데이터 출처</dt><dd>{preview?.source ?? "—"}</dd></div></dl>{measurementId && <details className="technical-details equipment-tech"><summary>측정 기술정보</summary><div>베어링 ID: {preview?.bearing_id ?? "—"}</div><div>Measurement ID: {measurementId}</div></details>}
           </section>
-          <section className="sensor-card surface"><div className="section-heading compact"><div><span className="kicker">PADERBORN · 측정 데이터 Replay</span><h2>진동 파형</h2></div></div>{previewError ? <div className="empty-copy">{previewError}</div> : <Waveform key={measurementId} preview={preview} replaying={replaying} onProgress={reportReplayProgress} />}</section>
+          <section className="sensor-card surface"><details className="technical-panel" open={desktopLayout}><summary>진동 파형 자세히 보기</summary><div className="technical-panel-content"><p>저장된 측정 데이터의 표시용 Replay입니다. ML은 전체 측정 신호를 별도로 분석합니다.</p>{previewError ? <div className="empty-copy">{previewError}</div> : <Waveform key={measurementId} preview={preview} replaying={replaying} onProgress={reportReplayProgress} />}</div></details></section>
           <InspectionImageInput file={inspectionImage} disabled={state.workflowStatus === "RUNNING" || state.workflowStatus === "WAITING"} onChange={setInspectionImage} />
-          <section className="features-card surface"><div className="section-heading compact"><div><span className="kicker">모델 입력</span><h2>진동 신호 특성</h2></div></div><div className="feature-grid">{featureCards.length ? featureCards.map(([key, value]) => <article key={key}><span>{formatFeature(key)}</span><strong>{Number(value).toFixed(3)}</strong><small>특성 추출 파이프라인 값</small></article>) : ["실효값 · RMS", "첨도 · Kurtosis", "파고율 · Crest factor", "주요 주파수 · Dominant freq."].map((item) => <article className="placeholder" key={item}><span>{item}</span><strong>—</strong><small>분석 대기 중</small></article>)}</div></section>
+          <section className="features-card surface"><details className="technical-panel" open={desktopLayout}><summary>ML 입력 특성 자세히 보기</summary><div className="technical-panel-content"><div className="feature-grid">{featureCards.length ? featureCards.map(([key, value]) => <article key={key}><span>{formatFeature(key)}</span><strong>{Number(value).toFixed(3)}</strong><small>특성 추출 파이프라인 값</small></article>) : ["실효값 · RMS", "첨도 · Kurtosis", "파고율 · Crest factor", "주요 주파수 · Dominant freq."].map((item) => <article className="placeholder" key={item}><span>{item}</span><strong>—</strong><small>분석 대기 중</small></article>)}</div></div></details></section>
         </aside>
 
-        <div className="center-column"><AgentOffice state={state} /><LangGraphView state={state} /></div>
+        <div className="center-column"><AgentOffice state={state} /><details className="technical-panel graph-panel surface" open={desktopLayout}><summary>에이전트 워크플로 단계 보기</summary><LangGraphView state={state} /></details></div>
 
         <aside className="status-column">
           <section className="live-card surface">
-            <div className="section-heading compact"><div><span className="kicker">실시간 워크플로 상태</span><h2>AI 진단 진행 상태</h2></div><span className="live-tag"><i /> Workflow LIVE</span></div>
+            <div className="section-heading compact"><div><span className="kicker">워크플로 상태</span><h2>AI 진단 진행 상태</h2></div><span className="live-tag"><i /> {WORKFLOW_LABEL[state.workflowStatus] ?? state.workflowStatus}</span></div>
             <div className="current-operation"><span>현재 수행 작업 · ACTIVE OPERATION</span><strong>{operationLabel}</strong><small>{activeLabel}</small></div>
             <div className="metric-stack"><div><span>근거 충족 상태</span><strong className={`evidence-${(state.evidenceStatus ?? "none").toLowerCase()}`}>{state.evidenceStatus ? (EVIDENCE_STATUS_LABEL[state.evidenceStatus] ?? state.evidenceStatus) : "해당 없음"}</strong></div><div><span>검색된 근거</span><strong>{state.evidenceCount}건</strong></div><div><span>근거 재검색</span><strong>{state.retryCount}회</strong></div><div><span>경과 시간</span><strong>{elapsed.toFixed(1)}초</strong></div></div>
           </section>
-          <section className="model-card surface"><div className="section-heading compact"><div><span className="kicker">ML 이상탐지</span><h2>설비 상태 분석 결과</h2></div></div>{state.analysisSummary ? <><div className={`model-result result-${state.analysisSummary.status}`}><span>{state.analysisSummary.status === "normal" ? "정상" : "이상"}</span><strong>{state.analysisSummary.status === "normal" ? "정상 상태" : "손상 의심"}</strong></div><dl><div><dt>적용 모델</dt><dd>{state.analysisSummary.model_id}</dd></div><div><dt>모델 출력 신뢰도</dt><dd>{state.analysisSummary.confidence == null ? "확인 불가" : `${(state.analysisSummary.confidence * 100).toFixed(1)}%`}</dd></div></dl><p className="probability-note">모델 출력값이며 보정된 설비 고장 확률이 아닙니다.</p></> : <div className="empty-copy">이상탐지 분석이 완료되면 결과가 표시됩니다.</div>}</section>
-          <EventTimeline events={state.timeline} />
+          <section className="model-card surface"><div className="section-heading compact"><div><span className="kicker">ML 이상탐지</span><h2>설비 상태 분석 결과</h2></div></div>{state.analysisSummary ? <><div className={`model-result result-${state.analysisSummary.status}`}><span>{state.analysisSummary.status === "normal" ? "정상" : "이상"}</span><strong>{state.analysisSummary.status === "normal" ? "정상 상태" : "손상 의심"}</strong></div><details className="technical-panel model-technical" open={desktopLayout}><summary>모델과 출력값 자세히 보기</summary><div className="technical-panel-content"><dl><div><dt>적용 모델</dt><dd>{state.analysisSummary.model_id}</dd></div><div><dt>모델 출력 신뢰도</dt><dd>{state.analysisSummary.confidence == null ? "확인 불가" : `${(state.analysisSummary.confidence * 100).toFixed(1)}%`}</dd></div></dl><p className="probability-note">모델 출력값이며 보정된 설비 고장 확률이 아닙니다.</p></div></details></> : <div className="empty-copy">이상탐지 분석이 완료되면 결과가 표시됩니다.</div>}</section>
+          <details className="technical-panel timeline-panel surface" open={desktopLayout}><summary>에이전트 실행 기록 보기</summary><EventTimeline events={state.timeline} /></details>
         </aside>
       </div>
 
-      <DetailTabs state={state} history={history} />
+      <DetailTabs state={state} history={history} activeTab={detailTab} onTabChange={setDetailTab} />
       <footer><span>AI SMART FACTORY AGENT OFFICE</span><p>의사결정 지원 전용 · 설비 자동제어 없음 · 모든 기술 근거는 승인된 출처로 추적 가능</p><span>저장 측정 데이터로 센서 입력을 시뮬레이션하며, Workflow 진행 상태는 실시간 표시됩니다.</span></footer>
       <HumanInputModal request={state.pendingHumanRequest} action={activeAction} submitting={Boolean(loadingPhase)} onSubmit={submitHuman} onImageUpload={uploadHumanInspectionImage} />
     </main>

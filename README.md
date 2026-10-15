@@ -2,11 +2,59 @@
 
 저장된 제조설비 측정 데이터를 ML로 분석하고, 기술문서 Evidence를 이용해 진단·점검·조치 권고까지 연결하는 **Evidence-grounded AI Agent MVP**입니다.
 
-**Team: Codyssey AI Factory**
-
 > 현재 입력은 Paderborn의 저장 Measurement Replay입니다. 실제 공장 센서의 연속 수집이나 PLC 자동제어 기능은 포함하지 않습니다.
 
-![통합 관제 화면](artifacts/ui/agent_office/integrated_control_20261002.png)
+![현재 통합 관제 화면 · 진단 대기 상태](artifacts/ui/agent_office/integrated_control_20261016.png)
+
+### Live Demo
+https://factory.aipath.kr
+
+> 심사 및 검증을 위한 외부 접속 주소입니다.
+
+## Final Deliverables | 최종 제출 산출물
+
+AI Native Final Project의 공식 제출 산출물입니다.
+
+| 번호 | 제출 산출물 | 내용 | 링크 |
+|---|---|---|---|
+| ① | 프로젝트 기획서 | 문제 정의, 목표, AI 활용 방식 및 추진 계획 | [기획서](docs/01_%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%8C%E1%85%A6%E1%86%A8%E1%84%90%E1%85%B3_%E1%84%80%E1%85%B5%E1%84%92%E1%85%AC%E1%86%A8%E1%84%89%E1%85%A5.md) |
+| ② | 기능 요구 명세서 | 기능·비기능 요구사항, 시스템 아키텍처, AI 활용 명세 및 RTM | [요구 명세서](docs/02_%E1%84%80%E1%85%B5%E1%84%82%E1%85%B3%E1%86%BC_%E1%84%8B%E1%85%AD%E1%84%80%E1%85%AE_%E1%84%86%E1%85%A7%E1%86%BC%E1%84%89%E1%85%A6%E1%84%89%E1%85%A5.md) |
+| ③ | 배포 URL | 실제 서비스 접속 및 기능 시연 | [Live Demo](https://factory.aipath.kr) |
+| ④ | GitHub 저장소 URL | 소스코드, 구현 구조 및 개발 결과 | [현재 저장소](./) |
+| ⑤ | 사용자 피드백 기록 | Google Forms 설문 분석 및 피드백 기반 UI 개선 결과 | [피드백 기록](docs/03_%E1%84%89%E1%85%A1%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%8C%E1%85%A1_%E1%84%91%E1%85%B5%E1%84%83%E1%85%B3%E1%84%87%E1%85%A2%E1%86%A8_%E1%84%80%E1%85%B5%E1%84%85%E1%85%A9%E1%86%A8.md) |
+| ⑥ | 서면 심사용 발표자료 | 프로젝트 주요 성과와 AI 기술 활용 및 사용자 검증 결과 | [발표자료 PDF](docs/04_%E1%84%8E%E1%85%AC%E1%84%8C%E1%85%A9%E1%86%BC_%E1%84%87%E1%85%A1%E1%86%AF%E1%84%91%E1%85%AD%E1%84%8C%E1%85%A1%E1%84%85%E1%85%AD.pdf) |
+| ⑦ | 시연영상 | 주요 기능과 Agent Workflow 시연(3분 이내) | [시연영상 MP4](docs/05_%E1%84%89%E1%85%B5%E1%84%8B%E1%85%A7%E1%86%AB%E1%84%8B%E1%85%A7%E1%86%BC%E1%84%89%E1%85%A1%E1%86%BC.mp4) |
+
+### 평가자 안내
+
+- **서비스 접속:** [Live Demo](https://factory.aipath.kr)
+- **프로젝트 문서:** 기획서, 기능 요구 명세서, 사용자 피드백 기록
+- **서면 심사:** 최종 발표자료 PDF
+- **기능 시연:** 3분 이내 시연영상
+- **소스코드:** [현재 GitHub 저장소](./)
+- **팀 역할·산출물:** [팀원별 역할 및 업무분장](docs/06_%E1%84%90%E1%85%B5%E1%86%B7%E1%84%8B%E1%85%AF%E1%86%AB%E1%84%87%E1%85%A7%E1%86%AF_%E1%84%8B%E1%85%A7%E1%86%A8%E1%84%92%E1%85%A1%E1%86%AF_%E1%84%86%E1%85%B5%E1%86%BE_%E1%84%8B%E1%85%A5%E1%86%B8%E1%84%86%E1%85%AE%E1%84%87%E1%85%AE%E1%86%AB%E1%84%8C%E1%85%A1%E1%86%BC.md)
+
+평가용 계정 정보는 보안을 위해 별도로 제공하며,
+GitHub 저장소에는 공개하지 않습니다.
+
+본 시스템은 저장된 Paderborn Measurement를 기반으로
+ML 이상탐지, RAG 기술문서 검색, LangGraph 진단 Workflow,
+HITL 검토 및 최종 보고서 생성을 지원하는 MVP입니다.
+실시간 현장 센서 수집과 자동 설비 제어는 포함하지 않습니다.
+
+> **링크 확인 안내:** 위 5개 산출물 파일의 GitHub 경로는 2026-10-16 기준 확인했습니다.
+
+### 팀 역할과 산출물 분류
+
+| 팀원 | 담당 영역 | 관련 소스 |
+|---|---|---|
+| 이승훈 | 시스템 통합·Backend API·배포 | `backend/app/api/v1/`, `backend/app/core/` |
+| 남병광 | Paderborn 데이터·ML | `backend/app/data/`, `backend/app/ml/` |
+| 김보미 | 기술문서·RAG | `backend/app/rag/` |
+| 이혜경 | LangGraph·HITL·Memory | `backend/app/agent/`, `backend/app/memory/` |
+| 김시율 | Agent Office UI·사용자 경험 | `frontend/src/` |
+
+역할별 관련 시험 결과와 문서는 [팀원별 역할 및 업무분장](docs/06_%E1%84%90%E1%85%B5%E1%86%B7%E1%84%8B%E1%85%AF%E1%86%AB%E1%84%87%E1%85%A7%E1%86%AF_%E1%84%8B%E1%85%A7%E1%86%A8%E1%84%92%E1%85%A1%E1%86%AF_%E1%84%86%E1%85%B5%E1%86%BE_%E1%84%8B%E1%85%A5%E1%86%B8%E1%84%86%E1%85%AE%E1%84%87%E1%85%AE%E1%86%AB%E1%84%8C%E1%85%A1%E1%86%BC.md)에 정리했습니다. 이 표는 기능 영역별 산출물 분류이며, 개인별 수행 기록은 문서의 확인 자료와 연결해 관리합니다.
 
 ## 1. Problem
 
@@ -126,7 +174,7 @@ Paderborn Dataset과 Dataset에 포함된 Fact Sheet·Measurement Log는
 
 원본 RAR/MAT 학습데이터는 저장소에 포함하지 않습니다. 공식 원본에서 로컬로 내려받는
 방법은 [Setup](#16-setup), 상세한 출처·재배포 범위는
-[Sources / Attribution](#21-sources--attribution)을 참조하십시오. 현장 Sensor, MQTT,
+[Sources / Attribution](#22-sources--attribution)을 참조하십시오. 현장 Sensor, MQTT,
 OPC-UA, API 입력이 확보되면 Measurement Adapter 앞단을 교체·확장할 수 있으나,
 해당 실시간 수집기는 현재 구현되어 있지 않습니다.
 
@@ -136,6 +184,9 @@ OPC-UA, API 입력이 확보되면 Measurement Adapter 앞단을 교체·확장�
 |---|---|
 | Model ID | `bearing_rf_binary_v1` |
 | Algorithm | `RandomForestClassifier` v1.0 |
+| Model Artifact | `artifacts/ml/baseline_v1/model.joblib` |
+| Training Data | Paderborn `K001`, `KA01`, `KI01` |
+| Training Type | Paderborn 측정데이터를 이용한 별도 Random Forest supervised training (사전학습 모델 Fine-tuning 아님) |
 | Input | 3개 신호 채널에서 추출한 36개 Feature |
 | Window | 1초, overlap 0% |
 | Split | Measurement ID 기준 stratified group split |
@@ -318,15 +369,14 @@ npm run lint
 npm run build
 ```
 
-2026-10-01 현재 검증 결과:
+2026-10-16 자동 검증 결과:
 
-- Backend: 163 passed
-- Frontend: 28 passed
+- Backend: 162 passed
+- Frontend: 33 passed
 - TypeScript: passed
 - Next.js production build: passed, 7 routes
-- Runtime A/B/C: 모두 `COMPLETED`, Final Report 복원 가능
 
-세부 증빙은 [TEST_RESULTS.md](docs/competition/TEST_RESULTS.md)를 참조합니다.
+2026-10-05 시나리오 검증 기록: Runtime A/B/C 모두 `COMPLETED`, Final Report 복원 가능. 세부 증빙은 [TEST_RESULTS.md](docs/competition/TEST_RESULTS.md)를 참조합니다.
 
 ## 19. Known Limitations
 
@@ -337,7 +387,59 @@ npm run build
 - 실제 PLC 제어, 자동 설비 정지, 정비 실행 기능이 없습니다.
 - 원본 Dataset, 저작권 기술문서, Chroma index와 Runtime DB는 Git에 포함하지 않습니다.
 
-## 20. Competition Documents
+## 20. KAMP CNC Expansion PoC
+
+기존 Paderborn 기반 Production E2E와 독립적으로, KAMP 「정밀가공 품질보증 AI 데이터셋」을 이용해 다른 제조 도메인으로의 **Data Adapter 및 Knowledge/RAG 확장 가능성**을 별도 PoC로 검증했습니다.
+
+```text
+KAMP CNC Data
+    ↓
+KAMPCNCAdapter
+    ↓
+Ground Truth Context
+    ↓
+kamp_cnc_v1 RAG
+    ↓
+Evidence / Abstention
+```
+
+### 검증 결과
+
+- Dataset: **1,085 observations / 43 columns**
+- Ground Truth: **PASS 986 / FAIL 99**
+- CNC Adapter: **1,085 / 1,085 observations 변환**
+- Feature mismatch: **0**
+- Validation failure: **0**
+- Adapter + RAG Tests: **29 / 29 passed**
+- Knowledge Pack: **`kamp_cnc_v1` / 49 chunks**
+- FAIL Observation Retrieval: **3 / 3**
+- Abstention Checks: **3 / 3**
+- Production Code / DB / Chroma 변경: **0**
+
+### 검증 범위
+
+- `passorfail`의 `0=PASS`, `1=FAIL`은 KAMP 데이터셋이 제공하는 **Ground Truth**입니다.
+- CNC 상태는 본 PoC에서 새로 학습한 ML Prediction이 아닙니다.
+- CNC 전용 ML 모델의 학습 및 Accuracy/F1 평가는 수행하지 않았습니다.
+- 현장 일반화 검증은 수행하지 않았으며, 현장 일반화 성능을 주장하지 않습니다.
+- Sensor Feature만으로 특정 고장 원인을 확정하지 않습니다.
+- RAG Knowledge Source는 해당 KAMP 데이터셋의 **공식 Guidebook**만 사용했습니다.
+- Evidence가 부족하거나 범위를 벗어나는 요청에는 Abstention 정책을 적용했습니다.
+- 기존 Paderborn Production E2E와 완전히 독립된 실험입니다.
+
+### Paired Observation
+
+실제 데이터 감사 과정에서 동일 `SerialNo`와 동일 `ReceivedDateTime`을 가진 99개 쌍이 확인되었습니다.
+
+- 각 쌍은 PASS 1개와 FAIL 1개로 구성됩니다.
+- 99개 쌍 모두 Feature vector가 서로 달랐습니다.
+- 동일 Feature에 Label만 다른 사례는 없었습니다.
+- 원본 Row를 병합하거나 Label을 수정하지 않았습니다.
+- 복수 Observation의 생성 원인은 공식 자료에서 확인되지 않아 임의로 추론하지 않았습니다.
+
+상세 구현, 데이터 감사, Adapter/RAG 검증 결과는 [`poc/kamp_cnc/README.md`](poc/kamp_cnc/README.md)를 참고하십시오.
+
+## 21. Competition Documents
 
 - [개발완료보고서](docs/competition/development_completion_report.md)
 - [AI Agent 기술설명서](docs/competition/agent_technical_description.md)
@@ -345,7 +447,7 @@ npm run build
 - [출처 및 AI 활용 내역](docs/competition/SOURCES_AND_AI_USAGE.md)
 - [테스트 결과](docs/competition/TEST_RESULTS.md)
 
-## 21. Sources / Attribution
+## 22. Sources / Attribution
 
 ### External data and documents
 
@@ -356,6 +458,7 @@ npm run build
 | Paderborn Benchmark Paper | [Official PDF](https://mb.uni-paderborn.de/fileadmin-mb/kat/PDF/Veroeffentlichungen/20160703_PHME16_CM_bearing.pdf) | 문서에 표시된 별도 CC Attribution 조건 적용. 로컬 다운로드만 허용하고 Git 제외 |
 | Paderborn 공식 웹페이지 | [Bearing DataCenter](https://mb.uni-paderborn.de/en/kat/research/bearing-datacenter) | 웹페이지 재배포 조건이 별도로 확인되지 않아 로컬 다운로드만 허용하고 Git 제외 |
 | SKF 기술문서 | [파일별 공식 URL과 조건](knowledge/bearing_v1/manifests/SOURCE_MANIFEST.md) | SKF 저작권 자산. 재배포 권한이 확인되지 않아 로컬 다운로드만 허용하고 Git 제외 |
+| KAMP 정밀가공 품질보증 AI 데이터셋 / Guidebook | [Korea AI Manufacturing Platform (KAMP)](https://www.kamp-ai.kr/) | 중소벤처기업부·스마트제조혁신추진단(㈜인터엑스), 2022.12.23. 원본 CSV/PDF 및 원문 파생 Chunk/Index는 Git 제외 |
 
 ### Required Paderborn attribution
 
@@ -369,6 +472,17 @@ npm run build
 - License: [Creative Commons Attribution-NonCommercial 4.0 International](https://creativecommons.org/licenses/by-nc/4.0/)
 - Included PDF changes: none; files were copied unchanged from the official Dataset archives.
 - Commercial use: contact Paderborn University / the Dataset author before use.
+
+### Required KAMP attribution
+
+KAMP CNC Expansion PoC에서 사용한 데이터셋과 공식 Guidebook의 출처는 다음과 같습니다.
+
+> 중소벤처기업부, Korea AI Manufacturing Platform(KAMP),  
+> 정밀가공 품질보증 AI 데이터셋,  
+> 스마트제조혁신추진단(㈜인터엑스), 2022.12.23.  
+> <https://www.kamp-ai.kr/>
+
+KAMP 원본 CSV와 Guidebook PDF 및 원문 파생 Chunk/Index는 Git에 포함하지 않습니다. PoC에는 공개 가능한 구현 코드, 테스트 및 집계된 검증 결과만 포함합니다.
 
 Dataset, 기술문서, 오픈소스 라이브러리, AI 개발도구의 파일별 출처·사용 범위·체크섬은
 [SOURCES_AND_AI_USAGE.md](docs/competition/SOURCES_AND_AI_USAGE.md)와

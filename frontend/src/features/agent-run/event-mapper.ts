@@ -104,8 +104,15 @@ export const WORKFLOW_LABEL: Record<string, string> = {
 
 export const CONNECTION_LABEL: Record<string, string> = {
   idle: "대기", connecting: "연결 중", live: "실시간 연결", reconnecting: "재연결 중",
-  closed: "연결 종료", error: "실시간 연결 끊김",
+  closed: "실시간 스트림 종료", error: "실시간 연결 끊김",
 };
+
+export function connectionStatusDisplay(connectionStatus: string, workflowStatus: string) {
+  if (connectionStatus === "closed" && workflowStatus === "COMPLETED") {
+    return "진단 완료 · 스트림 종료";
+  }
+  return CONNECTION_LABEL[connectionStatus] ?? connectionStatus;
+}
 
 export const EQUIPMENT_STATUS_LABEL: Record<string, string> = {
   NORMAL: "정상", ANALYZING: "분석 중", ABNORMAL: "이상 감지",

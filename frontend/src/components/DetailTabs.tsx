@@ -6,7 +6,8 @@ import { inspectionImageUrl } from "@/lib/api";
 import { ACTION_LABEL, CONFIDENCE_LABEL, EVIDENCE_STATUS_LABEL, MEMORY_STATUS_LABEL, MEMORY_TYPE_LABEL, PRIORITY_LABEL, PURPOSE_LABEL, QUALITY_LABEL, SOURCE_TYPE_LABEL, evidenceExplanation, measurementDisplayName } from "@/features/agent-run/event-mapper";
 
 const TABS = ["Evidence", "Visual", "Diagnosis", "Inspection", "Action", "History", "Report"] as const;
-type Tab = (typeof TABS)[number];
+export type DetailTab = (typeof TABS)[number];
+type Tab = DetailTab;
 const TAB_LABEL: Record<Tab, string> = { Evidence: "기술 근거", Visual: "시각 관찰", Diagnosis: "진단 후보", Inspection: "점검 계획", Action: "권고 조치", History: "설비 이력", Report: "최종 보고서" };
 
 const label = (value: string | undefined | null, map: Record<string, string>) => value ? (map[value] ?? value.replaceAll("_", " ")) : "없음";
@@ -21,8 +22,10 @@ function IdChips({ ids, tone = "teal" }: { ids: string[]; tone?: string }) {
   return <div className="id-chips">{ids.map((id) => <span className={`chip chip-${tone}`} key={id}>{id.slice(0, 18)}</span>)}</div>;
 }
 
-export function DetailTabs({ state, history }: { state: AgentRunUIState; history?: MemoryHistory }) {
-  const [tab, setTab] = useState<Tab>("Evidence");
+export function DetailTabs({ state, history, activeTab, onTabChange }: { state: AgentRunUIState; history?: MemoryHistory; activeTab?: DetailTab; onTabChange?: (tab: DetailTab) => void }) {
+  const [localTab, setLocalTab] = useState<Tab>("Evidence");
+  const tab = activeTab ?? localTab;
+  const setTab = (next: Tab) => { if (onTabChange) onTabChange(next); else setLocalTab(next); };
   const [candidateId, setCandidateId] = useState<string>();
   const candidates = state.run?.diagnosis_candidates ?? state.report?.diagnosis_candidates ?? [];
   const inspections = state.run?.inspection_plan ?? state.report?.inspection_plan ?? [];
@@ -36,7 +39,7 @@ export function DetailTabs({ state, history }: { state: AgentRunUIState; history
   const maxRms = Math.max(1, ...(history?.trend.points.map((item) => item.rms ?? 0) ?? []));
 
   return (
-    <section className="details-card surface" aria-labelledby="details-title">
+    <section className="details-card surface" id="run-details" aria-label="진단 상세 정보">
       <div className="tabs" role="tablist" aria-label="Run details">
         {TABS.map((item) => <button role="tab" aria-selected={tab === item} className={tab === item ? "active" : ""} onClick={() => setTab(item)} key={item}>{TAB_LABEL[item]}{item === "Evidence" && state.evidenceCount ? ` ${state.evidenceCount}` : ""}<small>{item}</small></button>)}
       </div>

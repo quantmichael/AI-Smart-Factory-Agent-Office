@@ -24,7 +24,7 @@ export function AgentOffice({ state }: { state: AgentRunUIState }) {
     <section className="office-card surface" aria-labelledby="office-title">
       <div className="section-heading">
         <div><span className="kicker">실시간 에이전트 협업 공간</span><h2 id="office-title">AI 에이전트 오피스</h2></div>
-        <div className="office-legend"><span className="pulse-dot" /> 백엔드 이벤트 연동</div>
+        <div className="office-legend"><span className="pulse-dot" /> 저장된 진단 상태와 이벤트 표시</div>
       </div>
       <div className="office-grid">
         {ZONES.map((zone, index) => {
