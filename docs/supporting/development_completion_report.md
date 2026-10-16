@@ -1,4 +1,4 @@
-# AI Smart Factory Agent Office 프로젝트 구현·검증 보고서
+# AI Smart Factory Agent Office 개발완료보고서
 
 제조설비 이상탐지와 고장진단을 위한 근거기반 AI Agent 시스템
 

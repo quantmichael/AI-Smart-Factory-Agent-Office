@@ -441,7 +441,7 @@ Evidence / Abstention
 
 ## 21. Supporting Documents
 
-- [프로젝트 구현·검증 보고서](docs/supporting/project_implementation_report.md)
+- [개발완료보고서](docs/supporting/development_completion_report.md)
 - [AI Agent 기술설명서](docs/supporting/agent_technical_description.md)
 - [구현 감사 결과](docs/supporting/implementation_audit.md)
 - [출처 및 AI 활용 내역](docs/supporting/SOURCES_AND_AI_USAGE.md)
