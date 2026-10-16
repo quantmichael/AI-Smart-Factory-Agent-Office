@@ -1,2 +1,1 @@
 """Manifest-driven ingestion pipeline."""
-

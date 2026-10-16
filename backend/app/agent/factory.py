@@ -46,7 +46,9 @@ def build_agent_service(
 ) -> AgentWorkflowService:
     if vision_model != LocalQualityVisionAnalyzer.model_id:
         raise ValueError(f"unsupported configured vision model: {vision_model}")
-    model_metadata = ArtifactModelRegistry(ml_artifact_root, active_model_id).get_active_model().metadata
+    model_metadata = (
+        ArtifactModelRegistry(ml_artifact_root, active_model_id).get_active_model().metadata
+    )
     analysis = build_analysis_service(
         dataset_root,
         ml_artifact_root,
@@ -70,7 +72,8 @@ def build_agent_service(
             max_action_revision_rounds=max_action_revision_rounds,
             memory_service=(
                 EquipmentMemoryService(EquipmentMemoryRepository(memory_db_path))
-                if memory_db_path is not None else None
+                if memory_db_path is not None
+                else None
             ),
             vision_service=(
                 InspectionImageService(

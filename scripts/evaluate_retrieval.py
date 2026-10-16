@@ -41,19 +41,16 @@ def main() -> int:
     examples = []
     for purpose in ("DATASET_EVIDENCE", "DIAGNOSTIC_EVIDENCE", "INSPECTION_ACTION"):
         example = next(item for item in results if item["case"]["purpose"] == purpose)
-        examples.append(
-            f"- `{purpose}`: {example['query']['query_text']}"
-        )
+        examples.append(f"- `{purpose}`: {example['query']['query_text']}")
     failure_lines = []
     for case_id in failures:
         item = by_id[case_id]
         expected = ", ".join(item["case"].get("expected_source_ids", [])) or "none"
-        returned = ", ".join(
-            dict.fromkeys(evidence["source_id"] for evidence in item["evidence"])
-        ) or "none"
-        failure_lines.append(
-            f"- `{case_id}`: expected `{expected}`; top-5 returned `{returned}`."
+        returned = (
+            ", ".join(dict.fromkeys(evidence["source_id"] for evidence in item["evidence"]))
+            or "none"
         )
+        failure_lines.append(f"- `{case_id}`: expected `{expected}`; top-5 returned `{returned}`.")
     report = [
         "# bearing_v1 Retrieval Report",
         "",

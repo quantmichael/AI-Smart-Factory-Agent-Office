@@ -3,9 +3,7 @@ from pathlib import Path
 from app.data.adapters.paderborn import PaderbornDatasetAdapter
 
 
-def test_discovery_builds_metadata_only_index(
-    paderborn_fixture: Path, monkeypatch
-) -> None:
+def test_discovery_builds_metadata_only_index(paderborn_fixture: Path, monkeypatch) -> None:
     adapter = PaderbornDatasetAdapter(paderborn_fixture)
     monkeypatch.setattr(
         "app.data.adapters.paderborn.loadmat",

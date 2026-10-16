@@ -48,9 +48,7 @@ def main() -> int:
 
     adapter = PaderbornDatasetAdapter(resolve_from_project(args.root))
     inspection = adapter.inspection_summary()
-    inspection["inspection_timestamp"] = datetime.now(timezone.utc).isoformat(
-        timespec="seconds"
-    )
+    inspection["inspection_timestamp"] = datetime.now(timezone.utc).isoformat(timespec="seconds")
     write_json(resolve_from_project(args.inspection_output), inspection)
     print(
         f"inspection: measurements={inspection['mat_file_count']} "
@@ -60,9 +58,7 @@ def main() -> int:
     if not args.skip_validation:
         validation = adapter.validate()
         payload = validation.model_dump(mode="json")
-        payload["validation_timestamp"] = datetime.now(timezone.utc).isoformat(
-            timespec="seconds"
-        )
+        payload["validation_timestamp"] = datetime.now(timezone.utc).isoformat(timespec="seconds")
         write_json(resolve_from_project(args.validation_output), payload)
         print(
             f"validation: status={validation.status} "

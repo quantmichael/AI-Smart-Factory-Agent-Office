@@ -4,9 +4,13 @@ from app.vision import ImageValidationError, validate_image
 from vision_helpers import image_bytes
 
 
-@pytest.mark.parametrize("fmt,mime", [("PNG", "image/png"), ("JPEG", "image/jpeg"), ("WEBP", "image/webp")])
+@pytest.mark.parametrize(
+    "fmt,mime", [("PNG", "image/png"), ("JPEG", "image/jpeg"), ("WEBP", "image/webp")]
+)
 def test_allowed_formats_are_decoded_and_magic_checked(fmt, mime):
-    result = validate_image(image_bytes(image_format=fmt), mime, max_size_bytes=1_000_000, max_dimension=1024)
+    result = validate_image(
+        image_bytes(image_format=fmt), mime, max_size_bytes=1_000_000, max_dimension=1024
+    )
     assert result.mime_type == mime
     assert (result.width, result.height) == (320, 240)
 

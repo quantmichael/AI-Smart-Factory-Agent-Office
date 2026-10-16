@@ -46,9 +46,7 @@ class AnalysisApplicationService:
         with self._model_cache_lock:
             cached = self._model_cache.get(entry.model_id)
             if cached is None:
-                cached = MLInferenceService.from_artifact(
-                    self.adapter, entry.artifact_directory
-                )
+                cached = MLInferenceService.from_artifact(self.adapter, entry.artifact_directory)
                 self._model_cache[entry.model_id] = cached
         return cached
 

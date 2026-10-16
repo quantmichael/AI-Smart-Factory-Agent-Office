@@ -37,9 +37,7 @@ def test_sse_orders_events_and_reconnects_after_sequence(tmp_path):
         manager.close()
 
     assert full.headers["content-type"].startswith("text/event-stream")
-    assert [item["sequence"] for item in all_events] == list(
-        range(1, len(all_events) + 1)
-    )
+    assert [item["sequence"] for item in all_events] == list(range(1, len(all_events) + 1))
     assert len({item["event_id"] for item in all_events}) == len(all_events)
     assert all(item["run_id"] == created.run_id for item in all_events)
     assert all(item["sequence"] > all_events[3]["sequence"] for item in later_events)
@@ -63,4 +61,6 @@ def test_event_persistence_is_isolated_by_run(tmp_path):
     assert first_events and second_events
     assert {item.run_id for item in first_events} == {first.run_id}
     assert {item.run_id for item in second_events} == {second.run_id}
-    assert not ({item.event_id for item in first_events} & {item.event_id for item in second_events})
+    assert not (
+        {item.event_id for item in first_events} & {item.event_id for item in second_events}
+    )

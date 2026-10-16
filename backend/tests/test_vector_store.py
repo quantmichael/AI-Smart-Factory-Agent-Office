@@ -1,5 +1,3 @@
-import numpy as np
-
 from app.rag.embedding import LocalHashingEmbeddingService
 from app.rag.ingestion.chunking import chunk_document
 from app.rag.models import IngestionStatus, KnowledgeDocument, ParsedBlock

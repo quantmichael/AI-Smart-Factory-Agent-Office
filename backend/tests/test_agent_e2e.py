@@ -17,12 +17,8 @@ def test_real_normal_and_abnormal_measurements_follow_distinct_graph_paths(tmp_p
         checkpoint_path=tmp_path / "checkpoint.sqlite3",
     )
     try:
-        normal = service.start_run(
-            "paderborn:K001:N09_M07_F10:01", run_id="real-normal"
-        )
-        abnormal = service.start_run(
-            "paderborn:KA01:N09_M07_F10:01", run_id="real-abnormal"
-        )
+        normal = service.start_run("paderborn:K001:N09_M07_F10:01", run_id="real-normal")
+        abnormal = service.start_run("paderborn:KA01:N09_M07_F10:01", run_id="real-abnormal")
     finally:
         service.close()
 
@@ -38,7 +34,8 @@ def test_real_normal_and_abnormal_measurements_follow_distinct_graph_paths(tmp_p
     assert abnormal["recommended_actions"]
     assert abnormal["final_report"]["citations"]
     assert all(
-        item["source_id"] not in {
+        item["source_id"]
+        not in {
             "PADERBORN_DAMAGE_FACT_SHEETS",
             "PADERBORN_MEASUREMENT_LOGS",
         }

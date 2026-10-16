@@ -9,7 +9,7 @@ from collections import Counter, defaultdict
 from dataclasses import dataclass
 from pathlib import Path
 from time import perf_counter
-from typing import Any, Iterable
+from typing import Any
 
 import numpy as np
 from scipy.io import loadmat
@@ -211,7 +211,9 @@ class PaderbornDatasetAdapter(SensorDatasetAdapter):
                 f"Indexed path escaped configured dataset root: {entry.summary.source_reference}"
             ) from exc
         if not path.is_file():
-            raise InvalidMeasurementError(f"Source file is missing: {entry.summary.source_reference}")
+            raise InvalidMeasurementError(
+                f"Source file is missing: {entry.summary.source_reference}"
+            )
         self._require_mat_v5(path)
 
         document = loadmat(path, squeeze_me=True, struct_as_record=False)
@@ -323,9 +325,7 @@ class PaderbornDatasetAdapter(SensorDatasetAdapter):
             measurement_description = root.Description.Measurement
             measurement_id_in_file = int(np.asarray(root.Info.MeasurementID).item())
             recorded_at_raw = _scalar_text(root.Description.General.DateTime)
-            measurement_duration_sec = float(
-                np.asarray(measurement_description.Length).item()
-            )
+            measurement_duration_sec = float(np.asarray(measurement_description.Length).item())
         except (AttributeError, TypeError, ValueError) as exc:
             raise InvalidMeasurementError(
                 f"Invalid Info/Description metadata in {entry.summary.source_reference}"

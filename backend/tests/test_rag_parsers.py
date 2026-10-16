@@ -19,9 +19,7 @@ def test_real_pdf_parser_preserves_pages_and_text() -> None:
 @pytest.mark.integration
 def test_real_html_parser_removes_scripts_and_preserves_sections() -> None:
     root = Path(__file__).resolve().parents[2]
-    blocks = parse_html(
-        root / "knowledge/bearing_v1/paderborn/operating_conditions.html"
-    )
+    blocks = parse_html(root / "knowledge/bearing_v1/paderborn/operating_conditions.html")
 
     assert blocks
     assert any(block.section for block in blocks)

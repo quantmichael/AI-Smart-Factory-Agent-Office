@@ -42,6 +42,7 @@ async def lifespan(application: FastAPI):
         logger.info("application dependencies are ready", extra={"readiness": readiness})
     yield
 
+
 app = FastAPI(
     title="AI Smart Factory Agent Office API",
     version=settings.app_version,

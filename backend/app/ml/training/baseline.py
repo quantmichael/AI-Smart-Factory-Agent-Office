@@ -67,7 +67,9 @@ def _split_artifact(split: GroupedSplit) -> dict[str, Any]:
             "train_measurements": dict(
                 sorted(
                     Counter(
-                        next(item.ground_truth for item in split.train if item.measurement_id == mid)
+                        next(
+                            item.ground_truth for item in split.train if item.measurement_id == mid
+                        )
                         for mid in split.train_measurements
                     ).items()
                 )
@@ -213,8 +215,8 @@ Healthy vs damaged binary classification using the verified Paderborn labels.
 
 ## Dataset
 
-- Train measurements: {len(split_data['train_measurements'])}; test measurements: {len(split_data['test_measurements'])}.
-- Train windows: {split_data['train_window_count']}; test windows: {split_data['test_window_count']}.
+- Train measurements: {len(split_data["train_measurements"])}; test measurements: {len(split_data["test_measurements"])}.
+- Train windows: {split_data["train_window_count"]}; test windows: {split_data["test_window_count"]}.
 - Local acquisition remains partial at 3 of 32 bearing-state archives.
 
 ## Feature Set
@@ -236,8 +238,8 @@ RandomForestClassifier with one fixed, documented configuration and no hyperpara
 
 ## Metrics
 
-- Window F1: {window['f1']:.4f}; damaged recall: {window['damaged_recall']:.4f}; ROC-AUC: {window['roc_auc']:.4f}.
-- Measurement accuracy: {measurement['accuracy']:.4f}; precision: {measurement['precision']:.4f}; recall: {measurement['recall']:.4f}; F1: {measurement['f1']:.4f}; ROC-AUC: {measurement['roc_auc']:.4f}.
+- Window F1: {window["f1"]:.4f}; damaged recall: {window["damaged_recall"]:.4f}; ROC-AUC: {window["roc_auc"]:.4f}.
+- Measurement accuracy: {measurement["accuracy"]:.4f}; precision: {measurement["precision"]:.4f}; recall: {measurement["recall"]:.4f}; F1: {measurement["f1"]:.4f}; ROC-AUC: {measurement["roc_auc"]:.4f}.
 - Aggregation was fixed in advance as mean damaged-class probability with threshold 0.5.
 
 ## Confusion Matrix
@@ -250,12 +252,12 @@ Metrics are recorded per condition in `metrics.json`; they were not used to tune
 
 ## Feature Importance
 
-Top impurity importance: `{importance[0]['feature']}` ({importance[0]['importance']:.4f}). Importance is descriptive, not causal.
+Top impurity importance: `{importance[0]["feature"]}` ({importance[0]["importance"]:.4f}). Importance is descriptive, not causal.
 
 ## Example Inference
 
-- Healthy example predicted `{examples[0]['predicted_class']}` with model confidence {examples[0]['confidence']:.4f}.
-- Damaged example predicted `{examples[1]['predicted_class']}` with model confidence {examples[1]['confidence']:.4f}.
+- Healthy example predicted `{examples[0]["predicted_class"]}` with model confidence {examples[0]["confidence"]:.4f}.
+- Damaged example predicted `{examples[1]["predicted_class"]}` with model confidence {examples[1]["confidence"]:.4f}.
 
 ## Artifact
 
@@ -310,8 +312,12 @@ def run_baseline(
 
     service = MLInferenceService(adapter, model_path, input_spec)
     summaries = adapter.list_measurements()
-    healthy_id = next(item.measurement_id for item in summaries if item.ground_truth.state == "healthy")
-    damaged_id = next(item.measurement_id for item in summaries if item.ground_truth.state == "damaged")
+    healthy_id = next(
+        item.measurement_id for item in summaries if item.ground_truth.state == "healthy"
+    )
+    damaged_id = next(
+        item.measurement_id for item in summaries if item.ground_truth.state == "damaged"
+    )
     examples = [
         {"ground_truth": "healthy", **service.analyze(healthy_id).model_dump(mode="json")},
         {"ground_truth": "damaged", **service.analyze(damaged_id).model_dump(mode="json")},

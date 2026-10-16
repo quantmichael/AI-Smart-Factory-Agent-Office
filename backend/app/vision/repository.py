@@ -1,7 +1,6 @@
 """SQLite metadata repository; image binaries remain in file storage."""
 
 from contextlib import contextmanager
-import json
 from pathlib import Path
 import sqlite3
 
@@ -42,13 +41,21 @@ class InspectionImageRepository:
         with self._connection() as connection:
             connection.execute(
                 "INSERT INTO inspection_images VALUES (?, ?, ?, ?, ?)",
-                (record.image_id, record.run_id, record.equipment_id, record.model_dump_json(), record.uploaded_at.isoformat()),
+                (
+                    record.image_id,
+                    record.run_id,
+                    record.equipment_id,
+                    record.model_dump_json(),
+                    record.uploaded_at.isoformat(),
+                ),
             )
         return record
 
     def get_image(self, image_id: str) -> InspectionImageRecord | None:
         with self._connection() as connection:
-            row = connection.execute("SELECT record_json FROM inspection_images WHERE image_id = ?", (image_id,)).fetchone()
+            row = connection.execute(
+                "SELECT record_json FROM inspection_images WHERE image_id = ?", (image_id,)
+            ).fetchone()
         return InspectionImageRecord.model_validate_json(row["record_json"]) if row else None
 
     def attach(self, image_id: str, run_id: str, equipment_id: str) -> InspectionImageRecord:
@@ -70,7 +77,8 @@ class InspectionImageRepository:
     def list_for_run(self, run_id: str) -> list[InspectionImageRecord]:
         with self._connection() as connection:
             rows = connection.execute(
-                "SELECT record_json FROM inspection_images WHERE run_id = ? ORDER BY uploaded_at", (run_id,)
+                "SELECT record_json FROM inspection_images WHERE run_id = ? ORDER BY uploaded_at",
+                (run_id,),
             ).fetchall()
         return [InspectionImageRecord.model_validate_json(row["record_json"]) for row in rows]
 

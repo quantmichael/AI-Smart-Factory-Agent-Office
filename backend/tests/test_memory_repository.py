@@ -1,14 +1,25 @@
 from datetime import UTC, datetime
 
-from app.memory import EquipmentMemoryRecord, EquipmentMemoryRepository, MemorySourceType, MemoryStatus, MemoryType
+from app.memory import (
+    EquipmentMemoryRecord,
+    EquipmentMemoryRepository,
+    MemorySourceType,
+    MemoryStatus,
+    MemoryType,
+)
 
 
 def make_record(equipment_id: str = "rig-a", summary: str = "summary") -> EquipmentMemoryRecord:
     return EquipmentMemoryRecord(
-        memory_id=f"memory-{equipment_id}", equipment_id=equipment_id,
-        memory_type=MemoryType.ANALYSIS, source_type=MemorySourceType.ML_MODEL,
-        source_id="run-1", status=MemoryStatus.MEASURED, summary=summary,
-        structured_data={"run_id": "run-1"}, event_time=datetime.now(UTC),
+        memory_id=f"memory-{equipment_id}",
+        equipment_id=equipment_id,
+        memory_type=MemoryType.ANALYSIS,
+        source_type=MemorySourceType.ML_MODEL,
+        source_id="run-1",
+        status=MemoryStatus.MEASURED,
+        summary=summary,
+        structured_data={"run_id": "run-1"},
+        event_time=datetime.now(UTC),
         recorded_at=datetime.now(UTC),
     )
 

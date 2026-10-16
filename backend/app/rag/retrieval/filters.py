@@ -29,8 +29,10 @@ def build_chroma_where(filters: dict[str, Any]) -> dict[str, Any]:
             clauses.append({"source_tier": {"$lte": value}})
         elif key.endswith("_in") and key.removesuffix("_in") in EQUALITY_FIELDS:
             field = key.removesuffix("_in")
-            if not isinstance(value, list) or not value or not all(
-                isinstance(item, (str, int, float, bool)) for item in value
+            if (
+                not isinstance(value, list)
+                or not value
+                or not all(isinstance(item, (str, int, float, bool)) for item in value)
             ):
                 raise ValueError(f"filter {key} must be a non-empty scalar list")
             clauses.append({field: {"$in": value}})

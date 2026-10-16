@@ -232,9 +232,7 @@ def main() -> int:
         "- Sanitized artifacts omit source content, raw signals, secrets, and private reasoning.",
         "",
     ]
-    (artifact_root / "ACTIONS_HITL_REPORT.md").write_text(
-        "\n".join(report), encoding="utf-8"
-    )
+    (artifact_root / "ACTIONS_HITL_REPORT.md").write_text("\n".join(report), encoding="utf-8")
     print(
         json.dumps(
             {

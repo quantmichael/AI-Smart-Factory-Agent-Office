@@ -58,9 +58,7 @@ class KnowledgeIngestionPipeline:
         force: bool = False,
         dry_run: bool = False,
     ) -> dict[str, Any]:
-        manifest, documents, source_statuses = load_manifest(
-            self.manifest_path, self.project_root
-        )
+        manifest, documents, source_statuses = load_manifest(self.manifest_path, self.project_root)
         if source_id:
             if source_id not in {item["source_id"] for item in source_statuses}:
                 raise ValueError(f"source_id not present in manifest: {source_id}")
@@ -198,9 +196,7 @@ class KnowledgeIngestionPipeline:
             "ready_source_count": sum(
                 item["manifest_validation_status"] == "READY" for item in source_statuses
             ),
-            "ingested_source_count": sum(
-                item["status"] == "INGESTED" for item in source_statuses
-            ),
+            "ingested_source_count": sum(item["status"] == "INGESTED" for item in source_statuses),
             "document_count": len(documents),
             "ingested_document_count": ingested,
             "skipped_unchanged_document_count": skipped,
@@ -228,9 +224,7 @@ class KnowledgeIngestionPipeline:
             ),
             "source_statuses": source_statuses,
             "failures": failures,
-            "warnings": [
-                item["warning"] for item in source_statuses if item.get("warning")
-            ],
+            "warnings": [item["warning"] for item in source_statuses if item.get("warning")],
         }
         report["indexed_document_count"] = (
             0 if dry_run else report["vector_store"]["document_count"]
@@ -256,8 +250,16 @@ class KnowledgeIngestionPipeline:
             self.artifact_root / "document_stats.csv",
             documents,
             [
-                "document_id", "source_id", "title", "document_type", "source_tier",
-                "parser", "page_or_block_count", "chunk_count", "status", "sha256",
+                "document_id",
+                "source_id",
+                "title",
+                "document_type",
+                "source_tier",
+                "parser",
+                "page_or_block_count",
+                "chunk_count",
+                "status",
+                "sha256",
                 "local_path",
             ],
         )
@@ -265,8 +267,12 @@ class KnowledgeIngestionPipeline:
             self.artifact_root / "chunk_stats.csv",
             chunks,
             [
-                "document_id", "chunk_count", "min_tokens_approx", "max_tokens_approx",
-                "average_tokens_approx", "pages_with_chunks",
+                "document_id",
+                "chunk_count",
+                "min_tokens_approx",
+                "max_tokens_approx",
+                "average_tokens_approx",
+                "pages_with_chunks",
             ],
         )
         lines = [
@@ -298,6 +304,4 @@ class KnowledgeIngestionPipeline:
                 "",
             ]
         )
-        (self.artifact_root / "INGESTION_REPORT.md").write_text(
-            "\n".join(lines), encoding="utf-8"
-        )
+        (self.artifact_root / "INGESTION_REPORT.md").write_text("\n".join(lines), encoding="utf-8")

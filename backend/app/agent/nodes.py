@@ -53,14 +53,16 @@ class AgentDependencies:
     max_action_revision_rounds: int = 1
     memory_service: Any | None = None
     vision_service: Any | None = None
-    version_trace: dict[str, str] = field(default_factory=lambda: {
-        "application_version": "test",
-        "model_id": "unknown",
-        "model_version": "unknown",
-        "knowledge_pack_id": "bearing_v1",
-        "knowledge_manifest_version": "unknown",
-        "workflow_version": "diagnosis_core_v1",
-    })
+    version_trace: dict[str, str] = field(
+        default_factory=lambda: {
+            "application_version": "test",
+            "model_id": "unknown",
+            "model_version": "unknown",
+            "knowledge_pack_id": "bearing_v1",
+            "knowledge_manifest_version": "unknown",
+            "workflow_version": "diagnosis_core_v1",
+        }
+    )
 
 
 class AgentNodes:
@@ -192,9 +194,12 @@ class AgentNodes:
         if service is None:
             context = {
                 "equipment_id": state["equipment_id"],
-                "recent_measurements": [], "recent_analyses": [],
-                "previous_diagnoses": [], "human_observations": [],
-                "maintenance_history": [], "unresolved_items": [],
+                "recent_measurements": [],
+                "recent_analyses": [],
+                "previous_diagnoses": [],
+                "human_observations": [],
+                "maintenance_history": [],
+                "unresolved_items": [],
                 "memory_used_ids": [],
             }
         else:
@@ -207,7 +212,9 @@ class AgentNodes:
             "memory_used_ids": context["memory_used_ids"],
             "current_node": node,
             "events": make_events(
-                state, node, "Relevant equipment history loaded.",
+                state,
+                node,
+                "Relevant equipment history loaded.",
                 payload={"memory_count": len(context["memory_used_ids"])},
                 extra_events=[("equipment_memory_loaded", "Equipment memory context loaded.")],
             ),
@@ -237,7 +244,8 @@ class AgentNodes:
                 payload={"image_count": count},
                 extra_events=(
                     [("inspection_image_uploaded", "Inspection image is available for this run.")]
-                    if count else []
+                    if count
+                    else []
                 ),
             ),
             "node_timings": self._timing(node, started),
@@ -259,7 +267,11 @@ class AgentNodes:
                 state,
                 node,
                 "Inspection image observation completed.",
-                payload={"image_count": len(results), "observation_count": observations, "failure_count": failures},
+                payload={
+                    "image_count": len(results),
+                    "observation_count": observations,
+                    "failure_count": failures,
+                },
                 extra_events=[
                     ("vision_analysis_completed", "Visual observation analysis completed.")
                 ],
@@ -269,13 +281,22 @@ class AgentNodes:
 
     def merge_visual_context(self, state: AgentState) -> dict[str, Any]:
         node, started = "merge_visual_context", perf_counter()
-        count = sum(len(item.get("observations", [])) for item in state.get("visual_observations", []))
+        count = sum(
+            len(item.get("observations", [])) for item in state.get("visual_observations", [])
+        )
         return {
             "current_node": node,
             "events": make_events(
-                state, node, "Visual observations added as a separate diagnosis context.",
+                state,
+                node,
+                "Visual observations added as a separate diagnosis context.",
                 payload={"observation_count": count},
-                extra_events=[("visual_context_added", "Visual context added separately from technical evidence.")],
+                extra_events=[
+                    (
+                        "visual_context_added",
+                        "Visual context added separately from technical evidence.",
+                    )
+                ],
             ),
             "node_timings": self._timing(node, started),
         }
@@ -360,8 +381,7 @@ class AgentNodes:
         observations = state.get("human_observations", [])
         if observations:
             observation_text = " ".join(
-                f"human observation {item['type']} {item['value']}"
-                for item in observations[-8:]
+                f"human observation {item['type']} {item['value']}" for item in observations[-8:]
             )
             queries.append(
                 self.query_builder.build_text_query(
@@ -402,9 +422,7 @@ class AgentNodes:
     def retrieve_knowledge(self, state: AgentState) -> dict[str, Any]:
         node, started = "retrieve_knowledge", perf_counter()
         try:
-            existing = {
-                item["chunk_id"]: item for item in state.get("rag_evidence", [])
-            }
+            existing = {item["chunk_id"]: item for item in state.get("rag_evidence", [])}
             records = list(state.get("retrieval_records", []))
             pending_queries = state.get("pending_queries", [])
             for raw_query in pending_queries:
@@ -412,9 +430,7 @@ class AgentNodes:
                     RetrievalQuery.model_validate(raw_query)
                 )
                 for evidence in result.evidence:
-                    existing.setdefault(
-                        evidence.chunk_id, evidence.model_dump(mode="json")
-                    )
+                    existing.setdefault(evidence.chunk_id, evidence.model_dump(mode="json"))
                 records.append(
                     {
                         "query": result.query.model_dump(mode="json"),
@@ -451,7 +467,9 @@ class AgentNodes:
         node, started = "diagnose", perf_counter()
         try:
             analysis = AnalysisResult.model_validate(state["analysis_result"])
-            evidence = [EvidenceObject.model_validate(item) for item in state.get("rag_evidence", [])]
+            evidence = [
+                EvidenceObject.model_validate(item) for item in state.get("rag_evidence", [])
+            ]
             candidates = self.dependencies.diagnosis_reasoner.diagnose(
                 analysis,
                 evidence,
@@ -475,8 +493,11 @@ class AgentNodes:
                             for observation in result.get("observations", [])
                         ],
                         "context_sections": [
-                            "CURRENT_SENSOR_ANALYSIS", "VISUAL_OBSERVATIONS",
-                            "TECHNICAL_EVIDENCE", "EQUIPMENT_MEMORY", "HUMAN_OBSERVATIONS"
+                            "CURRENT_SENSOR_ANALYSIS",
+                            "VISUAL_OBSERVATIONS",
+                            "TECHNICAL_EVIDENCE",
+                            "EQUIPMENT_MEMORY",
+                            "HUMAN_OBSERVATIONS",
                         ],
                     },
                 ),
@@ -492,7 +513,9 @@ class AgentNodes:
                 DiagnosisCandidate.model_validate(item)
                 for item in state.get("diagnosis_candidates", [])
             ]
-            evidence = [EvidenceObject.model_validate(item) for item in state.get("rag_evidence", [])]
+            evidence = [
+                EvidenceObject.model_validate(item) for item in state.get("rag_evidence", [])
+            ]
             result = self.dependencies.evidence_verifier.verify(candidates, evidence)
             return {
                 "verification_result": result.model_dump(mode="json"),
@@ -506,9 +529,7 @@ class AgentNodes:
                         "evidence_status": result.status.value,
                         "retry_count": state.get("retrieval_retry_count", 0),
                     },
-                    extra_events=[
-                        ("evidence_status_changed", "Evidence status evaluated.")
-                    ],
+                    extra_events=[("evidence_status_changed", "Evidence status evaluated.")],
                 ),
                 "node_timings": self._timing(node, started),
             }
@@ -626,7 +647,9 @@ class AgentNodes:
                 DiagnosisCandidate.model_validate(item)
                 for item in state.get("diagnosis_candidates", [])
             ]
-            evidence = [EvidenceObject.model_validate(item) for item in state.get("rag_evidence", [])]
+            evidence = [
+                EvidenceObject.model_validate(item) for item in state.get("rag_evidence", [])
+            ]
             steps = self.dependencies.action_planner.build_inspection_plan(candidates, evidence)
             validate_plan_references(
                 steps,
@@ -641,9 +664,7 @@ class AgentNodes:
                     node,
                     "Evidence-linked inspection plan created.",
                     payload={"inspection_step_count": len(steps)},
-                    extra_events=[
-                        ("inspection_plan_created", "Inspection plan created.")
-                    ],
+                    extra_events=[("inspection_plan_created", "Inspection plan created.")],
                 ),
                 "node_timings": self._timing(node, started),
             }
@@ -653,12 +674,12 @@ class AgentNodes:
     def recommend_action(self, state: AgentState) -> dict[str, Any]:
         node, started = "recommend_action", perf_counter()
         try:
-            candidates = [DiagnosisCandidate.model_validate(item) for item in state["diagnosis_candidates"]]
+            candidates = [
+                DiagnosisCandidate.model_validate(item) for item in state["diagnosis_candidates"]
+            ]
             evidence = [EvidenceObject.model_validate(item) for item in state["rag_evidence"]]
             plan = [InspectionStep.model_validate(item) for item in state["inspection_plan"]]
-            drafted = self.dependencies.action_planner.recommend_action(
-                candidates, evidence, plan
-            )
+            drafted = self.dependencies.action_planner.recommend_action(candidates, evidence, plan)
             draft_models = [RecommendedAction.model_validate(item) for item in drafted]
             controlled_hitl = state.get("demo_scenario") == "HITL_CONTROLLED"
             if controlled_hitl:
@@ -705,9 +726,7 @@ class AgentNodes:
                     "Evidence-linked actions recommended.",
                     payload={
                         "action_count": len(actions),
-                        "approval_required": any(
-                            item.requires_human_approval for item in actions
-                        ),
+                        "approval_required": any(item.requires_human_approval for item in actions),
                         "demo_scenario": state.get("demo_scenario"),
                     },
                     extra_events=[("action_recommended", "Action recommendation created.")],
@@ -720,8 +739,7 @@ class AgentNodes:
     def check_human_approval(self, state: AgentState) -> dict[str, Any]:
         node, started = "check_human_approval", perf_counter()
         required = any(
-            item.get("requires_human_approval")
-            for item in state.get("recommended_actions", [])
+            item.get("requires_human_approval") for item in state.get("recommended_actions", [])
         )
         return {
             "current_node": node,
@@ -742,9 +760,7 @@ class AgentNodes:
     def request_human_approval(self, state: AgentState) -> dict[str, Any]:
         node, started = "request_human_approval", perf_counter()
         action = next(
-            item
-            for item in state.get("recommended_actions", [])
-            if item["requires_human_approval"]
+            item for item in state.get("recommended_actions", []) if item["requires_human_approval"]
         )
         request = HumanRequest(
             request_id=self._request_id(
@@ -820,9 +836,7 @@ class AgentNodes:
         from langgraph.types import interrupt
 
         node, started = "await_human_input", perf_counter()
-        submission = HumanInputSubmission.model_validate(
-            interrupt(state["pending_human_request"])
-        )
+        submission = HumanInputSubmission.model_validate(interrupt(state["pending_human_request"]))
         return {
             "human_input": submission.model_dump(mode="json"),
             "workflow_status": WorkflowStatus.RUNNING.value,
@@ -873,9 +887,7 @@ class AgentNodes:
                 for field in request.requested_fields
                 if field != "inspection_image_id"
             ]
-            update["human_observations"] = [
-                *state.get("human_observations", []), *observations
-            ]
+            update["human_observations"] = [*state.get("human_observations", []), *observations]
             update["human_information_round_count"] = (
                 state.get("human_information_round_count", 0) + 1
             )
@@ -936,10 +948,11 @@ class AgentNodes:
             "Recommendations support human decisions and do not control equipment.",
         ]
         if state.get("evidence_status") != "SUFFICIENT":
-            limitations.append("The available technical evidence remains incomplete or conflicting.")
+            limitations.append(
+                "The available technical evidence remains incomplete or conflicting."
+            )
         interactions = [
-            HumanInteraction.model_validate(item)
-            for item in state.get("human_interactions", [])
+            HumanInteraction.model_validate(item) for item in state.get("human_interactions", [])
         ]
         if interactions:
             limitations.append(
@@ -961,8 +974,7 @@ class AgentNodes:
             ],
             evidence_status=state.get("evidence_status"),
             inspection_plan=[
-                InspectionStep.model_validate(item)
-                for item in state.get("inspection_plan", [])
+                InspectionStep.model_validate(item) for item in state.get("inspection_plan", [])
             ],
             recommended_actions=[
                 RecommendedAction.model_validate(item)

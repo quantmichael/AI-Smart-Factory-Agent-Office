@@ -37,9 +37,10 @@ def test_document_list_uses_manifest_metadata_and_actual_chunk_counts():
     body = response.json()
     assert body["total"] == len(body["documents"])
     assert body["documents"]
-    assert sum(item["chunk_count"] for item in body["documents"]) == client.get(
-        "/api/v1/knowledge/summary"
-    ).json()["chunk_count"]
+    assert (
+        sum(item["chunk_count"] for item in body["documents"])
+        == client.get("/api/v1/knowledge/summary").json()["chunk_count"]
+    )
     assert all(item["title"] and item["publisher"] for item in body["documents"])
     assert all("local_path" not in item and "sha256" not in item for item in body["documents"])
 

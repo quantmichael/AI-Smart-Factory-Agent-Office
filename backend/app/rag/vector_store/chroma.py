@@ -170,8 +170,6 @@ class ChromaVectorStore:
             "type": "Chroma",
             "collection": self.collection_name,
             "count": self.collection.count(),
-            "document_count": len(
-                {metadata["document_id"] for metadata in result["metadatas"]}
-            ),
+            "document_count": len({metadata["document_id"] for metadata in result["metadatas"]}),
             "persist_directory": str(self.persist_directory),
         }

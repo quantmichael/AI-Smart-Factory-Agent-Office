@@ -106,14 +106,19 @@ class QueryBuilder:
             if context.operating_condition:
                 parts.append(f"operating condition {context.operating_condition}")
             if context.mode == RetrievalMode.EVALUATION and context.bearing_id:
-                parts.append(f"bearing identifier {context.bearing_id} damage fact sheet measurement log")
+                parts.append(
+                    f"bearing identifier {context.bearing_id} damage fact sheet measurement log"
+                )
         elif purpose == RetrievalPurpose.DIAGNOSTIC_EVIDENCE:
             parts = [
                 "bearing vibration condition monitoring diagnostic technical evidence",
                 f"analysis status {context.status}",
                 f"predicted class {context.predicted_class}",
             ]
-            parts.extend(f"signal feature {name} {value:.6g}" for name, value in sorted(context.signal_features.items()))
+            parts.extend(
+                f"signal feature {name} {value:.6g}"
+                for name, value in sorted(context.signal_features.items())
+            )
             if context.operating_condition:
                 parts.append(f"operating condition {context.operating_condition}")
         else:
@@ -124,9 +129,7 @@ class QueryBuilder:
             ]
             if context.operating_condition:
                 parts.append(f"operating condition {context.operating_condition}")
-        return self.build_text_query(
-            " ".join(parts), purpose, top_k=top_k, mode=context.mode
-        )
+        return self.build_text_query(" ".join(parts), purpose, top_k=top_k, mode=context.mode)
 
     def build_text_query(
         self,

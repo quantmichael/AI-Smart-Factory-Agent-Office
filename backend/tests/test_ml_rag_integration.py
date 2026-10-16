@@ -32,9 +32,7 @@ def test_real_analysis_result_to_diagnostic_evidence_without_ground_truth_leakag
         LocalHashingEmbeddingService(),
     )
 
-    result = retriever.retrieve_by_purpose(
-        context, RetrievalPurpose.DIAGNOSTIC_EVIDENCE, top_k=3
-    )
+    result = retriever.retrieve_by_purpose(context, RetrievalPurpose.DIAGNOSTIC_EVIDENCE, top_k=3)
 
     assert result.evidence
     assert result.query.query_id

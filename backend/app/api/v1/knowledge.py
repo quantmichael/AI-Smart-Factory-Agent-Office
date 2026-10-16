@@ -39,12 +39,18 @@ def get_retriever_service() -> RetrieverService:
             if _service is None:
                 settings = get_settings()
                 if settings.embedding_provider != "local":
-                    raise RuntimeError("STEP 07 supports only the configured local embedding provider")
+                    raise RuntimeError(
+                        "STEP 07 supports only the configured local embedding provider"
+                    )
                 embedding = LocalHashingEmbeddingService(settings.embedding_batch_size)
                 if settings.embedding_model != embedding.config.model:
-                    raise RuntimeError("configured embedding model does not match the indexed model")
+                    raise RuntimeError(
+                        "configured embedding model does not match the indexed model"
+                    )
                 _service = RetrieverService(
-                    ChromaVectorStore(resolve_runtime_path(settings.vector_db_path), settings.knowledge_pack_id),
+                    ChromaVectorStore(
+                        resolve_runtime_path(settings.vector_db_path), settings.knowledge_pack_id
+                    ),
                     embedding,
                 )
     return _service
@@ -63,7 +69,10 @@ def get_knowledge_catalog_service() -> KnowledgeCatalogService:
                         resolve_runtime_path(settings.vector_db_path),
                         settings.knowledge_pack_id,
                     ),
-                    knowledge_root / settings.knowledge_pack_id / "manifests" / "source_manifest.json",
+                    knowledge_root
+                    / settings.knowledge_pack_id
+                    / "manifests"
+                    / "source_manifest.json",
                     knowledge_root.parent,
                     embedding,
                 )
@@ -77,7 +86,9 @@ def get_knowledge_summary(
     try:
         return service.summary()
     except Exception as exc:
-        raise APIError(503, "KNOWLEDGE_BASE_UNAVAILABLE", "Knowledge Base를 조회할 수 없습니다.") from exc
+        raise APIError(
+            503, "KNOWLEDGE_BASE_UNAVAILABLE", "Knowledge Base를 조회할 수 없습니다."
+        ) from exc
 
 
 @router.get("/documents", response_model=KnowledgeDocumentList)
@@ -87,7 +98,9 @@ def list_knowledge_documents(
     try:
         return service.list_documents()
     except Exception as exc:
-        raise APIError(503, "KNOWLEDGE_BASE_UNAVAILABLE", "기술문서 목록을 조회할 수 없습니다.") from exc
+        raise APIError(
+            503, "KNOWLEDGE_BASE_UNAVAILABLE", "기술문서 목록을 조회할 수 없습니다."
+        ) from exc
 
 
 @router.get("/documents/{document_id}", response_model=KnowledgeDocumentDetail)

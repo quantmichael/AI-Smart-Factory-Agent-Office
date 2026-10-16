@@ -19,7 +19,8 @@ def select_relevant_context(
         selected = [item for item in records if item.memory_type == memory_type]
         if operating_condition:
             same_condition = [
-                item for item in selected
+                item
+                for item in selected
                 if item.structured_data.get("operating_condition") == operating_condition
             ]
             if same_condition:
@@ -31,7 +32,8 @@ def select_relevant_context(
     diagnoses = select(MemoryType.DIAGNOSIS)
     observations = select(MemoryType.HUMAN_OBSERVATION)
     unresolved = [
-        item for item in records
+        item
+        for item in records
         if item.memory_type in {MemoryType.DIAGNOSIS, MemoryType.ACTION}
         and item.status == MemoryStatus.INFERRED
     ][:recent_limit]

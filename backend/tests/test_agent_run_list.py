@@ -30,9 +30,7 @@ def test_run_list_is_paginated_latest_first_and_filterable(tmp_path):
                 "ml_prediction": "normal",
             },
         )
-        empty = client.get(
-            "/api/v1/agent/runs", params={"measurement_id": "does-not-exist"}
-        )
+        empty = client.get("/api/v1/agent/runs", params={"measurement_id": "does-not-exist"})
     finally:
         app.dependency_overrides.clear()
         manager.close()

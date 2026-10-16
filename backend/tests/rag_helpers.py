@@ -48,13 +48,25 @@ def build_test_retriever(path: Path) -> RetrieverService:
     chunks.extend(
         chunk_document(
             documents[0],
-            [ParsedBlock(page=7, section="Spectrum", text="bearing vibration spectrum defect frequency diagnosis")],
+            [
+                ParsedBlock(
+                    page=7,
+                    section="Spectrum",
+                    text="bearing vibration spectrum defect frequency diagnosis",
+                )
+            ],
         )
     )
     chunks.extend(
         chunk_document(
             documents[1],
-            [ParsedBlock(page=12, section="Inspection", text="inspect bearing raceway lubricant contamination and damage")],
+            [
+                ParsedBlock(
+                    page=12,
+                    section="Inspection",
+                    text="inspect bearing raceway lubricant contamination and damage",
+                )
+            ],
         )
     )
     embedding = LocalHashingEmbeddingService()

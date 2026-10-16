@@ -22,7 +22,9 @@ def test_system_status_reports_real_components_and_counts_without_paths():
     model = _component(body, "ml_model")
     assert model["status"] == "READY"
     assert model["summary"] == "모델 로드 가능"
-    assert {item["label"]: item["value"] for item in model["details"]}["Algorithm"] == "RandomForestClassifier"
+    assert {item["label"]: item["value"] for item in model["details"]}[
+        "Algorithm"
+    ] == "RandomForestClassifier"
 
     vector = _component(body, "vector_db")
     vector_details = {item["label"]: item["value"] for item in vector["details"]}
@@ -55,7 +57,10 @@ def test_missing_vector_store_degrades_only_that_component(tmp_path: Path):
     vector = next(item for item in result.components if item.component_id == "vector_db")
     assert vector.status is ComponentStatus.UNAVAILABLE
     assert result.overall_status is ComponentStatus.DEGRADED
-    assert next(item for item in result.components if item.component_id == "ml_model").status is ComponentStatus.READY
+    assert (
+        next(item for item in result.components if item.component_id == "ml_model").status
+        is ComponentStatus.READY
+    )
     assert not (tmp_path / "missing-vector").exists()
 
 

@@ -41,7 +41,9 @@ def test_analysis_errors_use_public_schema(error, status, code) -> None:
     assert "internal path" not in response.text
 
 
-@pytest.mark.parametrize("payload", [{}, {"measurement_id": ""}, {"measurement_id": "m", "extra": 1}])
+@pytest.mark.parametrize(
+    "payload", [{}, {"measurement_id": ""}, {"measurement_id": "m", "extra": 1}]
+)
 def test_invalid_analysis_request_uses_error_schema(payload) -> None:
     response = TestClient(app).post("/api/v1/analysis", json=payload)
 

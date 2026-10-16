@@ -29,7 +29,9 @@ def get_equipment_memory_service() -> EquipmentMemoryService:
             if _service is None:
                 settings = get_settings()
                 _service = EquipmentMemoryService(
-                    EquipmentMemoryRepository(resolve_runtime_path(settings.equipment_memory_db_path))
+                    EquipmentMemoryRepository(
+                        resolve_runtime_path(settings.equipment_memory_db_path)
+                    )
                 )
     return _service
 
@@ -49,9 +51,7 @@ def get_equipment_memory(
     operating_condition: str | None = None,
     service: EquipmentMemoryService = Depends(get_equipment_memory_service),
 ) -> EquipmentMemoryContext:
-    return service.get_relevant_context(
-        equipment_id, operating_condition=operating_condition
-    )
+    return service.get_relevant_context(equipment_id, operating_condition=operating_condition)
 
 
 @router.post(

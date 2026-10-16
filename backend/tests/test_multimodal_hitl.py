@@ -29,8 +29,11 @@ def test_hitl_image_upload_resumes_and_adds_visual_context(tmp_path):
     request = waiting["pending_human_request"]
     assert request["requested_fields"] == ["inspection_image_id"]
     image = vision.store(
-        equipment_id="fake-rig", run_id="run-hitl-image", content=image_bytes(),
-        mime_type="image/png", filename="operator-inspection.png",
+        equipment_id="fake-rig",
+        run_id="run-hitl-image",
+        content=image_bytes(),
+        mime_type="image/png",
+        filename="operator-inspection.png",
     )
     completed = service.submit_human_input(
         "run-hitl-image",

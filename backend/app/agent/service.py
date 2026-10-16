@@ -101,9 +101,7 @@ class AgentWorkflowService:
         existing = self.get_run(run_id)
         if existing:
             raise ValueError(f"run_id already exists: {run_id}")
-        initial = self._initial_state(
-            run_id, measurement_id, inspection_image_ids, demo_scenario
-        )
+        initial = self._initial_state(run_id, measurement_id, inspection_image_ids, demo_scenario)
         return dict(self.graph.invoke(initial, config=self._config(run_id)))
 
     def stream_new_run(
@@ -119,9 +117,7 @@ class AgentWorkflowService:
         if self.get_run(run_id):
             raise ValueError(f"run_id already exists: {run_id}")
         yield from self.graph.stream(
-            self._initial_state(
-                run_id, measurement_id, inspection_image_ids, demo_scenario
-            ),
+            self._initial_state(run_id, measurement_id, inspection_image_ids, demo_scenario),
             config=self._config(run_id),
             stream_mode="values",
         )
@@ -142,9 +138,7 @@ class AgentWorkflowService:
             return state
         return dict(self.graph.invoke(None, config=self._config(run_id)))
 
-    def submit_human_input(
-        self, run_id: str, submission: HumanInputSubmission
-    ) -> dict:
+    def submit_human_input(self, run_id: str, submission: HumanInputSubmission) -> dict:
         self.validate_human_input(run_id, submission)
         result = self.graph.invoke(
             Command(resume=submission.model_dump(mode="json")),
@@ -152,9 +146,7 @@ class AgentWorkflowService:
         )
         return dict(result)
 
-    def validate_human_input(
-        self, run_id: str, submission: HumanInputSubmission
-    ) -> HumanRequest:
+    def validate_human_input(self, run_id: str, submission: HumanInputSubmission) -> HumanRequest:
         state = self.get_run(run_id)
         if state is None:
             raise KeyError(f"run not found: {run_id}")

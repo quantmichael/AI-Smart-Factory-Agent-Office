@@ -46,9 +46,7 @@ class ConservativeActionPlanner:
         diagnostic = next(
             (item for item in evidence if item.purpose == "DIAGNOSTIC_EVIDENCE"), None
         )
-        inspection = next(
-            (item for item in evidence if item.purpose == "INSPECTION_ACTION"), None
-        )
+        inspection = next((item for item in evidence if item.purpose == "INSPECTION_ACTION"), None)
         steps: list[InspectionStep] = []
         if diagnostic:
             steps.append(

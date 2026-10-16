@@ -13,7 +13,5 @@ def error_response(
     message: str,
     details: dict | None = None,
 ) -> JSONResponse:
-    payload = ErrorResponse(
-        error=ErrorDetail(code=code, message=message, details=details or {})
-    )
+    payload = ErrorResponse(error=ErrorDetail(code=code, message=message, details=details or {}))
     return JSONResponse(status_code=status_code, content=payload.model_dump(mode="json"))

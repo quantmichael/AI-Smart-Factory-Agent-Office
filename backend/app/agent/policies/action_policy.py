@@ -25,10 +25,14 @@ class ActionPolicy:
         text = f"{action.summary} {action.reason}".lower()
         if any(phrase in text for phrase in self.prohibited_phrases):
             raise ValueError("recommended action violates the no-automatic-control guardrail")
-        important = action.action_type in {
-            ActionType.SHUTDOWN_CHECK,
-            ActionType.SCHEDULE_MAINTENANCE,
-        } or action.priority == ActionPriority.HIGH
+        important = (
+            action.action_type
+            in {
+                ActionType.SHUTDOWN_CHECK,
+                ActionType.SCHEDULE_MAINTENANCE,
+            }
+            or action.priority == ActionPriority.HIGH
+        )
         if important and not action.supporting_evidence_ids:
             raise ValueError("important actions require supporting evidence")
         limitations = list(action.limitations)

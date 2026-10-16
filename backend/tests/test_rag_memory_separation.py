@@ -14,16 +14,22 @@ def test_rag_evidence_and_equipment_history_remain_separate_context_sections(tmp
         state = workflow.start_run("fake:measurement:1", run_id="current-run")
         assert state["rag_evidence"]
         assert state["equipment_memory"]["memory_used_ids"]
-        assert all("evidence_id" in item and "memory_id" not in item for item in state["rag_evidence"])
+        assert all(
+            "evidence_id" in item and "memory_id" not in item for item in state["rag_evidence"]
+        )
         memory_records = state["equipment_memory"]["recent_analyses"]
         assert all("memory_id" in item and "evidence_id" not in item for item in memory_records)
         diagnose_event = next(
-            item for item in state["events"]
+            item
+            for item in state["events"]
             if item["node"] == "diagnose" and item["event_type"] == "node_completed"
         )
         assert diagnose_event["payload"]["context_sections"] == [
-            "CURRENT_SENSOR_ANALYSIS", "VISUAL_OBSERVATIONS", "TECHNICAL_EVIDENCE",
-            "EQUIPMENT_MEMORY", "HUMAN_OBSERVATIONS",
+            "CURRENT_SENSOR_ANALYSIS",
+            "VISUAL_OBSERVATIONS",
+            "TECHNICAL_EVIDENCE",
+            "EQUIPMENT_MEMORY",
+            "HUMAN_OBSERVATIONS",
         ]
     finally:
         workflow.close()

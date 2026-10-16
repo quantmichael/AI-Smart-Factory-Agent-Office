@@ -14,9 +14,10 @@ def test_real_manifest_validates_and_expands_only_declared_documents() -> None:
     assert len(statuses) == 12
     assert len(documents) == 15
     assert sum(item["status"] == "READY" for item in statuses) == 11
-    assert next(item for item in statuses if item["source_id"] == "PADERBORN_DATASET")[
-        "status"
-    ] == "UNSUPPORTED"
+    assert (
+        next(item for item in statuses if item["source_id"] == "PADERBORN_DATASET")["status"]
+        == "UNSUPPORTED"
+    )
     assert len({document.document_id for document in documents}) == 15
     assert all(len(document.sha256) == 64 for document in documents)
 
@@ -28,9 +29,7 @@ def test_manifest_fact_sheet_metadata_is_verified() -> None:
         project_root,
     )
     ka01 = next(
-        item
-        for item in documents
-        if item.document_id == "paderborn_damage_fact_sheets_ka01"
+        item for item in documents if item.document_id == "paderborn_damage_fact_sheets_ka01"
     )
 
     assert ka01.metadata["bearing_id"] == "KA01"

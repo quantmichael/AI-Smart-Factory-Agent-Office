@@ -26,12 +26,38 @@ from typing import Iterable
 ROOT = Path(__file__).resolve().parents[1]
 PADERBORN_DOWNLOAD_ROOT = "https://groups.uni-paderborn.de/kat/BearingDataCenter"
 PADERBORN_ARCHIVES = (
-    "K001.rar", "K002.rar", "K003.rar", "K004.rar", "K005.rar", "K006.rar",
-    "KA01.rar", "KA03.rar", "KA04.rar", "KA05.rar", "KA06.rar", "KA07.rar",
-    "KA08.rar", "KA09.rar", "KA15.rar", "KA16.rar", "KA22.rar", "KA30.rar",
-    "KB23.rar", "KB24.rar", "KB27.rar", "KI01.rar", "KI03.rar", "KI04.rar",
-    "KI05.rar", "KI07.rar", "KI08.rar", "KI14.rar", "KI16.rar", "KI17.rar",
-    "KI18.rar", "KI21.rar",
+    "K001.rar",
+    "K002.rar",
+    "K003.rar",
+    "K004.rar",
+    "K005.rar",
+    "K006.rar",
+    "KA01.rar",
+    "KA03.rar",
+    "KA04.rar",
+    "KA05.rar",
+    "KA06.rar",
+    "KA07.rar",
+    "KA08.rar",
+    "KA09.rar",
+    "KA15.rar",
+    "KA16.rar",
+    "KA22.rar",
+    "KA30.rar",
+    "KB23.rar",
+    "KB24.rar",
+    "KB27.rar",
+    "KI01.rar",
+    "KI03.rar",
+    "KI04.rar",
+    "KI05.rar",
+    "KI07.rar",
+    "KI08.rar",
+    "KI14.rar",
+    "KI16.rar",
+    "KI17.rar",
+    "KI18.rar",
+    "KI21.rar",
 )
 
 
@@ -229,7 +255,10 @@ def download(url: str, target: Path, file_type: str) -> str:
         content_type = response.headers.get_content_type()
         if status not in (200, 206):
             raise RuntimeError(f"HTTP {status} for {url}")
-        if file_type == "pdf" and content_type not in ("application/pdf", "application/octet-stream"):
+        if file_type == "pdf" and content_type not in (
+            "application/pdf",
+            "application/octet-stream",
+        ):
             raise RuntimeError(f"unexpected PDF Content-Type {content_type} for {url}")
         mode = "ab" if status == 206 and start else "wb"
         with partial.open(mode) as output:
@@ -311,18 +340,28 @@ def write_dataset_metadata(accessed_at: str) -> dict[str, object]:
     metadata_dir = ROOT / "data/paderborn/metadata"
     metadata_dir.mkdir(parents=True, exist_ok=True)
     checksums = metadata_dir / "checksums.sha256"
-    checksums.write_text("\n".join(checksum_lines) + ("\n" if checksum_lines else ""), encoding="utf-8")
+    checksums.write_text(
+        "\n".join(checksum_lines) + ("\n" if checksum_lines else ""), encoding="utf-8"
+    )
     inventory = {
         "source": PADERBORN_DOWNLOAD_ROOT,
         "accessed_at": accessed_at,
         "expected_archive_count": len(PADERBORN_ARCHIVES),
-        "present_archive_count": sum(bool(item["present"]) for item in records if str(item["name"]).endswith(".rar")),
+        "present_archive_count": sum(
+            bool(item["present"]) for item in records if str(item["name"]).endswith(".rar")
+        ),
         "extracted_bearing_states": sorted(
             path.name for path in (raw / "extracted").glob("*") if path.is_dir()
         ),
         "extracted_mat_file_count": sum(1 for _ in (raw / "extracted").glob("*/*.mat")),
-        "extracted_fact_sheet_count": sum(1 for _ in (ROOT / "data/paderborn/docs").glob("*/*.pdf") if not _.name.startswith("measuring_log_")),
-        "extracted_measurement_log_count": sum(1 for _ in (ROOT / "data/paderborn/docs").glob("*/measuring_log_*.pdf")),
+        "extracted_fact_sheet_count": sum(
+            1
+            for _ in (ROOT / "data/paderborn/docs").glob("*/*.pdf")
+            if not _.name.startswith("measuring_log_")
+        ),
+        "extracted_measurement_log_count": sum(
+            1 for _ in (ROOT / "data/paderborn/docs").glob("*/measuring_log_*.pdf")
+        ),
         "files": records,
     }
     (metadata_dir / "dataset_files.json").write_text(
@@ -343,7 +382,8 @@ def source_record(source: Source, accessed_at: str) -> dict[str, object]:
         "local_path": source.local_path,
         "downloaded_at": (
             datetime.fromtimestamp(path.stat().st_mtime, timezone.utc).isoformat(timespec="seconds")
-            if present else None
+            if present
+            else None
         ),
         "accessed_at": accessed_at,
         "license": source.license_name,
@@ -407,7 +447,9 @@ def write_source_manifest(inventory: dict[str, object], accessed_at: str) -> Non
             "rag_role": ["ground_truth", "damage_taxonomy"],
             "file_type": "pdf_collection",
             "sha256": collection_sha256(fact_sheets),
-            "status": "partial" if fact_sheets and not dataset_complete else ("available" if fact_sheets else "missing"),
+            "status": "partial"
+            if fact_sheets and not dataset_complete
+            else ("available" if fact_sheets else "missing"),
             "notes": f"Extracted for {extracted_count} of {len(PADERBORN_ARCHIVES)} bearing-state archives.",
         },
         {
@@ -425,7 +467,9 @@ def write_source_manifest(inventory: dict[str, object], accessed_at: str) -> Non
             "rag_role": ["dataset_context", "ground_truth"],
             "file_type": "pdf_collection",
             "sha256": collection_sha256(measurement_logs),
-            "status": "partial" if measurement_logs and not dataset_complete else ("available" if measurement_logs else "missing"),
+            "status": "partial"
+            if measurement_logs and not dataset_complete
+            else ("available" if measurement_logs else "missing"),
             "notes": f"Extracted for {extracted_count} of {len(PADERBORN_ARCHIVES)} bearing-state archives.",
         },
     ]
@@ -456,12 +500,14 @@ def write_source_manifest(inventory: dict[str, object], accessed_at: str) -> Non
             f"| {record['source_id']} | {record['source_tier']} | {record['status']} | "
             f"{record['publisher']} | `{record['local_path']}` | `{digest}` |"
         )
-    lines.extend([
-        "",
-        "The JSON manifest is canonical and contains URLs, licensing, timestamps, RAG roles, and notes.",
-        "Dataset archive checksums are listed in `data/paderborn/metadata/checksums.sha256`.",
-        "",
-    ])
+    lines.extend(
+        [
+            "",
+            "The JSON manifest is canonical and contains URLs, licensing, timestamps, RAG roles, and notes.",
+            "Dataset archive checksums are listed in `data/paderborn/metadata/checksums.sha256`.",
+            "",
+        ]
+    )
     (manifest_dir / "SOURCE_MANIFEST.md").write_text("\n".join(lines), encoding="utf-8")
 
 
@@ -473,7 +519,9 @@ def main() -> int:
         default="all",
         help="download all 32 archives, three representative archives, or no archives",
     )
-    parser.add_argument("--skip-documents", action="store_true", help="do not download HTML/PDF sources")
+    parser.add_argument(
+        "--skip-documents", action="store_true", help="do not download HTML/PDF sources"
+    )
     parser.add_argument(
         "--extract",
         action="store_true",

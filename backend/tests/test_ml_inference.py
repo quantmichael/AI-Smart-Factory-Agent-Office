@@ -7,9 +7,7 @@ from app.ml.training.baseline import MODEL_ID, train_random_forest
 from app.ml.training.split import stratified_measurement_split
 
 
-def test_ml_inference_returns_analysis_result(
-    tmp_path, ml_adapter, ml_input_spec
-) -> None:
+def test_ml_inference_returns_analysis_result(tmp_path, ml_adapter, ml_input_spec) -> None:
     table = build_feature_table(ml_adapter, ml_input_spec)
     split = stratified_measurement_split(table.records, test_size=0.5, random_state=42)
     model = train_random_forest(table, split)

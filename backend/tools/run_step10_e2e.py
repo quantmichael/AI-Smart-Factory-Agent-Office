@@ -114,6 +114,7 @@ def main() -> None:
         ("hitl", ABNORMAL_ID, True),
     ):
         run_manager = manager(settings, name, hitl=hitl)
+
         def override_manager() -> AgentRunManager:
             return run_manager
 
@@ -160,9 +161,9 @@ def main() -> None:
 
 | Scenario | Run ID | Events | Status | Evidence | Report |
 |---|---|---:|---|---:|---|
-| Normal | `{results['normal']['run']['run_id']}` | {results['normal']['event_count']} | {results['normal']['run']['workflow_status']} | {results['normal']['run']['evidence_count']} | ready |
-| Abnormal | `{results['abnormal']['run']['run_id']}` | {results['abnormal']['event_count']} | {results['abnormal']['run']['workflow_status']} | {results['abnormal']['run']['evidence_count']} | ready |
-| HITL | `{results['hitl']['run']['run_id']}` | {results['hitl']['event_count']} | {results['hitl']['run']['workflow_status']} | {results['hitl']['run']['evidence_count']} | ready |
+| Normal | `{results["normal"]["run"]["run_id"]}` | {results["normal"]["event_count"]} | {results["normal"]["run"]["workflow_status"]} | {results["normal"]["run"]["evidence_count"]} | ready |
+| Abnormal | `{results["abnormal"]["run"]["run_id"]}` | {results["abnormal"]["event_count"]} | {results["abnormal"]["run"]["workflow_status"]} | {results["abnormal"]["run"]["evidence_count"]} | ready |
+| HITL | `{results["hitl"]["run"]["run_id"]}` | {results["hitl"]["event_count"]} | {results["hitl"]["run"]["workflow_status"]} | {results["hitl"]["run"]["evidence_count"]} | ready |
 
 No timer-generated or replayed progress is used. The event files are parsed from the actual SSE responses.
 """

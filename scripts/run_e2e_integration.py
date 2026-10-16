@@ -102,27 +102,42 @@ def completed_nodes(events: list[dict]) -> list[str]:
 def save_scenario(name: str, state: dict, elapsed_ms: float) -> dict:
     root = ARTIFACT_ROOT / f"{name}_run"
     events = state.get("events", [])
-    write_json(root / "run.json", {
-        "run_id": state["run_id"], "measurement_id": state["measurement_id"],
-        "workflow_status": state["workflow_status"], "version_trace": state["version_trace"],
-        "evidence_status": state.get("evidence_status"), "memory_used_ids": state.get("memory_used_ids", []),
-        "visual_observations": state.get("visual_observations", []), "elapsed_ms": elapsed_ms,
-    })
+    write_json(
+        root / "run.json",
+        {
+            "run_id": state["run_id"],
+            "measurement_id": state["measurement_id"],
+            "workflow_status": state["workflow_status"],
+            "version_trace": state["version_trace"],
+            "evidence_status": state.get("evidence_status"),
+            "memory_used_ids": state.get("memory_used_ids", []),
+            "visual_observations": state.get("visual_observations", []),
+            "elapsed_ms": elapsed_ms,
+        },
+    )
     write_json(root / "events.json", events)
     write_json(root / "report.json", state.get("final_report"))
-    write_json(root / "trace.json", {
+    write_json(
+        root / "trace.json",
+        {
+            "nodes": completed_nodes(events),
+            "queries": state.get("retrieval_queries", []),
+            "evidence_ids": [item["evidence_id"] for item in state.get("rag_evidence", [])],
+            "diagnosis": state.get("diagnosis_candidates", []),
+            "verification": state.get("verification_result"),
+            "inspection": state.get("inspection_plan", []),
+            "actions": state.get("recommended_actions", []),
+            "human_interactions": state.get("human_interactions", []),
+            "node_timings": state.get("node_timings", []),
+            "event_contract": event_contract(events, state["run_id"]),
+        },
+    )
+    return {
+        "run_id": state["run_id"],
+        "status": state["workflow_status"],
+        "elapsed_ms": elapsed_ms,
         "nodes": completed_nodes(events),
-        "queries": state.get("retrieval_queries", []),
-        "evidence_ids": [item["evidence_id"] for item in state.get("rag_evidence", [])],
-        "diagnosis": state.get("diagnosis_candidates", []),
-        "verification": state.get("verification_result"),
-        "inspection": state.get("inspection_plan", []),
-        "actions": state.get("recommended_actions", []),
-        "human_interactions": state.get("human_interactions", []),
-        "node_timings": state.get("node_timings", []),
-        "event_contract": event_contract(events, state["run_id"]),
-    })
-    return {"run_id": state["run_id"], "status": state["workflow_status"], "elapsed_ms": elapsed_ms, "nodes": completed_nodes(events)}
+    }
 
 
 def run_direct(workflow, measurement_id: str, run_id: str, **kwargs):
@@ -146,33 +161,45 @@ def main() -> None:
 
     default_root = ARTIFACT_ROOT / "runtime" / "default"
     workflow = build(settings, default_root)
-    manager = AgentRunManager(workflow, ARTIFACT_ROOT / "runtime" / "agent_runs.sqlite3", max_workers=1)
+    manager = AgentRunManager(
+        workflow, ARTIFACT_ROOT / "runtime" / "agent_runs.sqlite3", max_workers=1
+    )
     scenario_results: dict[str, dict] = {}
 
     start = perf_counter()
-    normal_created = manager.create_run(AgentRunCreate(
-        equipment_id="paderborn-bearing-test-rig",
-        measurement_id=scenarios["normal"]["measurement_id"],
-    ))
+    normal_created = manager.create_run(
+        AgentRunCreate(
+            equipment_id="paderborn-bearing-test-rig",
+            measurement_id=scenarios["normal"]["measurement_id"],
+        )
+    )
     manager.wait_for_status(normal_created.run_id, {"COMPLETED"}, timeout_seconds=30)
     normal_state = workflow.get_run(normal_created.run_id)
-    scenario_results["normal"] = save_scenario("normal", normal_state, (perf_counter() - start) * 1000)
+    scenario_results["normal"] = save_scenario(
+        "normal", normal_state, (perf_counter() - start) * 1000
+    )
 
     image_content = (PROJECT_ROOT / scenarios["abnormal_multimodal"]["optional_image"]).read_bytes()
     image = workflow.dependencies.vision_service.store(
-        equipment_id="paderborn-bearing-test-rig", content=image_content,
-        mime_type="image/png", filename="simulated_inspection_input.png",
+        equipment_id="paderborn-bearing-test-rig",
+        content=image_content,
+        mime_type="image/png",
+        filename="simulated_inspection_input.png",
         description="Simulated demo input; not synchronized Paderborn ground truth.",
     )
     start = perf_counter()
-    abnormal_created = manager.create_run(AgentRunCreate(
-        equipment_id="paderborn-bearing-test-rig",
-        measurement_id=scenarios["abnormal_multimodal"]["measurement_id"],
-        inspection_image_ids=[image.image_id],
-    ))
+    abnormal_created = manager.create_run(
+        AgentRunCreate(
+            equipment_id="paderborn-bearing-test-rig",
+            measurement_id=scenarios["abnormal_multimodal"]["measurement_id"],
+            inspection_image_ids=[image.image_id],
+        )
+    )
     manager.wait_for_status(abnormal_created.run_id, {"COMPLETED"}, timeout_seconds=30)
     abnormal_state = workflow.get_run(abnormal_created.run_id)
-    scenario_results["abnormal"] = save_scenario("abnormal", abnormal_state, (perf_counter() - start) * 1000)
+    scenario_results["abnormal"] = save_scenario(
+        "abnormal", abnormal_state, (perf_counter() - start) * 1000
+    )
 
     all_events = manager.get_events(abnormal_created.run_id)
     midpoint = all_events[len(all_events) // 2].sequence
@@ -182,63 +209,121 @@ def main() -> None:
         "resume_after_sequence": midpoint,
         "reconnected_event_count": len(reconnect_events),
         "reconnect_suffix_valid": all(item.sequence > midpoint for item in reconnect_events),
-        "run_state_reload": manager.get_run(abnormal_created.run_id).workflow_status.value == "COMPLETED",
+        "run_state_reload": manager.get_run(abnormal_created.run_id).workflow_status.value
+        == "COMPLETED",
     }
     manager.close()
 
     restarted_workflow = build(settings, default_root)
-    restarted_manager = AgentRunManager(restarted_workflow, ARTIFACT_ROOT / "runtime" / "agent_runs.sqlite3", max_workers=1)
-    refresh_reconnect["restart_run_readable"] = restarted_manager.get_run(abnormal_created.run_id).workflow_status.value == "COMPLETED"
-    refresh_reconnect["restart_events_readable"] = bool(restarted_manager.get_events(abnormal_created.run_id))
-    refresh_reconnect["restart_report_readable"] = restarted_manager.get_report(abnormal_created.run_id).run_id == abnormal_created.run_id
+    restarted_manager = AgentRunManager(
+        restarted_workflow, ARTIFACT_ROOT / "runtime" / "agent_runs.sqlite3", max_workers=1
+    )
+    refresh_reconnect["restart_run_readable"] = (
+        restarted_manager.get_run(abnormal_created.run_id).workflow_status.value == "COMPLETED"
+    )
+    refresh_reconnect["restart_events_readable"] = bool(
+        restarted_manager.get_events(abnormal_created.run_id)
+    )
+    refresh_reconnect["restart_report_readable"] = (
+        restarted_manager.get_report(abnormal_created.run_id).run_id == abnormal_created.run_id
+    )
     restarted_manager.close()
     write_json(ARTIFACT_ROOT / "refresh_reconnect.json", refresh_reconnect)
 
-    retry_workflow = build(settings, ARTIFACT_ROOT / "runtime" / "retry", verifier=PartialOnceVerifier())
-    retry_state, retry_ms = run_direct(retry_workflow, scenarios["rag_retry_controlled"]["measurement_id"], f"run_retry_{uuid4().hex[:16]}")
+    retry_workflow = build(
+        settings, ARTIFACT_ROOT / "runtime" / "retry", verifier=PartialOnceVerifier()
+    )
+    retry_state, retry_ms = run_direct(
+        retry_workflow,
+        scenarios["rag_retry_controlled"]["measurement_id"],
+        f"run_retry_{uuid4().hex[:16]}",
+    )
     retry_workflow.dependencies.memory_service.record_run_memory(retry_state)
     scenario_results["retry"] = save_scenario("retry", retry_state, retry_ms)
     retry_workflow.close()
 
-    hitl_workflow = build(settings, ARTIFACT_ROOT / "runtime" / "hitl", verifier=InsufficientOnceVerifier())
+    hitl_workflow = build(
+        settings, ARTIFACT_ROOT / "runtime" / "hitl", verifier=InsufficientOnceVerifier()
+    )
     hitl_started = perf_counter()
-    waiting = hitl_workflow.start_run(scenarios["hitl_controlled"]["measurement_id"], run_id=f"run_hitl_{uuid4().hex[:16]}")
+    waiting = hitl_workflow.start_run(
+        scenarios["hitl_controlled"]["measurement_id"], run_id=f"run_hitl_{uuid4().hex[:16]}"
+    )
     if waiting["workflow_status"] != "WAITING":
         raise AssertionError("controlled HITL scenario did not wait")
     request = waiting["pending_human_request"]
-    response = {field: ("외관상 즉시 확인 가능한 이상 없음" if field == "inspection_observation" else "N09_M07_F10 확인") for field in request["requested_fields"]}
+    response = {
+        field: (
+            "외관상 즉시 확인 가능한 이상 없음"
+            if field == "inspection_observation"
+            else "N09_M07_F10 확인"
+        )
+        for field in request["requested_fields"]
+    }
     hitl_state = hitl_workflow.submit_human_input(
         waiting["run_id"],
-        HumanInputSubmission(request_id=request["request_id"], response=response, actor="step14-validation"),
+        HumanInputSubmission(
+            request_id=request["request_id"], response=response, actor="step14-validation"
+        ),
     )
     hitl_ms = (perf_counter() - hitl_started) * 1000
     hitl_workflow.dependencies.memory_service.record_run_memory(hitl_state)
     scenario_results["hitl"] = save_scenario("hitl", hitl_state, hitl_ms)
     hitl_workflow.close()
 
-    manifest = json.loads((resolve_runtime_path(settings.knowledge_base_root) / settings.knowledge_pack_id / "manifests" / "source_manifest.json").read_text())
+    manifest = json.loads(
+        (
+            resolve_runtime_path(settings.knowledge_base_root)
+            / settings.knowledge_pack_id
+            / "manifests"
+            / "source_manifest.json"
+        ).read_text()
+    )
     manifest_sources = {item["source_id"] for item in manifest["sources"]}
     evidence_ids = {item["evidence_id"] for item in abnormal_state["rag_evidence"]}
     citation_audit = all(
         citation["evidence_id"] in evidence_ids
-        and next(item for item in abnormal_state["rag_evidence"] if item["evidence_id"] == citation["evidence_id"])["source_id"] in manifest_sources
+        and next(
+            item
+            for item in abnormal_state["rag_evidence"]
+            if item["evidence_id"] == citation["evidence_id"]
+        )["source_id"]
+        in manifest_sources
         for citation in abnormal_state["final_report"]["citations"]
     )
-    serialized_context = json.dumps({
-        "measurement_ref": abnormal_state.get("measurement_ref"),
-        "analysis": abnormal_state.get("analysis_result"),
-        "queries": abnormal_state.get("retrieval_queries"),
-        "diagnosis": abnormal_state.get("diagnosis_candidates"),
-    }).lower()
+    serialized_context = json.dumps(
+        {
+            "measurement_ref": abnormal_state.get("measurement_ref"),
+            "analysis": abnormal_state.get("analysis_result"),
+            "queries": abnormal_state.get("retrieval_queries"),
+            "diagnosis": abnormal_state.get("diagnosis_candidates"),
+        }
+    ).lower()
     audits = {
-        "ground_truth_leakage": not any(term in serialized_context for term in ["ground_truth", "damage_location", "fact_sheet_answer"]),
+        "ground_truth_leakage": not any(
+            term in serialized_context
+            for term in ["ground_truth", "damage_location", "fact_sheet_answer"]
+        ),
         "citation_trace_to_manifest": citation_audit,
-        "unsupported_evidence_references": all(set(item["supporting_evidence_ids"]).issubset(evidence_ids) for item in abnormal_state["diagnosis_candidates"]),
-        "automatic_control_absent": all(item["action_type"] != "AUTOMATIC_CONTROL" for item in abnormal_state["recommended_actions"]),
+        "unsupported_evidence_references": all(
+            set(item["supporting_evidence_ids"]).issubset(evidence_ids)
+            for item in abnormal_state["diagnosis_candidates"]
+        ),
+        "automatic_control_absent": all(
+            item["action_type"] != "AUTOMATIC_CONTROL"
+            for item in abnormal_state["recommended_actions"]
+        ),
         "memory_used_on_second_run": bool(abnormal_state.get("memory_used_ids")),
-        "fake_maintenance_absent": not workflow.dependencies.memory_service.repository.list_maintenance("paderborn-bearing-test-rig"),
-        "multimodal_relationship_disclosed": "not synchronized Paderborn ground truth" in image.description,
-        "visual_not_fault_diagnosis": all(item["category"] == "image_quality" for result in abnormal_state["visual_observations"] for item in result["observations"]),
+        "fake_maintenance_absent": not workflow.dependencies.memory_service.repository.list_maintenance(
+            "paderborn-bearing-test-rig"
+        ),
+        "multimodal_relationship_disclosed": "not synchronized Paderborn ground truth"
+        in image.description,
+        "visual_not_fault_diagnosis": all(
+            item["category"] == "image_quality"
+            for result in abnormal_state["visual_observations"]
+            for item in result["observations"]
+        ),
     }
     write_json(ARTIFACT_ROOT / "audit_results.json", audits)
 
@@ -276,28 +361,37 @@ def main() -> None:
     for key, value in scenario_results.items():
         timings = scenario_states[key].get("node_timings", [])
         metrics[key] = {"total_ms": round(value["elapsed_ms"], 3)}
-        metrics[key].update({
-            label: round(sum(float(item["duration_ms"]) for item in timings if item["node"] in nodes), 3)
-            for label, nodes in metric_nodes.items()
-        })
-    metrics["note"] = "Reasoning is the deterministic local provider in MVP-RC1; no external LLM token cost was incurred."
+        metrics[key].update(
+            {
+                label: round(
+                    sum(float(item["duration_ms"]) for item in timings if item["node"] in nodes), 3
+                )
+                for label, nodes in metric_nodes.items()
+            }
+        )
+    metrics["note"] = (
+        "Reasoning is the deterministic local provider in MVP-RC1; no external LLM token cost was incurred."
+    )
     write_json(ARTIFACT_ROOT / "e2e_metrics.json", metrics)
     p0 = []
-    if not all(audits.values()): p0.append("audit failure")
-    if not all(item["pass"] for item in route_validation.values()): p0.append("route mismatch")
-    if not all(value["status"] == "COMPLETED" for value in scenario_results.values()): p0.append("incomplete scenario")
+    if not all(audits.values()):
+        p0.append("audit failure")
+    if not all(item["pass"] for item in route_validation.values()):
+        p0.append("route mismatch")
+    if not all(value["status"] == "COMPLETED" for value in scenario_results.values()):
+        p0.append("incomplete scenario")
     report = f"""# STEP 14 E2E Integration Report — MVP-RC1
 
 - Generated: {datetime.now(UTC).isoformat()}
-- Readiness: `{readiness['status']}`
-- Normal: `{scenario_results['normal']['run_id']}` / `{scenario_results['normal']['status']}`
-- Abnormal + Multimodal: `{scenario_results['abnormal']['run_id']}` / `{scenario_results['abnormal']['status']}`
-- Controlled RAG Retry: `{scenario_results['retry']['run_id']}` / `{scenario_results['retry']['status']}`
-- Controlled HITL: `{scenario_results['hitl']['run_id']}` / `{scenario_results['hitl']['status']}`
-- Memory on second run: `{audits['memory_used_on_second_run']}`
+- Readiness: `{readiness["status"]}`
+- Normal: `{scenario_results["normal"]["run_id"]}` / `{scenario_results["normal"]["status"]}`
+- Abnormal + Multimodal: `{scenario_results["abnormal"]["run_id"]}` / `{scenario_results["abnormal"]["status"]}`
+- Controlled RAG Retry: `{scenario_results["retry"]["run_id"]}` / `{scenario_results["retry"]["status"]}`
+- Controlled HITL: `{scenario_results["hitl"]["run_id"]}` / `{scenario_results["hitl"]["status"]}`
+- Memory on second run: `{audits["memory_used_on_second_run"]}`
 - Refresh/reconnect/restart: `{all(refresh_reconnect.values())}`
-- Citation trace: `{audits['citation_trace_to_manifest']}`
-- Ground-truth leakage audit: `{audits['ground_truth_leakage']}`
+- Citation trace: `{audits["citation_trace_to_manifest"]}`
+- Ground-truth leakage audit: `{audits["ground_truth_leakage"]}`
 - P0 bugs: `{len(p0)}`
 
 Retry and HITL routing decisions are explicitly controlled test conditions. They
@@ -306,7 +400,11 @@ vector database. The inspection image is simulated and is not synchronized with
 the Paderborn vibration measurement.
 """
     (ARTIFACT_ROOT / "E2E_INTEGRATION_REPORT.md").write_text(report)
-    print(json.dumps({"release": "MVP-RC1", "scenarios": scenario_results, "p0": p0}, ensure_ascii=False))
+    print(
+        json.dumps(
+            {"release": "MVP-RC1", "scenarios": scenario_results, "p0": p0}, ensure_ascii=False
+        )
+    )
 
 
 if __name__ == "__main__":

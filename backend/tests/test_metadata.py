@@ -22,7 +22,9 @@ def test_chunk_metadata_contains_citation_and_domain_fields() -> None:
         metadata={"bearing_id": "KA01", "fault_type": "artificial"},
     )
 
-    chunk = chunk_document(document, [ParsedBlock(page=1, section="Profile", text="Outer ring damage")])[0]
+    chunk = chunk_document(
+        document, [ParsedBlock(page=1, section="Profile", text="Outer ring damage")]
+    )[0]
 
     assert chunk.document_id == "fact-ka01"
     assert chunk.page == 1

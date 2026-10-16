@@ -84,9 +84,7 @@ def make_events(
     return events
 
 
-def make_error_event(
-    state: dict[str, Any], node: str, error_type: str
-) -> dict[str, Any]:
+def make_error_event(state: dict[str, Any], node: str, error_type: str) -> dict[str, Any]:
     sequence = len(state.get("events", [])) + 1
     identity = (
         f"{state['run_id']}:{node}:workflow_error:{error_type}:"

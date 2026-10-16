@@ -27,7 +27,9 @@ def test_query_builder_separates_purposes_and_is_stable() -> None:
     queries = [builder.build(context, purpose) for purpose in RetrievalPurpose]
 
     assert len({query.query_id for query in queries}) == 3
-    assert builder.build(context, RetrievalPurpose.DIAGNOSTIC_EVIDENCE).query_id == queries[1].query_id
+    assert (
+        builder.build(context, RetrievalPurpose.DIAGNOSTIC_EVIDENCE).query_id == queries[1].query_id
+    )
     assert all(query.filters["knowledge_pack_id"] == "bearing_v1" for query in queries)
     assert all(query.filters["source_tier_lte"] == 2 for query in queries)
 

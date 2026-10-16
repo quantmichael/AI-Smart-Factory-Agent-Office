@@ -6,7 +6,6 @@ from datetime import UTC, datetime
 import json
 from pathlib import Path
 import sys
-from uuid import uuid4
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -61,9 +60,9 @@ def main() -> None:
 
         run_ids: list[str] = []
         for summary in selected:
-            created = manager.create_run(AgentRunCreate(
-                equipment_id=equipment_id, measurement_id=summary.measurement_id
-            ))
+            created = manager.create_run(
+                AgentRunCreate(equipment_id=equipment_id, measurement_id=summary.measurement_id)
+            )
             manager.wait_for_status(created.run_id, {"COMPLETED"}, timeout_seconds=60)
             run_ids.append(created.run_id)
 
@@ -76,24 +75,38 @@ def main() -> None:
         history = memory.get_history(equipment_id)
         isolation = memory.get_history("unrelated-equipment")
 
-        dump(output / "run1_memory.json", {
-            "run_id": run_ids[0], "equipment_id": equipment_id,
-            "records": run1_records, "maintenance_auto_generated": False,
-        })
-        dump(output / "run2_context.json", {
-            "run_id": run_ids[1], "equipment_id": equipment_id,
-            "context": run2_state.get("equipment_memory", {}),
-            "memory_used_ids": run2_state.get("memory_used_ids", []),
-            "analysis_measurement_id": run2_state.get("analysis_result", {}).get("measurement_id"),
-        })
+        dump(
+            output / "run1_memory.json",
+            {
+                "run_id": run_ids[0],
+                "equipment_id": equipment_id,
+                "records": run1_records,
+                "maintenance_auto_generated": False,
+            },
+        )
+        dump(
+            output / "run2_context.json",
+            {
+                "run_id": run_ids[1],
+                "equipment_id": equipment_id,
+                "context": run2_state.get("equipment_memory", {}),
+                "memory_used_ids": run2_state.get("memory_used_ids", []),
+                "analysis_measurement_id": run2_state.get("analysis_result", {}).get(
+                    "measurement_id"
+                ),
+            },
+        )
         dump(output / "equipment_history_sample.json", history.model_dump(mode="json"))
-        dump(output / "memory_isolation_test.json", {
-            "source_equipment": equipment_id,
-            "source_record_count": len(history.records),
-            "other_equipment": isolation.equipment_id,
-            "other_record_count": len(isolation.records),
-            "isolated": len(isolation.records) == 0,
-        })
+        dump(
+            output / "memory_isolation_test.json",
+            {
+                "source_equipment": equipment_id,
+                "source_record_count": len(history.records),
+                "other_equipment": isolation.equipment_id,
+                "other_record_count": len(isolation.records),
+                "isolated": len(isolation.records) == 0,
+            },
+        )
         report = f"""# Long-term Equipment Memory Validation
 
 - Generated at: {datetime.now(UTC).isoformat()}
@@ -101,8 +114,8 @@ def main() -> None:
 - Run 1: `{run_ids[0]}` using `{selected[0].measurement_id}`
 - Run 1 stored memories: {len(run1_records)}
 - Run 2: `{run_ids[1]}` using `{selected[1].measurement_id}`
-- Run 2 retrieved memories: {len(run2_state.get('memory_used_ids', []))}
-- Equipment isolation: {'PASS' if len(isolation.records) == 0 else 'FAIL'}
+- Run 2 retrieved memories: {len(run2_state.get("memory_used_ids", []))}
+- Equipment isolation: {"PASS" if len(isolation.records) == 0 else "FAIL"}
 - Automatic maintenance creation: disabled
 - Technical RAG storage: `artifacts/vector_db` / `bearing_v1`
 - Equipment memory storage: isolated SQLite database
@@ -112,12 +125,19 @@ records are passed as a separate `EQUIPMENT_HISTORY` diagnosis context and are
 not represented as technical-document evidence.
 """
         (output / "LONG_TERM_MEMORY_REPORT.md").write_text(report, encoding="utf-8")
-        print(json.dumps({
-            "status": "PASS", "equipment_id": equipment_id, "run_ids": run_ids,
-            "run1_memory_count": len(run1_records),
-            "run2_memory_used_count": len(run2_state.get("memory_used_ids", [])),
-            "history_record_count": len(history.records),
-        }, indent=2))
+        print(
+            json.dumps(
+                {
+                    "status": "PASS",
+                    "equipment_id": equipment_id,
+                    "run_ids": run_ids,
+                    "run1_memory_count": len(run1_records),
+                    "run2_memory_used_count": len(run2_state.get("memory_used_ids", [])),
+                    "history_record_count": len(history.records),
+                },
+                indent=2,
+            )
+        )
     finally:
         manager.close()
 

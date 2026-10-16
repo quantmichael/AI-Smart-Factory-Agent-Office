@@ -80,8 +80,7 @@ def main() -> int:
         ml_artifact_root=PROJECT_ROOT / "artifacts/ml",
         active_model_id="bearing_rf_binary_v1",
         vector_db_path=PROJECT_ROOT / "artifacts/vector_db",
-        checkpoint_path=PROJECT_ROOT
-        / "artifacts/agent/checkpoints/langgraph_core.sqlite3",
+        checkpoint_path=PROJECT_ROOT / "artifacts/agent/checkpoints/langgraph_core.sqlite3",
         max_retrieval_retries=2,
     )
     try:
@@ -175,9 +174,7 @@ def main() -> int:
         "- Artifacts omit retrieved source content, prompts, secrets, and private reasoning.",
         "",
     ]
-    (artifact_root / "LANGGRAPH_CORE_REPORT.md").write_text(
-        "\n".join(report), encoding="utf-8"
-    )
+    (artifact_root / "LANGGRAPH_CORE_REPORT.md").write_text("\n".join(report), encoding="utf-8")
     print(
         json.dumps(
             {

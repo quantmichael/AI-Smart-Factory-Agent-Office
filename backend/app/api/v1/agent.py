@@ -67,7 +67,9 @@ def get_agent_run_manager() -> AgentRunManager:
                     max_image_dimension=settings.max_image_dimension,
                     application_version=settings.app_version,
                     knowledge_pack_id=settings.knowledge_pack_id,
-                    knowledge_manifest_version=evaluate_readiness(settings)["versions"]["knowledge_manifest_version"],
+                    knowledge_manifest_version=evaluate_readiness(settings)["versions"][
+                        "knowledge_manifest_version"
+                    ],
                     workflow_version=settings.workflow_version,
                     max_retrieval_retries=settings.max_retrieval_retries,
                     max_human_information_rounds=settings.max_human_information_rounds,
@@ -367,7 +369,9 @@ def get_visual_observation(
     try:
         return manager.get_visual_observation(image_id)
     except KeyError as exc:
-        raise APIError(404, "VISUAL_OBSERVATION_NOT_FOUND", "Visual observation was not found.") from exc
+        raise APIError(
+            404, "VISUAL_OBSERVATION_NOT_FOUND", "Visual observation was not found."
+        ) from exc
 
 
 @router.get("/inspection-images/{image_id}", response_class=FileResponse)
@@ -377,7 +381,9 @@ def get_inspection_image_file(
     try:
         record = manager.get_image_record(image_id)
     except KeyError as exc:
-        raise APIError(404, "INSPECTION_IMAGE_NOT_FOUND", "Inspection image was not found.") from exc
+        raise APIError(
+            404, "INSPECTION_IMAGE_NOT_FOUND", "Inspection image was not found."
+        ) from exc
     return FileResponse(
         record.file_ref,
         media_type=record.mime_type,

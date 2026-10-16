@@ -41,16 +41,26 @@ def evaluate_readiness(settings: Settings) -> dict[str, Any]:
         ReadinessCheck(
             "dataset",
             dataset_ready,
-            "Paderborn measurements available" if dataset_ready else "Paderborn measurements unavailable",
+            "Paderborn measurements available"
+            if dataset_ready
+            else "Paderborn measurements unavailable",
         )
     )
     try:
         model = ArtifactModelRegistry(ml_root, settings.active_ml_model_id).get_active_model()
         model_ready = model.model_path.is_file()
         model_version = str(model.metadata.get("version", "unknown"))
-        model_detail = "Active model artifact available" if model_ready else "Active model artifact unavailable"
+        model_detail = (
+            "Active model artifact available"
+            if model_ready
+            else "Active model artifact unavailable"
+        )
     except Exception as exc:
-        model_ready, model_version, model_detail = False, "unknown", f"{type(exc).__name__}: active model unavailable"
+        model_ready, model_version, model_detail = (
+            False,
+            "unknown",
+            f"{type(exc).__name__}: active model unavailable",
+        )
     checks.append(ReadinessCheck("ml_model", model_ready, model_detail))
     manifest_path = knowledge / "manifests" / "source_manifest.json"
     manifest_version = "unknown"
@@ -75,12 +85,14 @@ def evaluate_readiness(settings: Settings) -> dict[str, Any]:
             "Chroma persistence available" if vector_ready else "Chroma persistence unavailable",
         )
     )
-    checks.extend([
-        _sqlite_check("agent_db", resolve_runtime_path(settings.agent_run_db_path)),
-        _sqlite_check("checkpoint_db", resolve_runtime_path(settings.agent_checkpoint_path)),
-        _sqlite_check("memory_db", resolve_runtime_path(settings.equipment_memory_db_path)),
-        _sqlite_check("vision_db", resolve_runtime_path(settings.inspection_image_db_path)),
-    ])
+    checks.extend(
+        [
+            _sqlite_check("agent_db", resolve_runtime_path(settings.agent_run_db_path)),
+            _sqlite_check("checkpoint_db", resolve_runtime_path(settings.agent_checkpoint_path)),
+            _sqlite_check("memory_db", resolve_runtime_path(settings.equipment_memory_db_path)),
+            _sqlite_check("vision_db", resolve_runtime_path(settings.inspection_image_db_path)),
+        ]
+    )
     return {
         "status": "ready" if all(item.ready for item in checks) else "not_ready",
         "checks": [asdict(item) for item in checks],

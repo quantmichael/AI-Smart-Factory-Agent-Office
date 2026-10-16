@@ -16,8 +16,7 @@ def test_actual_knowledge_pack_ingestion_is_persistent_and_idempotent(tmp_path) 
     artifact_root = tmp_path / "rag_artifacts"
     pipeline = KnowledgeIngestionPipeline(
         project_root=PROJECT_ROOT,
-        manifest_path=PROJECT_ROOT
-        / "knowledge/bearing_v1/manifests/source_manifest.json",
+        manifest_path=PROJECT_ROOT / "knowledge/bearing_v1/manifests/source_manifest.json",
         vector_store=ChromaVectorStore(vector_root, "bearing_v1_test"),
         embedding_service=LocalHashingEmbeddingService(batch_size=32),
         artifact_root=artifact_root,

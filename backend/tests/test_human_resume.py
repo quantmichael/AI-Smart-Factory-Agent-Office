@@ -12,9 +12,7 @@ from test_verification_routing import FixedVerifier
 
 
 @pytest.mark.parametrize("decision", ["APPROVED", "REJECTED"])
-def test_approval_decision_resumes_same_run_and_is_audited(
-    tmp_path: Path, decision: str
-) -> None:
+def test_approval_decision_resumes_same_run_and_is_audited(tmp_path: Path, decision: str) -> None:
     service, analysis, _ = build_fake_agent_service(
         tmp_path / "checkpoint.sqlite3", planner=ShutdownReviewPlanner()
     )
@@ -105,6 +103,4 @@ def test_human_information_round_limit_produces_limited_report(tmp_path: Path) -
     assert completed["workflow_status"] == "COMPLETED"
     assert completed["evidence_status"] == "INSUFFICIENT"
     assert completed["human_information_round_count"] == 1
-    assert any(
-        "incomplete" in item.lower() for item in completed["final_report"]["limitations"]
-    )
+    assert any("incomplete" in item.lower() for item in completed["final_report"]["limitations"])

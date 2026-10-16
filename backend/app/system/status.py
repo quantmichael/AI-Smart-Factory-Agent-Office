@@ -156,7 +156,11 @@ class SystemStatusService:
             "_run_database": ("run_database", "Run Database", ComponentGroup.DATA_STATE),
             "_memory": ("long_term_memory", "Long-term Memory", ComponentGroup.DATA_STATE),
             "_vision": ("multimodal", "Multimodal / Vision", ComponentGroup.DATA_STATE),
-            "_runtime_versions": ("runtime_versions", "Version / Runtime", ComponentGroup.VERSION_RUNTIME),
+            "_runtime_versions": (
+                "runtime_versions",
+                "Version / Runtime",
+                ComponentGroup.VERSION_RUNTIME,
+            ),
         }
         component_id, name, group = definitions[check_name]
         return SystemComponent(
@@ -210,9 +214,7 @@ class SystemStatusService:
         )
 
     def _dataset(self) -> SystemComponent:
-        adapter = PaderbornDatasetAdapter(
-            resolve_runtime_path(self.settings.paderborn_data_root)
-        )
+        adapter = PaderbornDatasetAdapter(resolve_runtime_path(self.settings.paderborn_data_root))
         measurements = adapter.list_measurements()
         if not measurements:
             raise ValueError("empty dataset")
@@ -233,10 +235,7 @@ class SystemStatusService:
     def _manifest(self) -> tuple[dict, int]:
         knowledge_root = resolve_runtime_path(self.settings.knowledge_base_root)
         path = (
-            knowledge_root
-            / self.settings.knowledge_pack_id
-            / "manifests"
-            / "source_manifest.json"
+            knowledge_root / self.settings.knowledge_pack_id / "manifests" / "source_manifest.json"
         )
         payload, documents, _ = load_manifest(path, knowledge_root.parent)
         return payload, len(documents)
@@ -388,9 +387,7 @@ class SystemStatusService:
     def _vision(self) -> SystemComponent:
         path = resolve_runtime_path(self.settings.inspection_image_db_path)
         with _readonly_connection(path) as connection:
-            if not {"inspection_images", "visual_observations"}.issubset(
-                _table_names(connection)
-            ):
+            if not {"inspection_images", "visual_observations"}.issubset(_table_names(connection)):
                 raise ValueError("invalid vision database")
             images = int(connection.execute("SELECT COUNT(*) FROM inspection_images").fetchone()[0])
             observations = int(

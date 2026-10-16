@@ -27,7 +27,10 @@ def main() -> int:
     parser.add_argument("--artifacts", default="artifacts/ml")
     parser.add_argument("--output", default="artifacts/api/step05_smoke_result.json")
     args = parser.parse_args()
-    resolve = lambda value: Path(value) if Path(value).is_absolute() else PROJECT_ROOT / value
+
+    def resolve(value: str) -> Path:
+        return Path(value) if Path(value).is_absolute() else PROJECT_ROOT / value
+
     service = build_analysis_service(
         resolve(args.root),
         resolve(args.artifacts),

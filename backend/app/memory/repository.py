@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 from contextlib import contextmanager
-import json
 from pathlib import Path
 import sqlite3
 
@@ -78,16 +77,28 @@ class EquipmentMemoryRepository:
                        status=excluded.status, event_time=excluded.event_time,
                        recorded_at=excluded.recorded_at, memory_version=excluded.memory_version""",
                 (
-                    record.memory_id, record.equipment_id, record.memory_type.value,
-                    record.source_type.value, record.source_id, record.status.value,
-                    record.summary, record.model_dump_json(), record.event_time.isoformat(),
-                    record.recorded_at.isoformat(), record.memory_version,
+                    record.memory_id,
+                    record.equipment_id,
+                    record.memory_type.value,
+                    record.source_type.value,
+                    record.source_id,
+                    record.status.value,
+                    record.summary,
+                    record.model_dump_json(),
+                    record.event_time.isoformat(),
+                    record.recorded_at.isoformat(),
+                    record.memory_version,
                 ),
             )
             row = connection.execute(
                 """SELECT record_json FROM equipment_memory WHERE equipment_id=?
                    AND memory_type=? AND source_type=? AND source_id=?""",
-                (record.equipment_id, record.memory_type.value, record.source_type.value, record.source_id),
+                (
+                    record.equipment_id,
+                    record.memory_type.value,
+                    record.source_type.value,
+                    record.source_id,
+                ),
             ).fetchone()
         return EquipmentMemoryRecord.model_validate_json(row["record_json"])
 
@@ -120,8 +131,13 @@ class EquipmentMemoryRepository:
                 """INSERT INTO maintenance_records
                    (maintenance_id, equipment_id, record_json, performed_at, recorded_at)
                    VALUES (?, ?, ?, ?, ?)""",
-                (record.maintenance_id, record.equipment_id, record.model_dump_json(),
-                 record.performed_at.isoformat(), record.recorded_at.isoformat()),
+                (
+                    record.maintenance_id,
+                    record.equipment_id,
+                    record.model_dump_json(),
+                    record.performed_at.isoformat(),
+                    record.recorded_at.isoformat(),
+                ),
             )
         return record
 

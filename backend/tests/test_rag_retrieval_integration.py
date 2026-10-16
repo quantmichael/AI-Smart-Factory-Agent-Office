@@ -37,9 +37,7 @@ def test_real_bearing_index_returns_traceable_chunks(text, purpose) -> None:
     manifest = json.loads(
         (PROJECT_ROOT / "knowledge/bearing_v1/manifests/source_manifest.json").read_text()
     )
-    official_urls = {
-        item["source_id"]: item["official_url"] for item in manifest["sources"]
-    }
+    official_urls = {item["source_id"]: item["official_url"] for item in manifest["sources"]}
 
     assert result.evidence
     for evidence in result.evidence:

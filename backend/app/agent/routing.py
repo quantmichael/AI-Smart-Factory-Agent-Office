@@ -49,10 +49,7 @@ def route_evidence(state: AgentState) -> str:
 def route_human_approval(state: AgentState) -> str:
     return (
         "approval"
-        if any(
-            item.get("requires_human_approval")
-            for item in state.get("recommended_actions", [])
-        )
+        if any(item.get("requires_human_approval") for item in state.get("recommended_actions", []))
         else "report"
     )
 

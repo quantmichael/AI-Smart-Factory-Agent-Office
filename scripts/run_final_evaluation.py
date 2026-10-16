@@ -6,7 +6,6 @@ from __future__ import annotations
 import csv
 import json
 import subprocess
-import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -24,8 +23,13 @@ def main() -> int:
     FINAL.mkdir(parents=True, exist_ok=True)
     USER_TEST.mkdir(parents=True, exist_ok=True)
 
-    retrieval_command = [str(ROOT / "backend/.venv/bin/python"), str(ROOT / "scripts/evaluate_retrieval.py")]
-    completed = subprocess.run(retrieval_command, cwd=ROOT, check=True, capture_output=True, text=True)
+    retrieval_command = [
+        str(ROOT / "backend/.venv/bin/python"),
+        str(ROOT / "scripts/evaluate_retrieval.py"),
+    ]
+    completed = subprocess.run(
+        retrieval_command, cwd=ROOT, check=True, capture_output=True, text=True
+    )
     rag_metrics = json.loads(completed.stdout)
     ml_metrics = read_json(ROOT / "artifacts/ml/baseline_v1/metrics.json")
     e2e_metrics = read_json(ROOT / "artifacts/e2e/e2e_metrics.json")
@@ -53,18 +57,37 @@ def main() -> int:
         "p0_bugs": 0,
     }
 
-    (FINAL / "ml_evaluation.json").write_text(json.dumps(ml_metrics, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-    (FINAL / "rag_evaluation.json").write_text(json.dumps(rag_metrics, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-    (FINAL / "agent_evaluation.json").write_text(json.dumps(agent_evaluation, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-    (FINAL / "e2e_evaluation.json").write_text(json.dumps(e2e_evaluation, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    (FINAL / "ml_evaluation.json").write_text(
+        json.dumps(ml_metrics, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
+    )
+    (FINAL / "rag_evaluation.json").write_text(
+        json.dumps(rag_metrics, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
+    )
+    (FINAL / "agent_evaluation.json").write_text(
+        json.dumps(agent_evaluation, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
+    )
+    (FINAL / "e2e_evaluation.json").write_text(
+        json.dumps(e2e_evaluation, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
+    )
 
     if not (USER_TEST / "participant_results.csv").exists():
-        with (USER_TEST / "participant_results.csv").open("w", newline="", encoding="utf-8") as handle:
-            csv.writer(handle).writerow([
-                "participant_id", "role_category", "task_success", "rating_understanding",
-                "rating_evidence", "rating_action", "rating_agent_office", "rating_reuse_intent",
-                "feedback", "observed_issue",
-            ])
+        with (USER_TEST / "participant_results.csv").open(
+            "w", newline="", encoding="utf-8"
+        ) as handle:
+            csv.writer(handle).writerow(
+                [
+                    "participant_id",
+                    "role_category",
+                    "task_success",
+                    "rating_understanding",
+                    "rating_evidence",
+                    "rating_action",
+                    "rating_agent_office",
+                    "rating_reuse_intent",
+                    "feedback",
+                    "observed_issue",
+                ]
+            )
 
     user_test_summary = {
         "status": "NOT_COMPLETED",
@@ -73,7 +96,9 @@ def main() -> int:
         "reason": "No real external participants were available in this execution environment; no synthetic responses were created.",
         "artifact": "artifacts/user_test/participant_results.csv",
     }
-    (FINAL / "user_test_summary.json").write_text(json.dumps(user_test_summary, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    (FINAL / "user_test_summary.json").write_text(
+        json.dumps(user_test_summary, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
+    )
 
     deployment = {
         "status": "LOCAL_SMOKE_ONLY",
@@ -84,7 +109,9 @@ def main() -> int:
         "external_deployment": "NOT_COMPLETED",
         "reason": "No external hosting target or deployment credentials were provided.",
     }
-    (FINAL / "deployment_smoke_test.json").write_text(json.dumps(deployment, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    (FINAL / "deployment_smoke_test.json").write_text(
+        json.dumps(deployment, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
+    )
 
     release_gate = {
         "p0_bug_zero": True,
@@ -99,7 +126,9 @@ def main() -> int:
         "final_release": False,
         "generated_at": datetime.now(timezone.utc).isoformat(),
     }
-    (FINAL / "release_gate.json").write_text(json.dumps(release_gate, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    (FINAL / "release_gate.json").write_text(
+        json.dumps(release_gate, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
+    )
     print(json.dumps({"status": "ok", "final": str(FINAL), "release_gate": release_gate}, indent=2))
     return 0
 

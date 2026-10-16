@@ -7,7 +7,12 @@ from typing import Protocol
 
 from PIL import Image, ImageFilter, ImageStat
 
-from app.vision.schemas import ImageQuality, InspectionImageRecord, VisualObservation, VisualObservationItem
+from app.vision.schemas import (
+    ImageQuality,
+    InspectionImageRecord,
+    VisualObservation,
+    VisualObservationItem,
+)
 
 
 class VisionAnalyzer(Protocol):
@@ -40,7 +45,9 @@ class LocalQualityVisionAnalyzer:
         if brightness > 238:
             limitations.append("overexposed: bright regions may hide exterior details")
         if contrast < 7 or edge_variance < 8:
-            limitations.append("blur_or_low_contrast: fine exterior details cannot be assessed reliably")
+            limitations.append(
+                "blur_or_low_contrast: fine exterior details cannot be assessed reliably"
+            )
         if min(image.width, image.height) < 160:
             limitations.append("low_resolution: only coarse visual review is possible")
         quality = ImageQuality.USABLE if not limitations else ImageQuality.LOW_QUALITY
@@ -48,14 +55,18 @@ class LocalQualityVisionAnalyzer:
             f"Image quality is directly measurable at {image.width}×{image.height}; "
             f"mean brightness {brightness:.1f}, contrast {contrast:.1f}."
         )
-        observations = [] if quality == ImageQuality.LOW_QUALITY else [
-            VisualObservationItem(
-                observation_id=self._id(image.image_id, "image_quality"),
-                category="image_quality",
-                description=description,
-                confidence_level="high",
-            )
-        ]
+        observations = (
+            []
+            if quality == ImageQuality.LOW_QUALITY
+            else [
+                VisualObservationItem(
+                    observation_id=self._id(image.image_id, "image_quality"),
+                    category="image_quality",
+                    description=description,
+                    confidence_level="high",
+                )
+            ]
+        )
         limitations.append(
             "The local observer evaluates image quality only; it does not identify internal bearing faults or confirm equipment safety."
         )
@@ -67,6 +78,10 @@ class LocalQualityVisionAnalyzer:
             visible_components=[],
             quality=quality,
             limitations=limitations,
-            metrics={"brightness": brightness, "contrast": contrast, "edge_variance": edge_variance},
+            metrics={
+                "brightness": brightness,
+                "contrast": contrast,
+                "edge_variance": edge_variance,
+            },
             created_at=datetime.now(UTC),
         )

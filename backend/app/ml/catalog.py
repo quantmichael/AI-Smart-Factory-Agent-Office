@@ -168,7 +168,9 @@ class ModelCatalogService:
         split = _read_json(directory / "split.json")
         input_spec = _read_json(directory / "input_spec.json")
 
-        raw_feature_names = features_payload.get("feature_names") or metadata.get("feature_list") or []
+        raw_feature_names = (
+            features_payload.get("feature_names") or metadata.get("feature_list") or []
+        )
         if not isinstance(raw_feature_names, list) or not all(
             isinstance(item, str) for item in raw_feature_names
         ):
@@ -227,8 +229,12 @@ class ModelCatalogService:
             group_key=split.get("group_key") or metadata.get("group_key"),
             test_ratio=split.get("test_size"),
             random_seed=split.get("random_seed") or metadata.get("random_seed"),
-            train_measurement_count=(len(train_measurements) if train_measurements is not None else None),
-            test_measurement_count=(len(test_measurements) if test_measurements is not None else None),
+            train_measurement_count=(
+                len(train_measurements) if train_measurements is not None else None
+            ),
+            test_measurement_count=(
+                len(test_measurements) if test_measurements is not None else None
+            ),
             train_window_count=split.get("train_window_count"),
             test_window_count=split.get("test_window_count"),
             train_bearing_ids=train_bearings,

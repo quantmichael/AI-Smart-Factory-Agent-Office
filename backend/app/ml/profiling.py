@@ -57,7 +57,9 @@ def _write_json(path: Path, payload: dict[str, Any]) -> None:
     path.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
 
-def _write_csv(path: Path, rows: list[dict[str, Any]], fieldnames: Iterable[str] | None = None) -> None:
+def _write_csv(
+    path: Path, rows: list[dict[str, Any]], fieldnames: Iterable[str] | None = None
+) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     if fieldnames is None:
         fieldnames = list(rows[0]) if rows else []
@@ -71,8 +73,7 @@ def _cohens_d(healthy: np.ndarray, damaged: np.ndarray) -> float:
     if healthy.size < 2 or damaged.size < 2:
         return 0.0
     pooled_variance = (
-        (healthy.size - 1) * np.var(healthy, ddof=1)
-        + (damaged.size - 1) * np.var(damaged, ddof=1)
+        (healthy.size - 1) * np.var(healthy, ddof=1) + (damaged.size - 1) * np.var(damaged, ddof=1)
     ) / (healthy.size + damaged.size - 2)
     if pooled_variance <= 0:
         return 0.0
@@ -97,7 +98,11 @@ def _relative_spectrum(values: np.ndarray, rate: float) -> tuple[np.ndarray, np.
     spectrum = np.abs(np.fft.rfft(centered * np.hanning(values.size)))
     frequencies = np.fft.rfftfreq(values.size, d=1.0 / rate)
     maximum = float(np.max(spectrum))
-    relative_db = 20.0 * np.log10(np.maximum(spectrum / maximum, 1e-8)) if maximum else np.full_like(spectrum, -160.0)
+    relative_db = (
+        20.0 * np.log10(np.maximum(spectrum / maximum, 1e-8))
+        if maximum
+        else np.full_like(spectrum, -160.0)
+    )
     return frequencies, relative_db
 
 
@@ -114,7 +119,9 @@ def _representative_ids(adapter: PaderbornDatasetAdapter) -> dict[str, str]:
         ]
         candidates = preferred or [item for item in summaries if item.ground_truth.state == state]
         if candidates:
-            result[state] = sorted(candidates, key=lambda item: item.measurement_id)[0].measurement_id
+            result[state] = sorted(candidates, key=lambda item: item.measurement_id)[
+                0
+            ].measurement_id
     return result
 
 
@@ -165,7 +172,9 @@ class PaderbornProfiler:
                 nominal = signal.sampling.nominal_rate_hz
                 nominal_rate_distribution[name][str(nominal) if nominal else "unknown"] += 1
                 maximum = float(np.max(np.abs(signal.values)))
-                amplitude_records[name].append((summary.measurement_id, summary.ground_truth.state, maximum))
+                amplitude_records[name].append(
+                    (summary.measurement_id, summary.ground_truth.state, maximum)
+                )
                 if float(np.ptp(signal.values)) == 0.0:
                     constant_signals.append(
                         {"measurement_id": summary.measurement_id, "signal": name}
@@ -257,7 +266,8 @@ class PaderbornProfiler:
             },
             "class_ratio_damaged_to_healthy": (
                 validation.damaged_count / validation.healthy_count
-                if validation.healthy_count else None
+                if validation.healthy_count
+                else None
             ),
             "operating_condition_distribution": validation.operating_condition_distribution,
             "signal_channels": sorted(validation.signal_channel_distribution),
@@ -324,7 +334,7 @@ class PaderbornProfiler:
 
     @staticmethod
     def _amplitude_outliers(
-        records: dict[str, list[tuple[str, str, float]]]
+        records: dict[str, list[tuple[str, str, float]]],
     ) -> list[dict[str, Any]]:
         flagged: list[dict[str, Any]] = []
         for signal, observations in sorted(records.items()):
@@ -455,12 +465,17 @@ class PaderbornProfiler:
         output = []
         for index, feature in enumerate(feature_names):
             output.append(
-                {"feature": feature, **{name: float(correlations[index, j]) for j, name in enumerate(feature_names)}}
+                {
+                    "feature": feature,
+                    **{name: float(correlations[index, j]) for j, name in enumerate(feature_names)},
+                }
             )
         return output
 
     @staticmethod
-    def _windowing_rows(accumulator: dict[tuple[float, float], dict[str, Any]]) -> list[dict[str, Any]]:
+    def _windowing_rows(
+        accumulator: dict[tuple[float, float], dict[str, Any]],
+    ) -> list[dict[str, Any]]:
         rows = []
         for (duration, overlap), values in sorted(accumulator.items()):
             counts = np.asarray(values["counts"])
@@ -489,8 +504,12 @@ class PaderbornProfiler:
         bearing_states: defaultdict[str, Counter[str]] = defaultdict(Counter)
         for item in summaries:
             bearing_states[item.bearing_id][item.ground_truth.state] += 1
-        healthy_bearings = [bearing for bearing, counts in bearing_states.items() if counts["healthy"]]
-        damaged_bearings = [bearing for bearing, counts in bearing_states.items() if counts["damaged"]]
+        healthy_bearings = [
+            bearing for bearing, counts in bearing_states.items() if counts["healthy"]
+        ]
+        damaged_bearings = [
+            bearing for bearing, counts in bearing_states.items() if counts["damaged"]
+        ]
         bearing_feasible = len(healthy_bearings) >= 2 and len(damaged_bearings) >= 2
         return {
             "preferred_strong_strategy": {
@@ -526,7 +545,9 @@ class PaderbornProfiler:
             if row["operating_condition"] != "ALL" and row["feature"] in FREQUENCY_FEATURES:
                 scores[row["feature"]].append(abs(row["cohens_d_damaged_minus_healthy"]))
         return sorted(
-            feature for feature, values in scores.items() if values and float(np.mean(values)) >= 0.5
+            feature
+            for feature, values in scores.items()
+            if values and float(np.mean(values)) >= 0.5
         )
 
     @staticmethod
@@ -666,24 +687,24 @@ class PaderbornProfiler:
         frequency_features = step04["frequency_domain_features"]
         report = f"""# Paderborn Data Profiling Report
 
-Generated: `{summary['generated_at']}`  
+Generated: `{summary["generated_at"]}`  
 Profiling version: `{PROFILING_VERSION}`  
 Random state: `{RANDOM_STATE}`
 
 ## Dataset Summary
 
-- {summary['measurement_count']} measurements from {summary['bearing_count']} local bearing states.
-- Healthy: {summary['class_distribution']['healthy']}; damaged: {summary['class_distribution']['damaged']}; unknown: {summary['class_distribution']['unknown']}.
-- Damaged-to-healthy measurement ratio: {summary['class_ratio_damaged_to_healthy']:.1f}:1.
+- {summary["measurement_count"]} measurements from {summary["bearing_count"]} local bearing states.
+- Healthy: {summary["class_distribution"]["healthy"]}; damaged: {summary["class_distribution"]["damaged"]}; unknown: {summary["class_distribution"]["unknown"]}.
+- Damaged-to-healthy measurement ratio: {summary["class_ratio_damaged_to_healthy"]:.1f}:1.
 - Four operating conditions are equally represented with 60 measurements each.
 - Source acquisition remains partial; conclusions apply only to K001, KA01, and KI01.
 
 ## Data Quality
 
 - Adapter validation passed for every measurement; no empty, NaN, Inf, or duplicate measurement was found.
-- Constant signals: {quality['constant_signal_count']}.
-- Sampling deviations above 5%: {quality['sampling_deviation_over_5_percent_count']}.
-- Extreme-amplitude candidates: {len(quality['extreme_amplitude_candidates'])}; these are flagged and retained, not treated as errors.
+- Constant signals: {quality["constant_signal_count"]}.
+- Sampling deviations above 5%: {quality["sampling_deviation_over_5_percent_count"]}.
+- Extreme-amplitude candidates: {len(quality["extreme_amplitude_candidates"])}; these are flagged and retained, not treated as errors.
 - Raw Unit metadata is unavailable, and HostService time axes are not uniformly spaced in all files.
 
 ## Signal Characteristics
@@ -694,8 +715,8 @@ Random state: `{RANDOM_STATE}`
 
 ## Healthy vs Damaged
 
-- Overall vibration RMS Cohen's d (damaged minus healthy): {effect('vibration_1', 'rms'):.3f}.
-- Overall vibration kurtosis Cohen's d: {effect('vibration_1', 'kurtosis'):.3f}.
+- Overall vibration RMS Cohen's d (damaged minus healthy): {effect("vibration_1", "rms"):.3f}.
+- Overall vibration kurtosis Cohen's d: {effect("vibration_1", "kurtosis"):.3f}.
 - These are descriptive effects across only three bearings, not classification-performance estimates.
 
 ## Operating-condition Effects
@@ -708,29 +729,29 @@ Random state: `{RANDOM_STATE}`
 
 - DC is removed and a Hann window is applied before the real FFT to reduce spectral leakage.
 - Explored descriptors: dominant spectral peak, spectral centroid, spectral energy, and normalized spectral entropy.
-- Features retained for the provisional STEP 04 baseline by mean within-condition |Cohen's d| >= 0.5: {', '.join(frequency_features) if frequency_features else 'none'}.
+- Features retained for the provisional STEP 04 baseline by mean within-condition |Cohen's d| >= 0.5: {", ".join(frequency_features) if frequency_features else "none"}.
 - No spectral peak is labeled as a bearing fault frequency because that interpretation is not validated here.
 
 ## Windowing Comparison
 
 - Compared 0.25, 0.5, and 1.0 second windows at 0% and 50% overlap.
-- Selected: 1.0 second, 0% overlap ({selected_window['window_samples_at_64khz']} samples at 64 kHz).
-- Observed total windows: {selected_window['total_windows']}; {selected_window['min_windows_per_measurement']}–{selected_window['max_windows_per_measurement']} per measurement.
+- Selected: 1.0 second, 0% overlap ({selected_window["window_samples_at_64khz"]} samples at 64 kHz).
+- Observed total windows: {selected_window["total_windows"]}; {selected_window["min_windows_per_measurement"]}–{selected_window["max_windows_per_measurement"]} per measurement.
 - Reason: 1 Hz FFT-bin spacing, moderate compute cost, and less correlation/pseudo-replication than overlapping windows.
 - Any trailing incomplete window is discarded and recorded through the per-measurement window counts.
 
 ## Leakage Risks
 
 - Random window split is prohibited.
-- Preferred bearing-group holdout is currently infeasible: {split_plan['preferred_strong_strategy']['reason']}
+- Preferred bearing-group holdout is currently infeasible: {split_plan["preferred_strong_strategy"]["reason"]}
 - Provisional STEP 04 split groups by `measurement_id`; all windows from one measurement stay together.
 - This prevents window leakage but does not estimate unseen-bearing generalization.
 
 ## Recommended Feature Set
 
-- Time domain: {', '.join(step04['time_domain_features'])}.
-- Frequency domain: {', '.join(frequency_features) if frequency_features else 'none'}.
-- Channels: {', '.join(step04['diagnostic_channels'])}.
+- Time domain: {", ".join(step04["time_domain_features"])}.
+- Frequency domain: {", ".join(frequency_features) if frequency_features else "none"}.
+- Channels: {", ".join(step04["diagnostic_channels"])}.
 - Outliers remain in the data unless independent sensor-error evidence is found.
 
 ## Recommended Split

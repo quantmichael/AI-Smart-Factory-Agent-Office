@@ -21,11 +21,17 @@ def main() -> None:
         "frontend_lockfile": (PROJECT_ROOT / "frontend" / "package-lock.json").is_file(),
         "demo_registry": (PROJECT_ROOT / "config" / "demo_scenarios.json").is_file(),
         "interface_freeze": (PROJECT_ROOT / "config" / "interface_freeze_mvp_rc1.json").is_file(),
-        "dataset_manifest": (PROJECT_ROOT / "data" / "paderborn" / "metadata" / "dataset_files.json").is_file(),
-        "knowledge_manifest": (PROJECT_ROOT / "knowledge" / "bearing_v1" / "manifests" / "source_manifest.json").is_file(),
+        "dataset_manifest": (
+            PROJECT_ROOT / "data" / "paderborn" / "metadata" / "dataset_files.json"
+        ).is_file(),
+        "knowledge_manifest": (
+            PROJECT_ROOT / "knowledge" / "bearing_v1" / "manifests" / "source_manifest.json"
+        ).is_file(),
     }
     result = {
-        "status": "pass" if readiness["status"] == "ready" and all(files.values()) and sys.version_info >= (3, 11) else "fail",
+        "status": "pass"
+        if readiness["status"] == "ready" and all(files.values()) and sys.version_info >= (3, 11)
+        else "fail",
         "python": sys.version.split()[0],
         "files": files,
         "readiness": readiness,

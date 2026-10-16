@@ -1,6 +1,6 @@
 # Sources and AI Usage
 
-확인일: 2026-10-01
+확인일: 2026-10-05
 
 이 문서는 외부 자산과 본 프로젝트 신규 개발분을 구분합니다. 확인되지 않은 라이선스는 추측하지 않습니다.
 
@@ -14,6 +14,8 @@
 | Condition Monitoring of Bearing Damage in Electromechanical Drive Systems | Paderborn benchmark technical evidence | [Official PDF](https://mb.uni-paderborn.de/fileadmin-mb/kat/PDF/Veroeffentlichungen/20160703_PHME16_CM_bearing.pdf) | Manifest 기록: CC Attribution 3.0 United States | Knowledge ingestion source; 원문 재배포 여부는 원 출처 조건 적용 |
 | SKF Vibration Diagnostic Guide | 진동 진단 근거 | [SKF support attachment](https://skftechnicalsupport.zendesk.com/hc/en-us/article_attachments/360042513054) | SKF copyright; 재배포 권한 확인되지 않음 | 원문은 Git 제외, local ingestion과 Source Manifest만 사용 |
 | SKF Bearing Damage and Failure Analysis | 손상 원인·점검·정비 근거 | [SKF Media Hub](https://cdn.skfmediahub.skf.com/api/public/093168a92d25cc46/pdf_preview_medium/14219_3_EN_-_Bearing_failures_LOW_pdf_preview_medium.pdf) | SKF Group 2025, all rights reserved | 원문은 Git 제외, local ingestion과 Source Manifest만 사용 |
+| KAMP 정밀가공 품질보증 AI 데이터셋 | CNC 공정 Feature와 제품 품질 Ground Truth | [Korea AI Manufacturing Platform (KAMP)](https://www.kamp-ai.kr/); 중소벤처기업부·스마트제조혁신추진단(㈜인터엑스), 등록일 2022-12-23 | 재배포 권한은 독립적으로 확인되지 않음; 원본 CSV는 Git 제외 | 독립된 KAMP CNC PoC에서 1,085 observations / 43 columns, PASS 986 / FAIL 99를 Adapter 호환성 검증에 사용; CNC ML 학습용으로 사용하지 않음 |
+| KAMP 정밀가공 품질보증 AI 데이터셋 공식 Guidebook | CNC 데이터 설명과 RAG 근거 | [KAMP](https://www.kamp-ai.kr/); 해당 데이터셋의 공식 Guidebook | 제공된 PoC 문서에 출처표시 및 인용 자료 전달 안내가 기록됨; 상세 조건은 원본 이용 안내 참조. 원본 PDF 및 원문 파생 Chunk/Index는 Git 제외 | 독립된 `kamp_cnc_v1` Knowledge Pack의 유일한 RAG Knowledge Source; 49 chunks를 이용한 Evidence 검색과 Abstention 검증 |
 
 Canonical inventory: `knowledge/bearing_v1/manifests/source_manifest.json`.
 
@@ -73,9 +75,44 @@ AI 개발도구의 출력 자체를 평가 근거로 사용하지 않습니다. 
 - Equipment-scoped Memory, Run History, AgentEvent SSE
 - Agent Office와 History, Knowledge, Model, System 화면
 - 선택형 Multimodal observation과 공개 API metadata sanitization
+- KAMP CNC PoC: KAMPCNCAdapter, Ground Truth 계약, 독립 Guidebook RAG, Evidence/Abstention 처리, 데이터 감사 및 Adapter/RAG 테스트
+
+## KAMP 출처 및 사용 범위
+
+KAMP 관련 내용 추가일: 2026-10-05. 위 확인일과 기존 라이브러리 버전·라이선스 기록은 원문을 유지했습니다. 아래 내용은 제공된 KAMP PoC 문서를 기준으로 정리했으며, 이번 문서 편집에서 원본 이용조건이나 검증을 다시 확인한 것은 아닙니다.
+
+### 필수 KAMP 출처표시
+
+> 중소벤처기업부, Korea AI Manufacturing Platform(KAMP), 정밀가공 품질보증 AI 데이터셋, 스마트제조혁신추진단(㈜인터엑스), 2022.12.23.
+> <https://www.kamp-ai.kr/>
+
+- 데이터셋 제공기관: 스마트제조혁신추진단
+- 수행기관: ㈜인터엑스
+- 등록일: 2022-12-23
+- 제공된 PoC 문서에 따르면 Guidebook 이용 안내는 연구·공식 활용 시 KAMP 출처표시와 인용 내용·문서의 `kamp@kaist.ac.kr` 전달을 요구합니다. 실제 이용 시 원본 Guidebook의 안내를 확인해야 하며, 이 문서 작업에서 자료를 전송하지 않았습니다.
+
+### 독립 PoC의 사용 범위와 검증 결과
+
+- 기존 Paderborn Production E2E와 독립된 Data Adapter 및 Knowledge/RAG 확장 검증입니다. Production 코드 수정, DB 쓰기, Chroma 쓰기는 각각 0입니다.
+- Dataset: 1,085 observations / 43 columns; Ground Truth: PASS 986 / FAIL 99.
+- Adapter 변환: 1,085 / 1,085; Feature mismatch: 0; Validation failure: 0.
+- Adapter + RAG tests: 29 / 29 passed; `kamp_cnc_v1`: 49 chunks; FAIL Observation retrieval: 3 / 3; Abstention checks: 3 / 3.
+- `KAMPCNCAdapter`는 40개 Process Feature를 유지하고 원본 Row별 Observation을 생성합니다. `passorfail`은 데이터셋 Ground Truth이며 `0=PASS`, `1=FAIL`입니다. ML Prediction과 별도로 표현합니다.
+- 동일 `SerialNo`와 동일 `ReceivedDateTime`의 99쌍은 각각 PASS 1개와 FAIL 1개로 구성되며, 모든 쌍의 Feature vector가 서로 다릅니다. 원본 Row를 병합·중복 제거·선택하거나 Label을 수정하지 않았습니다. 생성 원인과 물리적·통계적 독립성은 확인되지 않았습니다.
+- CNC ML 학습, Accuracy/F1 평가 및 현장 일반화 검증은 수행하지 않았습니다. PASS는 제품 품질의 양품 판정이며 설비 정상·무고장을 의미하지 않습니다. FAIL 또는 Sensor Feature만으로 특정 고장 원인을 확정하지 않습니다.
+- RAG는 해당 데이터셋의 공식 Guidebook만 사용합니다. 독립된 signed SHA-256 hashing vector와 cosine similarity를 사용하며, 외부 embedding/LLM API 및 Production `bearing_v1`·Chroma를 사용하지 않습니다. 검색 점수는 텍스트 유사도이며 정확도·신뢰도·고장 확률이 아닙니다.
+- 근거 충족 시 `EVIDENCE_FOUND`, 근거 부족 시 `INSUFFICIENT_EVIDENCE`, 무관한 요청이나 자동제어·정비 명령 요청에는 `OUT_OF_SCOPE`를 반환합니다.
+
+### KAMP 자산의 저장소 배포 정책
+
+- 원본 CSV와 다운로드한 Guidebook PDF는 재배포 권한이 독립적으로 확인되지 않아 Git에서 제외합니다. 제공된 PoC 문서에 따르면 PDF에는 문서별 식별자와 다운로드 사용자 정보도 포함되어 있습니다.
+- 상당량의 Guidebook 원문 또는 실제 원본 Row 예시를 포함하는 파일도 Git에서 제외합니다: `poc/kamp_cnc/knowledge/kamp_cnc_v1/chunks.json`, `poc/kamp_cnc/knowledge/kamp_cnc_v1/index.json`, `poc/kamp_cnc/results/adapter_examples.json`, `poc/kamp_cnc/results/rag_retrieval_examples.json`. 원문 파생 Index도 검토 대상이므로 제외합니다.
+- 공개 대상은 구현 코드, 계약 정의, 테스트, 재현 스크립트, 집계된 감사·검증 보고서, 원문을 포함하지 않는 metadata-only manifest 및 README입니다. 허가된 원본을 이용한 로컬 실행으로 제외된 Knowledge Pack 파일을 재생성합니다.
+- `knowledge/bearing_v1/manifests/source_manifest.json`은 기존 베어링 자료의 inventory입니다. KAMP 상세 사용 범위는 [KAMP CNC PoC README](../../poc/kamp_cnc/README.md)를 참조합니다. KAMP 원본 파일의 체크섬과 별도 manifest 경로는 제공된 자료에서 확인되지 않아 임의로 기록하지 않았습니다.
 
 ## Repository Distribution Policy
 
+- KAMP 원본 CSV/PDF, 원문 파생 Chunk/Index 및 원본 Row 예시는 Git에서 제외하며, 세부 범위는 위 KAMP 자산의 저장소 배포 정책을 따릅니다.
 - 원본 Paderborn RAR/MAT와 재배포 권한이 확인되지 않은 웹/PDF Knowledge source, Chroma index, Runtime DB, upload, log는 Git에서 제외합니다. 저장소에 포함하는 소형 Paderborn 문서는 Source Manifest의 비상업·저작자표시 조건을 따릅니다.
 - 모델 및 bounded evaluation artifact는 출처와 제한사항을 함께 제공합니다.
 - 프로젝트 전체에 적용할 별도 license는 아직 선언되어 있지 않습니다. 외부 자산은 각 원 권리자의 조건을 유지합니다.

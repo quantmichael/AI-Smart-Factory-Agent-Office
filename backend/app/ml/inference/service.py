@@ -159,12 +159,13 @@ class MLInferenceService:
                 "mean_damaged_class_probability": mean_damaged,
                 "model_version": self.bundle.get("model_version", "unknown"),
                 "feature_version": self.bundle.get("feature_version", "unknown"),
-                "inference_timestamp": datetime.now(timezone.utc).isoformat(timespec="milliseconds"),
+                "inference_timestamp": datetime.now(timezone.utc).isoformat(
+                    timespec="milliseconds"
+                ),
                 "timing_ms": {
                     "measurement_load": timed_adapter.load_seconds * 1000.0,
-                    "feature_extraction": max(
-                        0.0, feature_seconds - timed_adapter.load_seconds
-                    ) * 1000.0,
+                    "feature_extraction": max(0.0, feature_seconds - timed_adapter.load_seconds)
+                    * 1000.0,
                     "model_inference": model_seconds * 1000.0,
                     "total": (perf_counter() - started) * 1000.0,
                 },

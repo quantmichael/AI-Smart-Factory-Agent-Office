@@ -1,24 +1,45 @@
 from datetime import UTC, datetime
 
-from app.memory import EquipmentMemoryRepository, EquipmentMemoryService, MemorySourceType, MemoryStatus, MemoryType
+from app.memory import (
+    EquipmentMemoryRepository,
+    EquipmentMemoryService,
+    MemorySourceType,
+    MemoryStatus,
+    MemoryType,
+)
 
 
 def completed_state(run_id: str = "run-1", *, condition: str = "C1", human: bool = False) -> dict:
     now = datetime.now(UTC).isoformat()
     return {
-        "run_id": run_id, "equipment_id": "rig-a", "measurement_id": f"measurement-{run_id}",
-        "workflow_status": "COMPLETED", "operating_condition": {"code": condition},
+        "run_id": run_id,
+        "equipment_id": "rig-a",
+        "measurement_id": f"measurement-{run_id}",
+        "workflow_status": "COMPLETED",
+        "operating_condition": {"code": condition},
         "measurement_ref": {"measurement_id": f"measurement-{run_id}"},
-        "analysis_result": {"analysis_id": f"analysis-{run_id}", "status": "abnormal",
-            "predicted_class": "damaged", "model_id": "model-1", "confidence": 0.8,
-            "signal_features": {"rms": 1.2, "kurtosis": 3.4}},
-        "diagnosis_candidates": [{"candidate_id": "candidate-1", "fault_type": "bearing_condition_anomaly"}],
-        "evidence_status": "SUFFICIENT", "inspection_plan": [{"step_id": "step-1"}],
+        "analysis_result": {
+            "analysis_id": f"analysis-{run_id}",
+            "status": "abnormal",
+            "predicted_class": "damaged",
+            "model_id": "model-1",
+            "confidence": 0.8,
+            "signal_features": {"rms": 1.2, "kurtosis": 3.4},
+        },
+        "diagnosis_candidates": [
+            {"candidate_id": "candidate-1", "fault_type": "bearing_condition_anomaly"}
+        ],
+        "evidence_status": "SUFFICIENT",
+        "inspection_plan": [{"step_id": "step-1"}],
         "recommended_actions": [{"action_id": "action-1"}],
         "human_interactions": [],
-        "human_observations": ([{"source": "human", "type": "noise", "value": "observed",
-            "recorded_at": now}] if human else []),
-        "memory_used_ids": [], "final_report": {"created_at": now},
+        "human_observations": (
+            [{"source": "human", "type": "noise", "value": "observed", "recorded_at": now}]
+            if human
+            else []
+        ),
+        "memory_used_ids": [],
+        "final_report": {"created_at": now},
     }
 
 

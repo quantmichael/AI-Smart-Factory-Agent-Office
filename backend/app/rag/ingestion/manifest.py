@@ -63,7 +63,9 @@ def _safe_path(project_root: Path, local_path: str) -> Path:
     return candidate
 
 
-def _base_document(record: dict, path: Path, *, suffix: str | None, document_type: str) -> KnowledgeDocument:
+def _base_document(
+    record: dict, path: Path, *, suffix: str | None, document_type: str
+) -> KnowledgeDocument:
     bearing_id = suffix.upper() if suffix else None
     title = record["title"] if not suffix else f"{record['title']} — {bearing_id}"
     metadata = {"bearing_id": bearing_id} if bearing_id else {}
@@ -98,7 +100,9 @@ def _base_document(record: dict, path: Path, *, suffix: str | None, document_typ
     )
 
 
-def load_manifest(manifest_path: Path | str, project_root: Path | str) -> tuple[dict, list[KnowledgeDocument], list[dict]]:
+def load_manifest(
+    manifest_path: Path | str, project_root: Path | str
+) -> tuple[dict, list[KnowledgeDocument], list[dict]]:
     manifest_path = Path(manifest_path)
     project_root = Path(project_root).resolve()
     payload = json.loads(manifest_path.read_text(encoding="utf-8"))
@@ -107,8 +111,16 @@ def load_manifest(manifest_path: Path | str, project_root: Path | str) -> tuple[
     documents: list[KnowledgeDocument] = []
     source_statuses: list[dict] = []
     required = {
-        "source_id", "title", "publisher", "official_url", "local_path",
-        "source_tier", "rag_role", "license_status", "sha256", "file_type",
+        "source_id",
+        "title",
+        "publisher",
+        "official_url",
+        "local_path",
+        "source_tier",
+        "rag_role",
+        "license_status",
+        "sha256",
+        "file_type",
     }
     for record in payload["sources"]:
         missing = required.difference(record)
@@ -138,7 +150,9 @@ def load_manifest(manifest_path: Path | str, project_root: Path | str) -> tuple[
             else:
                 for item in sorted(paths):
                     expanded.append(
-                        _base_document(record, item, suffix=item.parent.name, document_type=doc_type)
+                        _base_document(
+                            record, item, suffix=item.parent.name, document_type=doc_type
+                        )
                     )
         elif file_type in {"pdf", "html"}:
             if not path.is_file():

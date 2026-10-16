@@ -64,9 +64,7 @@ class AgentRunManager:
         self.database_path = Path(database_path)
         self.database_path.parent.mkdir(parents=True, exist_ok=True)
         self._write_lock = Lock()
-        self._executor = ThreadPoolExecutor(
-            max_workers=max_workers, thread_name_prefix="agent-run"
-        )
+        self._executor = ThreadPoolExecutor(max_workers=max_workers, thread_name_prefix="agent-run")
         self._setup()
 
     def _connect(self) -> sqlite3.Connection:
@@ -327,9 +325,7 @@ class AgentRunManager:
             workflow_status=row["workflow_status"],
             current_node=row["current_node"],
             analysis_result=(
-                json.loads(row["analysis_result_json"])
-                if row["analysis_result_json"]
-                else None
+                json.loads(row["analysis_result_json"]) if row["analysis_result_json"] else None
             ),
             evidence_status=row["evidence_status"],
             evidence_count=row["evidence_count"],
@@ -409,9 +405,7 @@ class AgentRunManager:
         items: list[AgentRunSummary] = []
         for row in rows:
             analysis = (
-                json.loads(row["analysis_result_json"])
-                if row["analysis_result_json"]
-                else {}
+                json.loads(row["analysis_result_json"]) if row["analysis_result_json"] else {}
             )
             confidence = analysis.get("confidence")
             items.append(
@@ -449,9 +443,7 @@ class AgentRunManager:
             ).fetchall()
         return [AgentEvent.model_validate_json(row["event_json"]) for row in rows]
 
-    def submit_human_input(
-        self, run_id: str, submission: HumanInputSubmission
-    ) -> AgentRunView:
+    def submit_human_input(self, run_id: str, submission: HumanInputSubmission) -> AgentRunView:
         try:
             request = self.workflow.validate_human_input(run_id, submission)
         except KeyError as exc:
@@ -507,7 +499,13 @@ class AgentRunManager:
         return list((state or {}).get("rag_evidence", []))
 
     def store_staged_image(
-        self, *, equipment_id: str, content: bytes, mime_type: str, filename: str, description: str | None
+        self,
+        *,
+        equipment_id: str,
+        content: bytes,
+        mime_type: str,
+        filename: str,
+        description: str | None,
     ):
         service = self.workflow.dependencies.vision_service
         if service is None:
@@ -525,7 +523,9 @@ class AgentRunManager:
     ):
         run = self.get_run(run_id)
         if run.workflow_status not in {WorkflowStatus.CREATED, WorkflowStatus.WAITING}:
-            raise InvalidRunStateError("images may be added only before execution or while waiting for human input")
+            raise InvalidRunStateError(
+                "images may be added only before execution or while waiting for human input"
+            )
         service = self.workflow.dependencies.vision_service
         if service is None:
             raise InvalidRunStateError("inspection image service is not configured")

@@ -11,7 +11,7 @@ from pydantic import Field
 from app.domain.schemas.common import StrictSchema
 from app.rag.embedding import LocalHashingEmbeddingService
 from app.rag.ingestion.manifest import load_manifest
-from app.rag.models import KnowledgeDocument
+from app.rag.models import KnowledgeDocument as KnowledgeDocument
 from app.rag.vector_store import ChromaVectorStore
 
 
@@ -75,7 +75,11 @@ class KnowledgeDocumentNotFoundError(LookupError):
 def _chunk_sort_key(record: dict[str, Any]) -> tuple[int, str, str]:
     metadata = record["metadata"]
     page = metadata.get("page")
-    return (int(page) if page is not None else 0, str(metadata.get("section") or ""), record["chunk_id"])
+    return (
+        int(page) if page is not None else 0,
+        str(metadata.get("section") or ""),
+        record["chunk_id"],
+    )
 
 
 class KnowledgeCatalogService:
@@ -130,10 +134,11 @@ class KnowledgeCatalogService:
         for record in self._records():
             grouped.setdefault(str(record["metadata"]["document_id"]), []).append(record)
         documents = [
-            self._document_summary(document_id, records)
-            for document_id, records in grouped.items()
+            self._document_summary(document_id, records) for document_id, records in grouped.items()
         ]
-        documents.sort(key=lambda item: (item.publisher.lower(), item.title.lower(), item.document_id))
+        documents.sort(
+            key=lambda item: (item.publisher.lower(), item.title.lower(), item.document_id)
+        )
         return KnowledgeDocumentList(documents=documents, total=len(documents))
 
     def document_detail(
@@ -185,14 +190,43 @@ class KnowledgeCatalogService:
         )
         return KnowledgeDocumentSummary(
             document_id=document_id,
-            title=(manifest_document.title if manifest_document else str(metadata.get("title", document_id))),
-            publisher=(manifest_document.publisher if manifest_document else str(metadata.get("publisher", ""))),
-            document_type=(manifest_document.document_type if manifest_document else str(metadata.get("document_type", ""))),
-            source=(manifest_document.source_id if manifest_document else str(metadata.get("source_id", ""))),
-            version=(manifest_document.version if manifest_document else str(metadata.get("document_version", ""))),
+            title=(
+                manifest_document.title
+                if manifest_document
+                else str(metadata.get("title", document_id))
+            ),
+            publisher=(
+                manifest_document.publisher
+                if manifest_document
+                else str(metadata.get("publisher", ""))
+            ),
+            document_type=(
+                manifest_document.document_type
+                if manifest_document
+                else str(metadata.get("document_type", ""))
+            ),
+            source=(
+                manifest_document.source_id
+                if manifest_document
+                else str(metadata.get("source_id", ""))
+            ),
+            version=(
+                manifest_document.version
+                if manifest_document
+                else str(metadata.get("document_version", ""))
+            ),
             license=(manifest_document.license if manifest_document else ""),
-            license_status=(manifest_document.license_status if manifest_document else str(metadata.get("license_status", ""))),
-            official_url=(manifest_document.official_url if manifest_document else metadata.get("official_url")) or None,
+            license_status=(
+                manifest_document.license_status
+                if manifest_document
+                else str(metadata.get("license_status", ""))
+            ),
+            official_url=(
+                manifest_document.official_url
+                if manifest_document
+                else metadata.get("official_url")
+            )
+            or None,
             indexed_pages=pages,
             chunk_count=len(records),
         )
