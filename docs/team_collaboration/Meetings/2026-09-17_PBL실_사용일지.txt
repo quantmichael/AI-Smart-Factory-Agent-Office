@@ -1,0 +1,10 @@
+PBL실 사용일지 — 2026-09-17
+사용시간: 11:00 ~ 12:00
+사용장소: PBL 3실
+사용목적: AI Native Final Project 주제 선정 및 경남 AI·SW 경진대회 참가 전략 논의 정리
+사용내용:
+- Final Project 과제 수행과 경남 AI·SW 경진대회 참가 연계 방안을 논의함.
+- 제조설비 이상탐지·고장진단 AI Agent 등 주제 후보를 검토함.
+- 5명 팀원의 강점에 맞는 업무 분담과 대회 참가 인원 3명 선정 방향을 논의함.
+- NotebookLM 등 AI 도구를 활용한 발표자료 준비와 제조 MES·고장 진단 도메인 활용 방안을 논의함.
+- RAG·LangChain·LangGraph 기반 End-to-End Workflow 구축을 목표로 설정함.
