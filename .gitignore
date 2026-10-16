@@ -37,7 +37,7 @@ artifacts/cloudflare_external/
 artifacts/runtime_backups/
 scripts/stop_cloudflare_external.command
 # Local Word export is older than the canonical Markdown competition report.
-docs/competition/development_completion_report.docx
+docs/supporting/development_completion_report.docx
 *.log
 
 # Generated reports below contain machine-local filesystem paths. Recreate

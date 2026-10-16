@@ -265,7 +265,7 @@ knowledge/            source manifest and local knowledge locations
 artifacts/ml/         active model and evaluation artifacts
 artifacts/rag/        bounded RAG evaluation artifacts
 artifacts/ui/         demo screenshots
-docs/competition/     competition reports and evidence documents
+docs/supporting/     supporting reports and evidence documents
 scripts/              acquisition, ingestion, evaluation, verification tools
 ```
 
@@ -376,7 +376,7 @@ npm run build
 - TypeScript: passed
 - Next.js production build: passed, 7 routes
 
-2026-10-05 시나리오 검증 기록: Runtime A/B/C 모두 `COMPLETED`, Final Report 복원 가능. 세부 증빙은 [TEST_RESULTS.md](docs/competition/TEST_RESULTS.md)를 참조합니다.
+2026-10-05 시나리오 검증 기록: Runtime A/B/C 모두 `COMPLETED`, Final Report 복원 가능. 세부 증빙은 [TEST_RESULTS.md](docs/supporting/TEST_RESULTS.md)를 참조합니다.
 
 ## 19. Known Limitations
 
@@ -439,13 +439,13 @@ Evidence / Abstention
 
 상세 구현, 데이터 감사, Adapter/RAG 검증 결과는 [`poc/kamp_cnc/README.md`](poc/kamp_cnc/README.md)를 참고하십시오.
 
-## 21. Competition Documents
+## 21. Supporting Documents
 
-- [개발완료보고서](docs/competition/development_completion_report.md)
-- [AI Agent 기술설명서](docs/competition/agent_technical_description.md)
-- [구현 감사 결과](docs/competition/implementation_audit.md)
-- [출처 및 AI 활용 내역](docs/competition/SOURCES_AND_AI_USAGE.md)
-- [테스트 결과](docs/competition/TEST_RESULTS.md)
+- [개발완료보고서](docs/supporting/development_completion_report.md)
+- [AI Agent 기술설명서](docs/supporting/agent_technical_description.md)
+- [구현 감사 결과](docs/supporting/implementation_audit.md)
+- [출처 및 AI 활용 내역](docs/supporting/SOURCES_AND_AI_USAGE.md)
+- [테스트 결과](docs/supporting/TEST_RESULTS.md)
 
 ## 22. Sources / Attribution
 
@@ -485,7 +485,7 @@ KAMP CNC Expansion PoC에서 사용한 데이터셋과 공식 Guidebook의 출�
 KAMP 원본 CSV와 Guidebook PDF 및 원문 파생 Chunk/Index는 Git에 포함하지 않습니다. PoC에는 공개 가능한 구현 코드, 테스트 및 집계된 검증 결과만 포함합니다.
 
 Dataset, 기술문서, 오픈소스 라이브러리, AI 개발도구의 파일별 출처·사용 범위·체크섬은
-[SOURCES_AND_AI_USAGE.md](docs/competition/SOURCES_AND_AI_USAGE.md)와
+[SOURCES_AND_AI_USAGE.md](docs/supporting/SOURCES_AND_AI_USAGE.md)와
 [canonical source manifest](knowledge/bearing_v1/manifests/source_manifest.json)에 정리했습니다.
 외부 자산에는 각 권리자의 라이선스와 이용조건이 계속 적용됩니다. 이 저장소에는 현재
 프로젝트 전체에 적용되는 별도 오픈소스 라이선스가 선언되어 있지 않으므로, 저장소 공개가
