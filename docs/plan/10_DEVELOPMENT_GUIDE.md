@@ -1,21 +1,17 @@
 # AI Smart Factory Agent Office
 
-## 10. Codex Master Instruction
+## 10. Development Guide
 
 **문서 버전:** v0.1\
 **프로젝트:** AI Smart Factory Agent Office\
-**목적:** 지금까지 확정한 설계를 Codex가 임의로 재해석하지 않고, 작은
-STEP 단위로 구현·검증하도록 하는 최상위 개발 지시서다.
+**목적:** 확정된 설계를 기준으로 작은 STEP 단위의 구현·검증 원칙을
+정리한다.
 
 ------------------------------------------------------------------------
 
-# 1. Codex의 역할
+# 1. 개발 원칙
 
-당신은 이 프로젝트의 **AI Coding Engineer**다.
-
-당신의 역할은 새로운 제품 아이디어를 임의로 추가하는 것이 아니라, 제공된
-설계 문서를 기준으로 안전하고 검증 가능한 코드를 단계적으로 구현하는
-것이다.
+개발은 설계 문서를 기준으로 단계별로 진행하고, 각 단계의 결과를 검증한다.
 
 우선순위:
 
@@ -76,7 +72,7 @@ Agent Event
 AI Smart Factory Agent Office
 ```
 
-Codex는 항상 이 E2E 흐름을 기준으로 구현 우선순위를 판단한다.
+이 E2E 흐름을 기준으로 구현 우선순위를 판단한다.
 
 ------------------------------------------------------------------------
 
@@ -96,7 +92,7 @@ docs/
     ├── 07_API_DB_SPEC.md
     ├── 08_EVALUATION_TEST_PLAN.md
     ├── 09_TEAM_ROLES.md
-    └── 10_CODEX_MASTER_INSTRUCTION.md
+    └── 10_DEVELOPMENT_GUIDE.md
 ```
 
 위 경로는 현재 Repository의 설계 문서 위치를 따른다.
@@ -110,9 +106,9 @@ docs/
 우선순위:
 
 ``` text
-현재 STEP 지시서
+현재 STEP 작업 계획
     ↓
-10_CODEX_MASTER_INSTRUCTION.md
+10_DEVELOPMENT_GUIDE.md
     ↓
 세부 설계 문서 02~08
     ↓
@@ -331,26 +327,24 @@ Analyze
 
 한 번에 전체 프로젝트를 구현하지 않는다.
 
-작업은 다음 형태로 제공된다.
+단계별 작업은 다음 범위로 나눈다.
 
 ``` text
-codex/
-├── STEP_01_PROJECT_SCAFFOLD.md
-├── STEP_02_DATA_ADAPTER.md
-├── STEP_02A_DATASET_RAG_DOWNLOAD.md
-├── STEP_03_DATA_PROFILING.md
-├── STEP_04_ML_BASELINE.md
-├── STEP_05_ML_API.md
-├── STEP_06_RAG_INGESTION.md
-├── STEP_07_RAG_RETRIEVAL.md
-├── STEP_08_LANGGRAPH_CORE.md
-├── STEP_09_AGENT_ACTIONS_HITL.md
-├── STEP_10_AGENT_API_SSE.md
-├── STEP_11_AGENT_OFFICE_UI.md
-├── STEP_12_LONG_TERM_MEMORY.md
-├── STEP_13_MULTIMODAL_INSPECTION.md
-├── STEP_14_E2E_INTEGRATION.md
-└── STEP_15_EVALUATION_DEPLOY.md
+STEP 01 — Project scaffold
+STEP 02 — Data Adapter 및 데이터·문서 준비
+STEP 03 — Data profiling
+STEP 04 — ML Baseline
+STEP 05 — ML API
+STEP 06 — RAG ingestion
+STEP 07 — RAG retrieval
+STEP 08 — LangGraph core
+STEP 09 — Agent actions 및 HITL
+STEP 10 — Agent API 및 SSE
+STEP 11 — Agent Office UI
+STEP 12 — Long-term memory
+STEP 13 — Multimodal inspection
+STEP 14 — E2E integration
+STEP 15 — Evaluation 및 deploy
 ```
 
 STEP 번호와 범위는 개발 진행에 따라 조정할 수 있지만, 한 STEP은 가능한
@@ -360,7 +354,7 @@ STEP 번호와 범위는 개발 진행에 따라 조정할 수 있지만, 한 ST
 
 # 13. STEP 실행 규칙
 
-각 STEP에서 Codex는 다음 순서로 행동한다.
+각 STEP은 다음 순서로 진행한다.
 
 ``` text
 READ
@@ -976,7 +970,7 @@ NOT TESTED
 ``` text
 실행하지 못한 이유
 필요한 환경
-사용자가 실행할 명령
+재실행할 명령
 예상 결과
 ```
 
@@ -1000,7 +994,7 @@ Known Issue
 
 # 44. Git Rule
 
-Codex는 가능하면 논리적인 작은 변경 단위로 작업한다.
+변경은 가능하면 논리적인 작은 단위로 나누어 관리한다.
 
 권장 Commit 개념:
 
@@ -1010,7 +1004,7 @@ test(data): add adapter validation tests
 feat(rag): add evidence metadata schema
 ```
 
-실제 Commit 수행 여부는 작업 환경과 사용자 지시에 따른다.
+실제 Commit 수행 여부는 팀 운영 방침에 따른다.
 
 ------------------------------------------------------------------------
 
@@ -1192,9 +1186,9 @@ Known Issue 기록
 
 ------------------------------------------------------------------------
 
-# 53. 최초 Codex 실행 시 지시
+# 53. 개발 착수 전 확인
 
-Master Instruction만 받고 바로 전체 개발을 시작하지 않는다.
+전체 개발에 앞서 현재 상태를 확인한다.
 
 먼저:
 
@@ -1207,13 +1201,13 @@ Master Instruction만 받고 바로 전체 개발을 시작하지 않는다.
 6. STEP 01 수행 준비 상태를 보고한다.
 ```
 
-이후 사용자가 STEP 지시서를 제공하면 해당 범위만 실행한다.
+이후 합의된 STEP 범위에 따라 개발한다.
 
 ------------------------------------------------------------------------
 
-# 54. Codex가 질문해야 하는 경우
+# 54. 확인과 협의가 필요한 경우
 
-다음 경우 임의 판단보다 질문/보고를 우선한다.
+다음 경우 임의 판단보다 팀 내 협의를 우선한다.
 
 ``` text
 설계 문서 간 중대한 충돌
@@ -1285,13 +1279,9 @@ Final Report
 
 ------------------------------------------------------------------------
 
-# 57. 다음 단계
+# 57. 초기 개발 단계
 
-Master Instruction 이후 실제 Codex 실행 지시서를 작성한다.
-
-첫 번째:
-
-**`codex/STEP_01_PROJECT_SCAFFOLD.md`**
+첫 번째 개발 단계는 프로젝트 기본 구조를 확정하는 작업이다.
 
 목표:
 

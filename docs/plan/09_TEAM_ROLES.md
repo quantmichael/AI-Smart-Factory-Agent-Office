@@ -93,7 +93,7 @@ Simple Web UI
 -   기술 연결부 확인
 -   팀원에게 실행 가능한 기준 제공
 -   Module Interface 확정
--   Codex 작업 단위 분리
+-   개발 작업 단위 분리
 
 이다.
 
@@ -158,7 +158,7 @@ Frontend 담당도 RAG/LangGraph가 어떻게 동작하는지 이해해야 하�
 -   Frontend/Backend 연결
 -   공통 Interface
 -   Integration
--   Codex 작업지시 구조
+-   단계별 개발 작업 구조
 -   최종 E2E 관리
 
 주요 산출물:
@@ -570,23 +570,22 @@ Report → Citation
 
 ------------------------------------------------------------------------
 
-# AI / CODEX COLLABORATION
+# 단계별 개발과 협업
 
-## 22. Codex 사용 원칙
+## 22. 개발 도구 활용 원칙
 
-Codex는 팀원을 대신하는 것이 아니라 구현 속도를 높이는 개발 도구로
-사용한다.
+개발 도구를 활용하되 설계 검토와 결과 검증은 팀이 함께 수행한다.
 
 작업 방식:
 
 ``` text
-Master Specification
+설계 문서
       ↓
-Small STEP Instruction
+단계별 작업 계획
       ↓
-Codex Implementation
+Implementation
       ↓
-Human Review
+팀 검토
       ↓
 Test
       ↓
@@ -595,15 +594,9 @@ Commit
 
 ------------------------------------------------------------------------
 
-## 23. Codex에게 한 번에 맡기지 않을 것
+## 23. 단계별 작업 범위
 
-다음처럼 요청하지 않는다.
-
-``` text
-"이 설계서 전체를 보고 프로젝트를 완성해."
-```
-
-대신:
+전체 개발 범위를 다음과 같이 작은 작업 단위로 나눈다.
 
 ``` text
 STEP 01 — Repository scaffold
@@ -612,8 +605,6 @@ STEP 03 — Data profiling
 STEP 04 — Feature pipeline
 ...
 ```
-
-로 나눈다.
 
 ------------------------------------------------------------------------
 
@@ -806,14 +797,14 @@ Known Issues
 
 다음 산출물:
 
-**`10_CODEX_MASTER_INSTRUCTION.md`**
+**`10_DEVELOPMENT_GUIDE.md`**
 
-이 문서는 지금까지 만든 설계 문서를 Codex가 실제 개발에 사용할 수 있도록
-정리하는 **Master 개발 지시서**다.
+이 문서는 지금까지 만든 설계 문서를 실제 개발에 활용할 수 있도록
+정리하는 **개발 가이드**다.
 
 포함 내용:
 
--   Codex의 역할
+-   개발 원칙
 -   프로젝트 목표
 -   기술 Stack
 -   반드시 읽을 설계 문서
@@ -827,15 +818,12 @@ Known Issues
 -   각 STEP의 완료/검증 기준
 -   다음 STEP으로 넘어가는 조건
 
-이후 실제 실행용:
+이후 단계별 작업 계획은 다음과 같이 세분화한다.
 
 ``` text
-codex/
-├── STEP_01_PROJECT_SCAFFOLD.md
-├── STEP_02_DATA_ADAPTER.md
-├── STEP_03_DATA_PROFILING.md
-├── STEP_04_ML_BASELINE.md
-├── ...
+STEP 01 — Repository scaffold
+STEP 02 — Data Adapter
+STEP 03 — Data profiling
+STEP 04 — ML Baseline
+...
 ```
-
-형태로 세분화한다.
