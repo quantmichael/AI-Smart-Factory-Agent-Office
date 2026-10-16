@@ -1,6 +1,5 @@
 # AI Smart Factory Agent Office 개발완료보고서
 
-제4회 경남 AI·SW 경진대회 제출용  
 제조설비 이상탐지와 고장진단을 위한 근거기반 AI Agent 시스템
 
 ## 1 프로젝트 개요 및 문제 정의
