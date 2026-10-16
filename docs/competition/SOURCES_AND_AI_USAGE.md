@@ -54,7 +54,7 @@ Canonical inventory: `knowledge/bearing_v1/manifests/source_manifest.json`.
 | Name | Role | Project Usage |
 |---|---|---|
 | OpenAI Codex | 개발 보조 도구 | 코드 작성·검토, 테스트 실행, 문서 정리 보조. 결과는 저장소 소스와 자동화 테스트로 검증 |
-| Chat-based AI workshop prompts | 교육 자료 | `docs/RAG_MVP_PROMPTS.md` 등에서 학습자가 RAG 구축 과정을 따라가는 보조 자료. Runtime 서비스 의존성 아님 |
+| Chat-based AI workshop prompts | 교육 자료 | `docs/plan/RAG_MVP_PROMPTS.md` 등에서 학습자가 RAG 구축 과정을 따라가는 보조 자료. Runtime 서비스 의존성 아님 |
 
 AI 개발도구의 출력 자체를 평가 근거로 사용하지 않습니다. 현재 Source Code, Artifact, Runtime, 자동화 테스트를 사실 기준으로 삼습니다.
 
