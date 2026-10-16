@@ -649,9 +649,10 @@ GET /api/reports/{run_id}
 ai-smart-factory-agent-office/
 │
 ├── docs/
-│   ├── 01_PROJECT_OVERVIEW.md
-│   ├── 02_SYSTEM_ARCHITECTURE.md
-│   └── ...
+│   └── plan/
+│       ├── 01_PROJECT_OVERVIEW.md
+│       ├── 02_SYSTEM_ARCHITECTURE.md
+│       └── ...
 │
 ├── frontend/
 │   ├── app/

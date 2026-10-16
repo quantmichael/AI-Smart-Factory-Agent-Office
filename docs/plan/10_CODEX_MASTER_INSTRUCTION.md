@@ -86,20 +86,20 @@ Codex는 항상 이 E2E 흐름을 기준으로 구현 우선순위를 판단한�
 
 ``` text
 docs/
-├── 01_PROJECT_OVERVIEW.md
-├── 02_SYSTEM_ARCHITECTURE.md
-├── 03_DATA_ML_DL_DESIGN.md
-├── 04_RAG_DESIGN.md
-├── 05_LANGGRAPH_AGENT_DESIGN.md
-├── 06_AGENT_OFFICE_UI.md
-├── 07_API_DB_SPEC.md
-├── 08_EVALUATION_TEST_PLAN.md
-├── 09_TEAM_ROLES.md
-└── 10_CODEX_MASTER_INSTRUCTION.md
+└── plan/
+    ├── 01_PROJECT_OVERVIEW.md
+    ├── 02_SYSTEM_ARCHITECTURE.md
+    ├── 03_DATA_ML_DL_DESIGN.md
+    ├── 04_RAG_DESIGN.md
+    ├── 05_LANGGRAPH_AGENT_DESIGN.md
+    ├── 06_AGENT_OFFICE_UI.md
+    ├── 07_API_DB_SPEC.md
+    ├── 08_EVALUATION_TEST_PLAN.md
+    ├── 09_TEAM_ROLES.md
+    └── 10_CODEX_MASTER_INSTRUCTION.md
 ```
 
-실제 Repository에서 문서 위치가 다르면 현재 구조를 먼저 확인한 뒤 경로만
-조정한다.
+위 경로는 현재 Repository의 설계 문서 위치를 따른다.
 
 ------------------------------------------------------------------------
 
