@@ -2,8 +2,11 @@ from pathlib import Path
 
 import numpy as np
 import pytest
+from scipy.io import loadmat
 
+import app.data.adapters.paderborn as paderborn_module
 from app.data.adapters.paderborn import PaderbornDatasetAdapter
+from app.data.errors import InvalidMeasurementError
 
 
 def test_load_returns_observed_channels_and_sampling(paderborn_fixture: Path) -> None:
@@ -24,6 +27,35 @@ def test_load_returns_observed_channels_and_sampling(paderborn_fixture: Path) ->
     assert vibration.values.size == vibration.time.size == 9
     assert np.isfinite(vibration.values).all()
     assert measurement.summary.ground_truth.state == "healthy"
+
+
+@pytest.mark.parametrize(
+    ("invalid_field", "expected_error"),
+    [
+        ("signal", "Non-finite signal"),
+        ("time", "Non-finite time axis"),
+    ],
+)
+def test_load_rejects_nonfinite_signal_or_time_axis(
+    paderborn_fixture: Path, monkeypatch, invalid_field: str, expected_error: str
+) -> None:
+    adapter = PaderbornDatasetAdapter(paderborn_fixture)
+    measurement_id = "paderborn:K001:N15_M07_F10:01"
+
+    def load_invalid(*args, **kwargs):
+        document = loadmat(*args, **kwargs)
+        record = next(value for key, value in document.items() if key.startswith("N15_M07"))
+        if invalid_field == "signal":
+            next(item for item in np.atleast_1d(record.Y) if item.Name == "vibration_1").Data[0] = (
+                np.nan
+            )
+        else:
+            np.atleast_1d(record.X)[1].Data[0] = np.nan
+        return document
+
+    monkeypatch.setattr(paderborn_module, "loadmat", load_invalid)
+    with pytest.raises(InvalidMeasurementError, match=expected_error):
+        adapter.load_measurement(measurement_id)
 
 
 @pytest.mark.integration

@@ -277,6 +277,18 @@ class PaderbornDatasetAdapter(SensorDatasetAdapter):
                 raise InvalidMeasurementError(
                     f"Non-numeric signal {channel_name} in {entry.summary.source_reference}"
                 )
+            if not np.issubdtype(time_axis.dtype, np.number):
+                raise InvalidMeasurementError(
+                    f"Non-numeric time axis for {channel_name} in {entry.summary.source_reference}"
+                )
+            if not np.isfinite(values).all():
+                raise InvalidMeasurementError(
+                    f"Non-finite signal {channel_name} in {entry.summary.source_reference}"
+                )
+            if not np.isfinite(time_axis).all():
+                raise InvalidMeasurementError(
+                    f"Non-finite time axis for {channel_name} in {entry.summary.source_reference}"
+                )
 
             duration_sec: float | None = None
             observed_rate_hz: float | None = None
