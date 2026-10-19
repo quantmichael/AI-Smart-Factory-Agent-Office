@@ -20,6 +20,7 @@ node_modules/
 # Internal Codex prompts and working documents are local-only.
 /codex/
 /docs/*.md
+/feedback/original/
 
 data/raw/*
 data/paderborn/raw/*
